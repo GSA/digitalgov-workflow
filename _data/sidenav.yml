@@ -8,8 +8,6 @@ sidenav:
       url: /draft/posts/
     - text: "Events"
       url: /draft/events/
-    - text: "Open Bugs"
-      url: /bugs/
   - collection: "Published"
     sub_nav:
     - text: "Posts"
@@ -32,9 +30,5 @@ sidenav:
       url: /topics/
   - collection: "GitHub"
     sub_nav:
-    - text: "Bugs"
+    - text: "Open bugs"
       url: /bugs/
-    - text: "Issues"
-      url: /issues/
-    - text: "Releases"
-      url: /Releases/
