@@ -24,8 +24,10 @@
     </div>
     <div class="entry-tools">
       <a href="{{ item.editpathURL }}" class="btn" target="_blank">edit</a>
-      {% assign domain = "https://digital.gov" %}
-      <a href="/edit/?page={{ domain | url_encode }}{{ item.url | url_encode }}" class="btn" target="_blank">details</a>
+      {% assign filepath = item.url | url_encode %}
+      {% assign domain = 'https://digital.gov' | url_encode %}
+      {% assign editpath = "/edit/?page=" | append: domain | append: filepath %}
+      <a href="{{ editpath | absURL }}" class="btn" target="_blank">details</a>
     </div>
   </div>
 
