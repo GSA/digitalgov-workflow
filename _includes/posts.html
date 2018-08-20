@@ -26,7 +26,7 @@
       <a href="{{ item.editpathURL }}" class="btn" target="_blank">edit</a>
       {% assign filepath = item.url | url_encode %}
       {% assign domain = 'https://digital.gov' | url_encode %}
-      {% assign editpath = "/edit/?page=" | append: domain | append: filepath %}
+      {% assign editpath = "edit/?page=" | append: domain | append: filepath %}
       <a href="{{ editpath | absURL }}" class="btn" target="_blank">details</a>
     </div>
   </div>
