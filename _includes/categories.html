@@ -1,0 +1,10 @@
+<h3>{{ site.data.categories.count }}</h3>
+{% for item in site.data.categories.items %}
+  {% for cat in item %}
+  <div class="card">
+    <div class="taxonomy cat-taxonomy">
+      {{ cat[1].display_name }}
+    </div>
+  </div>
+  {% endfor %}
+{% endfor %}

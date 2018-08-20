@@ -1,0 +1,50 @@
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/uswds/1.3.1/css/uswds.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/main.css?{{ site.time | date: "%Y%m%j%H%M%S" }}">
+
+  <!-- Libre Franklin — Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!--[if lt IE 9]>
+    <script src="{{ site.baseurl }}/assets/js/html5.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/respond.min.js"></script>
+  <![endif]-->
+
+  <link rel="shortcut icon" type="image/ico" href="{{ site.baseurl }}/assets/img/bot.png" />
+
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+
+  {% if page.title %}
+    <title>{{ page.title }}</title>
+    <meta property="og:title" content="{{ page.title | xml_escape }}" />
+  {% else %}
+    <title>{{ site.title }}</title>
+    <meta property="og:title" content="{{ site.title | xml_escape }}" />
+  {% endif %}
+
+  {% if page.description %}
+    <meta name="description" content="{{ page.description | xml_escape }}">
+    <meta property="og:description" content="{{ page.description | xml_escape }}" />
+  {% else %}
+    <meta name="description" content="{{ site.description | xml_escape }}">
+    <meta property="og:description" content="{{ site.description | xml_escape }}" />
+  {% endif %}
+
+  <!-- GitHub -->
+  <script type="text/javascript">
+    github_org                   = "{{ site.github_org }}";
+    github_repo                  = "{{ site.github_repo }}";
+    filepath                     = "{{ page.path }}";
+    filepathURL                  = "https://github.com/{{ site.git_org }}/{{ site.git_repo }}/edit/master/{{ page.path }}";
+    commit_api                   = "https://api.github.com/repos/{{ site.github_org }}/{{ site.github_repo }}/commits?path=/{{ page.path }}";
+    issues_api                   = "https://api.github.com/repos/{{ site.github_org }}/{{ site.github_repo }}/issues?labels=bug&per_page=100";
+    workflow_org                 = "{{ site.workflow_org }}";
+    workflow_repo                = "{{ site.workflow_repo }}";
+    workflow_issues_api          = "https://api.github.com/repos/{{ site.workflow_org }}/{{ site.workflow_repo }}/issues";
+  </script>
+
+</head>

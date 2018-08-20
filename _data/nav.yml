@@ -1,0 +1,6 @@
+# Nav
+# List links that should appear in the site sidebar here
+- text: "About"
+  url: /about/
+- text: "Getting Started"
+  url: /getting-started/

@@ -1,0 +1,24 @@
+#sidenav * {
+  font-size: 14px !important;
+}
+#sidenav,
+#sidenav ul{
+  padding: 0;
+}
+
+#sidenav li{
+  list-style-type: none;
+}
+
+#sidenav .collection{
+  margin-bottom: 35px;
+  padding-top: 5px;
+  border-top: 1px #000 solid;
+}
+#sidenav .collection span{
+  text-transform: uppercase;
+}
+#sidenav li a{
+  text-decoration: none;
+  color: #000;
+}

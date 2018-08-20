@@ -1,0 +1,24 @@
+<aside class="usa-width-one-sixth">
+
+  <ul id="sidenav">
+    {% for item in site.data.sidenav.sidenav %}
+      {% if item.collection %}
+      <li class="collection">
+        <span>{{ item.collection }}</span>
+        <ul>
+          {% for sub in item.sub_nav %}
+
+            {% assign subcurrent = '' %}
+            {% if page.url == sub.url %}
+              {% assign active = 'usa-current' %}
+            {% endif %}
+
+            <li> <a href="{{ site.baseurl }}{{ sub.url }}">{{ sub.text }}</a></li>
+
+          {% endfor %}
+        </ul>
+      </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</aside>
