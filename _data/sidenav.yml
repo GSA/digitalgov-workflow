@@ -12,14 +12,6 @@ sidenav:
     sub_nav:
     - text: "Posts"
       url: /posts/
-    - text: "Events"
-      url: /events/
-    - text: "Resources"
-      url: /resources/
-    - text: "Communities"
-      url: /communities/
-    - text: "Services"
-      url: /services/
   - collection: "Taxonomy"
     sub_nav:
     - text: "Tags"

@@ -18,6 +18,10 @@ layout: default
     {% include posts.html %}
   {% endif %}
 
+  {% if page.list == 'resources' %}
+    {% include posts.html %}
+  {% endif %}
+
   {% if page.list == 'tags' %}
     {% include tags.html %}
   {% endif %}
