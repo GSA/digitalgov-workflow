@@ -8,8 +8,8 @@ sidenav:
       url: /draft/posts/
     - text: "Events"
       url: /draft/events/
-    - text: "Edit"
-      url: /edit/
+    - text: "Open Bugs"
+      url: /bugs/
   - collection: "Published"
     sub_nav:
     - text: "Posts"
