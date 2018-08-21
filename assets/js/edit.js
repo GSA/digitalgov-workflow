@@ -28,7 +28,6 @@ jQuery(document).ready(function($) {
       var authors = get_authors(file['authors']);
       var categories = get_tax('categories', file['categories']);
       var tags = get_tax('tags', file['tags']);
-      // var authors = get_tax(file['tags']);
       var date_modified = file['date_modified'];
       var date_published = file['date_published'];
       var editpathURL = file['editpathURL'];
@@ -37,16 +36,32 @@ jQuery(document).ready(function($) {
       var filepathURL = file['filepathURL'];
       var url = file['url'];
       var file_data = [
-        "<div class='card'>",
-          "<h2>" + title + "</h2>",
-          "<p>By " + authors + "</p>",
-          "<p>" + summary + "</p>",
+        "<div class='page'>",
+          "<div class='entry'>",
+            "<div class='entry-content'>",
+              "<h2>" + title + "</h2>",
+              "<p>" + date_published + "</p>",
+              "<p>By " + authors + "</p>",
+              "<p>" + summary + "</p>",
+            "</div>",
+          "</div>",
           "<div class='entry-taxonomy'>" + categories + tags + "</div>",
         "</div>"
       ].join("\n");
 
+
+      var front_matter = [
+        "<pre>",
+          "---",
+          "title: '" + title + "'",
+          "summary: '" + summary + "'",
+          "---",
+        "</pre>"
+      ].join("\n");
+
       // Appends file_data to DIV
       $( "#file-contents" ).append( file_data );
+      $( "#front_matter" ).append( front_matter );
     });
   });
 
@@ -75,7 +90,7 @@ jQuery(document).ready(function($) {
     }
     var tax = '';
     $.each( data, function( index, element ) {
-      tax += '<a class="'+t+'-taxonomy taxonomy" href="#" data-slug="'+index+'">'+element+'</a>'
+      tax += '<a class="'+t+'-taxonomy taxonomy" href="#" data-slug="'+index+'">'+element+'</a> '
     });
     return tax;
   }

@@ -7,6 +7,12 @@
 .entry-content{
   padding-right: 15em;
   width: 88%;
+  h2{
+    margin: 0 0 5px 0;
+    a{
+      color: $text-color;
+    }
+  }
   h6{
     margin: 0 0 5px 0;
   }

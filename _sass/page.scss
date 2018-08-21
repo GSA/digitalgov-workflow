@@ -1,0 +1,20 @@
+.page{
+  margin-bottom: 5px;
+  padding: 15px 0;
+  border-top: 1px solid #ddd;
+  font-size: .85em;
+  .entry-content{
+    width: 100%;
+  }
+}
+
+pre{
+  padding: 20px;
+  background: #efefef;
+  border-radius: 2px;
+  white-space: pre-wrap;       /* css-3 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
