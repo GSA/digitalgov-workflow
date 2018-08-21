@@ -39,6 +39,8 @@ markdown: kramdown
 jekyll_get:
   - data: posts
     json: 'https://digital.gov/posts/index.json'
+  - data: events
+    json: 'https://digital.gov/events/index.json'
   - data: services
     json: 'https://digital.gov/services/index.json'
   - data: communities
