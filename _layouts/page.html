@@ -14,19 +14,19 @@ layout: default
     {{ content }}
   </div>
 
-  {% if page.list == 'posts' %}
+  {% if page.api == 'posts' or page.api == 'events' %}
     {% include posts.html %}
   {% endif %}
 
-  {% if page.list == 'resources' %}
-    {% include posts.html %}
+  {% if page.api == 'resources' or page.api == 'services' or page.api == 'communities' %}
+    {% include pages.html %}
   {% endif %}
 
-  {% if page.list == 'tags' %}
+  {% if page.api == 'tags' %}
     {% include tags.html %}
   {% endif %}
 
-  {% if page.list == 'categories' %}
+  {% if page.api == 'categories' %}
     {% include categories.html %}
   {% endif %}
 
