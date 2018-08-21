@@ -12,7 +12,7 @@ sidenav:
       url: /bugs/
   - collection: "Published"
     sub_nav:
-    - text: "Posts"
+    - text: "Blog Posts"
       url: /posts/
     - text: "Communities"
       url: /communities/
