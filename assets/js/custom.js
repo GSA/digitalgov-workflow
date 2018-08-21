@@ -27,9 +27,15 @@ jQuery(document).ready(function($) {
       var updated_at  = issue['updated_at'];
       var user        = issue['user'];
       var issue_card = [
-        "<div class='issue_card'>",
-    		  "<h4>#"+number+": <a href="+url+" title="+title+">"+title+"</a></h4>",
-    		  "<p class='labels'>"+labels+"</p>",
+        "<div class='card'>",
+          "<div class='entry'>",
+            "<div class='entry-content'>",
+    		      "<h4>#"+number+": <a href="+url+" title="+title+">"+title+"</a></h4>",
+    		    "</div>",
+    		  "</div>",
+          "<div class='entry-taxonomy'>",
+            "<p class='labels'>"+labels+"</p>",
+          "</div>",
     		"</div>"
     	].join("\n");
       $('.issues').append(issue_card);
