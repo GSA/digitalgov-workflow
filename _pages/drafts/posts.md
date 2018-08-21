@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Draft Posts
-permalink: /draft/posts/
+title: Content Issues
+permalink: /draft/content/
 description:
 git-label: 'editorial/content'
 

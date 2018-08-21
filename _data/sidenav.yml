@@ -4,10 +4,12 @@
 sidenav:
   - collection: "Drafts"
     sub_nav:
-    - text: "Posts"
-      url: /draft/posts/
-    - text: "Events"
+    - text: "Content Issues"
+      url: /draft/content/
+    - text: "New Events"
       url: /draft/events/
+    - text: "Open bugs"
+      url: /bugs/
   - collection: "Published"
     sub_nav:
     - text: "Posts"
@@ -20,7 +22,3 @@ sidenav:
       url: /categories/
     - text: "Topics"
       url: /topics/
-  - collection: "GitHub"
-    sub_nav:
-    - text: "Open bugs"
-      url: /bugs/
