@@ -14,8 +14,12 @@ layout: default
     {{ content }}
   </div>
 
-  {% if page.api == 'posts' or page.api == 'events' %}
+  {% if page.api == 'posts' %}
     {% include posts.html %}
+  {% endif %}
+
+  {% if page.api == 'events' %}
+    {% include events.html %}
   {% endif %}
 
   {% if page.api == 'resources' or page.api == 'services' or page.api == 'communities' %}
