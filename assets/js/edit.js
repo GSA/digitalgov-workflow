@@ -52,7 +52,7 @@ jQuery(document).ready(function($) {
       build_tags(tags_html);
       build_categories(categories_html);
       build_front_matter(title, summary);
-      build_taxonomy_front_matter(file['tags'], file['categories']);
+      build_tags_front_matter(file['tags'], file['categories']);
       build_tags_suggested(file['tags'], file['categories']);
       build_tags_count(file['tags']);
       build_categories_count(file['categories']);
@@ -103,19 +103,18 @@ jQuery(document).ready(function($) {
     $( "#front_matter" ).append( front_matter );
   }
 
-  function build_taxonomy_front_matter(tags, cats){
+  function build_tags_front_matter(tags, cats){
     var tags = merge_taxonomy(tags, cats);
     var list = '';
     $.each( tags, function( index, element ) {
       list += '  - ' + index + '\n';
     });
     var front_matter = [
-      "<pre>",
-        "tag:",
+    "tag:",
         list,
-      "</pre>"
     ].join("\n");
-    $( "#taxonomy_front_matter" ).append( front_matter );
+    $( "#tags_front_matter" ).append( front_matter );
+    // $( "#front_matter" ).attr('value', front_matter );
   }
 
   function build_tags_suggested(tags, cats){
@@ -257,6 +256,36 @@ jQuery(document).ready(function($) {
       $(this).addClass('editable').append(span);
     });
   }
+
+
+  $(".btn-copy").click(function(e) {
+    e.preventDefault();
+  });
+  var clipboard = new ClipboardJS('.btn-copy');
+  clipboard.on('success', function(e) {
+      console.log(e);
+  });
+  clipboard.on('error', function(e) {
+      console.log(e);
+  });
+
+  // function copy_copy() {
+  //   /* Get the text field */
+  //   console.log('copy');
+  //   var front_matter = document.getElementById('tags_front_matter');
+  //   var clipboard = new ClipboardJS('#tags_front_matter');
+  //   clipboard.on('success', function(e) {
+  //     console.log(e);
+  //   });
+  //   clipboard.on('error', function(e) {
+  //     console.log(e);
+  //   });
+  // }
+  // $(".btn-copy").click(function(e) {
+  //   e.preventDefault();
+  //   console.log('click');
+  // 	copy_copy();
+  // });
 
   // https://digital.gov/tag/v1/json/
   // $.getJSON( 'https://digital.gov/tag/v1/json/', function( data ) {

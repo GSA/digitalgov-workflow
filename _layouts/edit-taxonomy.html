@@ -6,19 +6,23 @@ layout: default
 
 <div class="usa-width-five-sixths usa-layout-docs-main_content">
 
-  <h1 class="post-title">{{ page.title | escape }}</h1>
-  {% if page.deck %}
-  <div class="deck">{{ page.deck | escape }}</div>
-  {% endif %}
-  <div class="post-content">
-    {{ content }}
-  </div>
+  <article>
+    <div class="head">
+      <h1 class="post-title">{{ page.title | escape }}</h1>
+      {% if page.deck %}
+      <div class="deck">{{ page.deck | escape }}</div>
+      {% endif %}
+    </div>
+    <div class="content">
+      {{ content }}
+    </div>
+  <article>
 
   <article class="card">
     <div class="entry">
       <div class="entry-content">
         <h2 class="title"></h2>
-        <p class="date_published"></p>
+        <h6 class="date_published"></h6>
         <p class="authors"></p>
         <p class="summary"></p>
         <a class="edit-btn btn" href="#">Edit</a>
@@ -36,7 +40,7 @@ layout: default
 
 
 
+  <pre id="tags_front_matter"></pre>
+  <a href="#" class="btn btn-copy" data-clipboard-target="#tags_front_matter">Copy</a>
 
-
-  <div id="taxonomy_front_matter"></div>
 </div>
