@@ -22,17 +22,18 @@ jQuery(document).ready(function($) {
 	  url: api_path,
 	 	dataType: 'json',
 	}).done(function(data) {
-		console.log('THE data');
-		console.log(data);
     $.each( data.item, function( key, file ) {
+      console.log(file);
+      console.log(file['tags']);
       var title = file['title'];
       var summary = htmlDecode(file['summary']);
       var content = file['content'];
       var authors = get_authors(file['authors']);
-      var categories_list = get_tax_list('categories', file['categories']);
-      var categories_html = get_categories_html(file['categories']);
       var tags_html = get_tags_html(file['tags']);
       var tags_list = get_tax_list('tags', file['tags']);
+      var categories_list = get_tax_list('categories', file['categories']);
+      var categories_html = get_categories_html(file['categories']);
+
       var date_modified = file['date_modified'];
       var date_published = file['date_published'];
       var editpathURL = file['editpathURL'];
@@ -40,6 +41,7 @@ jQuery(document).ready(function($) {
       var filepath = file['filepath'];
       var filepathURL = file['filepathURL'];
       var url = file['url'];
+      var editpathURL = file['editpathURL'];
 
       // Appends file_data to DIV
       build_title(title);
@@ -56,6 +58,7 @@ jQuery(document).ready(function($) {
       build_categories_count(file['categories']);
       build_merged_count(file['tags'], file['categories']);
       build_duplicate_count(file['tags'], file['categories']);
+      build_edit_btn(editpathURL);
     });
 	});
 
@@ -82,7 +85,6 @@ jQuery(document).ready(function($) {
     $( ".entry-taxonomy" ).append( tags_html );
   }
   function build_tags(tags_html){
-    console.log(tags_html);
     $( ".taxonomy-list-tags" ).append( tags_html );
   }
   function build_categories(categories_html){
@@ -118,19 +120,19 @@ jQuery(document).ready(function($) {
 
   function build_tags_suggested(tags, cats){
     var merged = merge_taxonomy(tags, cats);
-    var tags = get_tags_html(merged);
+    var tags = get_merged_html(merged);
     $( ".taxonomy-list-suggested" ).append( tags );
     // make_tags_editable();
   }
 
-  function build_tags_count(tags){
-    var len = Object.keys(tags).length
-    $( ".tag_count" ).prepend( len + ' ' );
+  function build_tags_count(){
+    var n = $( ".tag-taxonomy" ).length;
+    $( ".tag_count" ).prepend( n + ' ' );
   }
 
-  function build_categories_count(cats){
-    var len = Object.keys(cats).length;
-    $( ".cat_count" ).prepend( len + ' ' );
+  function build_categories_count(){
+    var n = $( ".cat-taxonomy" ).length;
+    $( ".cat_count" ).prepend( n + ' ' );
   }
 
   function build_merged_count(tags, cats){
@@ -147,6 +149,9 @@ jQuery(document).ready(function($) {
     $( ".duplicate_count" ).html( (+tags + +cats) - +len );
   }
 
+  function build_edit_btn(url){
+    $( ".edit-btn" ).attr( 'href', url );
+  }
 
   // ====================================
   // These are functions that help to transform strings and data for use in the template functions
@@ -217,6 +222,14 @@ jQuery(document).ready(function($) {
       i++;
     });
     return tax;
+  }
+
+  function get_merged_html(tag_data) {
+    var tags = '';
+    $.each( tag_data, function( index, element ) {
+      tags += '<a class="merged-taxonomy taxonomy" href="#" data-slug="'+index+'">'+element+'</a> '
+    });
+    return tags;
   }
 
   function get_tags_html(tag_data) {

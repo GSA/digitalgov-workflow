@@ -3,20 +3,26 @@
   .taxonomy{
     margin-bottom: 3px;
     padding: 5px 8px;
-    background: rgba(255, 171, 171, .5);
+    background: rgba(250, 173, 150, 0.5);
     text-decoration: none;
     color: #343434;
     border-radius: 2px;
     display: inline-block;
   }
   .taxonomy:hover{
-    background: rgba(255, 171, 171, 1);
+    background: rgba(252, 131, 92, 0.5);
   }
   .tag-taxonomy{
-    background: rgba(255, 205, 107, .5);
+    background: rgba(255, 203, 82, 0.5);
   }
   .tag-taxonomy:hover{
-    background: rgba(255, 205, 107, 1);
+    background: rgba(250, 175, 0, 0.5);
+  }
+  .merged-taxonomy{
+    background: rgba(162, 222, 217, 0.5);
+  }
+  .merged-taxonomy:hover{
+    background: rgba(119, 199, 192, 0.5);
   }
   .labels{
     margin: 0;
