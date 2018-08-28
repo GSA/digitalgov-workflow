@@ -1,7 +1,7 @@
 <h3>{{ site.data.[page.api].count }}</h3>
 {% for item in site.data.[page.api].items %}
   {% for tag in item %}
-  <div class="card">
+  <div class="taxonomy-list">
     <div class="taxonomy tag-taxonomy">
       {{ tag[1].display_name }}
     </div>
