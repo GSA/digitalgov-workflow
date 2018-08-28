@@ -1,9 +1,22 @@
-.entry-taxonomy{
+.taxonomy-list{
   width: 88%;
   .taxonomy{
-    padding: 2px 5px;
-    font-size: 13px;
     margin-bottom: 3px;
+    padding: 5px 8px;
+    background: rgba(255, 171, 171, .5);
+    text-decoration: none;
+    color: #343434;
+    border-radius: 2px;
+    display: inline-block;
+  }
+  .taxonomy:hover{
+    background: rgba(255, 171, 171, 1);
+  }
+  .tag-taxonomy{
+    background: rgba(255, 205, 107, .5);
+  }
+  .tag-taxonomy:hover{
+    background: rgba(255, 205, 107, 1);
   }
   .labels{
     margin: 0;
@@ -19,20 +32,22 @@
   }
 }
 
-.taxonomy{
-  padding: 5px 8px;
-  background: rgba(255, 171, 171, .5);
-  text-decoration: none;
-  color: #343434;
-  border-radius: 2px;
-  display: inline-block;
+.taxonomy-smaller{
+  .taxonomy{
+    padding: 2px 5px;
+    font-size: 13px;
+    margin-bottom: 3px;
+  }
 }
-.taxonomy:hover{
-  background: rgba(255, 171, 171, 1);
-}
-.tag-taxonomy{
-  background: rgba(255, 205, 107, .5);
-}
-.tag-taxonomy:hover{
-  background: rgba(255, 205, 107, 1);
+
+.editable{
+  span{
+    background: #fff;
+    border-radius: 10px;
+    width: 18px;
+    height: 18px;
+    font-size: 24px;
+    display: inline-block;
+    text-align: center;
+  }
 }

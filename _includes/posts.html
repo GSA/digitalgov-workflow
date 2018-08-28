@@ -28,10 +28,11 @@
       {% assign filepath = item.url | url_encode %}
       {% assign editpath = 'https://digital.gov' | append: filepath %}
       <a href="{{ site.baseurl }}{{ '/edit/?page=' | absURL }}{{ editpath }}" class="btn" target="_blank">details</a>
+      <a href="{{ site.baseurl }}{{ '/edit-taxonomy/?page=' | absURL }}{{ editpath }}" class="btn" target="_blank">tags</a>
     </div>
   </div>
 
-  <div class="entry-taxonomy">
+  <div class="taxonomy-list taxonomy-smaller">
     {% for cat in item.categories %}
     <a class="cat-taxonomy taxonomy" href="#" data-slug="{{ cat[0] }}">{{ cat[1] }}</a>
     {% endfor %}

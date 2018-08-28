@@ -6,7 +6,6 @@
   crossorigin="anonymous"></script>
 <script src="{{ site.baseurl }}/assets/js/uswds.min.js"></script>
 <script src="{{ site.baseurl }}/assets/js/custom.js"></script>
-{% if page.url == '/edit/' %}
+{% if page.url == '/edit/' or page.url == '/edit-taxonomy/' %}
 <script src="{{ site.baseurl }}/assets/js/edit.js"></script>
-
 {% endif %}

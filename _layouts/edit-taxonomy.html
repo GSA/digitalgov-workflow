@@ -1,0 +1,40 @@
+---
+layout: default
+---
+
+{% include sidenav.html %}
+
+<div class="usa-width-five-sixths usa-layout-docs-main_content">
+
+  <h1 class="post-title">{{ page.title | escape }}</h1>
+  {% if page.deck %}
+  <div class="deck">{{ page.deck | escape }}</div>
+  {% endif %}
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  <article class="card">
+    <div class="entry">
+      <div class="entry-content">
+        <h2 class="title"></h2>
+        <p class="date_published"></p>
+        <p class="authors"></p>
+        <p class="summary"></p>
+      </div>
+    </div>
+  </article>
+
+  <div class="explainer">
+    <p>There are <strong class="tag_count">tags</strong> and <strong class="cat_count">categories</strong> applied to this page. <strong class="duplicate_count">X</strong> of them are duplicates.</p>
+    <div class="taxonomy-list taxonomy-list-tags taxonomy-list-categories"></div>
+    <p>When merged together, we end up with <strong class="merged_count">X tags</strong></p>
+    <div class="taxonomy-list taxonomy-list-suggested"></div>
+  </div>
+
+
+
+
+
+  <div id="taxonomy_front_matter"></div>
+</div>

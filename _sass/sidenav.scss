@@ -13,12 +13,12 @@
 #sidenav .collection{
   margin-bottom: 35px;
   padding-top: 5px;
-  border-top: 1px #000 solid;
+  border-top: 1px $text-color solid;
 }
 #sidenav .collection span{
   text-transform: uppercase;
 }
 #sidenav li a{
   text-decoration: none;
-  color: #000;
+  color: $text-color;
 }
