@@ -12,9 +12,14 @@
   }
 }
 
-.explainer {
-  p{
-    font-size: 21px;
+.step {
+  margin-bottom: 2.5em;
+  padding: .5em 0;
+  border-top: 2px #000 solid;
+  font-size: 21px;
+  h2{
+    margin: 0 0 1em 0;
+    font-size: 24px;
   }
   strong{
     // color: #5700BF;

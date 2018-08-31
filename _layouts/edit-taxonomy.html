@@ -18,27 +18,36 @@ layout: default
     </div>
   <article>
 
-  <article class="card">
-    <div class="entry">
-      <div class="entry-content">
+
+  <div class="step">
+    <h2>#1 Take a look</h2>
+    <article class="card">
+      <div class="content">
         <h2 class="title"></h2>
         <h6 class="date_published"></h6>
         <p class="authors"></p>
         <p class="summary"></p>
         <a class="edit-btn btn" href="#">Edit</a>
       </div>
-
-    </div>
-  </article>
-
-  <div class="explainer">
-    <p>There are <strong class="tag_count">tags</strong> and <strong class="cat_count">categories</strong> applied to this page. <strong class="duplicate_count">X</strong> of them are duplicates.</p>
-    <div class="taxonomy-list taxonomy-list-tags taxonomy-list-categories"></div>
-    <p>When merged together, we end up with <strong class="merged_count">X tags</strong></p>
-    <div class="taxonomy-list taxonomy-list-suggested"></div>
+    </article>
   </div>
 
-  <pre id="tags_front_matter"></pre>
-  <a href="#" class="btn btn-copy" data-clipboard-target="#tags_front_matter">Copy</a>
+  <div class="step">
+    <h2>#2 Suggest tags</h2>
+    <p>There are <strong class="tag_count">tags</strong> and <strong class="cat_count">categories</strong> currently applied to this page.</p>
+    <div class="taxonomy-list taxonomy-list-tags taxonomy-list-categories"></div>
+    <p>We've merged them. There are now <strong class="merged_count">X tags</strong>.</p>
+    <div class="taxonomy-list taxonomy-list-suggested"></div>
+    <p>Feel free to suggest a few more...</p>
+    <input type="text" name="" value="">
+  </div>
+
+  <div class="step">
+    <h2>#3 Publish the changes</h2>
+    <pre id="tags_front_matter"></pre>
+    <a href="#" class="btn btn-copy" data-clipboard-target="#tags_front_matter">Copy</a>
+  </div>
+
+
 
 </div>
