@@ -2,31 +2,41 @@
 # List links that should appear in the site sidebar here
 
 sidenav:
-  - collection: "Drafts"
+  - collection: "Blog posts"
     sub_nav:
-    - text: "Content Issues"
+    - text: "Published"
+      url: /posts/
+    - text: "Drafts"
       url: /draft/content/
-    - text: "New Events"
+  - collection: "Events"
+    sub_nav:
+    - text: "Published"
+      url: /events/
+    - text: "Drafts"
       url: /draft/events/
     - text: "Open bugs"
       url: /bugs/
-  - collection: "Published"
+  - collection: "Resources"
     sub_nav:
-    - text: "Blog Posts"
-      url: /posts/
-    - text: "Events"
-      url: /events/
-    - text: "Communities"
-      url: /communities/
-    - text: "Resources"
+    - text: "Published"
       url: /resources/
-    - text: "Services"
+    - text: "Drafts"
+      url: /draft/resources/
+  - collection: "Communities"
+    sub_nav:
+    - text: "Published"
+      url: /communities/
+    - text: "Drafts"
+      url: /draft/communities/
+  - collection: "Services"
+    sub_nav:
+    - text: "Published"
       url: /services/
+    - text: "Drafts"
+      url: /draft/services/
   - collection: "Taxonomy"
     sub_nav:
     - text: "Tags"
       url: /tags/
     - text: "Categories"
       url: /categories/
-    - text: "Topics"
-      url: /topics/
