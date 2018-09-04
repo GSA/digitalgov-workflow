@@ -1,0 +1,26 @@
+{
+  "name": "digitalgov-workflow",
+  "version": "1.0.0",
+  "description": "Welcome to our repository.",
+  "main": "index.js",
+  "dependencies": {
+    "uswds": "^2.0.0-alpha.2"
+  },
+  "devDependencies": {
+    "webpack": "^4.17.2",
+    "webpack-cli": "^3.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GSA/digitalgov-workflow.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GSA/digitalgov-workflow/issues"
+  },
+  "homepage": "https://github.com/GSA/digitalgov-workflow#readme"
+}
