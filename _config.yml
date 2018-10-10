@@ -51,3 +51,5 @@ jekyll_get:
     json: 'https://digital.gov/tag/v1/json/'
   - data: categories
     json: 'https://digital.gov/categories/v1/json/'
+  - data: topics
+    json: 'https://federalist-proxy.app.cloud.gov/preview/gsa/digitalgov.gov/tags-topics/topics/v1/json/'

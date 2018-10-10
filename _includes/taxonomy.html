@@ -1,10 +1,22 @@
 <h3>{{ site.data.[page.api].count }}</h3>
+<div class="taxonomy-list">
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Slug</th>
+      <th class="center">Weight</th>
+      <th class="center">Post #</th>
+      <th class="center">Edit</th>
+    </tr>
+
 {% for item in site.data.[page.api].items %}
-  {% for tag in item %}
-  <div class="taxonomy-list">
-    <div class="taxonomy tag-taxonomy">
-      {{ tag[1].display_name }}
-    </div>
-  </div>
-  {% endfor %}
+  <tr>
+    <td><a href="https://federalist-proxy.app.cloud.gov/preview/gsa/digitalgov.gov/tags-topics/topics/{{ item.slug }}/">{{ item.display_name }}</a></td>
+    <td>{{ item.slug }}</td>
+    <td class="center w{{ item.weight }}">{{ if item.weight }}{{ item.weight }}{{ endif }}</td>
+    <td class="center">{{ item.pages }}</td>
+    <td class="center edit"><a href="https://github.com/GSA/digitalgov.gov/edit/tags-topics/content/topics/{{ item.slug }}/_index.md">edit</a> </td>
+  </tr>
 {% endfor %}
+  </table>
+</div>

@@ -58,3 +58,47 @@
     text-align: center;
   }
 }
+
+.taxonomy-list table{
+  background: none;
+  th{
+    font-weight: 800;
+  }
+  th,
+  td{
+    padding: .5em 0;
+    background: none;
+    border-right:none;
+    border-left:none;
+    border-color: #ccc;
+  }
+  .center{
+    text-align: center;
+    min-width: 80px;
+  }
+  .w{
+    background: #fdb8ae;
+  }
+  .w1{
+    background: #fef0c8;
+  }
+  .w2{
+    background: #ffcb00;
+  }
+  .w3{
+    background: #fa9441;
+  }
+  .edit{
+    a{
+      padding: 3px 8px;
+      border-radius: 2px;
+      background: #58b4ff;
+      color:#fff;
+      text-decoration: none;
+      &:hover{
+        background: #0096f4;
+      }
+    }
+
+  }
+}

@@ -36,7 +36,5 @@ sidenav:
       url: /draft/services/
   - collection: "Taxonomy"
     sub_nav:
-    - text: "Tags"
-      url: /tags/
-    - text: "Categories"
-      url: /categories/
+    - text: "Topics"
+      url: /topics/
