@@ -24,15 +24,13 @@ jQuery(document).ready(function($) {
 	}).done(function(data) {
     $.each( data.item, function( key, file ) {
       console.log(file);
-      console.log(file['tags']);
+      console.log(file['topics']);
       var title = file['title'];
       var summary = htmlDecode(file['summary']);
       var content = file['content'];
       var authors = get_authors(file['authors']);
-      var tags_html = get_tags_html(file['tags']);
-      var tags_list = get_tax_list('tags', file['tags']);
-      var categories_list = get_tax_list('categories', file['categories']);
-      var categories_html = get_categories_html(file['categories']);
+      var topics_list = get_topics_list(file['topics']);
+      var topics_html = get_topics_html(file['topics']);
 
       var date_modified = file['date_modified'];
       var date_published = file['date_published'];
@@ -48,16 +46,15 @@ jQuery(document).ready(function($) {
       build_summary(summary);
       build_date_published(date_published);
       build_authors(authors);
-      build_taxonomy(categories_html, tags_html);
-      build_tags(tags_html);
-      build_categories(categories_html);
+      build_taxonomy(topics_html);
+      build_topics(topics_html);
       build_front_matter(title, summary);
-      build_tags_front_matter(file['tags'], file['categories']);
-      build_tags_suggested(file['tags'], file['categories']);
-      build_tags_count(file['tags']);
-      build_categories_count(file['categories']);
-      build_merged_count(file['tags'], file['categories']);
-      build_duplicate_count(file['tags'], file['categories']);
+      build_topics_front_matter(file['topics']);
+      // build_tags_suggested(file['tags'], file['categories']);
+      // build_tags_count(file['tags']);
+      // build_categories_count(file['categories']);
+      // build_merged_count(file['tags'], file['categories']);
+      // build_duplicate_count(file['tags'], file['categories']);
       build_edit_btn(editpathURL);
     });
 	});
@@ -80,15 +77,12 @@ jQuery(document).ready(function($) {
   function build_authors(authors){
     $( ".authors" ).html( authors );
   }
-  function build_taxonomy(categories_html, tags_html){
-    $( ".entry-taxonomy" ).append( categories_html );
-    $( ".entry-taxonomy" ).append( tags_html );
+  function build_taxonomy(topics_html){
+    $( ".entry-taxonomy" ).append( topics_html );
   }
-  function build_tags(tags_html){
-    $( ".taxonomy-list-tags" ).append( tags_html );
-  }
-  function build_categories(categories_html){
-    $( ".taxonomy-list-categories" ).append( categories_html );
+
+  function build_topics(topics_html){
+    $( ".taxonomy-list-topics" ).append( topics_html );
   }
 
   function build_front_matter(title, summary){
@@ -103,18 +97,17 @@ jQuery(document).ready(function($) {
     $( "#front_matter" ).append( front_matter );
   }
 
-  function build_tags_front_matter(tags, cats){
-    var tags = merge_taxonomy(tags, cats);
+  function build_topics_front_matter(topics){
+    // var tags = merge_taxonomy(tags, cats);
     var list = '';
-    $.each( tags, function( index, element ) {
+    $.each( topics, function( index, element ) {
       list += '  - ' + index + '\n';
     });
     var front_matter = [
-    "tag:",
+    "topics:",
         list,
     ].join("\n");
-    $( "#tags_front_matter" ).append( front_matter );
-    // $( "#front_matter" ).attr('value', front_matter );
+    $( "#topics_front_matter" ).append( front_matter );
   }
 
   function build_tags_suggested(tags, cats){
@@ -202,13 +195,9 @@ jQuery(document).ready(function($) {
     return tax;
   }
 
-  function get_tax_list(type, data) {
-    if (type == 'categories') {
-      var t = 'cat';
-    }
-    if (type == 'tags') {
-      var t = 'tag';
-    }
+  // returns topics data into a comma-separated list
+  function get_topics_list(data) {
+    var t = 'topic';
     var tax = '';
     i = 1;
     var len = Object.keys(data).length
@@ -231,20 +220,13 @@ jQuery(document).ready(function($) {
     return tags;
   }
 
-  function get_tags_html(tag_data) {
-    var tags = '';
-    $.each( tag_data, function( index, element ) {
-      tags += '<a class="tag-taxonomy taxonomy" href="#" data-slug="'+index+'">'+element+'</a> '
-    });
-    return tags;
-  }
-
-  function get_categories_html(data) {
-    var cats = '';
+  // returns topics as an HTML list
+  function get_topics_html(data) {
+    var topics = '';
     $.each( data, function( index, element ) {
-      cats += '<a class="cat-taxonomy taxonomy" href="#" data-slug="'+index+'">'+element+'</a> '
+      topics += '<a class="topic-taxonomy taxonomy" href="#" data-slug="'+index+'">'+element+'</a> '
     });
-    return cats;
+    return topics;
   }
 
   // ====================================

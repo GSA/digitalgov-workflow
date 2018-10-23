@@ -1,8 +1,12 @@
 ---
 layout: edit-taxonomy
-title: Edit the Taxonomy
-deck: 'Help us edit the tags for this page'
+title: Edit Topics
+deck: 'Help edit the topics for this page'
 permalink: /edit-taxonomy/
 description:
 
 ---
+
+{% include article-card.html %}
+
+## Suggest tags

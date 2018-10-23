@@ -44,7 +44,7 @@
     <div class="tools">
       <a href="{{ item.editpathURL }}" class="btn" target="_blank">edit</a>
       {% assign filepath = item.url | url_encode %}
-      {% assign editpath = 'https://digital.gov' | append: filepath %}
+      {% assign editpath = 'https://demo.digital.gov' | append: filepath %}
       <a href="{{ site.baseurl }}{{ '/edit/?page=' | absURL }}{{ editpath }}" class="btn btn-open" target="_blank">details</a>
       <a href="{{ site.baseurl }}{{ '/edit-taxonomy/?page=' | absURL }}{{ editpath }}" class="btn btn-open" target="_blank">tags</a>
     </div>
