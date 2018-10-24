@@ -8,5 +8,3 @@ description:
 ---
 
 {% include article-card.html %}
-
-## Suggest tags

@@ -9,20 +9,16 @@ layout: default
   <article>
     <div class="head">
       <h1 class="post-title">{{ page.title | escape }}</h1>
-      {% if page.deck %}
-      <div class="deck">{{ page.deck | escape }}</div>
-      {% endif %}
     </div>
     <div class="content">
       {{ content }}
     </div>
   <article>
 
+  <div class="topic_search">
+    <input id="topic_search" type="text" name="" value="">
+  </div>
 
-
-  <div class="taxonomy-list taxonomy-list-topics"></div>
-
-  <input type="text" name="" value="">
 
   <div class="step">
     <h2>#3 Publish the changes</h2>

@@ -1,0 +1,18 @@
+.topic_search{
+  input{
+    margin:0;
+    max-width: 100%;
+  }
+  ul{
+    margin:0;
+    padding:0;
+    background: #dcf8da;
+    list-style-type: none;
+    li{
+      padding: .5em 1em;
+    }
+    .selected{
+      background: #a4ef9f;
+    }
+  }
+}
