@@ -4,13 +4,13 @@
 <div class="card">
   <div class="entry">
     <div class="entry-content">
-      <h4><a href="https://digital.gov{{ item.url }}">{{ item.title }}</a></h4>
+      <h4><a href="{{ site.source_of_truth }}{{ item.url }}">{{ item.title }}</a></h4>
       <p class="summary">{{ item.summary }}</p>
     </div>
     <div class="entry-tools">
       <a href="{{ item.editpathURL }}" class="btn" target="_blank">edit</a>
       {% assign filepath = item.url | url_encode %}
-      {% assign editpath = 'https://digital.gov' | append: filepath %}
+      {% assign editpath = site.source_of_truth | append: filepath %}
       <a href="{{ site.baseurl }}{{ '/edit/?page=' | absURL }}{{ editpath }}" class="btn" target="_blank">details</a>
     </div>
   </div>

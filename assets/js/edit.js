@@ -9,7 +9,8 @@ jQuery(document).ready(function($) {
   // Get the URL parameter
   // For more info, see: https://davidwalsh.name/query-string-javascript
   var urlParams = new URLSearchParams(window.location.search);
-  // console.log(urlParams.get('page')); // "edit"
+
+  // This should be the URL of the digital.gov page that you are requesting data about
   var path = urlParams.get('page');
 
   // API path
@@ -17,73 +18,169 @@ jQuery(document).ready(function($) {
   var api_path = path + 'index.json';
   console.log(api_path);
 
-  // Let's get the data for the post
-  $.ajax({
-	  url: api_path,
-	 	dataType: 'json',
-	}).done(function(data) {
+  var post_data = (function() {
+    $.ajax({
+  	  url: api_path,
+  	 	dataType: 'json',
+  	}).done(function(data) {
+      // We wait until all of the API data is retrieved to run any functions on the page
+      console.log("this is the data");
+      console.log(data);
+      display_article_card(data);
+      display_current_topics(data);
+      return data;
+    });
+  })();
+
+  function display_article_card(data){
     $.each( data.item, function( key, file ) {
       console.log(file);
-      console.log(file['topics']);
-      var title = file['title'];
-      var summary = htmlDecode(file['summary']);
-      var content = file['content'];
-      var authors = get_authors(file['authors']);
-      var topics_list = get_topics_list(file['topics']);
-      var topics_html = get_topics_html(file['topics']);
-
-      var date_modified = file['date_modified'];
-      var date_published = file['date_published'];
-      var editpathURL = file['editpathURL'];
-      var filename = file['filename'];
-      var filepath = file['filepath'];
-      var filepathURL = file['filepathURL'];
-      var url = file['url'];
-      var editpathURL = file['editpathURL'];
-
-      // Appends file_data to DIV
-      build_title(title);
-      build_summary(summary);
-      build_date_published(date_published);
-      build_authors(authors);
-      build_taxonomy(topics_html);
-      build_topics(topics_html);
-      build_front_matter(title, summary);
-      build_topics_front_matter(file['topics']);
-      // build_tags_suggested(file['tags'], file['categories']);
-      // build_tags_count(file['tags']);
-      // build_categories_count(file['categories']);
-      // build_merged_count(file['tags'], file['categories']);
-      // build_duplicate_count(file['tags'], file['categories']);
-      build_edit_btn(editpathURL);
+      $( "article.card .title" ).html( file['title'] );
+      $( "article.card .summary" ).html( file['summary'] );
+      $( "article.card .date_published" ).html( file['date_published'] );
+      $( "article.card .authors" ).html( file['authors'] );
+      $( "article.card .edit-btn" ).attr( 'href', file['editpathURL'] );
+      $( ".btn-edit" ).attr( 'href', file['editpathURL'] );
     });
-	});
+  }
+
+  function display_current_topics(data){
+    $.each( data.item, function( key, file ) {
+      // Getting an array of the topics
+      var topics_array = get_topics_array(file['topics']);
+      // Pass the current topics to the select2 field
+      $('#topic_select').val(topics_array).trigger("change");
+
+      // Now get the list of selected topics from the select2 field
+      // Note: We are using the select field as a way to filter out inconsistent topic name that may be in the front matter of the page.
+      // e.g. "apis" is not a topic, but "api" is
+      var selected_topics = get_selected_topics();
+
+      // re-build the front_matter list
+      build_topics_front_matter(selected_topics);
+    });
+  }
+
+  function build_topics_front_matter(topics){
+    // Count the topics
+    var count = '';
+    var list = '';
+    $.each( topics, function( index, element ) {
+      list += '  - ' + index + '\n';
+      count++;
+    });
+
+    // Build the front_matter text
+    var front_matter = [
+    "topics:",
+        list,
+    ].join("\n");
+
+    // Inject the front_matter text into the page
+    $( "#topics_front_matter" ).html( front_matter );
+
+    // Update the topics count text on the page
+    $('.topics_count').html(count);
+  }
+
+
+  // returns an array the IDs or slugs for each topic
+  // (e.g. 'content-strategy')
+  function get_topics_array(data) {
+    var topics = [] ;
+    $.each( data, function( index, element ) {
+      topics.push(index);
+    });
+    return topics;
+  }
+
+  function get_selected_topics(){
+    var topics = $('#topic_select').select2('data');
+    var list = {};
+    $.each( topics, function( index, element ) {
+      list[element['id']] = element['title'];
+    });
+    console.log("list");
+    console.log(list);
+    return list;
+  }
+
+  // Each time a topic is added/removed from the select,
+  // get the new list of topics
+  // and re-build the front_matter list
+  $('#topic_select').on("select2:select select2:unselect", function(e) {
+    var topics = $('#topic_select').select2('data');
+    var list = {};
+    $.each( topics, function( index, element ) {
+      list[element['id']] = element['title'];
+    });
+    // re-build the front_matter list
+    build_topics_front_matter(list);
+  });
+
+  // Settings for the select2 integration
+  $("#topic_select").select2({
+    tags: true,
+    width: 'element',
+    closeOnSelect: false,
+    tokenSeparators: [',', ' '],
+    createTag: function (params) {
+      // Don't offset to create a tag if there is no @ symbol
+      if (params.term.indexOf('@') === -1) {
+        // Return null to disable tag creation
+        return null;
+      }
+
+      return {
+        id: params.term,
+        text: params.term
+      }
+    }
+  });
+
+  // // Let's get the data for the post API
+  // $.ajax({
+	//   url: api_path,
+	//  	dataType: 'json',
+	// }).done(function(data) {
+  //   $.each( data.item, function( key, file ) {
+  //     console.log(file);
+  //     console.log(file['topics']);
+  //     var title = file['title'];
+  //     var summary = htmlDecode(file['summary']);
+  //     var content = file['content'];
+  //     var authors = get_authors(file['authors']);
+  //     var topics_list = get_topics_list(file['topics']);
+  //     var topics_html = get_topics_html(file['topics']);
+  //     var topics_array = get_topics_array(file['topics']);
+  //
+  //     var date_modified = file['date_modified'];
+  //     var date_published = file['date_published'];
+  //     var editpathURL = file['editpathURL'];
+  //     var filename = file['filename'];
+  //     var filepath = file['filepath'];
+  //     var filepathURL = file['filepathURL'];
+  //     var url = file['url'];
+  //     var editpathURL = file['editpathURL'];
+  //
+  //     // Appends file_data to DIV
+  //     $( ".title" ).html( title );
+  //     $( ".summary" ).html( summary );
+  //     $( ".date_published" ).html( date_published );
+  //     $( ".authors" ).html( authors );
+  //     $( ".entry-taxonomy" ).append( topics_html );
+  //     $('#topic_select').val(topics_array).trigger("change");
+  //     build_front_matter(title, summary);
+  //     build_topics_front_matter(file['topics']);
+  //     $( ".edit-btn" ).attr( 'href', editpathURL );
+  //   });
+	// });
 
 
 
   // ====================================
   // Template functions — these push content (HTML) to specific classnames
   // See _layouts/edit-taxonomy.html
-
-  function build_title(title){
-    $( ".title" ).html( title );
-  }
-  function build_summary(summary){
-    $( ".summary" ).html( summary );
-  }
-  function build_date_published(date_published){
-    $( ".date_published" ).html( date_published );
-  }
-  function build_authors(authors){
-    $( ".authors" ).html( authors );
-  }
-  function build_taxonomy(topics_html){
-    $( ".entry-taxonomy" ).append( topics_html );
-  }
-
-  function build_topics(topics_html){
-    $( ".taxonomy-list-topics" ).append( topics_html );
-  }
 
   function build_front_matter(title, summary){
     var front_matter = [
@@ -97,64 +194,12 @@ jQuery(document).ready(function($) {
     $( "#front_matter" ).append( front_matter );
   }
 
-  function build_topics_front_matter(topics){
-    // var tags = merge_taxonomy(tags, cats);
-    var list = '';
-    $.each( topics, function( index, element ) {
-      list += '  - ' + index + '\n';
-    });
-    var front_matter = [
-    "topics:",
-        list,
-    ].join("\n");
-    $( "#topics_front_matter" ).append( front_matter );
-  }
-
-  function build_tags_suggested(tags, cats){
-    var merged = merge_taxonomy(tags, cats);
-    var tags = get_merged_html(merged);
-    $( ".taxonomy-list-suggested" ).append( tags );
-    // make_tags_editable();
-  }
-
-  function build_tags_count(){
-    var n = $( ".tag-taxonomy" ).length;
-    $( ".tag_count" ).prepend( n + ' ' );
-  }
-
-  function build_categories_count(){
-    var n = $( ".cat-taxonomy" ).length;
-    $( ".cat_count" ).prepend( n + ' ' );
-  }
-
-  function build_merged_count(tags, cats){
-    var merged = $.extend(tags,cats);
-    var len = Object.keys(merged).length;
-    $( ".merged_count" ).html( len + ' tags' );
-  }
-
-  function build_duplicate_count(tags, cats){
-    var merged = $.extend(tags,cats);
-    var tags = Object.keys(tags).length;
-    var cats = Object.keys(cats).length;
-    var len = Object.keys(merged).length;
-    $( ".duplicate_count" ).html( (+tags + +cats) - +len );
-  }
-
   function build_edit_btn(url){
     $( ".edit-btn" ).attr( 'href', url );
   }
 
   // ====================================
   // These are functions that help to transform strings and data for use in the template functions
-
-  function merge_taxonomy(tags, cats){
-    return object = $.extend(tags,cats);
-  }
-
-  function htmlEncode(value){
-    return $('<div/>').text(value).html();
-  }
 
   function htmlDecode(value){
     return $('<div/>').html(value).text();
@@ -174,27 +219,6 @@ jQuery(document).ready(function($) {
     return list;
   }
 
-  function get_tax_md(type, data) {
-    if (type == 'categories') {
-      var t = 'cat';
-    }
-    if (type == 'tags') {
-      var t = 'tag';
-    }
-    var tax = '';
-    i = 1;
-    var len = Object.keys(data).length
-    $.each( data, function( index, element ) {
-      if (i < len) {
-        tax += element + ', ';
-      } else {
-        tax += element;
-      }
-      i++;
-    });
-    return tax;
-  }
-
   // returns topics data into a comma-separated list
   function get_topics_list(data) {
     var t = 'topic';
@@ -212,14 +236,6 @@ jQuery(document).ready(function($) {
     return tax;
   }
 
-  function get_merged_html(tag_data) {
-    var tags = '';
-    $.each( tag_data, function( index, element ) {
-      tags += '<a class="merged-taxonomy taxonomy" href="#" data-slug="'+index+'">'+element+'</a> '
-    });
-    return tags;
-  }
-
   // returns topics as an HTML list
   function get_topics_html(data) {
     var topics = '';
@@ -229,16 +245,9 @@ jQuery(document).ready(function($) {
     return topics;
   }
 
+
   // ====================================
   // These are functions that modify the editing experience and tools
-
-  function make_tags_editable(){
-    $('.taxonomy-list-suggested .taxonomy').each(function(i, e) {
-      var span = '<span>&#10799;</span>';
-      $(this).addClass('editable').append(span);
-    });
-  }
-
 
   $(".btn-copy").click(function(e) {
     e.preventDefault();
@@ -251,44 +260,5 @@ jQuery(document).ready(function($) {
       console.log(e);
   });
 
-  // function copy_copy() {
-  //   /* Get the text field */
-  //   console.log('copy');
-  //   var front_matter = document.getElementById('tags_front_matter');
-  //   var clipboard = new ClipboardJS('#tags_front_matter');
-  //   clipboard.on('success', function(e) {
-  //     console.log(e);
-  //   });
-  //   clipboard.on('error', function(e) {
-  //     console.log(e);
-  //   });
-  // }
-  // $(".btn-copy").click(function(e) {
-  //   e.preventDefault();
-  //   console.log('click');
-  // 	copy_copy();
-  // });
-
-  // https://digital.gov/tag/v1/json/
-  // $.getJSON( 'https://digital.gov/tag/v1/json/', function( data ) {
-  //   var tags = new Array();
-  //   $.each( data.items, function( index, element ) {
-  //     $.each( element, function( i, tag ) {
-  //       tags.push({
-  //         id: i,
-  //         name: tag.display_name,
-  //       });
-  //     });
-  //   });
-    // console.log(tags);
-
-    // jQuery.map(tags, function(tag) {
-    //   // console.log(tag);
-    //   if(tag.name === "con"){
-    //     console.log(obj);
-    //     return obj; // or return obj.name, whatever.
-    //   }
-    // });
-  // });
 
 });

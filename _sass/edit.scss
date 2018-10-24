@@ -1,13 +1,83 @@
-.wf_form{
-  input,
-  textarea{
-    max-width: 60rem;
+.editor{
+  section{
+    padding: 40px 0;
+    p{
+      margin-top: 0;
+      font-size: 21px;
+    }
   }
-  .wf{
+  .btn{
+    padding: .2em .5em;
+    background: #656bd7;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 18px;
+    &:hover{
+      background: #4d52b0;
+    }
+  }
+  .btn-edit{
+    background: #0096f4;
+    &:hover{
+      background: #0076d6;
+    }
+  }
 
+  .topics_editor{
+    #topic_select{}
+
+    .topic_select_label{
+      // font-weight: bold;
+    }
+
+    // Styles for the box that the topics live in
+    .select2-container--default .select2-selection--multiple{
+      margin-top: .5em;
+      border-radius: 2px;
+      padding: .4em;
+    }
+
+    // Styles for individual topics
+    .select2-container--default .select2-selection--multiple ul li.select2-selection__choice{
+      background: #ffe3a3;
+      border:none;
+      color: #332d27;
+      padding: 2px 7px 2px 5px;
+      margin-right: 6px;
+      margin-bottom: 2px;
+
+      // Styles for the X used to remove the topic from the selection
+      .select2-selection__choice__remove{
+        color: #332d27;
+        margin: 0 4px 0 1px;
+        height: 15px;
+        width: 15px;
+        line-height: 17px;
+        text-align: center;
+        border-radius: 20px;
+      }
+      &:hover{
+        background: #fbc036;
+        .select2-selection__choice__remove{
+          background: #ffe3a3;
+          &:hover{
+            background: #fef0c8;
+          }
+        }
+      }
+    }
   }
-  .wf_title{
-    font-size: 1.3em;
-    font-weight: 800;
+}
+.select2-container--default .select2-results__option .select2-results__option{
+  margin-bottom: 0;
+  &:hover{
+    background: #0096f4;
+  }
+  &[aria-selected="true"]{
+    background-color: #58b4ff;
+    &:hover{
+      background: #0096f4;
+    }
   }
 }

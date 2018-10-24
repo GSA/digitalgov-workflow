@@ -28,6 +28,7 @@ github_repo: "digitalgov-workflow"
 workflow_org: "GSA"
 workflow_repo: "digitalgov.gov"
 
+source_of_truth: "https://demo.digital.gov"
 
 # Build settings
 markdown: kramdown
@@ -40,16 +41,12 @@ jekyll_get:
   - data: posts
     json: 'https://demo.digital.gov/posts/index.json'
   - data: events
-    json: 'https://digital.gov/events/index.json'
+    json: 'https://demo.digital.gov/events/index.json'
   - data: services
-    json: 'https://digital.gov/services/index.json'
+    json: 'https://demo.digital.gov/services/index.json'
   - data: communities
-    json: 'https://digital.gov/communities/index.json'
+    json: 'https://demo.digital.gov/communities/index.json'
   - data: resources
-    json: 'https://digital.gov/resources/index.json'
-  - data: tags
-    json: 'https://digital.gov/tag/v1/json/'
-  - data: categories
-    json: 'https://digital.gov/categories/v1/json/'
+    json: 'https://demo.digital.gov/resources/index.json'
   - data: topics
     json: 'https://demo.digital.gov/topics/v1/json/'

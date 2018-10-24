@@ -19,12 +19,12 @@
   <div class="entry">
     <div class="entry-content">
       <h6>{{ item.date_published | date: '%B %d, %Y' }}</h6>
-      <h4><a href="https://digital.gov{{ item.url }}">{{ item.title }}</a></h4>
+      <h4><a href="{{ site.source_of_truth }}{{ item.url }}">{{ item.title }}</a></h4>
       <p class="summary">{{ item.summary }}</p>
     </div>
     <div class="entry-tools">
       <a href="{{ item.editpathURL }}" class="btn" target="_blank">edit</a>
-      {% assign domain = "https://digital.gov" %}
+      {% assign domain = {{ site.source_of_truth }} %}
       <a href="/edit/?page={{ domain | url_encode }}{{ item.url | url_encode }}" class="btn" target="_blank">details</a>
     </div>
   </div>

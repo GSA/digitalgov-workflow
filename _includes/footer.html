@@ -6,34 +6,8 @@
   crossorigin="anonymous"></script>
 <script src="{{ site.baseurl }}/assets/js/uswds.min.js"></script>
 <script src="{{ site.baseurl }}/assets/js/custom.js"></script>
-{% if page.url == '/edit/' or page.url == '/edit-taxonomy/' %}
+{% if page.url == '/edit/' or page.url == '/edit-topics/' %}
 <script src="{{ site.baseurl }}/assets/js/clipboard.min.js"></script>
-<script src="{{ site.baseurl }}/assets/js/jquery.easy-autocomplete.min.js"></script>
 <script src="{{ site.baseurl }}/assets/js/edit.js"></script>
-<script src="{{ site.baseurl }}/assets/js/autocomplete.js"></script>
+<script src="{{ site.baseurl }}/assets/js/select2.min.js"></script>
 {% endif %}
-
-<script>
-  // var topics = {{ site.data.topics.items | jsonify }};
-  // console.log(topics);
-  var options = {
-    data: {{ site.data.topics.items | jsonify }},
-    list: {
-  		match: {
-  			enabled: true
-  		},
-      sort: {
-  			enabled: true
-  		},
-      onSelectItemEvent: function() {
-  			var index = $("#topic_search").getSelectedItemIndex();
-        console.log("index");
-        console.log(index);
-  		}
-  	},
-    getValue: "slug"
-  };
-  jQuery(document).ready(function($) {
-    $("#topic_search").easyAutocomplete(options);
-  });
-</script>

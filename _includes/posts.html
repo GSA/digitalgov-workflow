@@ -23,7 +23,7 @@
     <article class="card">
 
       <div class="summary">
-        <h4><a href="https://demo.digital.gov{{ item.url }}">{{ item.title }}</a></h4>
+        <h4><a href="{{ site.source_of_truth }}{{ item.url }}">{{ item.title }}</a></h4>
         <h6>{{ item.date_published | date: '%B %d, %Y' }}</h6>
         <p class="summary">{{ item.summary }}</p>
       </div>
@@ -44,9 +44,9 @@
     <div class="tools">
       <a href="{{ item.editpathURL }}" class="btn" target="_blank">edit</a>
       {% assign filepath = item.url | url_encode %}
-      {% assign editpath = 'https://demo.digital.gov' | append: filepath %}
+      {% assign editpath = site.source_of_truth | append: filepath %}
       <a href="{{ site.baseurl }}{{ '/edit/?page=' | absURL }}{{ editpath }}" class="btn btn-open" target="_blank">details</a>
-      <a href="{{ site.baseurl }}{{ '/edit-taxonomy/?page=' | absURL }}{{ editpath }}" class="btn btn-open" target="_blank">tags</a>
+      <a href="{{ site.baseurl }}{{ '/edit-topics/?page=' | absURL }}{{ editpath }}" class="btn btn-open">edit topics</a>
     </div>
   </div>
 </div>

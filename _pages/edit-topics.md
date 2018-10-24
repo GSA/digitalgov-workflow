@@ -1,10 +1,8 @@
 ---
-layout: edit-taxonomy
+layout: edit-topics
 title: Edit Topics
 deck: 'Help edit the topics for this page'
-permalink: /edit-taxonomy/
+permalink: /edit-topics/
 description:
 
 ---
-
-{% include article-card.html %}
