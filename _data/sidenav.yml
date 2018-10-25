@@ -10,7 +10,5 @@ sidenav:
     url: /resources/
   - text: "Communities"
     url: /communities/
-  - text: "Communities"
-    url: /communities/
   - text: "Topics"
-    url: /communities/
+    url: /topics/
