@@ -11,14 +11,13 @@
         <p class="summary">{{ item.summary }}</p>
       </div>
 
+      {% if item.topics %}
       <div class="taxonomy-list taxonomy-smaller">
-        {% for cat in item.categories %}
-        <a class="cat-taxonomy taxonomy" href="#" data-slug="{{ cat[0] }}">{{ cat[1] }}</a>
-        {% endfor %}
-        {% for tag in item.tags %}
-        <a class="tag-taxonomy taxonomy" href="#" data-slug="{{ tag[0] }}">{{ tag[1] }}</a>
+        {% for topic in item.topics %}
+        <a class="cat-taxonomy taxonomy" href="#" data-slug="{{ topic[0] }}">{{ topic[1] }}</a>
         {% endfor %}
       </div>
+      {% endif %}
 
     </article>
   </div>
