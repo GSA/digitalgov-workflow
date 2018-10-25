@@ -27,14 +27,13 @@
         <p class="summary">{{ item.summary }}</p>
       </div>
 
+      {% if item.topics %}
       <div class="taxonomy-list taxonomy-smaller">
-        {% for cat in item.categories %}
-        <a class="cat-taxonomy taxonomy" href="#" data-slug="{{ cat[0] }}">{{ cat[1] }}</a>
-        {% endfor %}
-        {% for tag in item.tags %}
-        <a class="tag-taxonomy taxonomy" href="#" data-slug="{{ tag[0] }}">{{ tag[1] }}</a>
+        {% for topic in item.topics %}
+        <a class="cat-taxonomy taxonomy" href="#" data-slug="{{ topic[0] }}">{{ topic[1] }}</a>
         {% endfor %}
       </div>
+      {% endif %}
 
     </article>
   </div>
@@ -45,7 +44,7 @@
       {% assign filepath = item.url | url_encode %}
       {% assign editpath = site.source_of_truth | append: filepath %}
       <!-- <a href="{{ site.baseurl }}{{ '/edit/?page=' | absURL }}{{ editpath }}" class="btn btn-open" target="_blank">details</a> -->
-      <a href="{{ site.baseurl }}{{ '/edit-topics/?page=' | absURL }}{{ editpath }}" class="btn btn-open">edit topics</a>
+      <a target="_blank" href="{{ site.baseurl }}{{ '/edit-topics/?page=' | absURL }}{{ editpath }}" class="btn btn-open">edit topics</a>
     </div>
   </div>
 </div>
