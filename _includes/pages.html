@@ -1,27 +1,36 @@
 <h3>{{ site.data.[page.api].count }}</h3>
 {% for item in site.data.[page.api].items %}
 
-<div class="card">
-  <div class="entry">
-    <div class="entry-content">
-      <h4><a href="{{ site.source_of_truth }}{{ item.url }}">{{ item.title }}</a></h4>
-      <p class="summary">{{ item.summary }}</p>
-    </div>
-    <div class="entry-tools">
+<div class="card-wrapper usa-grid">
+  <div class="usa-width-five-sixths">
+    <article class="card">
+
+      <div class="summary">
+        <h6>{{ item.date_published | date: '%B %d, %Y' }}</h6>
+        <h4><a href="{{ site.source_of_truth }}{{ item.url }}">{{ item.title }}</a></h4>
+        <p class="summary">{{ item.summary }}</p>
+      </div>
+
+      <div class="taxonomy-list taxonomy-smaller">
+        {% for cat in item.categories %}
+        <a class="cat-taxonomy taxonomy" href="#" data-slug="{{ cat[0] }}">{{ cat[1] }}</a>
+        {% endfor %}
+        {% for tag in item.tags %}
+        <a class="tag-taxonomy taxonomy" href="#" data-slug="{{ tag[0] }}">{{ tag[1] }}</a>
+        {% endfor %}
+      </div>
+
+    </article>
+  </div>
+
+  <div class="usa-width-one-sixth">
+    <div class="tools">
       <a href="{{ item.editpathURL }}" class="btn" target="_blank">edit</a>
       {% assign filepath = item.url | url_encode %}
       {% assign editpath = site.source_of_truth | append: filepath %}
-      <a href="{{ site.baseurl }}{{ '/edit/?page=' | absURL }}{{ editpath }}" class="btn" target="_blank">details</a>
+      <!-- <a href="{{ site.baseurl }}{{ '/edit/?page=' | absURL }}{{ editpath }}" class="btn btn-open" target="_blank">details</a> -->
+      <a href="{{ site.baseurl }}{{ '/edit-topics/?page=' | absURL }}{{ editpath }}" class="btn btn-open">edit topics</a>
     </div>
-  </div>
-
-  <div class="entry-taxonomy">
-    {% for cat in item.categories %}
-    <a class="cat-taxonomy taxonomy" href="#" data-slug="{{ cat[0] }}">{{ cat[1] }}</a>
-    {% endfor %}
-    {% for tag in item.tags %}
-    <a class="tag-taxonomy taxonomy" href="#" data-slug="{{ tag[0] }}">{{ tag[1] }}</a>
-    {% endfor %}
   </div>
 </div>
 {% endfor %}
