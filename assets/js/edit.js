@@ -40,7 +40,7 @@ jQuery(document).ready(function($) {
       $( "article.card .date_published" ).html( file['date_published'] );
       $( "article.card .authors" ).html( file['authors'] );
       $( "article.card .edit-btn" ).attr( 'href', file['editpathURL'] );
-      $( ".btn-edit" ).attr( 'href', file['editpathURL'] );
+      $( ".btn-edit" ).attr( 'href', file['editpathURL'] + "?message=Updated%20topics" );
     });
   }
 
