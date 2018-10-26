@@ -12,3 +12,5 @@ sidenav:
     url: /communities/
   - text: "Topics"
     url: /topics/
+  - text: "Promos"
+    url: /promos/

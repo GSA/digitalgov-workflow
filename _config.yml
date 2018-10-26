@@ -50,3 +50,5 @@ jekyll_get:
     json: 'https://demo.digital.gov/resources/index.json'
   - data: topics
     json: 'https://demo.digital.gov/topics/v1/json/'
+  - data: promos
+    json: 'https://demo.digital.gov/promos/v1/json/'
