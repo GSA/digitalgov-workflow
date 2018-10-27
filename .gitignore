@@ -5,3 +5,4 @@ node_modules
 .ruby-version
 assets/*/
 !assets/other/*
+!assets/sass/*
