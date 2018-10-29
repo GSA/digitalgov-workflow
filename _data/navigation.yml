@@ -1,7 +1,7 @@
-# Side Nav
-# List links that should appear in the site sidebar here
+# Nav
+# List links that should appear in navigation bar
 
-sidenav:
+navigation:
   - text: "News"
     url: /posts/
   - text: "Events"
