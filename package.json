@@ -4,7 +4,9 @@
   "description": "A site for managing the digital.gov editorial workflow on GitHub",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dependencies": "npm install && bundle install",
+    "start": "bundler exec jekyll serve --incremental",
+    "gulp": "node ./node_modules/gulp/bin/gulp.js"
   },
   "repository": {
     "type": "git",
@@ -29,7 +31,7 @@
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.4",
     "path": "^0.12.7",
-    "uswds": "^2.0.0-beta",
+    "uswds": "^2.0.0-beta.3",
     "uswds-gulp": "github:uswds/uswds-gulp"
   }
 }
