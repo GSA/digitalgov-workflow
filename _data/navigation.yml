@@ -8,6 +8,8 @@ navigation:
     url: /events/
   - text: "Resources"
     url: /resources/
+  - text: "Services"
+    url: /services/
   - text: "Communities"
     url: /communities/
   - text: "Topics"
