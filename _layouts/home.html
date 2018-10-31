@@ -2,14 +2,10 @@
 layout: default
 ---
 
-<div class="usa-width-five-sixths usa-layout-docs-main_content">
-
-  <h1 class="post-title">{{ page.title | escape }}</h1>
-  {% if page.deck %}
-  <div class="deck">{{ page.deck | escape }}</div>
-  {% endif %}
-  <div class="post-content">
-    {{ content }}
-  </div>
-
+<h1 class="post-title">{{ page.title | escape }}</h1>
+{% if page.deck %}
+<div class="deck">{{ page.deck | escape }}</div>
+{% endif %}
+<div class="post-content">
+  {{ content }}
 </div>

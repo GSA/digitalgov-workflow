@@ -19,7 +19,7 @@
 <div class="grid-row grid-gap margin-bottom-205">
 
   <div class="tablet:grid-col">
-    <div class="bg-base-lightest padding-2">
+    <article class="bg-base-lightest padding-2">
       <h3 class="margin-0"><a href="{{ site.source_of_truth }}{{ item.url }}" class="text-base-darkest underline-primary-light text-underline">{{ item.title }}</a></h3>
       <h4 class="margin-top-0 margin-bottom-1 text-normal text-uppercase text-base-darker">{{ item.date_published | date: '%B %d, %Y' }}</h4>
       <p class="margin-0">{{ item.summary }}</p>
@@ -31,7 +31,7 @@
           {% endfor %}
         </div>
       {% endif %}
-    </div>
+    </article>
   </div>
 
   <div class="tablet:grid-col-auto">
