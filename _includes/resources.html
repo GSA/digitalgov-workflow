@@ -44,6 +44,7 @@
       {% assign editpath = site.source_of_truth | append: filepath %}
       <!-- <a href="{{ site.baseurl }}{{ '/edit/?page=' | absURL }}{{ editpath }}" class="btn btn-open" target="_blank">details</a> -->
       <a href="{{ site.baseurl }}{{ '/edit-topics/?page=' | absURL }}{{ editpath }}" class="btn btn-open">edit topics</a>
+      <a target="_blank" href="https://digital.gov/{{ item.url }}" class="btn" target="_blank">live</a>
     </div>
   </div>
 </div>
