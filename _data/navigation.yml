@@ -7,8 +7,8 @@ navigation:
   - text: "Events"
     url: /events/
     sub_nav:
-    - text: "Team"
-      url: /mission/team/
+    - text: "New Event"
+      url: /events/new/
   - text: "Resources"
     url: /resources/
   - text: "Services"

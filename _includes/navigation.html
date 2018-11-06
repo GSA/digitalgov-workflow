@@ -1,27 +1,26 @@
-<h6 class="usa-heading-alt">Two levels</h6>
-<nav role="navigation" class="">
+<nav role="navigation" class="padding-2 bg-white">
   <button class="usa-nav-close"><img src="/assets/img/close.svg" alt="close"></button>
-  <ul class="usa-sidenav">
+  <ul class="add-list-reset">
     {% for item in site.data.navigation.navigation %}
       {% assign current = "" %}
       {% if page.url == item.url %}
-        {% assign current = "usa-current" %}
+        {% assign current = "current" %}
       {% endif %}
-      <li class="usa-sidenav-item">
-        <a class="{{ current }}" href="{{ site.baseurl }}{{ item.url }}">
+      <li class="">
+        <a class="border-top border-base-light padding-y-1 font-sans-sm display-block text-no-underline text-black visited:text-black {{ current }}" href="{{ site.baseurl }}{{ item.url }}">
           <span>{{ item.text }}</span>
         </a>
         {% if item.sub_nav[0] %}
-        <ul class="usa-sidenav-sublist">
+        <ul class="add-list-reset padding-left-2">
         {% endif %}
         {% for sub_item in item.sub_nav %}
           {% assign subcurrent = '' %}
           {% if page.url == sub_item.url %}
-            {% assign subcurrent = 'usa-current' %}
+            {% assign subcurrent = 'current' %}
           {% endif %}
 
-          <li class="usa-sidenav-item">
-            <a class="{{ subcurrent }}" href="{{ site.baseurl }}{{ sub_item.url }}">{{ sub_item.text }}</a>
+          <li class="">
+            <a class="border-top border-base-light font-sans-2xs padding-y-1 display-block text-no-underline text-black visited:text-black {{ subcurrent }}" href="{{ site.baseurl }}{{ sub_item.url }}">{{ sub_item.text }}</a>
           </li>
 
         {% endfor %}
