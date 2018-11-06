@@ -1,15 +1,33 @@
-<nav role="navigation" class="usa-nav">
+<h6 class="usa-heading-alt">Two levels</h6>
+<nav role="navigation" class="">
   <button class="usa-nav-close"><img src="/assets/img/close.svg" alt="close"></button>
-  <ul class="usa-nav-primary usa-accordion">
+  <ul class="usa-sidenav">
     {% for item in site.data.navigation.navigation %}
       {% assign current = "" %}
       {% if page.url == item.url %}
         {% assign current = "usa-current" %}
       {% endif %}
-      <li class="usa-nav-primary-item">
-        <a class="usa-nav-link {{ current }}" href="{{ site.baseurl }}{{ item.url }}">
+      <li class="usa-sidenav-item">
+        <a class="{{ current }}" href="{{ site.baseurl }}{{ item.url }}">
           <span>{{ item.text }}</span>
         </a>
+        {% if item.sub_nav[0] %}
+        <ul class="usa-sidenav-sublist">
+        {% endif %}
+        {% for sub_item in item.sub_nav %}
+          {% assign subcurrent = '' %}
+          {% if page.url == sub_item.url %}
+            {% assign subcurrent = 'usa-current' %}
+          {% endif %}
+
+          <li class="usa-sidenav-item">
+            <a class="{{ subcurrent }}" href="{{ site.baseurl }}{{ sub_item.url }}">{{ sub_item.text }}</a>
+          </li>
+
+        {% endfor %}
+        {% if item.sub_nav[0] %}
+          </ul>
+        {% endif %}
       </li>
     {% endfor %}
   </ul>

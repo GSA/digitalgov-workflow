@@ -6,11 +6,23 @@
 
     {% include header.html %}
 
-    <main id="main-content">
-      <div class="grid-container">
-        {{ content }}
-      </div>
-    </main>
+    <div class="paper">
+
+      <main id="main-content">
+        <div class="grid-container">
+          <div class="grid-row grid-gap-4">
+            <div class="grid-col-12 tablet-lg:grid-col-2">
+              {% include navigation.html %}
+            </div>
+            <div class="grid-col-12 tablet-lg:grid-col-9">
+              {{ content }}
+            </div>
+          </div>
+        </div>
+      </main>
+
+    </div> <!-- end paper -->
+
 
     {% include footer.html %}
 

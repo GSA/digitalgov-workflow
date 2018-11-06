@@ -36,6 +36,8 @@ markdown: kramdown
 # plugins:
 # #   - jekyll-feed
 #   # - jemoji
+sass:
+  sass_dir: _sass
 
 jekyll_get:
   - data: posts
