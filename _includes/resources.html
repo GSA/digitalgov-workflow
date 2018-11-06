@@ -1,0 +1,52 @@
+{% for item in site.data.resources.items %}
+
+{{/* If the month var exists (like from a previous iteration of the for loop) */}}
+{% if month %}
+  {{/* set 'postmonth' to the month of the current post */}}
+  {% assign postmonth = item.date_published | date: '%B' %}
+  {{/* if 'postmonth' and 'month' are not equal, print the month */}}
+  {% if (postmonth != month) %}
+    <h3>{{ postmonth }} {{ item.date_published | date: '%Y' }}</h3>
+  {% endif %}
+{{/* this is likely the first iteration of the for loop, so print the month */}}
+{% else %}
+  <h3>{{ item.date_published | date: '%B %Y' }}</h3>
+{% endif %}
+{{/* set the month var for the next iteration of the loop */}}
+{% assign month = item.date_published | date: '%B' %}
+
+<div class="card-wrapper usa-grid">
+  <div class="usa-width-five-sixths">
+    <article class="card">
+
+      <div class="summary">
+        <h6>{{ item.date_published | date: '%B %d, %Y' }}</h6>
+        <h4><a href="{{ site.source_of_truth }}{{ item.url }}">{{ item.title }}</a></h4>
+        <p class="summary">{{ item.summary }}</p>
+      </div>
+
+      <div class="taxonomy-list taxonomy-smaller">
+        {% for cat in item.categories %}
+        <a class="cat-taxonomy taxonomy" href="#" data-slug="{{ cat[0] }}">{{ cat[1] }}</a>
+        {% endfor %}
+        {% for tag in item.tags %}
+        <a class="tag-taxonomy taxonomy" href="#" data-slug="{{ tag[0] }}">{{ tag[1] }}</a>
+        {% endfor %}
+      </div>
+
+    </article>
+  </div>
+
+  <div class="usa-width-one-sixth">
+    <div class="tools">
+      <a href="{{ item.editpathURL }}" class="btn" target="_blank">edit</a>
+      {% assign filepath = item.url | url_encode %}
+      {% assign editpath = site.source_of_truth | append: filepath %}
+      <!-- <a href="{{ site.baseurl }}{{ '/edit/?page=' | absURL }}{{ editpath }}" class="btn btn-open" target="_blank">details</a> -->
+      <a href="{{ site.baseurl }}{{ '/edit-topics/?page=' | absURL }}{{ editpath }}" class="btn btn-open">edit topics</a>
+      <a target="_blank" href="https://digital.gov/{{ item.url }}" class="btn" target="_blank">live</a>
+    </div>
+  </div>
+</div>
+
+{% endfor %}
