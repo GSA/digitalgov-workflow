@@ -9,6 +9,13 @@
 ----------------------------------------
 USWDS THEME SPACING SETTINGS
 ----------------------------------------
+-
+Read more about settings and
+USWDS spacing units tokens in the
+documentation:
+https://v2.designsystem.digital.gov/style-tokens/spacing-units
+-
+----------------------------------------
 */
 
 /*
@@ -72,7 +79,7 @@ widescreen
 ----------------------------------------
 */
 
-$theme-grid-container-max-width: 'desktop';
+$theme-grid-container-max-width: 'widescreen';
 
 /*
 ----------------------------------------
@@ -80,7 +87,7 @@ Site
 ----------------------------------------
 */
 
-$theme-site-max-width:              'desktop';
-$theme-site-margins-breakpoint:     'desktop';
+$theme-site-max-width:              'widescreen';
+$theme-site-margins-breakpoint:     'widescreen';
 $theme-site-margins-width:          4;
 $theme-site-margins-mobile-width:   2;
