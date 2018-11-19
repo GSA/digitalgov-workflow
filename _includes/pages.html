@@ -18,8 +18,8 @@
 
 <div class="grid-row grid-gap margin-bottom-205">
 
-  <div class="tablet:grid-col">
-    <article class="bg-base-lightest padding-2">
+  <div class="grid-col-12 tablet:grid-col-9">
+    <article class="padding-2 bg-white">
       <h3 class="margin-0"><a href="{{ site.source_of_truth }}{{ item.url }}" class="text-base-darkest underline-primary-light text-underline">{{ item.title }}</a></h3>
       <h4 class="margin-top-0 margin-bottom-1 text-normal text-uppercase text-base-darker">{{ item.date_published | date: '%B %d, %Y' }}</h4>
       <p class="margin-0">{{ item.summary }}</p>
@@ -34,7 +34,7 @@
     </article>
   </div>
 
-  <div class="tablet:grid-col-auto">
+  <div class="grid-col-12 tablet:grid-col-3">
     <a href="{{ item.editpathURL }}" class="usa-button" target="_blank">Edit</a>
     {% assign filepath = item.url | url_encode %}
     {% assign editpath = site.source_of_truth | append: filepath %}

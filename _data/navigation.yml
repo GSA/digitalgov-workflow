@@ -2,7 +2,7 @@
 # List links that should appear in navigation bar
 
 navigation:
-  - text: "Spotlight / News"
+  - text: "Spotlight"
     url: /posts/
   - text: "Events"
     url: /events/
