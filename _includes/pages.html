@@ -18,7 +18,7 @@
 
 <div class="grid-row grid-gap margin-bottom-205">
 
-  <div class="tablet:grid-col">
+  <div class="tablet:grid-col margin-bottom-1">
     <article class="bg-base-lightest padding-2">
       <h3 class="margin-0"><a href="{{ site.source_of_truth }}{{ item.url }}" class="text-base-darkest underline-primary-light text-underline">{{
           item.title }}</a></h3>
@@ -37,10 +37,10 @@
   </div>
 
   <div class="tablet:grid-col-auto">
-    <a href="{{ item.editpathURL }}" class="usa-button" target="_blank">Edit</a>
+    <a href="{{ item.editpathURL }}" class="usa-button margin-bottom-1" target="_blank">Edit</a>
     {% assign filepath = item.url | url_encode %}
     {% assign editpath = site.source_of_truth | append: filepath %}
-    <a href="{{ site.baseurl }}{{ '/edit-topics/?page=' | absURL }}{{ editpath }}" class="usa-button usa-button-outline">Edit
+    <a href="{{ site.baseurl }}{{ '/edit-topics/?page=' | absURL }}{{ editpath }}" class="usa-button usa-button-outline margin-bottom-1">Edit
       topics</a>
     <a target="_blank" href="https://digital.gov{{ item.url }}" class="usa-button usa-button-outline" target="_blank">Live</a>
   </div>
