@@ -1,4 +1,4 @@
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
 
   // This file takes a URL parameter and uses it to fetch the JSON API for that file, and render it.
   // Example URL — 
@@ -15,37 +15,31 @@ jQuery(document).ready(function($) {
 
   // API path
   // See all the digital.gov APIs https://github.com/GSA/digitalgov.gov/wiki/APIs
-  var api_path = path + 'index.json';
+  var api_path = "https://cors-anywhere.herokuapp.com/" + path + 'index.json';
   console.log(api_path);
 
-  var post_data = (function() {
+  var post_data = (function () {
     $.ajax({
-  	  url: api_path,
-  	 	dataType: 'json',
-  	}).done(function(data) {
+      url: api_path,
+      dataType: 'json',
+    }).done(function (data) {
       // We wait until all of the API data is retrieved to run any functions on the page
-      console.log("this is the data");
-      console.log(data);
       display_article_card(data);
       display_current_topics(data);
       return data;
     });
   })();
 
-  function display_article_card(data){
-    $.each( data.item, function( key, file ) {
-      console.log(file);
-      $( "article.card .title" ).html( file['title'] );
-      $( "article.card .summary" ).html( file['summary'] );
-      $( "article.card .date_published" ).html( file['date_published'] );
-      $( "article.card .authors" ).html( file['authors'] );
-      $( "article.card .edit-btn" ).attr( 'href', file['editpathURL'] );
-      $( ".btn-edit" ).attr( 'href', file['editpathURL'] + "?message=Updated%20topics" );
+  function display_article_card(data) {
+    $.each(data.item, function (key, file) {
+      $("article.card .title").html(file['title']);
+      $("article.card .summary").html(file['summary']);
+      $("article.card .date_published").html(file['date_published']);
     });
   }
 
-  function display_current_topics(data){
-    $.each( data.item, function( key, file ) {
+  function display_current_topics(data) {
+    $.each(data.item, function (key, file) {
       // Getting an array of the topics
       var topics_array = get_topics_array(file['topics']);
       // Pass the current topics to the select2 field
@@ -61,23 +55,23 @@ jQuery(document).ready(function($) {
     });
   }
 
-  function build_topics_front_matter(topics){
+  function build_topics_front_matter(topics) {
     // Count the topics
     var count = '';
     var list = '';
-    $.each( topics, function( index, element ) {
+    $.each(topics, function (index, element) {
       list += '  - ' + index + '\n';
       count++;
     });
 
     // Build the front_matter text
     var front_matter = [
-    "topics:",
-        list,
+      "topics:",
+      list,
     ].join("\n");
 
     // Inject the front_matter text into the page
-    $( "#topics_front_matter" ).html( front_matter );
+    $("#topics_front_matter").html(front_matter);
 
     // Update the topics count text on the page
     $('.topics_count').html(count);
@@ -87,17 +81,17 @@ jQuery(document).ready(function($) {
   // returns an array the IDs or slugs for each topic
   // (e.g. 'content-strategy')
   function get_topics_array(data) {
-    var topics = [] ;
-    $.each( data, function( index, element ) {
+    var topics = [];
+    $.each(data, function (index, element) {
       topics.push(index);
     });
     return topics;
   }
 
-  function get_selected_topics(){
+  function get_selected_topics() {
     var topics = $('#topic_select').select2('data');
     var list = {};
-    $.each( topics, function( index, element ) {
+    $.each(topics, function (index, element) {
       list[element['id']] = element['title'];
     });
     console.log("list");
@@ -108,10 +102,10 @@ jQuery(document).ready(function($) {
   // Each time a topic is added/removed from the select,
   // get the new list of topics
   // and re-build the front_matter list
-  $('#topic_select').on("select2:select select2:unselect", function(e) {
+  $('#topic_select').on("select2:select select2:unselect", function (e) {
     var topics = $('#topic_select').select2('data');
     var list = {};
-    $.each( topics, function( index, element ) {
+    $.each(topics, function (index, element) {
       list[element['id']] = element['title'];
     });
     // re-build the front_matter list
@@ -140,9 +134,9 @@ jQuery(document).ready(function($) {
 
   // // Let's get the data for the post API
   // $.ajax({
-	//   url: api_path,
-	//  	dataType: 'json',
-	// }).done(function(data) {
+  //   url: api_path,
+  //  	dataType: 'json',
+  // }).done(function(data) {
   //   $.each( data.item, function( key, file ) {
   //     console.log(file);
   //     console.log(file['topics']);
@@ -174,7 +168,7 @@ jQuery(document).ready(function($) {
   //     build_topics_front_matter(file['topics']);
   //     $( ".edit-btn" ).attr( 'href', editpathURL );
   //   });
-	// });
+  // });
 
 
 
@@ -182,33 +176,33 @@ jQuery(document).ready(function($) {
   // Template functions — these push content (HTML) to specific classnames
   // See _layouts/edit-taxonomy.html
 
-  function build_front_matter(title, summary){
+  function build_front_matter(title, summary) {
     var front_matter = [
       "<pre>",
-        "---",
-        "title: '" + title + "'",
-        "summary: '" + summary + "'",
-        "---",
+      "---",
+      "title: '" + title + "'",
+      "summary: '" + summary + "'",
+      "---",
       "</pre>"
     ].join("\n");
-    $( "#front_matter" ).append( front_matter );
+    $("#front_matter").append(front_matter);
   }
 
-  function build_edit_btn(url){
-    $( ".edit-btn" ).attr( 'href', url );
+  function build_edit_btn(url) {
+    $(".edit-btn").attr('href', url);
   }
 
   // ====================================
   // These are functions that help to transform strings and data for use in the template functions
 
-  function htmlDecode(value){
+  function htmlDecode(value) {
     return $('<div/>').html(value).text();
   }
   function get_authors(authors) {
     var list = '';
     i = 0;
-    var len = $( authors ).length;
-    $.each( authors, function( index, element ) {
+    var len = $(authors).length;
+    $.each(authors, function (index, element) {
       if (i < len) {
         list += element + ', ';
       } else {
@@ -225,7 +219,7 @@ jQuery(document).ready(function($) {
     var tax = '';
     i = 1;
     var len = Object.keys(data).length
-    $.each( data, function( index, element ) {
+    $.each(data, function (index, element) {
       if (i < len) {
         tax += element + ', ';
       } else {
@@ -239,8 +233,8 @@ jQuery(document).ready(function($) {
   // returns topics as an HTML list
   function get_topics_html(data) {
     var topics = '';
-    $.each( data, function( index, element ) {
-      topics += '<a class="topic-taxonomy taxonomy" href="#" data-slug="'+index+'">'+element+'</a> '
+    $.each(data, function (index, element) {
+      topics += '<a class="topic-taxonomy taxonomy" href="#" data-slug="' + index + '">' + element + '</a> '
     });
     return topics;
   }
@@ -249,15 +243,15 @@ jQuery(document).ready(function($) {
   // ====================================
   // These are functions that modify the editing experience and tools
 
-  $(".btn-copy").click(function(e) {
+  $(".btn-copy").click(function (e) {
     e.preventDefault();
   });
   var clipboard = new ClipboardJS('.btn-copy');
-  clipboard.on('success', function(e) {
-      console.log(e);
+  clipboard.on('success', function (e) {
+    console.log(e);
   });
-  clipboard.on('error', function(e) {
-      console.log(e);
+  clipboard.on('error', function (e) {
+    console.log(e);
   });
 
 
