@@ -26,6 +26,7 @@ jQuery(document).ready(function ($) {
       // We wait until all of the API data is retrieved to run any functions on the page
       display_article_card(data);
       display_current_topics(data);
+      build_edit_btn(data.item[0].editpathURL);
       return data;
     });
   })();
@@ -189,7 +190,7 @@ jQuery(document).ready(function ($) {
   }
 
   function build_edit_btn(url) {
-    $(".edit-btn").attr('href', url);
+    $(".btn-edit").attr('href', url);
   }
 
   // ====================================
@@ -253,6 +254,4 @@ jQuery(document).ready(function ($) {
   clipboard.on('error', function (e) {
     console.log(e);
   });
-
-
 });
