@@ -7,7 +7,7 @@
     "dependencies": "npm install && bundle install",
     "start": "bundler exec jekyll serve --incremental",
     "gulp": "node ./node_modules/gulp/bin/gulp.js",
-    "init": "npm run gulp -- init && git checkout -- ./assets/sass/_uswds-theme-typography.scss"
+    "init": "npm run gulp -- init && git checkout -- ./assets/sass/_uswds-theme-typography.scss && git checkout -- ./assets/sass/_uswds-custom-styles.scss"
   },
   "repository": {
     "type": "git",

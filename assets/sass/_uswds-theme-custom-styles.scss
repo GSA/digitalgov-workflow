@@ -19,3 +19,7 @@ i.e.
 @include u-padding-right('05');
 ----------------------------------------
 */
+
+.select2-selection__choice {
+  padding: 4.5px 8px !important;
+}

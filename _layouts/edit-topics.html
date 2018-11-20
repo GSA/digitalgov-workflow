@@ -11,53 +11,56 @@ layout: default
 <div class="editor margin-top-2">
 
   <section class="topics_editor">
-    <p>1. Review the <strong><span class="topics_count">X</span> topics</strong> applied to this page. Feel free to add/remove any topics from this list.</p>
+    <p class="margin-bottom-2">
+      1. Review the <strong><span class="topics_count">X</span> topics</strong> applied to
+      this page. Feel free to
+      add/remove any topics from this list.
+    </p>
 
     <!-- Topics Editor -->
     <label for="topic_select" class="topic_select_label">
-      <strong>Suggest new topics</strong>
-      <br>
-      <select id="topic_select" multiple="multiple" class="usa-select">
-        {% assign topics = site.data.topics.items | group_by:"weight" %}
+      <strong class="margin-bottom-1">Suggest new topics</strong>
+    </label>
+    <div class="margin-bottom-1"></div>
+    <select id="topic_select" multiple="multiple" class="usa-select">
+      {% assign topics = site.data.topics.items | group_by:"weight" %}
 
-        <!-- We are grouping topics by weight.
+      <!-- We are grouping topics by weight.
         But in order to get "weight 3" to appear first, then "weight 2", then "weight 1", we have to run three separate loops, one for each weight. -->
 
-        <!-- Weight 3 -->
-        {% for group in topics %}
-          {% if group.name == "3" %}
-          <optgroup label="Weight 3">
-            {% for item in group.items %}
-              <option value="{{ item.slug }}" title="{{ item.display_name }}">{{ item.display_name }}</option>
-            {% endfor %}
-          </optgroup>
-          {% endif %}
+      <!-- Weight 3 -->
+      {% for group in topics %}
+      {% if group.name == "3" %}
+      <optgroup label="Weight 3">
+        {% for item in group.items %}
+        <option value="{{ item.slug }}" title="{{ item.display_name }}">{{ item.display_name }}</option>
         {% endfor %}
+      </optgroup>
+      {% endif %}
+      {% endfor %}
 
-        <!-- Weight 2 -->
-        {% for group in topics %}
-          {% if group.name == "2" %}
-          <optgroup label="Weight 2">
-            {% for item in group.items %}
-              <option value="{{ item.slug }}" title="{{ item.display_name }}">{{ item.display_name }}</option>
-            {% endfor %}
-          </optgroup>
-          {% endif %}
+      <!-- Weight 2 -->
+      {% for group in topics %}
+      {% if group.name == "2" %}
+      <optgroup label="Weight 2">
+        {% for item in group.items %}
+        <option value="{{ item.slug }}" title="{{ item.display_name }}">{{ item.display_name }}</option>
         {% endfor %}
+      </optgroup>
+      {% endif %}
+      {% endfor %}
 
-        <!-- Weight 1 -->
-        {% for group in topics %}
-          {% if group.name == "1" %}
-          <optgroup label="Weight 1">
-            {% for item in group.items %}
-              <option value="{{ item.slug }}" title="{{ item.display_name }}">{{ item.display_name }}</option>
-            {% endfor %}
-          </optgroup>
-          {% endif %}
+      <!-- Weight 1 -->
+      {% for group in topics %}
+      {% if group.name == "1" %}
+      <optgroup label="Weight 1">
+        {% for item in group.items %}
+        <option value="{{ item.slug }}" title="{{ item.display_name }}">{{ item.display_name }}</option>
         {% endfor %}
-
-      </select>
-    </label>
+      </optgroup>
+      {% endif %}
+      {% endfor %}
+    </select>
 
   </section>
 
