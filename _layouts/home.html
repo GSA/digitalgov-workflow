@@ -1,11 +1,32 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+  {% include head.html %}
+  <body class="bg-primary-vivid">
+    <a class="usa-skipnav" href="#main-content">Skip to main content</a>
 
-<h1 class="post-title">{{ page.title | escape }}</h1>
-{% if page.deck %}
-<div class="deck">{{ page.deck | escape }}</div>
-{% endif %}
-<div class="post-content">
-  {{ content }}
-</div>
+    <div class="paper bg-base-lightest height-viewport">
+
+      <main id="main-content" class="padding-y-5">
+        <div class="grid-container">
+          <div class="grid-row grid-gap-4">
+            <div class="grid-col-12 grid-offset-4 tablet-lg:grid-col-4">
+              <img class="width-8 margin-x-auto display-block" src="{{ site.baseurl }}/assets/img/digit-150.png" alt="{{ site.title }}">
+              <h1 class="usa-logo-text text-center">
+                <a class="text-no-underline text-base-darkest" href="{{ site.baseurl }}" accesskey="1" title="Home" aria-label="{{ site.title }}">
+                  Digital.gov / Workflow
+                </a>
+              </h1>
+              <h2 class="text-center">This is how we manage our content in the open. Feel free to explore.</h2>
+              {% include navigation.html %}
+            </div>
+          </div>
+        </div>
+      </main>
+
+    </div> <!-- end paper -->
+
+
+    {% include footer.html %}
+
+  </body>
+</html>
