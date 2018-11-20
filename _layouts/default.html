@@ -2,13 +2,12 @@
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
   {% include head.html %}
   <body class="bg-primary-vivid">
-    <a class="usa-skipnav" href="#main-content">Skip to main content</a>
+    <div class="paper bg-base-lightest">
+      <a class="usa-skipnav" href="#main-content">Skip to main content</a>
 
-    {% include header.html %}
+      {% include header.html %}
 
-    <div class="paper bg-white">
-
-      <main id="main-content" class="bg-base-lightest padding-y-3">
+      <main id="main-content" class="padding-y-3">
         <div class="grid-container">
           <div class="grid-row grid-gap-4">
             <div class="grid-col-12 tablet-lg:grid-col-2">
@@ -21,10 +20,7 @@
         </div>
       </main>
 
+      {% include footer.html %}
     </div> <!-- end paper -->
-
-
-    {% include footer.html %}
-
   </body>
 </html>
