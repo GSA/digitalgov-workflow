@@ -3,15 +3,15 @@
 
 {{/* If the month var exists (like from a previous iteration of the for loop) */}}
 {% if month %}
-  {{/* Set 'postmonth' to the month of the current post */}}
-  {% assign postmonth = item.date_published | date: '%B' %}
-  {{/* If 'postmonth' and 'month' are not equal, print the month */}}
-  {% if (postmonth != month) %}
-    <h2>{{ postmonth }} {{ item.date_published | date: '%Y' }}</h2>
-  {% endif %}
+{{/* Set 'postmonth' to the month of the current post */}}
+{% assign postmonth = item.date_published | date: '%B' %}
+{{/* If 'postmonth' and 'month' are not equal, print the month */}}
+{% if (postmonth != month) %}
+<h2>{{ postmonth }} {{ item.date_published | date: '%Y' }}</h2>
+{% endif %}
 {{/* This is likely the first iteration of the for loop, so print the month */}}
 {% else %}
-  <h2>{{ item.date_published | date: '%B %Y' }}</h2>
+<h2>{{ item.date_published | date: '%B %Y' }}</h2>
 {% endif %}
 {{/* Set the month var for the next iteration of the loop */}}
 {% assign month = item.date_published | date: '%B' %}
@@ -20,16 +20,18 @@
 
   <div class="tablet:grid-col">
     <article class="bg-base-lightest padding-2">
-      <h3 class="margin-0"><a href="{{ site.source_of_truth }}{{ item.url }}" class="text-base-darkest underline-primary-light text-underline">{{ item.title }}</a></h3>
-      <h4 class="margin-top-0 margin-bottom-1 text-normal text-uppercase text-base-darker">{{ item.date_published | date: '%B %d, %Y' }}</h4>
+      <h3 class="margin-0"><a href="{{ site.source_of_truth }}{{ item.url }}" class="text-base-darkest underline-primary-light text-underline">{{
+          item.title }}</a></h3>
+      <h4 class="margin-top-0 margin-bottom-1 text-normal text-uppercase text-base-darker">{{ item.date_published |
+        date: '%B %d, %Y' }}</h4>
       <p class="margin-0">{{ item.summary }}</p>
 
       {% if item.topics %}
-        <div class="margin-top-105">
-          {% for topic in item.topics %}
-            <span class="usa-tag">{{ topic[1] }}</span>
-          {% endfor %}
-        </div>
+      <div class="margin-top-105">
+        {% for topic in item.topics %}
+        <span class="usa-tag">{{ topic[1] }}</span>
+        {% endfor %}
+      </div>
       {% endif %}
     </article>
   </div>
@@ -38,8 +40,9 @@
     <a href="{{ item.editpathURL }}" class="usa-button" target="_blank">Edit</a>
     {% assign filepath = item.url | url_encode %}
     {% assign editpath = site.source_of_truth | append: filepath %}
-    <a href="{{ site.baseurl }}{{ '/edit-topics/?page=' | absURL }}{{ editpath }}" class="usa-button usa-button-outline">Edit topics</a>
-    <a target="_blank" href="https://digital.gov{{ item.url }}" class="usa-button usa-button-outline" target="_blank">live</a>
+    <a href="{{ site.baseurl }}{{ '/edit-topics/?page=' | absURL }}{{ editpath }}" class="usa-button usa-button-outline">Edit
+      topics</a>
+    <a target="_blank" href="https://digital.gov{{ item.url }}" class="usa-button usa-button-outline" target="_blank">Live</a>
   </div>
 
 </div>
