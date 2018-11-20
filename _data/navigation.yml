@@ -1,0 +1,18 @@
+# Nav
+# List links that should appear in navigation bar
+
+navigation:
+  - text: "News"
+    url: /posts/
+  - text: "Events"
+    url: /events/
+  - text: "Resources"
+    url: /resources/
+  - text: "Services"
+    url: /services/
+  - text: "Communities"
+    url: /communities/
+  - text: "Topics"
+    url: /topics/
+  - text: "Promos"
+    url: /promos/

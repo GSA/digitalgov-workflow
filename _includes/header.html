@@ -1,12 +1,16 @@
 {% include gov-banner.html %}
 
-<header class="usa-header usa-header-extended" role="banner">
-  <div class="usa-navbar">
-    <button class="usa-menu-btn">Menu</button>
-    <div class="usa-logo" id="logo">
-      <h1 class="usa-logo-text">
-        <a href="{{ site.baseurl }}" accesskey="1" title="Home" aria-label="{{ site.title }} Home">{{ site.title }}</a>
-      </h1>
+<div class="usa-overlay"></div>
+<header class="usa-header usa-header-basic bg-base-lightest" role="banner">
+  <div class="usa-nav-container">
+    <div class="usa-navbar">
+      <div class="usa-logo" id="logo">
+        <h1 class="usa-logo-text">
+          <a href="{{ site.baseurl }}" accesskey="1" title="Home" aria-label="{{ site.title }}">{{ site.title }}</a>
+        </h1>
+      </div>
+      <button class="usa-menu-btn">Menu</button>
     </div>
+    {% include navigation.html %}
   </div>
 </header>

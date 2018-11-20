@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
   {% include head.html %}
-<body>
-  <a class="usa-skipnav" href="#main-content">Skip to main content</a>
+  <body>
+    <a class="usa-skipnav" href="#main-content">Skip to main content</a>
 
-  {% include header.html %}
+    {% include header.html %}
 
-  <main class="usa-grid usa-section usa-content usa-layout-docs" id="main-content">
+    <main id="main-content">
+      <div class="grid-container">
+        {{ content }}
+      </div>
+    </main>
 
-    {{ content }}
+    {% include footer.html %}
 
-  </main>
-
-  {% include footer.html %}
-
-</body>
+  </body>
 </html>

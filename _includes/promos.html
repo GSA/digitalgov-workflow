@@ -1,31 +1,36 @@
 {% for item in site.data.promos.items %}
-<div class="card-wrapper usa-grid">
-  <div class="usa-width-five-sixths">
-    <article class="card">
-      <div class="summary">
-        <img src="{{ site.source_of_truth }}/img/promos/{{ item.icon }}">
-        <h4><a href="{{ site.source_of_truth }}{{ item.url }}">{{ item.head }}</a></h4>
-        <p class="summary">{{ item.summary }}</p>
-        <p><a href="{{ item.src }}">{{ item.src }}</a></p>
-        <p><strong>Weight:</strong> {{ item.weight }}</p>
+
+<div class="grid-row grid-gap margin-bottom-205">
+
+  <div class="tablet:grid-col margin-bottom-1">
+    <div class="bg-base-lightest padding-2 clearfix">
+
+      <div class="float-left">
+        <h3 class="margin-top-0 margin-bottom-105"><a href="{{ site.source_of_truth }}{{ item.url }}" class="text-base-darkest underline-primary-light text-underline">{{
+            item.head }}</a></h3>
+        <p class="margin-0">{{ item.summary }}</p>
+        <p class="margin-0"><a href="{{ item.src }}">{{ item.src }}</a></p>
+
+        {% if item.topics %}
+        <div class="margin-top-2">
+          {% for topic in item.topics %}
+          <span class="usa-tag">{{ topic[1] }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
       </div>
 
-      {% if item.topics %}
-      <div class="taxonomy-list taxonomy-smaller">
-        {% for topic in item.topics %}
-        <a class="cat-taxonomy taxonomy" href="#" data-slug="{{ topic[0] }}">{{ topic[1] }}</a>
-        {% endfor %}
+      <div class="float-right">
+        <img src="{{ site.source_of_truth }}/img/promos/{{ item.icon }}" class="width-8">
       </div>
-      {% endif %}
 
-    </article>
-  </div>
-
-  <div class="usa-width-one-sixth">
-    <div class="tools">
-      <a href="{{ item.editpathURL }}" class="btn" target="_blank">edit</a>
     </div>
   </div>
+
+  <div class="tablet:grid-col-auto">
+    <a href="{{ item.editpathURL }}" class="usa-button" target="_blank">Edit</a>
+  </div>
+
 </div>
 
 {% endfor %}
