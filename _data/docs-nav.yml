@@ -2,6 +2,10 @@
 # List links that should appear in navigation bar
 
 navigation:
+  - text: "Contribute to Digital.gov"
+    url: /contribute/
+  - text: "Update Your Profile"
+    url: /update-profile/
   - text: "Principles & Guidelines"
     url: /principles/
   - text: "Style Guide"
