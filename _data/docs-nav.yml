@@ -1,0 +1,8 @@
+# Nav
+# List links that should appear in navigation bar
+
+navigation:
+  - text: "Principles & Guidelines"
+    url: /principles/
+  - text: "Style Guide"
+    url: /style-guide/
