@@ -4,66 +4,82 @@ layout: default
 
 <h1 class="post-title">{{ page.title | escape }}</h1>
 
-<div class="post-content">
-  {{ content }}
-</div>
+<div class="grid-row">
+  <div class="grid-col-12 tablet:grid-col-6">
+    <form id="matter-maker" class="usa-form" accept-charset="utf-8">
+      <label class="usa-label" for="date-input">
+        Date
+      </label>
+      <input class="usa-input" type="text" name="date-input" id="date-input">
+      <em>year-mo-day, e.g 2017-09-29</em>
+      <br>
 
-<section class="matter-editor">
-  <div class="grid-row grid-gap-4">
-    <div class="grid-col-12 tablet-lg:grid-col-6">
-      <form id="matter-maker" action="new-post" method="get" accept-charset="utf-8">
-        <div class="post_data post-block">
-          <label class="m_date">
-            Date
-            <input class="fm" type="text" name="m_date" value="">
-            <span>year-mo-day, e.g 2017-09-29</span>
-          </label>
-          <label class="m_time">
-            Time
-            <input class="fm" type="text" name="m_time" value="">
-            <span>24-hour time, e.g. 15:32</span>
-          </label>
-          <label class="m_title">
-            Headline
-            <input class="fm" type="text" name="m_title" value="">
-          </label>
-          <label class="m_summary">
-            Summary
-            <textarea class="fm" name="m_summary"></textarea>
-          </label>
-          <label class="m_authors">
-            Author
-            <input class="fm" type="text" name="m_authors" value="">
-            <span>jparcell, dano, jthalls  — <a target="_new" href="https://github.com/GSA/digitalgov.gov/tree/demo/data/people/authors" title="See all Authors">see all authors</a></span>
-          </label>
-          <label class="m_categories">
-            Categories
-            <input class="fm" type="text" name="m_categories" value="">
-            <span>social-media, user-testing-and-research, mobile — <a target="_new" href="https://github.com/GSA/digitalgov.gov/blob/demo/data/categories.yml" title="See all Categories">see all categories</a></span>
-          </label>
-          <label class="m_tag">
-            Tags
-            <input class="fm" type="text" name="m_tag" value="">
-            <span>open-source, customer-experience, security — <a target="_new" href="https://github.com/GSA/digitalgov.gov/blob/demo/data/tag.yml" title="See all Tags">see all tags</a></span>
-          </label>
-          <label class="m_tag">
-            Featured Image
-            <input class="fm" type="text" name="m_featuredimg" value="">
-            <span>Paste the image UID into this field <code>e.g. big-bend</code> <a target="_new" href="/images/" title="See all Images">See all images »</a></span>
-          </label>
-          <label class="m_tag">
-            Featured Image Alt Text
-            <input class="fm" type="text" name="m_featuredimg_alt" value="">
-            <span>Descriptive text for the image</span>
-          </label>
-        </div>
-      </form>
-    </div>
-    <div class="grid-col-12 tablet-lg:grid-col-6">
-      <pre id="filename" class="mttr">***</pre>
-      <pre id="post-matter" class="mttr">---</pre>
-      <p><a id="newfile" href="https://github.com/GSA/digitalgov.gov/new/master/content/posts/draft?filename=newfile.md&value=hello" target="_new" title="create a new post in GitHub">Create in GitHub »</a></p>
-      <p><a href="https://github.com/GSA/digitalgov.gov/wiki">A guide to publishing in GitHub</a></p>
-    </div>
+      <label class="usa-label" for="time-input">
+        Time
+      </label>
+      <input class="usa-input" type="text" name="time-input" id="time-input">
+      <em>24-hour time, e.g. 15:32</em>
+      <br>
+
+      <label class="usa-label" for="headline-input">
+        Headline
+      </label>
+      <input class="usa-input" type="text" name="headline-input" id="headline-input">
+      <br>
+
+      <label class="usa-label" for="summary-input">
+        Summary
+      </label>
+      <textarea class="usa-textarea" name="summary-input" id="summary-input"></textarea>
+
+      <label class="usa-label" for="authors-input">
+        Authors
+      </label>
+      <input class="usa-input" type="text" name="authors-input" id="authors-input">
+      <em>jparcell, dano, jthalls — <a target="_new" href="https://github.com/GSA/digitalgov.gov/tree/demo/data/people/authors"
+          title="See all Authors">see all authors</a></em>
+      <br>
+
+      <label class="usa-label" for="categories-input">
+        Categories
+      </label>
+      <input class="usa-input" type="text" name="categories-input" id="categories-input">
+      <em>social-media, user-testing-and-research, mobile — <a target="_new" href="https://github.com/GSA/digitalgov.gov/blob/demo/data/categories.yml"
+          title="See all Categories">see all categories</a></em>
+      <br>
+
+      <label class="usa-label" for="tags-input">
+        Tags
+      </label>
+      <input class="usa-input" type="text" name="tags-input" id="tags-input">
+      <em>open-source, customer-experience, security — <a target="_new" href="https://github.com/GSA/digitalgov.gov/blob/demo/data/tag.yml"
+          title="See all Tags">see all tags</a></em>
+      <br>
+
+      <label class="usa-label" for="image-uid-input">
+        Featured Image
+      </label>
+      <input class="usa-input" type="text" name="image-uid-input" id="image-uid-input">
+      <em>Paste the image UID into this field e.g. <code>big-bend</code> <a target="_new" href="/images/" title="See all Images">See
+          all images »</a></em>
+
+      <label class="usa-label" for="image-alt-input">
+        Featured Image Alt Text
+      </label>
+      <input class="usa-input" type="text" name="image-alt-input" id="image-alt-input">
+      <em>Descriptive text for the image</em>
+    </form>
   </div>
-</section>
+
+  <div class="grid-col-12 tablet:grid-col-6">
+    <pre id="filename" class="text-bold">***</pre>
+    <pre id="post-matter">---</pre>
+
+    <a id="newfile" href="https://github.com/GSA/digitalgov.gov/new/master/content/posts/draft?filename=newfile.md&value=hello"
+      target="_new" title="Create a new post in GitHub" class="usa-button margin-bottom-1" style="width:100%;">Create
+      in GitHub »</a>
+    <a href="https://github.com/GSA/digitalgov.gov/wiki" class="usa-button usa-button-outline" style="width:100%;">A
+      guide to
+      publishing in GitHub</a>
+  </div>
+</div>
