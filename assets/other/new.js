@@ -81,11 +81,31 @@ jQuery(document).ready(function ($) {
     post_matter += `  alt: '${$("#image-alt-input").val()}'\n`;
     post_matter += "---";
 
-    // url += "https://github.com/GSA/digitalgov.gov/new/master/content/posts/"
-    // url += file_yearmo(data['m_date']) + '/draft?filename=' + filename + '&value=' + body + '&message=' + commit_msg + '&description=' + commit_desc + '&target_branch=' + branch;
+    url += "https://github.com/GSA/digitalgov.gov/new/master/content/posts/"
+    var dateObject = new Date(dateInput[0]);
+    url += dateObject.getUTCFullYear()
+    url += "/"
+    url += ("0" + (dateObject.getUTCMonth() + 1)).slice(-2);
+    url += "/draft?filename=";
+    url += filename;
+    url += "&value=";
+    url += encodeURIComponent(post_matter);
+    url += "&message=";
+    var title = encodeEntities($("#headline-input").val()).trim();
+    url += "Add new post: " + title;
+    url += "&description=";
+    url += "**" + title + "** %0A";
+    url += encodeEntities($("#summary-input").val()).trim() + "%0A";
+    url += "---%0A";
+    url += "slug: `" + slug + "`%0A";
+    url += "filename: `" + filename + "`%0A";
+    url += "---";
+    url += "&target_branch=";
+    url += "new-post-" + slug;
 
     $("#filename").html(filename);
     $("#post-matter").html(post_matter);
+    $("#newfile").attr("href", url);
   }
 
   var date = new Date();
