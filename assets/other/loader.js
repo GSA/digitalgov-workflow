@@ -13,7 +13,7 @@
     return new Date(Date.UTC(b[0], --b[1], b[2], b[3], b[4], b[5], b[6]));
   }
   if (current_page in pages) {
-    fetch("https://cors-anywhere.herokuapp.com/" + pages[current_page]).then(data => {
+    fetch(pages[current_page]).then(data => {
       return data.json();
     }).then(data => {
       data = data.items;
@@ -35,10 +35,10 @@
         for (var item of data) {
           $("#topics .usa-table").append(`
             <tr>
-              <td><a href="${source_of_truth}/${item.slug}">${item.display_name}</a></td>
-              <td>${item.slug}</td>
-              <td class="center">${item.weight ? item.weight : "-"}</td>
-              <td class="center edit"><a href="https://github.com/GSA/digitalgov.gov/edit/demo/content/topics/${item.slug}/_index.md" class="usa-button">Edit</a> </td>
+              <td style="background:#edeff0 !important;"><a href="${source_of_truth}/${item.slug}">${item.display_name}</a></td>
+              <td style="background:#edeff0 !important;">${item.slug}</td>
+              <td class="center" style="background:#edeff0 !important;">${item.weight ? item.weight : "-"}</td>
+              <td class="center edit" style="background:#edeff0 !important;"><a href="https://github.com/GSA/digitalgov.gov/edit/demo/content/topics/${item.slug}/_index.md" class="usa-button">Edit</a> </td>
             </tr>
           `);
         }
@@ -50,7 +50,7 @@
           var toAppend = `
             <div class="grid-row grid-gap margin-bottom-205">
               <div class="tablet:grid-col margin-bottom-1">
-                <div class="bg-base-lightest padding-2 clearfix">
+                <div class="bg-white padding-2 clearfix">
                   <div class="float-left">
                     <h3 class="margin-top-0 margin-bottom-105"><a href="${source_of_truth}${item.url}" class="text-base-darkest underline-primary-light text-underline">${item.head}</a></h3>
                     <p class="margin-0">${item.summary}</p>
@@ -119,7 +119,7 @@
             <div class="grid-row grid-gap margin-bottom-205">
 
             <div class="tablet:grid-col margin-bottom-1">
-              <article class="bg-base-lightest padding-2 padding-bottom-${item.topics ? "0" : "105"}">
+              <article class="bg-white padding-2 padding-bottom-${item.topics ? "0" : "105"}">
                 <h3 class="margin-0"><a href="${source_of_truth}${item.url}" class="text-base-darkest underline-primary-light text-underline">${item.title}</a></h3>
                 <h4 class="margin-top-0 margin-bottom-1 text-normal text-uppercase text-base-darker">${monthName} ${itemDate.getDate()}, ${itemDate.getFullYear()}</h4>
                 <p class="margin-0">${item.summary}</p>
@@ -143,9 +143,9 @@
 
             <div class="tablet:grid-col-auto">
               <a href="${item.editpathURL}" class="usa-button margin-bottom-1" target="_blank">Edit</a>
-              <a href="${base_url}/edit-topics/?page=${source_of_truth}${item.url}" class="usa-button usa-button-outline margin-bottom-1">Edit
+              <a href="${base_url}/edit-topics/?page=${source_of_truth}${item.url}" class="usa-button usa-button-outline bg-base-lightest margin-bottom-1">Edit
                 topics</a>
-              <a target="_blank" href="https://digital.gov${item.url}" class="usa-button usa-button-outline" target="_blank">Live</a>
+              <a target="_blank" href="https://digital.gov${item.url}" class="usa-button bg-base-lightest usa-button-outline" target="_blank">Live</a>
             </div>
 
             </div>
