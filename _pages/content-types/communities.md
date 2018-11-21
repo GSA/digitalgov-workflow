@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: content-type
 title: All Communities
 permalink: /communities/
 description:

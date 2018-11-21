@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: content-type
 title: All Services
 permalink: /services/
 description:

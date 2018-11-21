@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: content-type
 title: All Resources
 permalink: /resources/
 description:
