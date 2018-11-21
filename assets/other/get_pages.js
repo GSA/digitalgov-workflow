@@ -24,7 +24,7 @@ jQuery(document).ready(function($) {
       // console.log(e);
       var title = e.title;
       var summary = e.summary;
-      var topics = e.topics;
+      var topics = format_topics(e.topics);
       var authors = e.authors;
       var date_modified = e.date_modified;
       var date_published = e.date_published;
@@ -44,7 +44,7 @@ jQuery(document).ready(function($) {
                 '</h3>',
                 '<p class="margin-0 font-sans-2xs">'+summary+'</p>',
                 '<p class="font-sans-3xs">',
-                  '<span class="bg-gray-5 padding-x-1 padding-y-1px radius-pill bg-primary-lighter">word</span>',
+                  topics,
                 '</p>',
               '</header>',
             '</div>',
@@ -53,8 +53,17 @@ jQuery(document).ready(function($) {
       ].join("\n");
       $(el).append(article);
     });
-
   }
 
+  function format_topics(data){
+    var topics = "";
+    $.each( data, function( i, e ) {
+      var topic = [
+        '<span class="bg-gray-5 padding-x-1 padding-y-1px radius-pill bg-primary-lighter">'+e+'</span> '
+      ].join("\n");
+      topics += topic;
+    });
+    return topics;
+  }
 
 });
