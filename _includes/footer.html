@@ -1,12 +1,10 @@
 {% include analytics.html %}
 
-<script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
 <script src="{{ site.baseurl }}/assets/js/uswds.min.js"></script>
-<script src="{{ site.baseurl }}/assets/other/get_pages.js"></script>
-{% if page.url == '/edit/' or page.url == '/edit-topics/' %}
+<script src="{{ site.baseurl }}/assets/other/custom.js"></script>
+{% if page.url == '/edit-topics/' %}
 <script src="{{ site.baseurl }}/assets/other/clipboard.min.js"></script>
 <script src="{{ site.baseurl }}/assets/other/edit.js"></script>
 <script src="{{ site.baseurl }}/assets/other/select2.min.js"></script>
@@ -14,3 +12,10 @@
 {% if page.url contains '/new/' %}
 <script src="{{ site.baseurl }}/assets/other/new.js"></script>
 {% endif %}
+
+<script>
+  current_page = "{{ page.url }}";
+  source_of_truth = "{{ site.source_of_truth }}";
+  base_url = "{{ site.baseurl }}";
+</script>
+<script src="{{ site.baseurl }}/assets/other/loader.js"></script>

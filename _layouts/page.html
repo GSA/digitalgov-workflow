@@ -16,3 +16,19 @@ layout: default
 {% if page.deck %}
 <div class="deck">{{ page.deck | escape }}</div>
 {% endif %}
+
+{% if page.api == 'resources' or page.api == 'services' or page.api == 'communities' or page.api == 'posts' or page.api == 'events' %}
+  {% include pages.html %}
+{% endif %}
+
+{% if page.api == 'promos' %}
+  {% include promos.html %}
+{% endif %}
+
+{% if page.api == 'topics' %}
+  {% include topics.html %}
+{% endif %}
+
+{% if page.git-label %}
+<div class="issues" data-tag="{{ page.git-label | escape }}"></div>
+{% endif %}

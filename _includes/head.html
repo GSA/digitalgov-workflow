@@ -13,33 +13,32 @@
   <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
 
   {% if page.title %}
-    <title>{{ page.title }}</title>
-    <meta property="og:title" content="{{ page.title | xml_escape }}" />
+  <title>{{ page.title }}</title>
+  <meta property="og:title" content="{{ page.title | xml_escape }}" />
   {% else %}
-    <title>{{ site.title }}</title>
-    <meta property="og:title" content="{{ site.title | xml_escape }}" />
+  <title>{{ site.title }}</title>
+  <meta property="og:title" content="{{ site.title | xml_escape }}" />
   {% endif %}
 
   {% if page.description %}
-    <meta name="description" content="{{ page.description | xml_escape }}">
-    <meta property="og:description" content="{{ page.description | xml_escape }}" />
+  <meta name="description" content="{{ page.description | xml_escape }}">
+  <meta property="og:description" content="{{ page.description | xml_escape }}" />
   {% else %}
-    <meta name="description" content="{{ site.description | xml_escape }}">
-    <meta property="og:description" content="{{ site.description | xml_escape }}" />
+  <meta name="description" content="{{ site.description | xml_escape }}">
+  <meta property="og:description" content="{{ site.description | xml_escape }}" />
   {% endif %}
 
   <!-- GitHub -->
   <script type="text/javascript">
-    github_org                   = "{{ site.github_org }}";
-    github_repo                  = "{{ site.github_repo }}";
-    filepath                     = "{{ page.path }}";
-    filepathURL                  = "https://github.com/{{ site.git_org }}/{{ site.git_repo }}/edit/master/{{ page.path }}";
-    commit_api                   = "https://api.github.com/repos/{{ site.github_org }}/{{ site.github_repo }}/commits?path=/{{ page.path }}";
-    issues_api                   = "https://api.github.com/repos/{{ site.github_org }}/{{ site.github_repo }}/issues?labels=bug&per_page=100";
-    workflow_org                 = "{{ site.workflow_org }}";
-    workflow_repo                = "{{ site.workflow_repo }}";
-    workflow_issues_api          = "https://api.github.com/repos/{{ site.workflow_org }}/{{ site.workflow_repo }}/issues";
-    apis                         = {{ site.api | jsonify }};
+    github_org = "{{ site.github_org }}";
+    github_repo = "{{ site.github_repo }}";
+    filepath = "{{ page.path }}";
+    filepathURL = "https://github.com/{{ site.git_org }}/{{ site.git_repo }}/edit/master/{{ page.path }}";
+    commit_api = "https://api.github.com/repos/{{ site.github_org }}/{{ site.github_repo }}/commits?path=/{{ page.path }}";
+    issues_api = "https://api.github.com/repos/{{ site.github_org }}/{{ site.github_repo }}/issues?labels=bug&per_page=100";
+    workflow_org = "{{ site.workflow_org }}";
+    workflow_repo = "{{ site.workflow_repo }}";
+    workflow_issues_api = "https://api.github.com/repos/{{ site.workflow_org }}/{{ site.workflow_repo }}/issues";
   </script>
 
 </head>
