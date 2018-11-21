@@ -90,7 +90,7 @@ jQuery(document).ready(function ($) {
 
   var date = new Date();
   $("#date-input").val(`${date.getFullYear()}-${date.getMonth() < 10 ? " " + date.getMonth() : date.getMonth()}-${date.getDate() < 10 ? " " + date.getDate() : date.getDate()}`);
-  $("#time-input").val(`${date.getHours()}:${date.getMinutes()}`);
+  $("#time-input").val(`${date.getHours()}:${date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()}`);
   update();
 
   $("input").keyup(update);
