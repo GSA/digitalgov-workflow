@@ -3,7 +3,7 @@
 
 navigation:
   - text: "News"
-    url: /posts/
+    url: /news/
   - text: "Events"
     url: /events/
   - text: "Resources"
