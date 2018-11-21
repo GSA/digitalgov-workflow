@@ -4,13 +4,8 @@ layout: default
 
 <header class="margin-bottom-3">
   <h1 class="margin-0 text-light">{{ page.title | escape }}</h1>
-  {% if page.deck %}
-  <div class="deck">{{ page.deck | escape }}</div>
-  {% endif %}
-  {% if page.url == '/posts/' %}
-  {% assign size = page.url | size | minus: 2 %}
-  <a href="{{ site.baseurl }}/new{{ page.url | slice: 0, size }}" class="usa-button margin-top-3">New</a>
-  {% endif %}
+
+  <a href="{{ site.baseurl }}/new{{ page.url | slice: 0, size }}" class="margin-top-1 padding-x-105 padding-y-05 bg-primary radius-md text-white text-no-underline display-inline-block">New</a>
 </header>
 
 <section class="article-list" data-api="{{ page.api }}">
