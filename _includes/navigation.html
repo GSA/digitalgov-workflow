@@ -1,13 +1,16 @@
-<nav role="navigation" class="padding-2 bg-white">
+<nav role="navigation" class="">
   <button class="usa-nav-close"><img src="/assets/img/close.svg" alt="close"></button>
   <ul class="add-list-reset">
-    {% for item in site.data.navigation.navigation %}
+    {% for item in site.data.edit-nav.navigation %}
       {% assign current = "" %}
       {% if page.url == item.url %}
         {% assign current = "current" %}
       {% endif %}
+      {% if forloop.last == false and forloop.first == false %}
+        {% assign border = "border-top border-base-light" %}
+      {% endif %}
       <li class="">
-        <a class="border-top border-base-light padding-y-1 font-sans-sm display-block text-no-underline text-black visited:text-black {{ current }}" href="{{ site.baseurl }}{{ item.url }}">
+        <a class="{{ border }} padding-y-1 font-sans-sm display-block text-no-underline text-black visited:text-black {{ current }}" href="{{ site.baseurl }}{{ item.url }}">
           <span>{{ item.text }}</span>
         </a>
         {% if item.sub_nav[0] %}

@@ -2,13 +2,10 @@
 # List links that should appear in navigation bar
 
 navigation:
-  - text: "Spotlight"
+  - text: "News"
     url: /posts/
   - text: "Events"
     url: /events/
-    sub_nav:
-    - text: "New Event"
-      url: /events/new/
   - text: "Resources"
     url: /resources/
   - text: "Services"
