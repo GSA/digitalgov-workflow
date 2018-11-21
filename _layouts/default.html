@@ -1,45 +1,46 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
-  {% include head.html %}
+{% include head.html %}
 
-  {% if page.background %}
-    {% assign background = page.background %}
-  {% else %}
-    {% assign background = "bg-base-lightest" %}
-  {% endif %}
+{% if page.background %}
+{% assign background = page.background %}
+{% else %}
+{% assign background = "bg-base-lightest" %}
+{% endif %}
 
-  <!-- Page Theme Settings -->
-  {% assign text_color = "text-black visited:text-black" %}
-  {% assign logo_file = "digit-75.png" %}
-  {% if page.theme == "dark" %}
-    {% assign text_color = "text-white visited:text-white" %}
-    {% assign logo_file = "digit-75-white.png" %}
-  {% endif %}
+<!-- Page Theme Settings -->
+{% assign text_color = "text-black visited:text-black" %}
+{% assign logo_file = "digit-75.png" %}
+{% if page.theme == "dark" %}
+{% assign text_color = "text-white visited:text-white" %}
+{% assign logo_file = "digit-75-white.png" %}
+{% endif %}
 
-  <body class="bg-primary-vivid">
+<body class="bg-primary-vivid">
 
-    <div class="paper {{ background }} {{ text_color }}">
-      <a class="usa-skipnav" href="#main-content">Skip to main content</a>
+  <div class="paper {{ background }} {{ text_color }}">
+    <a class="usa-skipnav" href="#main-content">Skip to main content</a>
 
-      {% include header.html %}
+    {% include header.html %}
 
-      <main id="main-content" class="padding-y-3">
-        <div class="grid-container grid-container-widescreen">
-          <div class="grid-row grid-gap-4">
-            <div class="grid-col-12 tablet:grid-col-2">
-              {% include docs-nav.html %}
-              {% include edit-nav.html %}
-            </div>
-            <div class="grid-col-12 tablet:grid-col-8 tablet:grid-offset-1">
-              {{ content }}
-            </div>
+    <main id="main-content" class="padding-y-3">
+      <div class="grid-container grid-container-widescreen">
+        <div class="grid-row grid-gap-4">
+          <div class="grid-col-12 tablet:grid-col-2">
+            {% include docs-nav.html %}
+            {% include edit-nav.html %}
           </div>
-
+          <div class="grid-col-12 tablet:grid-col-8 tablet:grid-offset-1">
+            {{ content }}
+          </div>
         </div>
-      </main>
 
-      {% include footer.html %}
-    </div> <!-- end paper -->
+      </div>
+    </main>
 
-  </body>
+    {% include footer.html %}
+  </div>
+
+</body>
+
 </html>
