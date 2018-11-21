@@ -4,7 +4,7 @@ title: Our Guiding Principles
 permalink: /principles/
 description:
 theme: dark
-background: bg-primary-dark
+background: bg-primary-darkest
 ---
 
 ## Elevate digital literacy and understanding
