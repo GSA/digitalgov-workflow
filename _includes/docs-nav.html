@@ -1,4 +1,4 @@
-<nav role="navigation" class="padding-y-1 padding-x-105">
+<nav role="navigation" class="padding-y-1">
   <button class="usa-nav-close"><img src="/assets/img/close.svg" alt="close"></button>
   <ul class="add-list-reset">
     {% for item in site.data.docs-nav.navigation %}
@@ -7,7 +7,7 @@
         {% assign current = "current" %}
       {% endif %}
       <li class="padding-y-05 ">
-        <a class="font-sans-xs text-bold text-no-underline {{ current }}" href="{{ site.baseurl }}{{ item.url }}">
+        <a class="{{ text_color }} font-sans-sm text-bold text-no-underline {{ current }} {{ text-color }}" href="{{ site.baseurl }}{{ item.url }}">
           <span>{{ item.text }}</span>
         </a>
       </li>

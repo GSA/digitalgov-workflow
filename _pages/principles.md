@@ -26,3 +26,7 @@ Open collaboration across government is critical to a secure, digital future. It
 ## Listen
 
 Everything we do is informed by what our audience needs. We apply multiple methods for measuring, listening, and understanding to our products.
+
+## Work in the open
+
+We do all of our work in the open and strive to organize our work in ways that allow others to participate.
