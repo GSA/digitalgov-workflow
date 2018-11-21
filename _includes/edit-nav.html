@@ -1,37 +1,38 @@
 <nav role="navigation" class="padding-y-1 padding-x-105 border-ink border-width-1px
 radius-md border-solid">
-  <button class="usa-nav-close"><img src="/assets/img/close.svg" alt="close"></button>
   <ul class="add-list-reset">
     {% for item in site.data.edit-nav.navigation %}
-      {% assign current = "" %}
-      {% if page.url == item.url %}
-        {% assign current = "current" %}
-      {% endif %}
-      {% if forloop.last == false and forloop.first == false %}
-        {% assign border = "border-top border-base-light" %}
-      {% endif %}
-      <li class="">
-        <a class="{{ border }} padding-y-1 font-sans-sm display-block text-no-underline text-black visited:text-black {{ current }}" href="{{ site.baseurl }}{{ item.url }}">
-          <span>{{ item.text }}</span>
-        </a>
-        {% if item.sub_nav[0] %}
-        <ul class="add-list-reset padding-left-2">
+    {% assign current = "" %}
+    {% if page.url == item.url %}
+    {% assign current = "current" %}
+    {% endif %}
+    {% if forloop.last == false and forloop.first == false %}
+    {% assign border = "border-top border-base-light" %}
+    {% endif %}
+    <li class="">
+      <a class="{{ border }} padding-y-1 font-sans-sm display-block text-no-underline text-black visited:text-black {{ current }}"
+        href="{{ site.baseurl }}{{ item.url }}">
+        <span>{{ item.text }}</span>
+      </a>
+      {% if item.sub_nav[0] %}
+      <ul class="add-list-reset padding-left-2">
         {% endif %}
         {% for sub_item in item.sub_nav %}
-          {% assign subcurrent = '' %}
-          {% if page.url == sub_item.url %}
-            {% assign subcurrent = 'current' %}
-          {% endif %}
+        {% assign subcurrent = '' %}
+        {% if page.url == sub_item.url %}
+        {% assign subcurrent = 'current' %}
+        {% endif %}
 
-          <li class="">
-            <a class="border-top border-base-light font-sans-2xs padding-y-1 display-block text-no-underline text-black visited:text-black {{ subcurrent }}" href="{{ site.baseurl }}{{ sub_item.url }}">{{ sub_item.text }}</a>
-          </li>
+        <li class="">
+          <a class="border-top border-base-light font-sans-2xs padding-y-1 display-block text-no-underline text-black visited:text-black {{ subcurrent }}"
+            href="{{ site.baseurl }}{{ sub_item.url }}">{{ sub_item.text }}</a>
+        </li>
 
         {% endfor %}
         {% if item.sub_nav[0] %}
-          </ul>
-        {% endif %}
-      </li>
+      </ul>
+      {% endif %}
+    </li>
     {% endfor %}
   </ul>
 </nav>

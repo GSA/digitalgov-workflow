@@ -17,8 +17,7 @@
 {% endif %}
 
 <body class="bg-primary-vivid">
-
-  <div class="paper {{ background }} {{ text_color }}">
+  <div class="{{ background }} {{ text_color }}">
     <a class="usa-skipnav" href="#main-content">Skip to main content</a>
 
     {% include header.html %}
@@ -26,11 +25,11 @@
     <main id="main-content" class="padding-y-3">
       <div class="grid-container grid-container-widescreen">
         <div class="grid-row grid-gap-4">
-          <div class="grid-col-12 tablet:grid-col-2">
+          <div class="grid-col-12 tablet:grid-col-3">
             {% include docs-nav.html %}
             {% include edit-nav.html %}
           </div>
-          <div class="grid-col-12 tablet:grid-col-8 tablet:grid-offset-1">
+          <div class="grid-col-12 tablet:grid-col-9">
             {{ content }}
           </div>
         </div>
