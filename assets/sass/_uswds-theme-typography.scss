@@ -302,9 +302,9 @@ $theme-small-font-size:            '2xs';
 $theme-title-font-size:            '3xl';
 
 // Text and prose
-$theme-text-measure-narrow:        1;
-$theme-text-measure:               3;
-$theme-text-measure-wide:          4;
+$theme-text-measure-narrow:        'none';
+$theme-text-measure:               'none';
+$theme-text-measure-wide:          'none';
 $theme-prose-font-family:          'body';
 
 // Lead text
