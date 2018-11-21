@@ -39,18 +39,11 @@ markdown: kramdown
 sass:
   sass_dir: _sass
 
-jekyll_get:
-  - data: posts
-    json: 'https://demo.digital.gov/posts/index.json'
-  - data: events
-    json: 'https://demo.digital.gov/events/index.json'
-  - data: services
-    json: 'https://demo.digital.gov/services/index.json'
-  - data: communities
-    json: 'https://demo.digital.gov/communities/index.json'
-  - data: resources
-    json: 'https://demo.digital.gov/resources/index.json'
-  - data: topics
-    json: 'https://demo.digital.gov/topics/v1/json/'
-  - data: promos
-    json: 'https://demo.digital.gov/promos/v1/json/'
+api:
+  posts:        'https://demo.digital.gov/posts/index.json'
+  events:       'https://demo.digital.gov/events/index.json'
+  services:     'https://demo.digital.gov/services/index.json'
+  communities:  'https://demo.digital.gov/communities/index.json'
+  resources:    'https://demo.digital.gov/resources/index.json'
+  topics:       'https://demo.digital.gov/topics/v1/json/'
+  promos:       'https://demo.digital.gov/promos/v1/json/'

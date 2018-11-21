@@ -2,17 +2,17 @@
 # List links that should appear in navigation bar
 
 navigation:
-  - text: "All News"
+  - text: "News"
     url: /posts/
-  - text: "All Events"
+  - text: "Events"
     url: /events/
-  - text: "All Resources"
+  - text: "Resources"
     url: /resources/
-  - text: "All Services"
+  - text: "Services"
     url: /services/
-  - text: "All Communities"
+  - text: "Communities"
     url: /communities/
-  - text: "All Topics"
+  - text: "Topics"
     url: /topics/
-  - text: "All Promos"
+  - text: "Promos"
     url: /promos/
