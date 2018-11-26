@@ -1,7 +1,7 @@
 ---
 layout: content-type
 title: All Spotlight / News
-permalink: /news/
+permalink: /edit/news/
 description:
 api: news
 

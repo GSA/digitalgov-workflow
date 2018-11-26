@@ -1,7 +1,7 @@
 ---
 layout: content-type
 title: Promos
-permalink: /promos/
+permalink: /edit/promos/
 description:
 api: promos
 

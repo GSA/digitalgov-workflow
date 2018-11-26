@@ -7,6 +7,7 @@
   {% if page.url == '/edit/' or page.url == '/edit-topics/' %}
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/other/select2.min.css?{{ site.time | date: "%Y%m%j%H%M%S" }}">
   {% endif %}
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
   <link rel="shortcut icon" type="image/ico" href="{{ site.baseurl }}/assets/other/bot.png" />
 
@@ -30,6 +31,7 @@
 
   <!-- GitHub -->
   <script type="text/javascript">
+    source_of_truth              = "{{ site.source_of_truth }}";
     github_org                   = "{{ site.github_org }}";
     github_repo                  = "{{ site.github_repo }}";
     filepath                     = "{{ page.path }}";

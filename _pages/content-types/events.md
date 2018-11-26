@@ -1,7 +1,7 @@
 ---
 layout: content-type
 title: Events
-permalink: /events/
+permalink: /edit/events/
 description:
 api: events
 

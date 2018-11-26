@@ -6,6 +6,9 @@
   crossorigin="anonymous"></script>
 <script src="{{ site.baseurl }}/assets/js/uswds.min.js"></script>
 <script src="{{ site.baseurl }}/assets/other/get_pages.js"></script>
+{% if page.url == '/content-types/' %}
+<script src="{{ site.baseurl }}/assets/other/get_content-types.js"></script>
+{% endif %}
 {% if page.url == '/edit/' or page.url == '/edit-topics/' %}
 <script src="{{ site.baseurl }}/assets/other/clipboard.min.js"></script>
 <script src="{{ site.baseurl }}/assets/other/edit.js"></script>

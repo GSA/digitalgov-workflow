@@ -1,7 +1,7 @@
 ---
 layout: content-type
 title: All Services
-permalink: /services/
+permalink: /edit/services/
 description:
 api: services
 

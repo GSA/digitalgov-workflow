@@ -2,7 +2,7 @@ jQuery(document).ready(function($) {
 
 
   // Look for the '.article-list' element on the page
-  var el = $('.article-list')
+  var el = $('.card-list')
   // Get the data-api ID
 	var api_id = $(el).data('api');
 
@@ -13,6 +13,8 @@ jQuery(document).ready(function($) {
       api_path = obj.api;
     }
   });
+
+
 
   // Now that we have the api_path,...
   if (api_path) {
@@ -50,11 +52,11 @@ jQuery(document).ready(function($) {
       var url = e.url;
       var article = [
         '<article class="margin-bottom-105">',
-          '<div class="grid-row grid-gap-2">',
+          '<div class="grid-row grid-gap-1">',
             '<div class="grid-col-12 tablet:grid-col-10">',
               '<header class="bg-white padding-2 radius-sm">',
                 '<h3 class="margin-0 margin-bottom-1">',
-                  '<a class="text-no-underline text-ink visited:text-ink" href="https://demo.digital.gov'+url+'" title="'+title+'">'+title+'</a>',
+                  '<a class="text-no-underline text-ink visited:text-ink" href="'+source_of_truth+ url+'" title="'+title+'">'+title+'</a>',
                 '</h3>',
                 '<p class="margin-0 font-sans-2xs">'+summary+'</p>',
                 '<p class="font-sans-3xs">',
@@ -63,8 +65,9 @@ jQuery(document).ready(function($) {
               '</header>',
             '</div>',
             '<div class="grid-col-12 tablet:grid-col-2">',
-              '<a class="margin-bottom-1 bg-primary hover:bg-primary-dark text-center text-no-underline padding-y-05 padding-x-1 display-block text-white visited:text-white hover:text-white radius-sm" href="'+editpathURL+'">edit page</a>',
-              '<a class="margin-bottom-1 text-center text-no-underline padding-y-05 padding-x-1 display-block text-primary hover:text-primary-dark radius-sm border-primary border-width-2px border-solid" href="/edit-topics/?page=https://demo.digital.gov'+url+'">edit topics</a>',
+              '<a class="margin-bottom-1 bg-primary hover:bg-primary-dark text-center text-no-underline padding-y-05 padding-x-05 display-block text-white font-sans-2xs visited:text-white hover:text-white radius-sm" href="'+editpathURL+'">edit page</a>',
+              '<a class="margin-bottom-1 text-center text-no-underline padding-y-05 padding-x-05 display-block text-primary hover:text-primary-dark bg-white font-sans-2xs radius-sm border-primary border-width-1px border-solid" href="/edit-topics/?page='+source_of_truth+url+'">edit promo</a>',
+              '<a class="margin-bottom-1 text-center text-no-underline padding-y-05 padding-x-05 display-block text-primary hover:text-primary-dark bg-white font-sans-2xs radius-sm border-primary border-width-1px border-solid" href="/edit-topics/?page='+source_of_truth+url+'">edit topics</a>',
             '</div>',
           '</div>',
         '</article>'
@@ -83,5 +86,6 @@ jQuery(document).ready(function($) {
     });
     return topics;
   }
+
 
 });
