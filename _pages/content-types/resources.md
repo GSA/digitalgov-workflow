@@ -2,6 +2,7 @@
 layout: content-type
 title: Resources
 permalink: /edit/resources/
+source_path: /resources/
 description:
 api: resources
 

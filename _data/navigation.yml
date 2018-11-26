@@ -10,13 +10,13 @@ actions:
 
 content_types:
   - text: "News"
-    url: /news/
+    url: /edit/news/
   - text: "Events"
-    url: /events/
+    url: /edit/events/
   - text: "Resources"
-    url: /resources/
+    url: /edit/resources/
   - text: "Services"
-    url: /services/
+    url: /edit/services/
   - text: "Communities"
     url: /communities/
   - text: "Topics"

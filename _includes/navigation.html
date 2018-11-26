@@ -19,17 +19,13 @@
   <h4 class="margin-0 margin-bottom-1 text-light font-sans-3xs text-uppercase">Content Types</h4>
   <button class="usa-nav-close"><img src="/assets/img/close.svg" alt="close"></button>
   <ul class="add-list-reset">
-    {% for item in site.data.navigation.content_types %}
-      {% assign current = "" %}
-      {% if page.url == item.url %}
-        {% assign current = "current" %}
-      {% endif %}
+    {% for item in site.content_types %}
       {% if forloop.last == false and forloop.first == false %}
         {% assign border = "border-top border-base-light" %}
       {% endif %}
       <li>
         <a class="{{ border }} padding-y-1 font-sans-2xs display-block text-no-underline text-black visited:text-black {{ current }}" href="{{ site.baseurl }}{{ item.url }}">
-          <span>{{ item.text }}</span>
+          <span>{{ item.title }}</span>
         </a>
         {% if item.sub_nav[0] %}
         <ul class="add-list-reset padding-left-2">
@@ -41,7 +37,7 @@
           {% endif %}
 
           <li class="">
-            <a class="border-top border-base-light font-sans-2xs padding-y-1 display-block text-no-underline text-black visited:text-black {{ subcurrent }}" href="{{ site.baseurl }}{{ sub_item.url }}">{{ sub_item.text }}</a>
+            <a class="border-top border-base-light font-sans-2xs padding-y-1 display-block text-no-underline text-black visited:text-black {{ subcurrent }}" href="{{ site.baseurl }}{{ sub_item.url }}">{{ sub_item.title }}</a>
           </li>
 
         {% endfor %}

@@ -2,75 +2,47 @@
 layout: default
 ---
 
-<h1 class="post-title">{{ page.title | escape }}</h1>
 
-<!-- Article Card -->
-{% include article-card.html %}
+<main id="main-content" class="bg-base-lightest padding-y-3">
+  <div class="grid-container grid-container-desktop-lg ">
+    <div class="grid-row grid-gap-4">
 
-<!-- Editor -->
-<div class="editor margin-top-2">
+      <div class="grid-col-12 tablet:grid-col-5">
+        <h5 class="source margin-0 margin-bottom-1 font-sans-xs text-medium"><a class="padding-y-05 padding-x-1 text-no-underline radius-sm border-primary border-width-1px border-solid display-inline-block" href="/content-types/"><i class="fas fa-arrow-left"></i> Back <span></span></a></h5>
+        <h1 class="margin-0 font-sans-3xl text-thin">{{ page.title | escape }}</h1>
 
-  <section class="topics_editor">
-    <p>1. Review the <strong><span class="topics_count">X</span> topics</strong> applied to this page. Feel free to add/remove any topics from this list.</p>
+      </div>
 
-    <!-- Topics Editor -->
-    <label for="topic_select" class="topic_select_label">
-      <strong>Suggest new topics</strong>
-      <br>
-      <select id="topic_select" multiple="multiple" class="usa-select">
-        {% assign topics = site.data.topics.items | group_by:"weight" %}
+      <div class="grid-col-12 tablet:grid-col-7">
+        <article class="margin-bottom-3 padding-3 card bg-white">
+          <h3 class="margin-0 title"></h3>
+          <p class="margin-0 summary"></p>
+        </article>
 
-        <!-- We are grouping topics by weight.
-        But in order to get "weight 3" to appear first, then "weight 2", then "weight 1", we have to run three separate loops, one for each weight. -->
+        <section>
 
-        <!-- Weight 3 -->
-        {% for group in topics %}
-          {% if group.name == "3" %}
-          <optgroup label="Weight 3">
-            {% for item in group.items %}
-              <option value="{{ item.slug }}" title="{{ item.display_name }}">{{ item.display_name }}</option>
-            {% endfor %}
-          </optgroup>
-          {% endif %}
-        {% endfor %}
+          <h2 class="text-light">1. Review the <strong><span class="topics_count">X</span> topics</strong> applied to this page. Feel free to add/remove any topics from this list.</h2>
 
-        <!-- Weight 2 -->
-        {% for group in topics %}
-          {% if group.name == "2" %}
-          <optgroup label="Weight 2">
-            {% for item in group.items %}
-              <option value="{{ item.slug }}" title="{{ item.display_name }}">{{ item.display_name }}</option>
-            {% endfor %}
-          </optgroup>
-          {% endif %}
-        {% endfor %}
+          <form class="">
+            <label for="topic_select" class="topic_select_label">
+              <strong>Suggest topics</strong>
+              <br>
+              <select id="topic_select" multiple="multiple" class="usa-select">
+              </select>
+            </label>
+          </form>
 
-        <!-- Weight 1 -->
-        {% for group in topics %}
-          {% if group.name == "1" %}
-          <optgroup label="Weight 1">
-            {% for item in group.items %}
-              <option value="{{ item.slug }}" title="{{ item.display_name }}">{{ item.display_name }}</option>
-            {% endfor %}
-          </optgroup>
-          {% endif %}
-        {% endfor %}
+          <h2 class="text-light">2. Save the revised topics to the file GitHub.</h2>
 
-      </select>
-    </label>
+          <!-- Copy Front Matter -->
+          <pre id="topics_front_matter" class="bg-white radius-sm padding-105"></pre>
 
-  </section>
+          <p><a href="#" class="btn-copy padding-x-1 padding-y-05 text-no-underline radius-sm border-primary border-width-1px border-solid display-inline-block" data-clipboard-target="#topics_front_matter">Copy</a> the text above.</p>
+          <p><a target="_blank" href="#" class="btn-edit padding-x-1 padding-y-05 text-no-underline text-white visited:text-white radius-sm bg-primary display-inline-block">Edit</a> the page in GitHub.</p>
 
+        </section>
 
-  <section class="margin-top-2">
-    <p>2. Save the revised topics to the file GitHub.</p>
-
-    <!-- Copy Front Matter -->
-    <pre id="topics_front_matter"></pre>
-
-    <p><a href="#" class="usa-button" data-clipboard-target="#topics_front_matter">Copy</a> the text above.</p>
-    <p><a target="_blank" href="#" class="usa-button">Edit</a> the page in GitHub.</p>
-
-  </section>
-
-</div>
+      </div>
+    </div>
+  </div>
+</main>
