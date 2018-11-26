@@ -39,7 +39,7 @@
     workflow_org                 = "{{ site.workflow_org }}";
     workflow_repo                = "{{ site.workflow_repo }}";
     workflow_issues_api          = "https://api.github.com/repos/{{ site.workflow_org }}/{{ site.workflow_repo }}/issues";
-    apis                         = {{ site.api | jsonify }};
+    content_types                = {{ site.content_types | jsonify }};
   </script>
 
 </head>

@@ -2,17 +2,33 @@
 layout: default
 ---
 
-<article>
+<main id="main-content" class="padding-y-3">
+  <div class="grid-container grid-container-desktop-lg">
+    <div class="grid-row grid-gap-6">
 
-  <header class="margin-bottom-3">
-    <h1 class="margin-0 text-heavy font-sans-3xl">{{ page.title | escape }}</h1>
-    {% if page.deck %}
-    <div class="deck">{{ page.deck | escape }}</div>
-    {% endif %}
-  </header>
+      <div class="grid-col-12 tablet:grid-col-3">
+        {% include navigation.html %}
+      </div>
 
-  <section>
-    {{ content }}
-  </section>
-  
-</article>
+      <div class="grid-col-12 tablet:grid-col-8">
+        <article>
+
+          <header class="margin-bottom-3">
+            <h1 class="margin-0 margin-bottom-2 text-light font-sans-2xl">{{ page.title | escape }}</h1>
+            {% if page.deck %}
+            <div class="text-light font-sans-lg">{{ page.deck | escape }}</div>
+            {% endif %}
+          </header>
+
+          <section class="font-sans-md">
+            {{ content }}
+          </section>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </div>
+</main>

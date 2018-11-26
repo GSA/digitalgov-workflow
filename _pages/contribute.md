@@ -1,6 +1,7 @@
 ---
 layout: doc
 title: Contribute
+deck: "Become a contributor"
 permalink: /contribute/
 description:
 ---

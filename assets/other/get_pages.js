@@ -1,25 +1,39 @@
 jQuery(document).ready(function($) {
 
 
-  $('*[data-api]').each(function(){
-		var el = $(this);
-		var id = $(el).data('api');
-    var api_path = apis[id];
+  // Look for the '.article-list' element on the page
+  var el = $('.article-list')
+  // Get the data-api ID
+	var api_id = $(el).data('api');
+
+  // Look through content_types JSON and find the object that has the ID that has the same api_id
+  // NOTE: The content_types object is set in the <head> of each page
+  jQuery.grep(content_types, function(obj) {
+    if(obj.id === api_id){
+      api_path = obj.api;
+    }
+  });
+
+  // Now that we have the api_path,...
+  if (api_path) {
+    // Let's get the API + data
     var get_pages = (function() {
       $.ajax({
     	  url: api_path,
     	 	dataType: 'json',
     	}).done(function(data) {
         // Wait until all of the API data is retrieved
-        console.log("this is the data");
-        console.log(data);
-        display_article(data, el);
+        // Display the article/page data
+        display_card(data, el);
       });
     })();
-	});
+  } else {
+    console.log('No API path is set for this page.');
+  }
 
 
-  function display_article(data, el){
+
+  function display_card(data, el){
     $.each( data.items, function( i, e ) {
       // console.log(e);
       var title = e.title;
@@ -36,17 +50,21 @@ jQuery(document).ready(function($) {
       var url = e.url;
       var article = [
         '<article class="margin-bottom-105">',
-          '<div class="grid-row grid-gap-4">',
-            '<div class="grid-col-12 tablet:grid-col-8">',
+          '<div class="grid-row grid-gap-2">',
+            '<div class="grid-col-12 tablet:grid-col-10">',
               '<header class="bg-white padding-2 radius-sm">',
                 '<h3 class="margin-0 margin-bottom-1">',
-                  '<a class="text-no-underline" href="'+url+'" title="'+title+'">'+title+'</a>',
+                  '<a class="text-no-underline text-ink visited:text-ink" href="https://demo.digital.gov'+url+'" title="'+title+'">'+title+'</a>',
                 '</h3>',
                 '<p class="margin-0 font-sans-2xs">'+summary+'</p>',
                 '<p class="font-sans-3xs">',
                   topics,
                 '</p>',
               '</header>',
+            '</div>',
+            '<div class="grid-col-12 tablet:grid-col-2">',
+              '<a class="margin-bottom-1 bg-primary hover:bg-primary-dark text-center text-no-underline padding-y-05 padding-x-1 display-block text-white visited:text-white hover:text-white radius-sm" href="'+editpathURL+'">edit page</a>',
+              '<a class="margin-bottom-1 text-center text-no-underline padding-y-05 padding-x-1 display-block text-primary hover:text-primary-dark radius-sm border-primary border-width-2px border-solid" href="/edit-topics/?page=https://demo.digital.gov'+url+'">edit topics</a>',
             '</div>',
           '</div>',
         '</article>'
@@ -59,7 +77,7 @@ jQuery(document).ready(function($) {
     var topics = "";
     $.each( data, function( i, e ) {
       var topic = [
-        '<span class="bg-gray-5 padding-x-1 padding-y-1px radius-pill bg-primary-lighter">'+e+'</span> '
+        '<span class="bg-gray-5 margin-bottom-05 padding-x-1 display-inline-block line-height-sans-1 padding-y-05 radius-md bg-secondary-lighter">'+e+'</span> '
       ].join("\n");
       topics += topic;
     });

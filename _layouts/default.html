@@ -5,7 +5,7 @@
 {% if page.background %}
 {% assign background = page.background %}
 {% else %}
-{% assign background = "bg-base-lightest" %}
+{% assign background = "bg-white" %}
 {% endif %}
 
 <!-- Page Theme Settings -->
@@ -23,19 +23,7 @@
 
     {% include header.html %}
 
-    <main id="main-content" class="padding-y-3">
-      <div class="grid-container grid-container-widescreen">
-        <div class="grid-row grid-gap-4">
-          <div class="grid-col-12 tablet:grid-col-2">
-            {% include navigation.html %}
-          </div>
-          <div class="grid-col-12 tablet:grid-col-8">
-            {{ content }}
-          </div>
-        </div>
-
-      </div>
-    </main>
+    {{ content }}
 
     {% include footer.html %}
   </div>

@@ -2,31 +2,65 @@
 layout: default
 ---
 
-<header class="margin-bottom-3">
-  <h1 class="margin-0 text-light">{{ page.title | escape }}</h1>
 
-  <a href="{{ site.baseurl }}/new{{ page.url | slice: 0, size }}" class="margin-top-1 padding-x-105 padding-y-05 bg-primary radius-md text-white text-no-underline display-inline-block">New</a>
-</header>
+<main id="main-content" class="padding-y-3">
+  <div class="grid-container grid-container-desktop-lg">
+    <div class="grid-row grid-gap-4">
+      <div class="grid-col-12">
+        <header class="margin-bottom-3">
+          {% if page.api %}<h5 class="margin-0 margin-bottom-1 font-sans-xs text-medium"><a href="#">Content Types</a></h5>{% endif %}
+          <h1 class="margin-0 text-light">{{ page.title | escape }}</h1>
 
-<section class="article-list" data-api="{{ page.api }}">
-  <article class="margin-bottom-105">
-    <div class="grid-row grid-gap-2">
-      <div class="grid-col-12 tablet:grid-col-10">
-        <header class="bg-white padding-2 radius-sm">
-          <h3 class="margin-0 margin-bottom-1">
-            <a class="text-no-underline" href="/event/2018/09/27/a-conversation-with-evan-papp/" title="A Conversation with Evan Papp of Power Africa">A Conversation with Evan Papp of Power Africa</a>
-          </h3>
-          <p class="margin-0 font-sans-2xs">Evan Papp will talk about a video and story he produced while traveling internationally in Africa.</p>
-          <p class="font-sans-3xs">
-            <span class="bg-gray-5 padding-x-1 padding-y-1px radius-pill bg-primary-lighter">Audio/Video</span> <span class="bg-gray-5 padding-x-1 padding-y-1px radius-pill bg-primary-lighter">Video</span>
-          </p>
+          {% if page.api %}
+          <a href="{{ site.baseurl }}/new{{ page.url | slice: 0, size }}" class="margin-top-1 padding-x-105 padding-y-05 bg-primary radius-md text-white text-no-underline display-inline-block">New</a>
+          {% endif %}
         </header>
       </div>
-      <div class="grid-col-12 tablet:grid-col-2">
-        <a class="margin-bottom-1 bg-primary hover:bg-primary-dark text-center text-no-underline padding-y-05 padding-x-1 display-block text-white hover:text-white radius-sm" href="#">edit page</a>
-        <a class="margin-bottom-1 text-center text-no-underline padding-y-05 padding-x-1 display-block text-primary hover:text-primary-dark radius-sm border-primary border-width-2px border-solid" href="#">edit topics</a>
-      </div>
     </div>
-  </article>
-  {{ content }}
-</section>
+  </div>
+
+  <div class="bg-base-lightest padding-y-3">
+    <div class="grid-container grid-container-desktop-lg ">
+      <div class="grid-row grid-gap-4">
+        <div class="grid-col-12">
+
+          {% if page.api %}
+          <section class="article-list" data-api="{{ page.api }}">
+            <article class="margin-bottom-105">
+              <div class="grid-row grid-gap-2">
+                <div class="grid-col-12 tablet:grid-col-10">
+                  <header class="bg-white padding-2 radius-sm">
+                    <h3 class="margin-0 margin-bottom-1">
+                      <a class="text-no-underline" href="/event/2018/09/27/a-conversation-with-evan-papp/" title="A Conversation with Evan Papp of Power Africa">A Conversation with Evan Papp of Power Africa</a>
+                    </h3>
+                    <p class="margin-0 font-sans-2xs">Evan Papp will talk about a video and story he produced while traveling internationally in Africa.</p>
+                    <p class="font-sans-3xs">
+                      <span class="bg-gray-5 padding-x-1 padding-y-1px radius-pill bg-primary-lighter">Audio/Video</span> <span class="bg-gray-5 padding-x-1 padding-y-1px radius-pill bg-primary-lighter">Video</span>
+                    </p>
+                  </header>
+                </div>
+                <div class="grid-col-12 tablet:grid-col-2">
+                  <a class="margin-bottom-1 bg-primary hover:bg-primary-dark text-center text-no-underline padding-y-05 padding-x-1 display-block text-white hover:text-white radius-sm" href="#">edit page</a>
+                  <a class="margin-bottom-1 text-center text-no-underline padding-y-05 padding-x-1 display-block text-primary hover:text-primary-dark radius-sm border-primary border-width-2px border-solid" href="#">edit topics</a>
+                </div>
+              </div>
+            </article>
+            {{ content }}
+          </section>
+          {% else %}
+          <div class="grid-row grid-gap-4">
+            <div class="grid-col-12 tablet:grid-col-4">
+              <section class="">
+                <h2>Resources</h2>
+              </section>
+            </div>
+          </div>
+          {% endif %}
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</main>

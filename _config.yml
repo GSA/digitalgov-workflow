@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Digital.gov Workflow
+title: Digital.gov
 new_url: https://workflow.digital.gov
 email: jeremy.zilar@gsa.gov
 description:
@@ -39,11 +39,32 @@ markdown: kramdown
 sass:
   sass_dir: _sass
 
-api:
-  posts:        'https://demo.digital.gov/posts/index.json'
-  events:       'https://demo.digital.gov/events/index.json'
-  services:     'https://demo.digital.gov/services/index.json'
-  communities:  'https://demo.digital.gov/communities/index.json'
-  resources:    'https://demo.digital.gov/resources/index.json'
-  topics:       'https://demo.digital.gov/topics/v1/json/'
-  promos:       'https://demo.digital.gov/promos/v1/json/'
+content_types:
+  - id: "news"
+    title: "News"
+    url: /edit/news/
+    api: 'https://demo.digital.gov/posts/index.json'
+  - id: "events"
+    title: "Events"
+    url: /edit/events/
+    api: 'https://demo.digital.gov/events/index.json'
+  - id: "resources"
+    title: "Resources"
+    url: /edit/resources/
+    api: 'https://demo.digital.gov/resources/index.json'
+  - id: "services"
+    title: "Services"
+    url: /edit/services/
+    api: 'https://demo.digital.gov/services/index.json'
+  - id: "communities"
+    title: "Communities"
+    url: /edit/communities/
+    api: 'https://demo.digital.gov/communities/index.json'
+  - id: "topics"
+    title: "Topics"
+    url: /edit/topics/
+    api: 'https://demo.digital.gov/topics/v1/json/'
+  - id: "promos"
+    title: "Promos"
+    url: /edit/promos/
+    api: 'https://demo.digital.gov/promos/v1/json/'
