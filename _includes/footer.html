@@ -6,20 +6,20 @@
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
 <script src="{{ site.baseurl }}/assets/js/uswds.min.js"></script>
-{% if page.api == 'resources' %}
-<script src="{{ site.baseurl }}/assets/other/get_pages.js"></script>
-{% endif %}
-{% if page.api == 'authors' %}
-<script src="{{ site.baseurl }}/assets/other/get_authors.js"></script>
-{% endif %}
+<script src="{{ site.baseurl }}/assets/other/select2.min.js"></script>
+<script src="{{ site.baseurl }}/assets/other/clipboard.min.js"></script>
+<script src="{{ site.baseurl }}/assets/other/get_page_data.js"></script>
 {% if page.url == '/content-types/' %}
 <script src="{{ site.baseurl }}/assets/other/get_content-types.js"></script>
 {% endif %}
-{% if page.url == '/edit-topics/' %}
+{% if page.url == '/edit/authors/' %}
+<script src="{{ site.baseurl }}/assets/other/get_authors.js"></script>
+{% elsif page.url == '/edit/topics/' or page.url == '/edit-topics/' %}
 <script src="{{ site.baseurl }}/assets/other/get_topics.js"></script>
-<script src="{{ site.baseurl }}/assets/other/select2.min.js"></script>
-<script src="{{ site.baseurl }}/assets/other/clipboard.min.js"></script>
+{% else %}
+<script src="{{ site.baseurl }}/assets/other/get_pages.js"></script>
 {% endif %}
+
 {% if page.url contains '/new/' %}
 <script src="{{ site.baseurl }}/assets/other/new.js"></script>
 {% endif %}

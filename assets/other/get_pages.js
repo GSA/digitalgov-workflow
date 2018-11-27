@@ -2,17 +2,21 @@ jQuery(document).ready(function($) {
 
 
   // Look for the '.article-list' element on the page
-  var el = $('.card-list')
-  // Get the data-api ID
-	var api_id = $(el).data('api');
+  var card_list = $('.card-list')
+  if (card_list) {
+    var el = card_list;
+    // Get the data-api ID
+  	var api_id = $(el).data('api');
 
-  // Look through content_types JSON and find the object that has the ID that has the same api_id
-  // NOTE: The content_types object is set in the <head> of each page
-  jQuery.grep(content_types, function(obj) {
-    if(obj.id === api_id){
-      api_path = obj.api;
-    }
-  });
+    // Look through content_types JSON and find the object that has the ID that has the same api_id
+    // NOTE: The content_types object is set in the <head> of each page
+    jQuery.grep(content_types, function(obj) {
+      if(obj.id === api_id){
+        api_path = obj.api;
+      }
+    });
+  }
+
 
 
 

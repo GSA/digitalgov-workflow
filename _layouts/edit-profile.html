@@ -1,0 +1,48 @@
+---
+layout: default
+---
+
+
+<main id="main-content" class="bg-base-lightest padding-y-3">
+  <div class="grid-container grid-container-desktop-lg ">
+    <div class="grid-row grid-gap-4">
+
+      <div class="grid-col-12 tablet:grid-col-5">
+        <h5 class="source margin-0 margin-bottom-1 font-sans-xs text-medium"><a class="padding-y-05 padding-x-1 text-no-underline radius-sm border-primary border-width-1px border-solid display-inline-block" href="/content-types/"><i class="fas fa-arrow-left"></i> Back <span></span></a></h5>
+        <h1 class="margin-0 font-sans-3xl text-thin">{{ page.title | escape }}</h1>
+
+      </div>
+
+      <div class="grid-col-12 tablet:grid-col-7">
+        <article class="margin-bottom-3 padding-3 card bg-white">
+          <h3 class="margin-0"></h3>
+          <p class="margin-0"></p>
+        </article>
+
+        <section>
+
+          <h2 class="text-light">1. Review the <strong><span class="topics_count">X</span> topics</strong> applied to this page. Feel free to add/remove any topics from this list.</h2>
+
+          <form class="">
+            <label for="topic_select" class="topic_select_label">
+              <strong>Suggest topics</strong>
+              <br>
+              <select id="topic_select" multiple="multiple" class="usa-select">
+              </select>
+            </label>
+          </form>
+
+          <h2 class="text-light">2. Save the revised topics to the file GitHub.</h2>
+
+          <!-- Copy Front Matter -->
+          <pre id="topics_front_matter" class="bg-white radius-sm padding-105"></pre>
+
+          <p><a href="#" class="btn-copy padding-x-1 padding-y-05 text-no-underline radius-sm border-primary border-width-1px border-solid display-inline-block" data-clipboard-target="#topics_front_matter">Copy</a> the text above.</p>
+          <p><a target="_blank" href="#" class="btn-edit padding-x-1 padding-y-05 text-no-underline text-white visited:text-white radius-sm bg-primary display-inline-block">Edit</a> the page in GitHub.</p>
+
+        </section>
+
+      </div>
+    </div>
+  </div>
+</main>

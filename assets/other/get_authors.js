@@ -83,7 +83,7 @@ jQuery(document).ready(function($) {
 						'</header>',
 					'</div>',
 					'<div class="grid-col-12 tablet:grid-col-2">',
-						'<a class="margin-bottom-1 bg-primary hover:bg-primary-dark text-center text-no-underline padding-y-05 padding-x-05 display-block text-white font-sans-2xs visited:text-white hover:text-white radius-sm" href="#">edit profile</a>',
+						'<a class="margin-bottom-1 bg-primary hover:bg-primary-dark text-center text-no-underline padding-y-05 padding-x-05 display-block text-white font-sans-2xs visited:text-white hover:text-white radius-sm" href="/edit-profile/?page='+source_url+'/authors/'+uid+'/&source='+api_id+'">edit profile</a>',
 					'</div>',
 				'</div>',
 			'</article>'
