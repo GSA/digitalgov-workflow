@@ -10,13 +10,7 @@ jQuery(document).ready(function($) {
     var url = e.url;
     var api = e.api;
     var article = [
-      '<div class="grid-row grid-gap-4">',
-        '<div class="grid-col-12 tablet:grid-col-4">',
-          '<section class="">',
-            '<h2><a href="'+url+'">'+title+'</a></h2>',
-          '</section>',
-        '</div>',
-      '</div>'
+      '<h2 class="margin-0 margin-bottom-2"><a class="text-light text-no-underline border-2px radius-md text-primary visited:text-primary display-inline-block padding-y-05 padding-x-2  border-primary" href="'+url+'">'+title+'</a></h2>'
     ].join("\n");
     $(el).append(article);
   });
