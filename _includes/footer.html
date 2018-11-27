@@ -7,14 +7,14 @@
   crossorigin="anonymous"></script>
 <script src="{{ site.baseurl }}/assets/js/uswds.min.js"></script>
 <script src="{{ site.baseurl }}/assets/other/get_page_data.js"></script>
+<script src="{{ site.baseurl }}/assets/other/get_card.js"></script>
 
 {% if page.url == '/edit-topics/' or page.url == '/edit-profile/' %}
 <script src="{{ site.baseurl }}/assets/other/select2.min.js"></script>
 <script src="{{ site.baseurl }}/assets/other/clipboard.min.js"></script>
-<script src="{{ site.baseurl }}/assets/other/get_card.js"></script>
 <script src="{{ site.baseurl }}/assets/other/get_topics_editor.js"></script>
-{% elsif page.url == '/edit/authors/' %}
-<script src="{{ site.baseurl }}/assets/other/get_authors.js"></script>
+{% elsif page.url == '/edit/people/' %}
+<script src="{{ site.baseurl }}/assets/other/get_people.js"></script>
 {% elsif page.url == '/edit/topics/'  %}
 <script src="{{ site.baseurl }}/assets/other/get_topics.js"></script>
 {% elsif page.url == '/content-types/'  %}

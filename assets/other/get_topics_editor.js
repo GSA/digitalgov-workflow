@@ -113,7 +113,11 @@ jQuery(document).ready(function($) {
 		add_weighted_topics(data, 2);
 		add_weighted_topics(data, 1);
 		add_weighted_topics(data, "");
-		get_page_data().done(get_card, insert_current_topics);
+		get_page_data().done(function(a,b,c) {
+			var card_data = get_card(a, b, c, "author");
+			$('.card').append(card_data);
+			insert_current_topics(a,b,c);
+		});
 	}
 
 
