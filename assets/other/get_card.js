@@ -1,13 +1,52 @@
 
 function get_card(data, type){
-	if (data.content == "author" || type == "author") {
+	// console.log(type);
+	if (type == "people") {
 		return display_author_card(data);
 	} else {
 		return display_page_card(data);
 	}
 }
 
-function display_page_card(data){
+function display_page_card(e){
+  var title = e.title;
+  var summary = e.summary;
+  var topics = format_topics(e.topics);
+  var authors = e.authors;
+  var date_modified = e.date_modified;
+  var date_published = e.date_published;
+  var editpathURL = e.editpathURL;
+  var filename = e.filename;
+  var filepath = e.filepath;
+  var filepathURL = e.filepathURL;
+  var branch = e.branch;
+  var url = e.url;
+  var source_url = encodeURI(source_of_truth);
+  var card = [
+    '<article class="margin-bottom-105">',
+      '<div class="grid-row grid-gap-1">',
+        '<div class="grid-col-12 tablet:grid-col-10">',
+          '<header class="bg-white padding-2 radius-sm">',
+            '<h3 class="margin-0 margin-bottom-1">',
+              '<a class="text-no-underline text-ink visited:text-ink" href="'+source_url+ url+'" title="'+title+'">'+title+'</a>',
+            '</h3>',
+            '<p class="margin-0 font-sans-2xs">'+summary+'</p>',
+            '<p class="font-sans-3xs">',
+              topics,
+            '</p>',
+          '</header>',
+        '</div>',
+        '<div class="grid-col-12 tablet:grid-col-2">',
+          '<a class="margin-bottom-1 bg-primary hover:bg-primary-dark text-center text-no-underline padding-y-05 padding-x-05 display-block text-white font-sans-2xs visited:text-white hover:text-white radius-sm" href="'+editpathURL+'">edit page</a>',
+          '<a class="margin-bottom-1 text-center text-no-underline padding-y-05 padding-x-05 display-block text-primary hover:text-primary-dark bg-white font-sans-2xs radius-sm border-primary border-width-1px border-solid" href="/edit-topics/?page='+source_url+url+'">edit topics</a>',
+        '</div>',
+      '</div>',
+    '</article>'
+  ].join("\n");
+	return card;
+}
+
+function display_card(data){
 	$.each( data.item, function( key, file ) {
 		$( "article.card .title" ).html( file['title'] );
 		$( "article.card .summary" ).html( file['summary'] );
@@ -19,7 +58,6 @@ function display_page_card(data){
 }
 
 function display_author_card(e){
-	console.log(e);
 	if (e.github) {
 		var author_data = author_updated(e);
 	} else {
@@ -89,8 +127,6 @@ function author_updated(e){
 }
 
 function author_needs_update(e){
-	console.log('old');
-	console.log(e);
 	var uid = e.uid;
 	var agency = e.agency;
 	var agency_full_name = e.agency_full_name;
@@ -120,6 +156,7 @@ function author_needs_update(e){
 	].join("\n");
 	return card;
 }
+
 
 function format_topics(data){
 	var topics = "";

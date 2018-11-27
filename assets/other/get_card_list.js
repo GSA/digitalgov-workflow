@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
 
-	// Look for the '.article-list' element on the page
+  // Look for the '.article-list' element on the page
   var location = $('.card-list')
   // Get the data-api ID
 	var api_id = $(location).data('api');
@@ -15,6 +15,7 @@ jQuery(document).ready(function($) {
   });
   // Now that we have the api_path,...
   if (api_path) {
+    console.log(api_path);
     // Let's get the API + data
     var get_pages = (function() {
       $.ajax({
@@ -22,18 +23,22 @@ jQuery(document).ready(function($) {
     	 	dataType: 'json',
     	}).done(function(data) {
         // Wait until all of the API data is retrieved
-        console.log(data);
-				display_cards(data, api_id, location);
+				display_card_list(data, api_id, location);
       });
     })();
   }
 
-	function display_cards(data, type, location){
-    $.each( data.items, function( i, obj ) {
-			$.each( obj, function( i, e ) {
-				$(location).append(get_card(e, type));
-			});
-    });
+	function display_card_list(data, type, location){
+    if (data.content == "authors") {
+      $.each( data.items, function( i, obj ) {
+  			$.each( obj, function( i, e ) {
+  				$(location).append(get_card(e, type));
+  			});
+      });
+    } else {
+      $.each( data.items, function( i, obj ) {
+        $(location).append(get_card(obj, 'page'));
+      });
+    }
   }
-
 });
