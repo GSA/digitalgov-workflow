@@ -1,30 +1,13 @@
 # Nav
 # List links that should appear in navigation bar
 
-actions:
-  - text: "Contribute to Digital.gov"
+nav:
+  - text: "Contribute"
     url: /contribute/
+  - text: "Edit our pages"
+    url: /content-types/
   - text: "Update Your Profile"
     url: /update-profile/
-
-
-content_types:
-  - text: "News"
-    url: /edit/news/
-  - text: "Events"
-    url: /edit/events/
-  - text: "Resources"
-    url: /edit/resources/
-  - text: "Services"
-    url: /edit/services/
-  - text: "Communities"
-    url: /communities/
-  - text: "Topics"
-    url: /topics/
-  - text: "Promos"
-    url: /promos/
-
-docs:
   - text: "Principles & Guidelines"
     url: /principles/
   - text: "Style Guide"

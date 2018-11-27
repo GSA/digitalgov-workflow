@@ -6,8 +6,11 @@
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
 <script src="{{ site.baseurl }}/assets/js/uswds.min.js"></script>
-{% if page.api %}
+{% if page.api == 'resources' %}
 <script src="{{ site.baseurl }}/assets/other/get_pages.js"></script>
+{% endif %}
+{% if page.api == 'authors' %}
+<script src="{{ site.baseurl }}/assets/other/get_authors.js"></script>
 {% endif %}
 {% if page.url == '/content-types/' %}
 <script src="{{ site.baseurl }}/assets/other/get_content-types.js"></script>

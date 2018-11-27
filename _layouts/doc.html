@@ -6,15 +6,16 @@ layout: default
   <div class="grid-container grid-container-desktop-lg">
     <div class="grid-row grid-gap-6">
 
-      <div class="grid-col-12 tablet:grid-col-3">
+      <div class="grid-col-12 tablet:grid-col-2">
         {% include navigation.html %}
+        {% include content_nav.html %}
       </div>
 
       <div class="grid-col-12 tablet:grid-col-8">
         <article>
 
           <header class="margin-bottom-3">
-            <h1 class="margin-0 margin-bottom-2 text-light font-sans-2xl">{{ page.title | escape }}</h1>
+            <h1 class="margin-0 margin-bottom-2 text-thin font-sans-2xl">{{ page.title | escape }}</h1>
             {% if page.deck %}
             <div class="text-light font-sans-lg">{{ page.deck | escape }}</div>
             {% endif %}

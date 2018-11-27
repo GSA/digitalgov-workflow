@@ -64,6 +64,10 @@ content_types:
     title: "Topics"
     url: /edit/topics/
     api: 'https://demo.digital.gov/topics/v1/json/'
+  - id: "authors"
+    title: "Authors"
+    url: /edit/authors/
+    api: 'https://demo.digital.gov/authors/v1/json/'
   - id: "promos"
     title: "Promos"
     url: /edit/promos/

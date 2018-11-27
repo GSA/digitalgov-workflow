@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Contribute
+title: "Contribute to Digital.gov"
 deck: "Become a contributor"
 permalink: /contribute/
 description:
