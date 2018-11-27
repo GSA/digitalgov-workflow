@@ -8,13 +8,12 @@
 <script src="{{ site.baseurl }}/assets/js/uswds.min.js"></script>
 <script src="{{ site.baseurl }}/assets/other/get_page_data.js"></script>
 
-{% if page.url == '/edit-topics/' %}
+{% if page.url == '/edit-topics/' or page.url == '/edit-profile/' %}
 <script src="{{ site.baseurl }}/assets/other/select2.min.js"></script>
 <script src="{{ site.baseurl }}/assets/other/clipboard.min.js"></script>
+<script src="{{ site.baseurl }}/assets/other/get_card.js"></script>
 <script src="{{ site.baseurl }}/assets/other/get_topics_editor.js"></script>
-{% endif %}
-
-{% if page.url == '/edit/authors/' %}
+{% elsif page.url == '/edit/authors/' %}
 <script src="{{ site.baseurl }}/assets/other/get_authors.js"></script>
 {% elsif page.url == '/edit/topics/'  %}
 <script src="{{ site.baseurl }}/assets/other/get_topics.js"></script>

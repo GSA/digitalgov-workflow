@@ -36,7 +36,6 @@ jQuery(document).ready(function($) {
 
 
 	function insert_current_topics(data){
-	  console.log(data);
 	  $.each( data.item, function( key, file ) {
 	    // Getting an array of the topics
 	    var topics_array = get_topics_array(file['topics']);
@@ -107,20 +106,6 @@ jQuery(document).ready(function($) {
 	  build_topics_front_matter(list);
 	});
 
-	
-
-	function insert_page_data(data){
-		$.each( data.item, function( key, file ) {
-	    $( "article.card .title" ).html( file['title'] );
-	    $( "article.card .summary" ).html( file['summary'] );
-	    $( "article.card .date_published" ).html( file['date_published'] );
-	    $( "article.card .authors" ).html( file['authors'] );
-	    $( "article.card .edit-btn" ).attr( 'href', file['editpathURL'] );
-	    $( ".btn-edit" ).attr( 'href', file['editpathURL'] + "?message=Updated%20topics" );
-	  });
-		insert_current_topics(data);
-	}
-
 
 
 	function add_options(data){
@@ -128,7 +113,7 @@ jQuery(document).ready(function($) {
 		add_weighted_topics(data, 2);
 		add_weighted_topics(data, 1);
 		add_weighted_topics(data, "");
-		get_page_data().done(insert_page_data);
+		get_page_data().done(get_card, insert_current_topics);
 	}
 
 
@@ -143,7 +128,6 @@ jQuery(document).ready(function($) {
 			}
 		});
 	}
-
 	get_taxonomy_data(api_path).done(add_options);
 
 
