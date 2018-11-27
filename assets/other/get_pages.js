@@ -71,7 +71,7 @@ jQuery(document).ready(function($) {
             '</div>',
             '<div class="grid-col-12 tablet:grid-col-2">',
               '<a class="margin-bottom-1 bg-primary hover:bg-primary-dark text-center text-no-underline padding-y-05 padding-x-05 display-block text-white font-sans-2xs visited:text-white hover:text-white radius-sm" href="'+editpathURL+'">edit page</a>',
-              '<a class="margin-bottom-1 text-center text-no-underline padding-y-05 padding-x-05 display-block text-primary hover:text-primary-dark bg-white font-sans-2xs radius-sm border-primary border-width-1px border-solid" href="/edit-topics/?page='+source_url+url+'&source='+api_id+'">edit promo</a>',
+              '<a class="margin-bottom-1 text-center text-no-underline padding-y-05 padding-x-05 display-block text-primary hover:text-primary-dark bg-white font-sans-2xs radius-sm border-primary border-width-1px border-solid" href="/edit-page/?page='+source_url+url+'&source='+api_id+'">edit page</a>',
               '<a class="margin-bottom-1 text-center text-no-underline padding-y-05 padding-x-05 display-block text-primary hover:text-primary-dark bg-white font-sans-2xs radius-sm border-primary border-width-1px border-solid" href="/edit-topics/?page='+source_url+url+'&source='+api_id+'">edit topics</a>',
             '</div>',
           '</div>',
