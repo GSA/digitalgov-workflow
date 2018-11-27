@@ -31,6 +31,9 @@ layout: default
         {% else %}
         <section class="content_types-list">
 
+          {% for item in site.content_types %}
+            <h2 class="margin-0 margin-bottom-2"><a class="text-light text-no-underline border-2px radius-md text-primary visited:text-primary display-inline-block padding-y-05 padding-x-2  border-primary" href="{{ site.baseurl }}{{ item.url }}" title="{{ item.title }}">{{ item.title }}</a></h2>
+          {% endfor %}
         </section>
         {% endif %}
 
