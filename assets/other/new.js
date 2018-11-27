@@ -57,6 +57,9 @@ jQuery(document).ready(function ($) {
     var filename = "";
     var post_matter = "";
     var url = "";
+    var commit_msg = "hi";
+    var commit_desc = "hi";
+    var branch = "master";
 
     var slug = $("#headline-input").val();
     slug = slug.replace(new RegExp(small_words, "gi"), '');
@@ -72,20 +75,18 @@ jQuery(document).ready(function ($) {
     post_matter += `slug: ${slug}\n`;
     post_matter += `date: ${dateInput[0]} ${$("#time-input").val()}:00 -0500\n`;
     post_matter += `title: '${encodeEntities($("#headline-input").val()).trim()}'\n`;
+    post_matter += `deck: '${encodeEntities($("#deck-input").val()).trim()}'\n`;
     post_matter += `summary: '${encodeEntities($("#summary-input").val()).trim()}'\n`;
     post_matter += `authors: ${cs2ds($("#authors-input").val())}\n`;
-    post_matter += `categories: ${cs2ds($("#categories-input").val())}\n`;
-    post_matter += `tag: ${cs2ds($("#tags-input").val())}\n`
-    post_matter += "featured_image:\n";
-    post_matter += `  uid: ${$("#image-uid-input").val()}\n`;
-    post_matter += `  alt: '${$("#image-alt-input").val()}'\n`;
+    post_matter += `topics: ${cs2ds($("#tags-input").val())}\n`
     post_matter += "---";
 
-    // url += "https://github.com/GSA/digitalgov.gov/new/master/content/posts/"
-    // url += file_yearmo(data['m_date']) + '/draft?filename=' + filename + '&value=' + body + '&message=' + commit_msg + '&description=' + commit_desc + '&target_branch=' + branch;
+    url += "https://github.com/GSA/digitalgov.gov/new/master/content/posts/";
+    url += file_yearmo(dateInput[0]) + '/draft?filename=' + filename + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + branch;
 
     $("#filename").html(filename);
     $("#post-matter").html(post_matter);
+    $("#newfile").attr('href', url);
   }
 
   var date = new Date();
@@ -95,4 +96,17 @@ jQuery(document).ready(function ($) {
 
   $("input").keyup(update);
   $("textarea").keyup(update);
+
+
+
+  // returns the year and month for use in the filepath on GitHub
+  // Returns: 2017/09
+  function file_yearmo(date) {
+    var dateObj = new Date(date);
+    var year = dateObj.getUTCFullYear();
+    var month = ("0" + (dateObj.getUTCMonth() + 1)).slice(-2); //months from 1-12
+    var yearmo = year + "/" + month;
+    return yearmo;
+  }
+
 });

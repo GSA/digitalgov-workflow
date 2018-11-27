@@ -1,7 +1,7 @@
 ---
 layout: new
 title: New Post
-permalink: /new/post/
+permalink: /new/news/
 description:
 
 ---
