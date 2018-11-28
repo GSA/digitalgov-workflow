@@ -23,16 +23,3 @@ function get_page_data() {
     dataType: 'json',
   });
 }
-
-function get_taxonomy_data(api_path){
-  if (api_path) {
-    // Let's get the API + data
-    return $.ajax({
-      url: api_path,
-      type: 'GET',
-      dataType: 'json',
-    });
-  } else {
-    console.log('The api_path for the taxonomy is not set');
-  }
-}

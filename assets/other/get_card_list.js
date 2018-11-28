@@ -40,7 +40,7 @@ jQuery(document).ready(function($) {
       });
     } else {
       $.each( data.items, function( i, obj ) {
-        $(location).append(get_card(obj, 'page'));
+        $(location).append(get_card(obj, data.content, data.type));
       });
     }
   }

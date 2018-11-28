@@ -22,17 +22,12 @@ jQuery(document).ready(function($) {
 	  }
 	});
 
-
-	function add_weighted_topics(topics, weight) {
-    var optgroup = '<optgroup class="weight-'+weight+'" label="Weight '+ weight +'"></optgroup>';
-    $('#topic_select').append(optgroup).trigger('change');
-    $.each( topics.items, function( i, e ) {
-      if (e.weight == weight) {
-        var options = new Option(e.display_name, e.slug, false, false);
-        $("#topic_select optgroup.weight-"+weight+"").append(options).trigger('change');
-      }
-    });
-  }
+	$("#topic_select").append(localStorage.topics_options).trigger('change');
+	get_page_data().done(function(a,b,c) {
+		var card_data = get_card(a, a.content, a.type);
+		$('.card').append(card_data);
+		insert_current_topics(a,b,c);
+	});
 
 
 	function insert_current_topics(data){
@@ -106,33 +101,18 @@ jQuery(document).ready(function($) {
 	  build_topics_front_matter(list);
 	});
 
+	// ====================================
+	// These are functions that modify the editing experience and tools
 
-
-	function add_options(data){
-		add_weighted_topics(data, 3);
-		add_weighted_topics(data, 2);
-		add_weighted_topics(data, 1);
-		add_weighted_topics(data, "");
-		get_page_data().done(function(a,b,c) {
-			var card_data = get_card(a, b, c, "author");
-			$('.card').append(card_data);
-			insert_current_topics(a,b,c);
-		});
-	}
-
-
-
-	var api_id = 'topics';
-	// Look through content_types and find the object that has the ID that has the same api_id
-	// NOTE: The content_types object is set in the <head> of each page
-	if (api_id) {
-		jQuery.grep(content_types, function(obj) {
-			if(obj.id === api_id){
-				api_path = obj.api;
-			}
-		});
-	}
-	get_taxonomy_data(api_path).done(add_options);
-
+	$(".btn-copy").click(function(e) {
+	  e.preventDefault();
+	});
+	var clipboard = new ClipboardJS('.btn-copy');
+	clipboard.on('success', function(e) {
+	   console.log(e);
+	});
+	clipboard.on('error', function(e) {
+	   console.log(e);
+	});
 
 });

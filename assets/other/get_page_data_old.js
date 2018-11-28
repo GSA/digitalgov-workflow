@@ -138,18 +138,3 @@ $('#topic_select').on("select2:select select2:unselect", function(e) {
   // re-build the front_matter list
   build_topics_front_matter(list);
 });
-
-
-// ====================================
-// These are functions that modify the editing experience and tools
-
-$(".btn-copy").click(function(e) {
-  e.preventDefault();
-});
-var clipboard = new ClipboardJS('.btn-copy');
-clipboard.on('success', function(e) {
-    console.log(e);
-});
-clipboard.on('error', function(e) {
-    console.log(e);
-});

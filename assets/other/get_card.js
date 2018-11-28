@@ -1,15 +1,21 @@
 
-function get_card(data, type){
-	// console.log(type);
-	if (type == "people") {
-		return display_author_card(data);
-	} else {
+function get_card(data, content, type){
+	console.log(content);
+	console.log(type);
+	if (type == "list") {
 		return display_page_card(data);
+	}
+	if (type == "single") {
+		return display_page_card(data.item[0]);
+	}
+	if (content == "people") {
+		return display_author_card(data);
 	}
 }
 
 function display_page_card(e){
   var title = e.title;
+	console.log(title);
   var summary = e.summary;
   var topics = format_topics(e.topics);
   var authors = e.authors;
@@ -43,6 +49,7 @@ function display_page_card(e){
       '</div>',
     '</article>'
   ].join("\n");
+	$( ".btn-edit" ).attr( 'href', editpathURL + "?message=Updated%20topics" );
 	return card;
 }
 
