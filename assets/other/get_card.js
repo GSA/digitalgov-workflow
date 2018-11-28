@@ -2,20 +2,22 @@
 function get_card(data, content, type){
 	console.log(content);
 	console.log(type);
-	if (type == "list") {
+	if (type == "list" && content == "events") {
+		return display_event_card(data);
+	} else if (type == "list" && content == "page") {
+		return display_page_card(data);
+	} else if (type == "single" && content == "event") {
+		return display_event_data(data.item[0]);
+	} else if (type == "single" && content == "page") {
+		return display_page_data(data.item[0]);
+	} else if (content == "people") {
+		return display_author_card(data);
+	} else {
 		return display_page_card(data);
 	}
-	if (type == "single") {
-		return display_page_card(data.item[0]);
-	}
-	if (content == "people") {
-		return display_author_card(data);
-	}
 }
-
-function display_page_card(e){
-  var title = e.title;
-	console.log(title);
+function display_page_data(e){
+	var title = e.title;
   var summary = e.summary;
   var topics = format_topics(e.topics);
   var authors = e.authors;
@@ -29,18 +31,29 @@ function display_page_card(e){
   var url = e.url;
   var source_url = encodeURI(source_of_truth);
   var card = [
+		'<header class="bg-white padding-2 radius-sm">',
+			'<h3 class="margin-0 margin-bottom-1">',
+				'<a class="text-no-underline text-ink visited:text-ink" href="'+source_url+ url+'" title="'+title+'">'+title+'</a>',
+			'</h3>',
+			'<p class="margin-0 font-sans-2xs">'+summary+'</p>',
+			'<p class="font-sans-3xs">',
+				topics,
+			'</p>',
+		'</header>'
+  ].join("\n");
+	return card;
+}
+
+function display_page_card(e){
+  var page_data = display_page_data(e);
+  var editpathURL = e.editpathURL;
+  var url = e.url;
+  var source_url = encodeURI(source_of_truth);
+  var card = [
     '<article class="margin-bottom-105">',
       '<div class="grid-row grid-gap-1">',
         '<div class="grid-col-12 tablet:grid-col-10">',
-          '<header class="bg-white padding-2 radius-sm">',
-            '<h3 class="margin-0 margin-bottom-1">',
-              '<a class="text-no-underline text-ink visited:text-ink" href="'+source_url+ url+'" title="'+title+'">'+title+'</a>',
-            '</h3>',
-            '<p class="margin-0 font-sans-2xs">'+summary+'</p>',
-            '<p class="font-sans-3xs">',
-              topics,
-            '</p>',
-          '</header>',
+					page_data,
         '</div>',
         '<div class="grid-col-12 tablet:grid-col-2">',
           '<a class="margin-bottom-1 bg-primary hover:bg-primary-dark text-center text-no-underline padding-y-05 padding-x-05 display-block text-white font-sans-2xs visited:text-white hover:text-white radius-sm" href="'+editpathURL+'">edit page</a>',
@@ -53,16 +66,61 @@ function display_page_card(e){
 	return card;
 }
 
-function display_card(data){
-	$.each( data.item, function( key, file ) {
-		$( "article.card .title" ).html( file['title'] );
-		$( "article.card .summary" ).html( file['summary'] );
-		$( "article.card .date_published" ).html( file['date_published'] );
-		$( "article.card .authors" ).html( file['authors'] );
-		$( "article.card .edit-btn" ).attr( 'href', file['editpathURL'] );
-		$( ".btn-edit" ).attr( 'href', file['editpathURL'] + "?message=Updated%20topics" );
-	});
+function display_event_data(e){
+	var title = e.title;
+  var summary = e.summary;
+  var topics = format_topics(e.topics);
+  var authors = e.authors;
+  var date_modified = e.date_modified;
+  var date_published = e.date_published;
+  var start_date = e.start_date;
+  var start_time = e.start_time;
+  var end_time = e.end_time;
+  var editpathURL = e.editpathURL;
+  var filename = e.filename;
+  var filepath = e.filepath;
+  var filepathURL = e.filepathURL;
+  var branch = e.branch;
+  var url = e.url;
+  var source_url = encodeURI(source_of_truth);
+  var card = [
+		'<header class="bg-white padding-2 radius-sm">',
+			'<h3 class="margin-0 margin-bottom-1">',
+				'<a class="text-no-underline text-ink visited:text-ink" href="'+source_url+ url+'" title="'+title+'">'+title+'</a>',
+			'</h3>',
+			'<h5 class="margin-0 margin-bottom-105 text-light font-sans-md">'+start_date+' / '+start_time+' - '+end_time+'</h5>',
+			'<p class="margin-0 font-sans-2xs">'+summary+'</p>',
+			'<p class="font-sans-3xs">',
+				topics,
+			'</p>',
+		'</header>'
+  ].join("\n");
+	return card;
 }
+
+function display_event_card(e){
+	var page_data = display_event_data(e);
+  var editpathURL = e.editpathURL;
+  var url = e.url;
+  var source_url = encodeURI(source_of_truth);
+  var card = [
+    '<article class="margin-bottom-105">',
+      '<div class="grid-row grid-gap-1">',
+        '<div class="grid-col-12 tablet:grid-col-10">',
+					page_data,
+        '</div>',
+        '<div class="grid-col-12 tablet:grid-col-2">',
+          '<a class="margin-bottom-1 bg-primary hover:bg-primary-dark text-center text-no-underline padding-y-05 padding-x-05 display-block text-white font-sans-2xs visited:text-white hover:text-white radius-sm" href="'+editpathURL+'">edit page</a>',
+          '<a class="margin-bottom-1 text-center text-no-underline padding-y-05 padding-x-05 display-block text-primary hover:text-primary-dark bg-white font-sans-2xs radius-sm border-primary border-width-1px border-solid" href="/edit-topics/?page='+source_url+url+'">edit topics</a>',
+        '</div>',
+      '</div>',
+    '</article>'
+  ].join("\n");
+	$( ".btn-edit" ).attr( 'href', editpathURL + "?message=Updated%20topics" );
+	return card;
+}
+
+
 
 function display_author_card(e){
 	if (e.github) {
