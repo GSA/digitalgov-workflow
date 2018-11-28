@@ -76,6 +76,8 @@ jQuery(document).ready(function ($) {
     post_matter += `summary: '${encodeEntities($("#summary-input").val()).trim()}'\n`;
     post_matter += `authors: ${cs2ds($("#people_select").select2('data'))}\n`;
     post_matter += `topics: ${cs2ds($("#topic_select").select2('data'))}\n`;
+    post_matter += `\nsource: ${cs2ds($("#sources_select").select2('data'))}\n`;
+    post_matter += `source_url: '${encodeEntities($("#source_url-input").val()).trim()}'\n`;
     post_matter += "---";
 
     url += "https://github.com/GSA/digitalgov.gov/new/master/content/posts/";
@@ -97,6 +99,9 @@ jQuery(document).ready(function ($) {
     update();
   });
   $('#people_select').on("select2:select select2:unselect", function(e) {
+    update();
+  });
+  $('#sources_select').on("select2:select select2:unselect", function(e) {
     update();
   });
 

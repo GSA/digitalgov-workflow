@@ -1,7 +1,6 @@
 ---
 layout: new
-title: New Post
+title: New Spotlight
 permalink: /new/news/
 description:
-
 ---

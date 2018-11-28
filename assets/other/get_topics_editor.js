@@ -21,7 +21,6 @@ jQuery(document).ready(function($) {
 	    }
 	  }
 	});
-
 	$("#people_select").select2({
 	  tags: true,
 	  width: 'element',
@@ -39,9 +38,14 @@ jQuery(document).ready(function($) {
 	    }
 	  }
 	});
+	$("#sources_select").select2({
+		minimumResultsForSearch: Infinity
+	});
 
 	$("#topic_select").append(localStorage.topics_options).trigger('change');
 	$("#people_select").append(localStorage.people_options).trigger('change');
+	console.log(localStorage.sources_options);
+	$("#sources_select").append(localStorage.sources_options).trigger('change');
 
 	get_page_data().done(function(a,b,c) {
 		var card_data = get_card(a, a.content, a.type);

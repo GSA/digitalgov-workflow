@@ -2,6 +2,16 @@ jQuery(document).ready(function($) {
 
 	get_taxonomy_data('topics').done(get_options);
 	get_taxonomy_data('people').done(get_authors);
+	get_taxonomy_data('sources').done(get_sources);
+
+
+	function get_sources(sources){
+		var options = "";
+		$.each( sources.items, function( i, e ) {
+			options += '<option value="'+e.slug+'">'+e.name+'</option>';
+    });
+		localStorage.setItem("sources_options", options);
+	}
 
 	function get_authors(people){
 		var options = "";
