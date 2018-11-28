@@ -72,3 +72,7 @@ content_types:
     title: "Promos"
     url: /edit/promos/
     api: 'https://demo.digital.gov/promos/v1/json/'
+  - id: "sources"
+    title: "Sources"
+    url: /edit/sources/
+    api: 'https://demo.digital.gov/sources/index.json'
