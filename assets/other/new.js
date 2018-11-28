@@ -37,16 +37,13 @@ jQuery(document).ready(function ($) {
       return entityMap[s];
     });
   }
-  function cs2ds(input) {
-    var list = input.split(",");
+  function cs2ds(tax) {
     var output = "\n";
-    $.each(list, function (key, value) {
-      slug = value.replace(entityPattern, " ").trim();
-      slug = slug.replace(/[^a-z0-9]/gi, "-").toLowerCase();
-      if (key === list.length - 1) {
-        output += "  - " + $.trim(slug);
+    $.each( tax, function( i, e ) {
+      if (i === tax.length - 1) {
+        output += "  - " + $.trim(e.id);
       } else {
-        output += "  - " + $.trim(slug) + "\n";
+        output += "  - " + $.trim(e.id) + "\n";
       }
     });
     return output;
@@ -77,8 +74,8 @@ jQuery(document).ready(function ($) {
     post_matter += `title: '${encodeEntities($("#headline-input").val()).trim()}'\n`;
     post_matter += `deck: '${encodeEntities($("#deck-input").val()).trim()}'\n`;
     post_matter += `summary: '${encodeEntities($("#summary-input").val()).trim()}'\n`;
-    post_matter += `authors: ${cs2ds($("#authors-input").val())}\n`;
-    post_matter += `topics: ${cs2ds($("#tags-input").val())}\n`
+    post_matter += `authors: ${cs2ds($("#people_select").select2('data'))}\n`;
+    post_matter += `topics: ${cs2ds($("#topic_select").select2('data'))}\n`;
     post_matter += "---";
 
     url += "https://github.com/GSA/digitalgov.gov/new/master/content/posts/";
@@ -96,7 +93,12 @@ jQuery(document).ready(function ($) {
 
   $("input").keyup(update);
   $("textarea").keyup(update);
-
+  $('#topic_select').on("select2:select select2:unselect", function(e) {
+    update();
+  });
+  $('#people_select').on("select2:select select2:unselect", function(e) {
+    update();
+  });
 
 
   // returns the year and month for use in the filepath on GitHub

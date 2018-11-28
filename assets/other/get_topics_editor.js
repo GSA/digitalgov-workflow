@@ -22,7 +22,27 @@ jQuery(document).ready(function($) {
 	  }
 	});
 
+	$("#people_select").select2({
+	  tags: true,
+	  width: 'element',
+	  closeOnSelect: false,
+	  tokenSeparators: [',', ' '],
+	  createTag: function (params) {
+	    // Don't offset to create a tag if there is no @ symbol
+	    if (params.term.indexOf('@') === -1) {
+	      // Return null to disable tag creation
+	      return null;
+	    }
+	    return {
+	      id: params.term,
+	      text: params.term
+	    }
+	  }
+	});
+
 	$("#topic_select").append(localStorage.topics_options).trigger('change');
+	$("#people_select").append(localStorage.people_options).trigger('change');
+
 	get_page_data().done(function(a,b,c) {
 		var card_data = get_card(a, a.content, a.type);
 		$('.card').append(card_data);
@@ -93,6 +113,7 @@ jQuery(document).ready(function($) {
 	// and re-build the front_matter list
 	$('#topic_select').on("select2:select select2:unselect", function(e) {
 	  var topics = $('#topic_select').select2('data');
+		console.log(topics);
 	  var list = {};
 	  $.each( topics, function( index, element ) {
 	    list[element['id']] = element['title'];

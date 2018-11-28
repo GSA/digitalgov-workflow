@@ -1,17 +1,17 @@
 jQuery(document).ready(function($) {
 
-	var api_id = 'topics';
-	// Look through content_types and find the object that has the ID that has the same api_id
-	// NOTE: The content_types object is set in the <head> of each page
-	if (api_id) {
-		jQuery.grep(content_types, function(obj) {
-			if(obj.id === api_id){
-				api_path = obj.api;
-			}
-		});
-	}
+	get_taxonomy_data('topics').done(get_options);
+	get_taxonomy_data('people').done(get_authors);
 
-	get_taxonomy_data(api_path).done(get_options);
+	function get_authors(people){
+		var options = "";
+		$.each( people.items, function( i, e ) {
+			$.each( e, function( n, peep ) {
+      	options += '<option value="'+n+'">'+peep.display_name+'</option>';
+    	});
+    });
+		localStorage.setItem("people_options", options);
+	}
 
 	function get_options_weighted(topics, weight) {
 		var options = "";
@@ -37,7 +37,14 @@ jQuery(document).ready(function($) {
 		localStorage.setItem("topics_options", options);
 	}
 
-	function get_taxonomy_data(api_path){
+	function get_taxonomy_data(api_id){
+		if (api_id) {
+			jQuery.grep(content_types, function(obj) {
+				if(obj.id === api_id){
+					api_path = obj.api;
+				}
+			});
+		}
 	  if (api_path) {
 	    // Let's get the API + data
 	    return $.ajax({

@@ -45,6 +45,17 @@ layout: default
           <textarea class="usa-textarea" name="summary-input" id="summary-input"></textarea>
           <p class="margin-y-05 font-sans-xs text-base-dark">The summary should be...</p>
 
+          <label class="usa-label" for="topic_select">
+            Topics
+          </label>
+          <select id="topic_select" multiple="multiple" class="usa-select"></select>
+
+          <label class="usa-label" for="people_select">
+            Authors
+          </label>
+          <select id="people_select" multiple="multiple" class="usa-select"></select>
+          <p class="margin-y-05 font-sans-2xs text-base-dark"><em>jparcell, dano, jthalls — <a target="_new" href="https://github.com/GSA/digitalgov.gov/tree/demo/data/people/authors" title="See all Authors">see all authors</a></em></p>
+
           <label class="usa-label" for="date-input">
             Publish Date
           </label>
@@ -56,22 +67,6 @@ layout: default
           </label>
           <input class="usa-input" type="text" name="time-input" id="time-input">
           <p class="margin-y-05 font-sans-2xs text-base-dark"><em>24-hour time, e.g. 15:32</em></p>
-
-          <label class="usa-label" for="authors-input">
-            Authors
-          </label>
-          <input class="usa-input" type="text" name="authors-input" id="authors-input">
-          <p class="margin-y-05 font-sans-2xs text-base-dark"><em>jparcell, dano, jthalls — <a target="_new" href="https://github.com/GSA/digitalgov.gov/tree/demo/data/people/authors"
-              title="See all Authors">see all authors</a></em></p>
-
-
-          <label class="usa-label" for="tags-input">
-            Topics
-          </label>
-          <input class="usa-input" type="text" name="tags-input" id="tags-input">
-          <em>open-source, customer-experience, security — <a target="_new" href="https://github.com/GSA/digitalgov.gov/blob/demo/data/tag.yml"
-              title="See all Tags">see all tags</a></em>
-          <br>
 
         </form>
       </div>
