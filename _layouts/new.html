@@ -62,17 +62,30 @@ layout: default
       </div>
 
       <div class="grid-col-12 tablet:grid-col-6">
-        <form id="matter-maker" class="margin-y-4 bg-base-lighter padding-y-2px padding-x-2" accept-charset="utf-8">
+        <form id="matter-maker" class="margin-y-4 bg-base-lighter padding-y-2px padding-x-3" accept-charset="utf-8">
 
-          <label class="usa-label" for="source-input">
-            Source
-          </label>
-          <select id="sources_select" class="usa-select margin-top-1"></select>
-          <p class="margin-y-05 font-sans-xs text-base-dark">Go here to add a source</p>
-          <label class="usa-label" for="source_url-input">
-            Source URL
-          </label>
-          <input class="usa-input" name="source_url-input" id="source_url-input">
+
+          <h4>What type of a Spotlight item will this be?</h4>
+          <p><input type="radio" name="spotlight_type" value="post">This will be a blog post on Digital.gov (Here is an example)</p>
+          <p><input type="radio" name="spotlight_type" value="refer">This will spotlight a page on Digital.gov (e.g guide, resouce page, blog post from the archive, community page, service, etc...)</p>
+          <p><input type="radio" name="spotlight_type" value="elsewhere">This will spotlight a page on a separate website/URL</p>
+
+          <p class="source-toggle">
+            <span class="display-inline-block padding-x-2 radius-left-lg padding-y-2px radius-left-lg font-sans-lg text-thin text-white bg-primary">Yes</span>
+            <span class="display-inline-block padding-x-2 radius-right-lg padding-y-2px font-sans-lg text-thin text-white bg-primary">No</span></p>
+
+          <div class="sources">
+            <label class="usa-label" for="source-input">
+              Source
+            </label>
+            <select id="sources_select" class="usa-select margin-top-1"></select>
+            <p class="margin-y-05 font-sans-xs text-base-dark">Go here to add a source</p>
+            <label class="usa-label" for="source_url-input">
+              Source URL
+            </label>
+            <input class="usa-input" name="source_url-input" id="source_url-input">
+          </div>
+
 
           <label class="usa-label" for="headline-input">
             Headline
