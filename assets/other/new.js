@@ -74,10 +74,10 @@ jQuery(document).ready(function ($) {
     post_matter += `title: '${encodeEntities($("#headline-input").val()).trim()}'\n`;
     post_matter += `deck: '${encodeEntities($("#deck-input").val()).trim()}'\n`;
     post_matter += `summary: '${encodeEntities($("#summary-input").val()).trim()}'\n`;
-    post_matter += `authors: ${cs2ds($("#people_select").select2('data'))}\n`;
-    post_matter += `topics: ${cs2ds($("#topic_select").select2('data'))}\n`;
-    post_matter += `\nsource: ${cs2ds($("#sources_select").select2('data'))}\n`;
-    post_matter += `source_url: '${encodeEntities($("#source_url-input").val()).trim()}'\n`;
+    post_matter += `authors: ${cs2ds($("#people_select select").select2('data'))}\n`;
+    post_matter += `topics: ${cs2ds($("#topic_select select").select2('data'))}\n`;
+    post_matter += `\nsource: ${cs2ds($("#sources_select select").select2('data'))}\n`;
+    post_matter += `source_url: '${$("#source_url-input").val()}'\n`;
     post_matter += "---";
 
     url += "https://github.com/GSA/digitalgov.gov/new/master/content/posts/";
@@ -95,17 +95,27 @@ jQuery(document).ready(function ($) {
 
   $("input").keyup(update);
   $("textarea").keyup(update);
-  $('#topic_select').on("select2:select select2:unselect", function(e) {
+  $('#topic_select select').on("select2:select select2:unselect", function(e) {
     update();
   });
-  $('#people_select').on("select2:select select2:unselect", function(e) {
+  $('#people_select select').on("select2:select select2:unselect", function(e) {
     update();
   });
-  $('#sources_select').on("select2:select select2:unselect", function(e) {
+  $('#sources_select select').on("select2:select select2:unselect", function(e) {
     update();
   });
 
 
+
+  function source_toggle(){
+
+    // What type of a Spotlight item will this be?
+    // - This will be a blog post on Digital.gov (Here is an example)
+    // - This will spotlight a page on Digital.gov (e.g guide, resouce page, blog post from the archive, community page, service, etc...)
+    // - This will spotlight a page on a separate website/URL
+
+
+  }
   // returns the year and month for use in the filepath on GitHub
   // Returns: 2017/09
   function file_yearmo(date) {
