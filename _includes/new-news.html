@@ -3,25 +3,28 @@
 
   <h3>What type of a Spotlight item will this be?</h3>
 
-  <fieldset class="usa-fieldset">
-    <legend class="usa-sr-only">Historical figures 2</legend>
-    <ul class="usa-input-list">
-      <li>
-        <input class="usa-radio-input" id="promo-post" type="radio" checked name="spotlight_promo" value="promo-post">
-        <label class="usa-radio-label" for="promo-post">This will be a blog post on Digital.gov (Here is an example)</label>
-      </li>
-      <li>
-        <input class="usa-radio-input" id="promo-refer" type="radio" checked name="spotlight_promo" value="promo-refer">
-        <label class="usa-radio-label" for="promo-refer">This will spotlight a page on Digital.gov (e.g resouce, community page, etc...)</label>
-      </li>
-      <li>
-        <input class="usa-radio-input" id="promo-elsewhere" type="radio" checked name="spotlight_promo" value="promo-elsewhere">
-        <label class="usa-radio-label" for="promo-elsewhere">This will spotlight a page on a separate website/URL</label>
-      </li>
-    </ul>
-  </fieldset>
+  <div id="card_display">
+    <fieldset class="usa-fieldset">
+      <legend class="usa-sr-only">Historical figures 2</legend>
+      <ul class="usa-input-list">
+        <li>
+          <input class="usa-radio-input" id="card_display_dg" type="radio" name="card_display" value="card_display_dg">
+          <label class="usa-radio-label" for="card_display_dg">This will be a blog post on Digital.gov (Here is an example)</label>
+        </li>
+        <li>
+          <input class="usa-radio-input" id="card_display_refer" type="radio" name="card_display" value="card_display_refer">
+          <label class="usa-radio-label" for="card_display_refer">This will spotlight a page on Digital.gov (e.g resouce, community page, etc...)</label>
+        </li>
+        <li>
+          <input class="usa-radio-input" id="card_display_elsewhere" type="radio" name="card_display" value="card_display_elsewhere">
+          <label class="usa-radio-label" for="card_display_elsewhere">This will spotlight a page on a separate website/URL</label>
+        </li>
+      </ul>
+    </fieldset>
+  </div>
 
-  <div id="sources_select">
+
+  <div id="sources_select" class="display-none">
     <label class="usa-label" for="source-input">
       Source
     </label>
@@ -29,7 +32,7 @@
     <p class="margin-y-05 font-sans-xs text-base-dark">Where will this be published?</p>
   </div>
 
-  <div id="source_url">
+  <div id="source_url" class="display-none">
     <label class="usa-label" for="source_url-input">
       Source URL
     </label>

@@ -50,10 +50,11 @@ jQuery(document).ready(function ($) {
   }
   function update() {
     var small_words = /\band |\bthe |\bare |\bis |\bof |\bto /gi;
-
     var filename = "";
     var post_matter = "";
     var url = "";
+    var sources_select = ($('#sources_select').hasClass('display-none')) ? "" : `\nsource: '${$("#sources_select select").select2('data')[0].id}'\n`;
+    var source_url = ($('#source_url').hasClass('display-none')) ? "" : `source_url: '${$("#source_url input").val()}'\n`;
     var commit_msg = "hi";
     var commit_desc = "hi";
     var branch = "master";
@@ -76,8 +77,8 @@ jQuery(document).ready(function ($) {
     post_matter += `summary: '${encodeEntities($("#summary-input textarea").val()).trim()}'\n`;
     post_matter += `authors: ${cs2ds($("#people_select select").select2('data'))}\n`;
     post_matter += `topics: ${cs2ds($("#topic_select select").select2('data'))}\n`;
-    post_matter += `\nsource: ${cs2ds($("#sources_select select").select2('data'))}\n`;
-    post_matter += `source_url: '${$("#source_url-input input").val()}'\n`;
+    post_matter += sources_select;
+    post_matter += source_url;
     post_matter += "---";
 
     url += "https://github.com/GSA/digitalgov.gov/new/master/content/posts/";
@@ -107,15 +108,32 @@ jQuery(document).ready(function ($) {
 
 
 
-  function source_toggle(){
-
-    // What type of a Spotlight item will this be?
-    // - This will be a blog post on Digital.gov (Here is an example)
-    // - This will spotlight a page on Digital.gov (e.g guide, resouce page, blog post from the archive, community page, service, etc...)
-    // - This will spotlight a page on a separate website/URL
+  $(".btn-copy").click(function(e) {
+	  e.preventDefault();
+	});
 
 
+  $('#card_display input').click(function() {
+    if($(this).is(':checked')){
+      var val = $(this).val();
+      if (val == 'card_display_dg') {
+        $("#sources_select, #source_url").addClass('display-none');
+      } else {
+        $("#sources_select, #source_url").removeClass('display-none');
+      }
+      update();
+    }
+  });
+
+
+  function get_sources_select(){
+    return post_matter += `\nsource: ${cs2ds($("#sources_select select").select2('data'))}\n`;
   }
+  function get_source_url(){
+    return post_matter += `source_url: '${$("#source_url-input input").val()}'\n`;
+  }
+
+
   // returns the year and month for use in the filepath on GitHub
   // Returns: 2017/09
   function file_yearmo(date) {
