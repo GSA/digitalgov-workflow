@@ -1,0 +1,132 @@
+<form id="matter-maker" class="margin-y-05 bg-base-lighter padding-y-2px padding-x-3" accept-charset="utf-8">
+
+
+  <div id="event_type">
+    <h3>What type of event will this be?</h3>
+    <fieldset class="usa-fieldset">
+      <legend class="usa-sr-only">What type of event will this be?</legend>
+      <ul class="usa-input-list">
+        <li>
+          <input class="usa-checkbox-input" id="event-online" type="checkbox" name="event_type" value="event-online">
+          <label class="usa-checkbox-label" for="event-online">Online</label>
+        </li>
+        <li>
+          <input class="usa-checkbox-input" id="event-in-person" type="checkbox" name="event_type" value="event-in-person">
+          <label class="usa-checkbox-label" for="event-in-person">In Person</label>
+        </li>
+      </ul>
+    </fieldset>
+  </div>
+
+  <div id="event_platform">
+    <h3>What platform will be used for online attendees?</h3>
+    <fieldset class="usa-fieldset">
+      <legend class="usa-sr-only">What platform will be used for online attendees?</legend>
+      <ul class="usa-input-list">
+        <li>
+          <input class="usa-radio-input" id="event_platform_youtube" type="radio" name="event_platform" value="event_platform_youtube">
+          <label class="usa-radio-label" for="event_platform_youtube">YouTube LIVE</label>
+        </li>
+        <li>
+          <input class="usa-radio-input" id="event_platform_zoom" type="radio" name="event_platform" value="event_platform_zoom">
+          <label class="usa-radio-label" for="event_platform_zoom">Zoom</label>
+        </li>
+        <li>
+          <input class="usa-radio-input" id="event_platform_adobe_connect" type="radio" name="event_platform" value="event_platform_adobe_connect">
+          <label class="usa-radio-label" for="event_platform_adobe_connect">Adobe Connect</label>
+        </li>
+      </ul>
+    </fieldset>
+  </div>
+
+  <div id="event_display">
+    <h3>Where will the event page be hosted?</h3>
+    <fieldset class="usa-fieldset">
+      <legend class="usa-sr-only">Where will the event page be hosted?</legend>
+      <ul class="usa-input-list">
+        <li>
+          <input class="usa-radio-input" id="event_display_event" type="radio" name="event_display" value="event_display_event">
+          <label class="usa-radio-label" for="event_display_event">This event will be hosted on Digital.gov (Here is an example)</label>
+        </li>
+        <li>
+          <input class="usa-radio-input" id="event_display_elsewhere" type="radio" name="event_display" value="event_display_elsewhere">
+          <label class="usa-radio-label" for="event_display_elsewhere">This event will be hosted another website</label>
+        </li>
+      </ul>
+    </fieldset>
+  </div>
+
+  <div id="sources_select">
+    <label class="usa-label" for="source-input">
+      Source
+    </label>
+    <select class="usa-select margin-top-1"></select>
+    <p class="margin-y-05 font-sans-xs text-base-dark">Where will this be published?</p>
+  </div>
+
+  <div id="source_url">
+    <label class="usa-label" for="source_url-input">
+      Source URL
+    </label>
+    <input class="usa-input" name="source_url-input">
+  </div>
+
+  <div id="headline-input">
+    <label class="usa-label" for="headline-input">
+      Event Title
+    </label>
+    <input class="usa-input" name="headline-input">
+    <p class="margin-y-05 font-sans-xs text-base-dark">The event title should be...</p>
+  </div>
+
+
+  <div id="deck-input">
+    <label class="usa-label" for="deck-input">
+      Event Deck
+    </label>
+    <textarea class="usa-textarea" name="deck-input"></textarea>
+    <p class="margin-y-05 font-sans-xs text-base-dark">The deck should be...</p>
+  </div>
+
+
+  <div id="summary-input">
+    <label class="usa-label" for="summary-input">
+      Summary
+    </label>
+    <textarea class="usa-textarea" name="summary-input"></textarea>
+    <p class="margin-y-05 font-sans-xs text-base-dark">The summary should be...</p>
+  </div>
+
+
+  <div id="topic_select">
+    <label class="usa-label" for="topic_select">
+      Topics
+    </label>
+    <select multiple="multiple" class="usa-select"></select>
+    <p class="margin-y-05 font-sans-2xs text-base-dark"><em>Select the 2-3 topics that best fit</em></p>
+  </div>
+
+  <div id="people_select">
+    <label class="usa-label" for="people_select">
+      Authors
+    </label>
+    <select multiple="multiple" class="usa-select"></select>
+    <p class="margin-y-05 font-sans-2xs text-base-dark"><em>Don't see the person you're looking for? Here is <a target="_new" href="https://github.com/GSA/digitalgov.gov/tree/demo/data/people/authors" title="Add a new contributor">how to add a contributor</a></em></p>
+  </div>
+
+  <div id="date-input">
+    <label class="usa-label" for="date-input">
+      Publish Date
+    </label>
+    <input class="usa-input" type="text" name="date-input">
+    <p class="margin-y-05 font-sans-2xs text-base-dark"><em>year-mo-day, (e.g 2018-09-29)</em></p>
+  </div>
+
+  <div id="time-input">
+    <label class="usa-label" for="time-input">
+      Time
+    </label>
+    <input class="usa-input" type="text" name="time-input">
+    <p class="margin-y-05 font-sans-2xs text-base-dark"><em>24-hour time, e.g. 15:32</em></p>
+  </div>
+</form>

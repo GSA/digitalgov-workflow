@@ -58,11 +58,11 @@ jQuery(document).ready(function ($) {
     var commit_desc = "hi";
     var branch = "master";
 
-    var slug = $("#headline-input").val();
+    var slug = $("#headline-input input").val();
     slug = slug.replace(new RegExp(small_words, "gi"), '');
     slug = slugify(slug);
 
-    var dateInput = $("#date-input").val().match(/^[^\s]+/);
+    var dateInput = $("#date-input input").val().match(/^[^\s]+/);
     filename += dateInput[0];
     filename += "-";
     filename += slug
@@ -70,14 +70,14 @@ jQuery(document).ready(function ($) {
 
     post_matter += "---\n";
     post_matter += `slug: ${slug}\n`;
-    post_matter += `date: ${dateInput[0]} ${$("#time-input").val()}:00 -0500\n`;
-    post_matter += `title: '${encodeEntities($("#headline-input").val()).trim()}'\n`;
-    post_matter += `deck: '${encodeEntities($("#deck-input").val()).trim()}'\n`;
-    post_matter += `summary: '${encodeEntities($("#summary-input").val()).trim()}'\n`;
+    post_matter += `date: ${dateInput[0]} ${$("#time-input input").val()}:00 -0500\n`;
+    post_matter += `title: '${encodeEntities($("#headline-input input").val()).trim()}'\n`;
+    post_matter += `deck: '${encodeEntities($("#deck-input textarea").val()).trim()}'\n`;
+    post_matter += `summary: '${encodeEntities($("#summary-input textarea").val()).trim()}'\n`;
     post_matter += `authors: ${cs2ds($("#people_select select").select2('data'))}\n`;
     post_matter += `topics: ${cs2ds($("#topic_select select").select2('data'))}\n`;
     post_matter += `\nsource: ${cs2ds($("#sources_select select").select2('data'))}\n`;
-    post_matter += `source_url: '${$("#source_url-input").val()}'\n`;
+    post_matter += `source_url: '${$("#source_url-input input").val()}'\n`;
     post_matter += "---";
 
     url += "https://github.com/GSA/digitalgov.gov/new/master/content/posts/";
@@ -89,8 +89,8 @@ jQuery(document).ready(function ($) {
   }
 
   var date = new Date();
-  $("#date-input").val(`${date.getFullYear()}-${date.getMonth() < 10 ? " " + date.getMonth() : date.getMonth()}-${date.getDate() < 10 ? " " + date.getDate() : date.getDate()}`);
-  $("#time-input").val(`${date.getHours()}:${(date.getMinutes()<10?'0':'') + date.getMinutes()}`);
+  $("#date-input input").val(`${date.getFullYear()}-${date.getMonth() < 10 ? " " + date.getMonth() : date.getMonth()}-${date.getDate() < 10 ? " " + date.getDate() : date.getDate()}`);
+  $("#time-input input").val(`${date.getHours()}:${(date.getMinutes()<10?'0':'') + date.getMinutes()}`);
   update();
 
   $("input").keyup(update);

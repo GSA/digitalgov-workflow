@@ -20,90 +20,10 @@ layout: default
         <div class="text-white text-thin font-sans-lg margin-bottom-2">
           {{ .content }}
         </div>
-        <form id="matter-maker" class="margin-y-05 bg-base-lighter padding-y-2px padding-x-3" accept-charset="utf-8">
 
 
-          <h3>What type of a Spotlight item will this be?</h3>
+        {% include new-{{ page.content_type}}.html %}
 
-          <div id="spotlight_type">
-            <p><input type="radio" name="spotlight_type" value="post">This will be a blog post on Digital.gov (Here is an example)</p>
-            <p><input type="radio" name="spotlight_type" value="refer">This will spotlight a page on Digital.gov (e.g guide, resouce page, blog post from the archive, community page, service, etc...)</p>
-            <p><input type="radio" name="spotlight_type" value="elsewhere">This will spotlight a page on a separate website/URL</p>
-          </div>
-
-          <div id="sources_select">
-            <label class="usa-label" for="source-input">
-              Source
-            </label>
-            <select class="usa-select margin-top-1"></select>
-            <p class="margin-y-05 font-sans-xs text-base-dark">Where will this be published?</p>
-          </div>
-
-          <div id="source_url">
-            <label class="usa-label" for="source_url-input">
-              Source URL
-            </label>
-            <input class="usa-input" name="source_url-input">
-          </div>
-
-          <div id="headline-input">
-            <label class="usa-label" for="headline-input">
-              Headline
-            </label>
-            <input class="usa-input" name="headline-input">
-            <p class="margin-y-05 font-sans-xs text-base-dark">The headline should be...</p>
-          </div>
-
-
-          <div id="deck-input">
-            <label class="usa-label" for="deck-input">
-              Deck
-            </label>
-            <textarea class="usa-textarea" name="deck-input"></textarea>
-            <p class="margin-y-05 font-sans-xs text-base-dark">The deck should be...</p>
-          </div>
-
-
-          <div id="summary-input">
-            <label class="usa-label" for="summary-input">
-              Summary
-            </label>
-            <textarea class="usa-textarea" name="summary-input"></textarea>
-            <p class="margin-y-05 font-sans-xs text-base-dark">The summary should be...</p>
-          </div>
-
-          <div id="topic_select">
-            <label class="usa-label" for="topic_select">
-              Topics
-            </label>
-            <select multiple="multiple" class="usa-select"></select>
-            <p class="margin-y-05 font-sans-2xs text-base-dark"><em>Select the 2-3 topics that best fit</em></p>
-          </div>
-
-          <div id="people_select">
-            <label class="usa-label" for="people_select">
-              Authors
-            </label>
-            <select multiple="multiple" class="usa-select"></select>
-            <p class="margin-y-05 font-sans-2xs text-base-dark"><em>Select the people who've contributed to this. Don't see the person you're looking for? <a target="_new" href="https://github.com/GSA/digitalgov.gov/tree/demo/data/people/authors" title="Add a new contributor">Add a contributor</a></em></p>
-          </div>
-
-          <div id="date-input">
-            <label class="usa-label" for="date-input">
-              Publish Date
-            </label>
-            <input class="usa-input" type="text" name="date-input">
-            <p class="margin-y-05 font-sans-2xs text-base-dark"><em>year-mo-day, (e.g 2018-09-29)</em></p>
-          </div>
-
-          <div id="time-input">
-            <label class="usa-label" for="time-input">
-              Time
-            </label>
-            <input class="usa-input" type="text" name="time-input">
-            <p class="margin-y-05 font-sans-2xs text-base-dark"><em>24-hour time, e.g. 15:32</em></p>
-          </div>
-        </form>
       </div>
 
       <div class="grid-col-12 tablet:grid-col-6">
