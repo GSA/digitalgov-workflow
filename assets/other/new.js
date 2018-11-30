@@ -121,6 +121,12 @@ jQuery(document).ready(function ($) {
       } else {
         $("#sources_select, #source_url").removeClass('display-none');
       }
+      if (val == 'card_display_elsewhere'){
+        $("#post #headline-input, #post #summary-input").addClass('display-none');
+      }
+      else {
+        $("#post #headline-input, #post #summary-input").removeClass('display-none');
+      }
       update();
     }
   });

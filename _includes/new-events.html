@@ -1,59 +1,4 @@
-<form id="matter-maker" class="margin-y-05 bg-base-lighter padding-y-2px padding-x-3" accept-charset="utf-8">
-
-
-  <div id="event_type">
-    <h3>What type of event will this be?</h3>
-    <fieldset class="usa-fieldset">
-      <legend class="usa-sr-only">What type of event will this be?</legend>
-      <ul class="usa-input-list">
-        <li>
-          <input class="usa-checkbox-input" id="event-online" type="checkbox" name="event_type" value="event-online">
-          <label class="usa-checkbox-label" for="event-online">Online</label>
-        </li>
-        <li>
-          <input class="usa-checkbox-input" id="event-in-person" type="checkbox" name="event_type" value="event-in-person">
-          <label class="usa-checkbox-label" for="event-in-person">In Person</label>
-        </li>
-      </ul>
-    </fieldset>
-  </div>
-
-  <div id="event_platform">
-    <h3>What platform will be used for online attendees?</h3>
-    <fieldset class="usa-fieldset">
-      <legend class="usa-sr-only">What platform will be used for online attendees?</legend>
-      <ul class="usa-input-list">
-        <li>
-          <input class="usa-radio-input" id="event_platform_youtube" type="radio" name="event_platform" value="event_platform_youtube">
-          <label class="usa-radio-label" for="event_platform_youtube">YouTube LIVE</label>
-        </li>
-        <li>
-          <input class="usa-radio-input" id="event_platform_zoom" type="radio" name="event_platform" value="event_platform_zoom">
-          <label class="usa-radio-label" for="event_platform_zoom">Zoom</label>
-        </li>
-        <li>
-          <input class="usa-radio-input" id="event_platform_adobe_connect" type="radio" name="event_platform" value="event_platform_adobe_connect">
-          <label class="usa-radio-label" for="event_platform_adobe_connect">Adobe Connect</label>
-        </li>
-      </ul>
-    </fieldset>
-  </div>
-
-  <div id="youtube-input">
-    <label class="usa-label" for="youtube-input">
-      YouTube ID
-    </label>
-    <input class="usa-input" type="text" name="youtube-input" value="">
-    <p class="margin-y-05 font-sans-2xs text-base-dark"><em>ID</em></p>
-  </div>
-
-  <div id="zoom-input">
-    <label class="usa-label" for="zoom-input">
-      Zoom URL
-    </label>
-    <input class="usa-input" type="text" name="zoom-input" value="">
-    <p class="margin-y-05 font-sans-2xs text-base-dark"><em>ID</em></p>
-  </div>
+<form id="event" class="margin-y-05 bg-base-lighter padding-y-2px padding-x-3" accept-charset="utf-8">
 
   <div id="card_display">
     <h3>Where will the event page be hosted?</h3>
@@ -72,19 +17,20 @@
     </fieldset>
   </div>
 
-  <div id="sources_select">
+  <div id="sources_select" class="display-none">
     <label class="usa-label" for="source-input">
       Source
     </label>
     <select class="usa-select margin-top-1"></select>
-    <p class="margin-y-05 font-sans-xs text-base-dark">Where will this be published?</p>
+    <p class="margin-y-05 font-sans-xs text-base-dark">Who published this?</p>
   </div>
 
-  <div id="source_url">
+  <div id="source_url" class="display-none">
     <label class="usa-label" for="source_url-input">
       Source URL
     </label>
     <input class="usa-input" name="source_url-input">
+    <p class="margin-y-05 font-sans-xs text-base-dark">The URL where this was published? (e.g. https://18f.gsa.gov/content-guide)</p>
   </div>
 
   <div id="headline-input">
@@ -190,6 +136,60 @@
       Captions URL
     </label>
     <input class="usa-input" type="text" name="captions-input" value="">
+  </div>
+
+  <div id="event_type">
+    <h3>What type of event will this be?</h3>
+    <fieldset class="usa-fieldset">
+      <legend class="usa-sr-only">What type of event will this be?</legend>
+      <ul class="usa-input-list">
+        <li>
+          <input class="usa-checkbox-input" id="event-online" type="checkbox" name="event_type" value="event-online">
+          <label class="usa-checkbox-label" for="event-online">Online</label>
+        </li>
+        <li>
+          <input class="usa-checkbox-input" id="event-in-person" type="checkbox" name="event_type" value="event-in-person">
+          <label class="usa-checkbox-label" for="event-in-person">In Person</label>
+        </li>
+      </ul>
+    </fieldset>
+  </div>
+
+  <div id="event_platform">
+    <h3>What platform will be used for online attendees?</h3>
+    <fieldset class="usa-fieldset">
+      <legend class="usa-sr-only">What platform will be used for online attendees?</legend>
+      <ul class="usa-input-list">
+        <li>
+          <input class="usa-radio-input" id="event_platform_youtube" type="radio" name="event_platform" value="event_platform_youtube">
+          <label class="usa-radio-label" for="event_platform_youtube">YouTube LIVE</label>
+        </li>
+        <li>
+          <input class="usa-radio-input" id="event_platform_zoom" type="radio" name="event_platform" value="event_platform_zoom">
+          <label class="usa-radio-label" for="event_platform_zoom">Zoom</label>
+        </li>
+        <li>
+          <input class="usa-radio-input" id="event_platform_adobe_connect" type="radio" name="event_platform" value="event_platform_adobe_connect">
+          <label class="usa-radio-label" for="event_platform_adobe_connect">Adobe Connect</label>
+        </li>
+      </ul>
+    </fieldset>
+  </div>
+
+  <div id="youtube-input">
+    <label class="usa-label" for="youtube-input">
+      YouTube ID
+    </label>
+    <input class="usa-input" type="text" name="youtube-input" value="">
+    <p class="margin-y-05 font-sans-2xs text-base-dark"><em>ID</em></p>
+  </div>
+
+  <div id="zoom-input">
+    <label class="usa-label" for="zoom-input">
+      Zoom URL
+    </label>
+    <input class="usa-input" type="text" name="zoom-input" value="">
+    <p class="margin-y-05 font-sans-2xs text-base-dark"><em>ID</em></p>
   </div>
 
   <div id="venue-room-input" class="venue">
