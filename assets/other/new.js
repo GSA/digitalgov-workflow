@@ -1,7 +1,7 @@
 jQuery(document).ready(function ($) {
   var entityPattern = /[&<>"'`)(=+:*@.?$%\/]/g;
   function slugify(input) {
-    var output = input;
+    var output = input.split(" ").splice(0,6).join(" ");
     output = output.replace(/[^a-zA-Z0-9\s]/g, "");
     output = output.toLowerCase();
     output = output.replace(/\s\s+/g, " ");
@@ -53,13 +53,14 @@ jQuery(document).ready(function ($) {
     var filename = "";
     var post_matter = "";
     var url = "";
+    var title = ($('#headline-input').hasClass('display-none')) ? "" : `\ntitle: '${encodeEntities($("#headline-input input").val()).trim()}'\n`;
     var sources_select = ($('#sources_select').hasClass('display-none')) ? "" : `\nsource: '${$("#sources_select select").select2('data')[0].id}'\n`;
     var source_url = ($('#source_url').hasClass('display-none')) ? "" : `source_url: '${$("#source_url input").val()}'\n`;
     var commit_msg = "hi";
     var commit_desc = "hi";
     var branch = "demo";
 
-    var slug = $("#headline-input input").val();
+    var slug = $("#headline-input input").val() +" "+ $("#deck-input textarea").val();
     slug = slug.replace(new RegExp(small_words, "gi"), '');
     slug = slugify(slug);
 
@@ -72,7 +73,7 @@ jQuery(document).ready(function ($) {
     post_matter += "---\n";
     post_matter += `slug: ${slug}\n`;
     post_matter += `date: ${dateInput[0]} ${$("#time-input input").val()}:00 -0500\n`;
-    post_matter += `title: '${encodeEntities($("#headline-input input").val()).trim()}'\n`;
+    post_matter += title;
     post_matter += `deck: '${encodeEntities($("#deck-input textarea").val()).trim()}'\n`;
     post_matter += `summary: '${encodeEntities($("#summary-input textarea").val()).trim()}'\n`;
     post_matter += `authors: ${cs2ds($("#people_select select").select2('data'))}\n`;
