@@ -41,6 +41,7 @@ function display_page_data(e){
 			'</p>',
 		'</header>'
   ].join("\n");
+	$( ".btn-edit" ).attr( 'href', editpathURL + "?message=Updated%20topics" );
 	return card;
 }
 
@@ -95,6 +96,7 @@ function display_event_data(e){
 			'</p>',
 		'</header>'
   ].join("\n");
+	$( ".btn-edit" ).attr( 'href', editpathURL + "?message=Updated%20topics" );
 	return card;
 }
 
