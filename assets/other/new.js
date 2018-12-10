@@ -131,6 +131,21 @@ jQuery(document).ready(function ($) {
     }
   });
 
+  $('#event_type input').click(function() {
+    console.log(this);
+    if($(this).is(':checked') && $(this).val() == "event-in-person"){
+      $(".venue").removeClass('display-none');
+    } else {
+      $(".venue").addClass('display-none');
+    }
+    if($(this).is(':checked') && $(this).val() == "event-online"){
+      $(".online").removeClass('display-none');
+    } else {
+      $(".online").addClass('display-none');
+    }
+    update();
+  });
+
 
   function get_sources_select(){
     return post_matter += `\nsource: ${cs2ds($("#sources_select select").select2('data'))}\n`;
