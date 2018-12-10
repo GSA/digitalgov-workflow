@@ -1,0 +1,38 @@
+{
+  "name": "digitalgov-workflow",
+  "version": "1.0.0",
+  "description": "A site for managing the digital.gov editorial workflow on GitHub",
+  "main": "index.js",
+  "scripts": {
+    "dependencies": "npm install && bundle install",
+    "start": "bundler exec jekyll serve --incremental",
+    "gulp": "node ./node_modules/gulp/bin/gulp.js",
+    "init": "npm run gulp -- init && git checkout -- ./assets/sass/_uswds-theme-typography.scss"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GSA/digitalgov-workflow.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/GSA/digitalgov-workflow/issues"
+  },
+  "homepage": "https://github.com/GSA/digitalgov-workflow#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^9.3.1",
+    "css-mqpacker": "^7.0.0",
+    "cssnano": "^4.1.7",
+    "gulp": "^4.0.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "path": "^0.12.7",
+    "uswds": "^2.0.0-beta.4",
+    "uswds-gulp": "github:uswds/uswds-gulp"
+  }
+}

@@ -3,22 +3,13 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/uswds/1.3.1/css/uswds.css">
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/main.css?{{ site.time | date: "%Y%m%j%H%M%S" }}">
-  {% if page.url == '/edit/' or page.url == '/edit-topics/' %}
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/select2.min.css?{{ site.time | date: "%Y%m%j%H%M%S" }}">
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/css/styles.css?{{ site.time | date: "%Y%m%j%H%M%S" }}">
+  {% if page.url == '/edit/' or page.url == '/edit-topics/' or page.url == '/edit-profile/' or page.url contains '/new/' %}
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/other/select2.min.css?{{ site.time | date: "%Y%m%j%H%M%S" }}">
   {% endif %}
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-
-  <!-- Libre Franklin — Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-  <!--[if lt IE 9]>
-    <script src="{{ site.baseurl }}/assets/js/html5.js"></script>
-    <script src="{{ site.baseurl }}/assets/js/respond.min.js"></script>
-  <![endif]-->
-
-  <link rel="shortcut icon" type="image/ico" href="{{ site.baseurl }}/assets/img/bot.png" />
+  <link rel="shortcut icon" type="image/ico" href="{{ site.baseurl }}/assets/other/bot.png" />
 
   <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
 
@@ -40,6 +31,7 @@
 
   <!-- GitHub -->
   <script type="text/javascript">
+    source_of_truth              = "{{ site.source_of_truth }}";
     github_org                   = "{{ site.github_org }}";
     github_repo                  = "{{ site.github_repo }}";
     filepath                     = "{{ page.path }}";
@@ -49,6 +41,7 @@
     workflow_org                 = "{{ site.workflow_org }}";
     workflow_repo                = "{{ site.workflow_repo }}";
     workflow_issues_api          = "https://api.github.com/repos/{{ site.workflow_org }}/{{ site.workflow_repo }}/issues";
+    content_types                = {{ site.content_types | jsonify }};
   </script>
 
 </head>

@@ -1,36 +1,47 @@
-<h3>{{ site.data.[page.api].count }}</h3>
+<h2>{{ site.data.[page.api].count }}</h2>
 {% for item in site.data.[page.api].items %}
 
-<div class="card-wrapper usa-grid">
-  <div class="usa-width-five-sixths">
-    <article class="card">
+{{/* If the month var exists (like from a previous iteration of the for loop) */}}
+{% if month %}
+  {{/* Set 'postmonth' to the month of the current post */}}
+  {% assign postmonth = item.date_published | date: '%B' %}
+  {{/* If 'postmonth' and 'month' are not equal, print the month */}}
+  {% if (postmonth != month) %}
+    <h2>{{ postmonth }} {{ item.date_published | date: '%Y' }}</h2>
+  {% endif %}
+{{/* This is likely the first iteration of the for loop, so print the month */}}
+{% else %}
+  <h2>{{ item.date_published | date: '%B %Y' }}</h2>
+{% endif %}
+{{/* Set the month var for the next iteration of the loop */}}
+{% assign month = item.date_published | date: '%B' %}
 
-      <div class="summary">
-        <h6>{{ item.date_published | date: '%B %d, %Y' }}</h6>
-        <h4><a href="{{ site.source_of_truth }}{{ item.url }}">{{ item.title }}</a></h4>
-        <p class="summary">{{ item.summary }}</p>
-      </div>
+<div class="grid-row grid-gap margin-bottom-205">
+
+  <div class="grid-col-12 tablet:grid-col-9">
+    <article class="padding-2 bg-white">
+      <h3 class="margin-0"><a href="{{ site.source_of_truth }}{{ item.url }}" class="text-base-darkest underline-primary-light text-underline">{{ item.title }}</a></h3>
+      <h4 class="margin-top-0 margin-bottom-1 text-normal text-uppercase text-base-darker">{{ item.date_published | date: '%B %d, %Y' }}</h4>
+      <p class="margin-0">{{ item.summary }}</p>
 
       {% if item.topics %}
-      <div class="taxonomy-list taxonomy-smaller">
-        {% for topic in item.topics %}
-        <a class="cat-taxonomy taxonomy" href="#" data-slug="{{ topic[0] }}">{{ topic[1] }}</a>
-        {% endfor %}
-      </div>
+        <div class="margin-top-105">
+          {% for topic in item.topics %}
+            <span class="usa-tag">{{ topic[1] }}</span>
+          {% endfor %}
+        </div>
       {% endif %}
-
     </article>
   </div>
 
-  <div class="usa-width-one-sixth">
-    <div class="tools">
-      <a href="{{ item.editpathURL }}" class="btn" target="_blank">edit</a>
-      {% assign filepath = item.url | url_encode %}
-      {% assign editpath = site.source_of_truth | append: filepath %}
-      <!-- <a href="{{ site.baseurl }}{{ '/edit/?page=' | absURL }}{{ editpath }}" class="btn btn-open" target="_blank">details</a> -->
-      <a href="{{ site.baseurl }}{{ '/edit-topics/?page=' | absURL }}{{ editpath }}" class="btn btn-open">edit topics</a>
-      <a target="_blank" href="https://digital.gov{{ item.url }}" class="btn" target="_blank">live</a>
-    </div>
+  <div class="grid-col-12 tablet:grid-col-3">
+    <a href="{{ item.editpathURL }}" class="usa-button" target="_blank">Edit</a>
+    {% assign filepath = item.url | url_encode %}
+    {% assign editpath = site.source_of_truth | append: filepath %}
+    <a href="{{ site.baseurl }}{{ '/edit-topics/?page=' | absURL }}{{ editpath }}" class="usa-button usa-button-outline">Edit topics</a>
+    <a target="_blank" href="https://digital.gov{{ item.url }}" class="usa-button usa-button-outline" target="_blank">live</a>
   </div>
+
 </div>
+
 {% endfor %}

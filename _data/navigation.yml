@@ -1,0 +1,14 @@
+# Nav
+# List links that should appear in navigation bar
+
+nav:
+  - text: "Contribute"
+    url: /contribute/
+  - text: "Edit our pages"
+    url: /content-types/
+  - text: "Update Your Profile"
+    url: /update-profile/
+  - text: "Principles & Guidelines"
+    url: /principles/
+  - text: "Style Guide"
+    url: /style-guide/
