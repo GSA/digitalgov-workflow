@@ -57,7 +57,7 @@ jQuery(document).ready(function ($) {
     var source_url = ($('#source_url').hasClass('display-none')) ? "" : `source_url: '${$("#source_url input").val()}'\n`;
     var commit_msg = "hi";
     var commit_desc = "hi";
-    var branch = "master";
+    var branch = "demo";
 
     var slug = $("#headline-input input").val();
     slug = slug.replace(new RegExp(small_words, "gi"), '');
@@ -81,7 +81,7 @@ jQuery(document).ready(function ($) {
     post_matter += source_url;
     post_matter += "---";
 
-    url += "https://github.com/GSA/digitalgov.gov/new/master/content/posts/";
+    url += "https://github.com/GSA/digitalgov.gov/new/"+branch+"/content/posts/";
     url += file_yearmo(dateInput[0]) + '/draft?filename=' + filename + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + branch;
 
     $("#filename").html(filename);
