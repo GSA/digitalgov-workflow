@@ -98,8 +98,8 @@ jQuery(document).ready(function ($) {
     $("#newfile").attr('href', url);
   }
 
+  // Date entry
   var date = new Date();
-
   $("#date-input input").val(`${date.getFullYear()}-${('0' + (date.getMonth()+1)).slice(-2)}-${('0' + (date.getDate()+1)).slice(-2)}`);
   $("#time-input input").val(`${date.getHours()}:${(date.getMinutes()<10?'0':'') + date.getMinutes()}`);
   update();
