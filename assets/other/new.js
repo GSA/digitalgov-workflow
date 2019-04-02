@@ -99,7 +99,8 @@ jQuery(document).ready(function ($) {
   }
 
   var date = new Date();
-  $("#date-input input").val(`${date.getFullYear()}-${date.getMonth() < 10 ? " " + date.getMonth() : date.getMonth()}-${date.getDate() < 10 ? " " + date.getDate() : date.getDate()}`);
+
+  $("#date-input input").val(`${date.getFullYear()}-${('0' + (date.getMonth()+1)).slice(-2)}-${('0' + (date.getDate()+1)).slice(-2)}`);
   $("#time-input input").val(`${date.getHours()}:${(date.getMinutes()<10?'0':'') + date.getMinutes()}`);
   update();
 
