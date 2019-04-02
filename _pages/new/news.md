@@ -1,9 +1,7 @@
 ---
 layout: new
-title: New Spotlight
+title: New Blog Post
 permalink: /new/news/
 description:
 content_type: news
 ---
-
-Helper text can go here...

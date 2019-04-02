@@ -28,8 +28,8 @@ layout: default
 
       <div class="grid-col-12 tablet:grid-col-6">
 
-        <p class="margin-bottom-105 font-sans-md text-white text-light line-height-sans-3"><strong>Spotlight Preview</strong> — How this page will likely look in Spotlight</p>
-        <article class="bg-base-lighter radius-sm margin-0 margin-bottom-5 padding-2">
+        <p class="margin-bottom-105 font-sans-md text-white text-light line-height-sans-3 display-none"><strong>Spotlight Preview</strong> — How this page will likely look in Spotlight</p>
+        <article class="bg-base-lighter radius-sm margin-0 margin-bottom-5 padding-2 display-none">
           <p class="font-sans-md">Federal agencies and technology teams work together to pilot digital tools for artificial intelligence and health innovation.</p>
           <div class="flex-row display-flex flex-align-end flex-justify">
             <p class=""><a class="text-no-underline text-ink visited:text-ink" href="" title="Digital.gov"><img class="width-2 margin-right-05 position-relative top-2px" src="https://demo.digital.gov/img/digit-16.png" alt="Digital.gov Logo">Digital.gov</a>
@@ -42,14 +42,14 @@ layout: default
           <a href="/2018/11/02/health-tech-sprint-aims-at-improving-care-access-experience/" title="Health Tech Sprint Aims at Improving Care Access and Experience"><span></span></a>
         </article>
 
-        <p class="margin-bottom-105 font-sans-md text-white text-light line-height-sans-3"><strong>SEO Preview</strong> — How this page will likely look in Google</p>
+        <p class="margin-bottom-105 font-sans-md text-white text-light line-height-sans-3  display-none"><strong>SEO Preview</strong> — How this page will likely look in Google</p>
         <style media="screen">
           .seo-preview{font-family: arial, sans-serif;}
           .seo-preview h3{color: #1a0dab;}
           .seo-preview .url{color: #006621;}
           .seo-preview .summary{color: #545454;}
         </style>
-        <section class="seo-preview bg-white margin-0 margin-bottom-5 padding-2">
+        <section class="seo-preview bg-white margin-0 margin-bottom-5 padding-2 display-none">
           <h3 class="margin-0 text-normal">Come say Hi! — Digital.gov</h3>
           <p class="url line-height-sans-3 margin-0 margin-bottom-2px text-normal font-sans-xs">https://digital.gov/hi</p>
           <p class="summary margin-0 text-normal font-sans-2xs line-height-sans-2">Hi. We are helping the government community make digital better. Come and learn more about...</p>
@@ -60,7 +60,7 @@ layout: default
           <pre id="filename" class="text-bold bg-white padding-2">***</pre>
           <pre id="post-matter" class="bg-white padding-2">---</pre>
 
-          <a id="newfile" href=""
+          <a id="newfile" data-content_type="{{ page.content_type}}" href=""
             target="_new" title="Create a new post in GitHub" class="usa-button margin-bottom-1" style="width:100%;">Create
             in GitHub »</a>
           <a href="https://github.com/GSA/digitalgov.gov/wiki" class="usa-button usa-button-outline" style="width:100%;">A

@@ -59,14 +59,17 @@ jQuery(document).ready(function ($) {
     var commit_msg = "hi";
     var commit_desc = "hi";
     var branch = "demo";
+    $content_type = $("#newfile").attr('data-content_type');
 
     var slug = $("#headline-input input").val() +" "+ $("#deck-input textarea").val();
     slug = slug.replace(new RegExp(small_words, "gi"), '');
     slug = slugify(slug);
 
     var dateInput = $("#date-input input").val().match(/^[^\s]+/);
-    filename += dateInput[0];
-    filename += "-";
+    if ($content_type == 'news' || $content_type == 'events') {
+      filename += dateInput[0];
+      filename += "-";
+    }
     filename += slug
     filename += ".md";
 
@@ -82,7 +85,8 @@ jQuery(document).ready(function ($) {
     post_matter += source_url;
     post_matter += "---";
 
-    url += "https://github.com/GSA/digitalgov.gov/new/"+branch+"/content/posts/";
+
+    url += "https://github.com/GSA/digitalgov.gov/new/"+branch+"/content/"+$content_type+"/";
     url += file_yearmo(dateInput[0]) + '/draft?filename=' + filename + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + branch;
 
     $("#filename").html(filename);
