@@ -44,7 +44,6 @@ jQuery(document).ready(function($) {
 
 	$("#topic_select select").append(localStorage.topics_options).trigger('change');
 	$("#people_select select").append(localStorage.people_options).trigger('change');
-	console.log(localStorage.sources_options);
 	$("#sources_select select").append(localStorage.sources_options).trigger('change');
 
 	get_page_data().done(function(a,b,c) {
