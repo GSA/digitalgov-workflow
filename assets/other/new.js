@@ -49,6 +49,7 @@ jQuery(document).ready(function ($) {
     return output;
   }
   function update() {
+    $content_type = $("#newfile").attr('data-content_type');
     var small_words = /\band |\bthe |\bare |\bis |\bof |\bto /gi;
     var filename = "";
     var post_matter = "";
@@ -56,10 +57,10 @@ jQuery(document).ready(function ($) {
     var title = ($('#headline-input').hasClass('display-none')) ? "" : `\ntitle: '${encodeEntities($("#headline-input input").val()).trim()}'\n`;
     var sources_select = ($('#sources_select').hasClass('display-none')) ? "" : `\n# What source published this?\nsource: '${$("#sources_select select").select2('data')[0].id}'\n`;
     var source_url = ($('#source_url').hasClass('display-none')) ? "" : `\n# What is the URL for this product or service?\n# Note: We'll add a ?dg to the end of the URL in the code for tracking purposes\nsource_url: '${$("#source_url input").val()}'\n`;
-    var commit_msg = "hi";
-    var commit_desc = "hi";
+    var commit_msg = "new "+ $content_type +": " + `${encodeEntities($("#headline-input input").val()).trim()}`;
+    var commit_desc = `${encodeEntities($("#deck-input textarea").val()).trim()}`;
     var branch = "demo";
-    $content_type = $("#newfile").attr('data-content_type');
+
 
     var slug = $("#headline-input input").val();
     slug = slug.replace(new RegExp(small_words, "gi"), '');
@@ -88,9 +89,9 @@ jQuery(document).ready(function ($) {
 
     url += "https://github.com/GSA/digitalgov.gov/new/"+branch+"/content/"+$content_type+"/";
     if ($content_type == 'news' || $content_type == 'events') {
-      url += file_yearmo(dateInput[0]) + '/draft?filename=' + filename + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + branch;
+      url += file_yearmo(dateInput[0]) + 'draft?filename=' + filename + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + branch;
     } else {
-      url += '/draft?filename=' + filename + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + branch;
+      url += 'draft?filename=' + filename + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + branch;
     }
 
     $("#filename").html(filename);
