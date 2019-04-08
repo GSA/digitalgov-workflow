@@ -28,17 +28,27 @@ function display_page_data(e){
   var filepath = e.filepath;
   var filepathURL = e.filepathURL;
   var branch = e.branch;
+  var source = e.source;
+  var source_url = e.source_url;
+	if (source_url) {
+		if (source) {
+			var source_url = "<p class='margin-y-05 text-normal font-sans-3xs'><em><strong> via " +source+ "</strong> &#8594;  " +source_url+"</em></p>";
+		} else {
+			var source_url = "<p class='margin-y-05 text-normal font-sans-3xs'><em>&#8594; " +source_url+"</em></p>";
+		}
+	}
   var url = e.url;
-  var source_url = encodeURI(source_of_truth);
+  var sourceoftruth = encodeURI(source_of_truth);
   var card = [
 		'<header class="bg-white padding-2 radius-sm">',
 			'<h3 class="margin-0 margin-bottom-1">',
-				'<a class="text-no-underline text-ink visited:text-ink" href="'+source_url+ url+'" title="'+title+'">'+title+'</a>',
+				'<a class="text-no-underline text-ink visited:text-ink" href="'+sourceoftruth+ url+'" title="'+title+'">'+title+'</a>',
 			'</h3>',
 			'<p class="margin-0 font-sans-2xs">'+summary+'</p>',
 			'<p class="font-sans-3xs">',
 				topics,
 			'</p>',
+			source_url,
 		'</header>'
   ].join("\n");
 	$( ".btn-edit" ).attr( 'href', editpathURL + "?message=Updated%20topics" );
@@ -49,7 +59,7 @@ function display_page_card(e){
   var page_data = display_page_data(e);
   var editpathURL = e.editpathURL;
   var url = e.url;
-  var source_url = encodeURI(source_of_truth);
+  var sourceoftruth = encodeURI(source_of_truth);
   var card = [
     '<article class="margin-bottom-105">',
       '<div class="grid-row grid-gap-1">',
@@ -58,7 +68,7 @@ function display_page_card(e){
         '</div>',
         '<div class="grid-col-12 tablet:grid-col-2">',
           '<a class="margin-bottom-1 bg-primary hover:bg-primary-dark text-center text-no-underline padding-y-05 padding-x-05 display-block text-white font-sans-2xs visited:text-white hover:text-white radius-sm" href="'+editpathURL+'">edit file</a>',
-          '<a class="margin-bottom-1 text-center text-no-underline padding-y-05 padding-x-05 display-block text-primary hover:text-primary-dark bg-white font-sans-2xs radius-sm border-primary border-width-1px border-solid" href="/edit-topics/?page='+source_url+url+'">edit topics</a>',
+          '<a class="margin-bottom-1 text-center text-no-underline padding-y-05 padding-x-05 display-block text-primary hover:text-primary-dark bg-white font-sans-2xs radius-sm border-primary border-width-1px border-solid" href="/edit-topics/?page='+sourceoftruth+url+'">edit topics</a>',
         '</div>',
       '</div>',
     '</article>'
@@ -83,11 +93,11 @@ function display_event_data(e){
   var filepathURL = e.filepathURL;
   var branch = e.branch;
   var url = e.url;
-  var source_url = encodeURI(source_of_truth);
+  var sourceoftruth = encodeURI(source_of_truth);
   var card = [
 		'<header class="bg-white padding-2 radius-sm">',
 			'<h3 class="margin-0 margin-bottom-1">',
-				'<a class="text-no-underline text-ink visited:text-ink" href="'+source_url+ url+'" title="'+title+'">'+title+'</a>',
+				'<a class="text-no-underline text-ink visited:text-ink" href="'+sourceoftruth+ url+'" title="'+title+'">'+title+'</a>',
 			'</h3>',
 			'<h5 class="margin-0 margin-bottom-105 text-light font-sans-md">'+start_date+' / '+start_time+' - '+end_time+'</h5>',
 			'<p class="margin-0 font-sans-2xs">'+summary+'</p>',
@@ -104,7 +114,7 @@ function display_event_card(e){
 	var page_data = display_event_data(e);
   var editpathURL = e.editpathURL;
   var url = e.url;
-  var source_url = encodeURI(source_of_truth);
+  var sourceoftruth = encodeURI(source_of_truth);
   var card = [
     '<article class="margin-bottom-105">',
       '<div class="grid-row grid-gap-1">',
@@ -113,7 +123,7 @@ function display_event_card(e){
         '</div>',
         '<div class="grid-col-12 tablet:grid-col-2">',
           '<a class="margin-bottom-1 bg-primary hover:bg-primary-dark text-center text-no-underline padding-y-05 padding-x-05 display-block text-white font-sans-2xs visited:text-white hover:text-white radius-sm" href="'+editpathURL+'">edit file</a>',
-          '<a class="margin-bottom-1 text-center text-no-underline padding-y-05 padding-x-05 display-block text-primary hover:text-primary-dark bg-white font-sans-2xs radius-sm border-primary border-width-1px border-solid" href="/edit-topics/?page='+source_url+url+'">edit topics</a>',
+          '<a class="margin-bottom-1 text-center text-no-underline padding-y-05 padding-x-05 display-block text-primary hover:text-primary-dark bg-white font-sans-2xs radius-sm border-primary border-width-1px border-solid" href="/edit-topics/?page='+sourceoftruth+url+'">edit topics</a>',
         '</div>',
       '</div>',
     '</article>'
@@ -148,7 +158,7 @@ function display_author_card(e){
 
 function author_edit_tools(e){
 	var uid = e.uid;
-	var source_url = encodeURI(source_of_truth);
+	var sourceoftruth = encodeURI(source_of_truth);
 	var tools = [
 		'<a class="margin-bottom-1 bg-primary hover:bg-primary-dark text-center text-no-underline padding-y-05 padding-x-05 display-block text-white font-sans-2xs visited:text-white hover:text-white radius-sm" href="https://github.com/GSA/digitalgov.gov/edit/demo/data/people/authors/'+uid+'.yml">edit profile</a>'
 	].join("\n");
@@ -172,7 +182,7 @@ function author_updated(e){
 	var linkedin = e.linkedin;
 	var facebook = e.facebook;
 	var youtube = e.youtube;
-	var source_url = encodeURI(source_of_truth);
+	var sourceoftruth = encodeURI(source_of_truth);
 	var card = [
 		'<header class="bg-white padding-2 radius-sm">',
 			'<div class="grid-row grid-gap-2">',
@@ -181,7 +191,7 @@ function author_updated(e){
 				'</div>',
 				'<div class="grid-col-10">',
 					'<h3 class="margin-0 margin-bottom-05">',
-						'<a class="text-no-underline text-ink visited:text-ink" href="'+source_url+'/authors/'+uid+'" title="'+display_name+'">'+display_name+'</a>',
+						'<a class="text-no-underline text-ink visited:text-ink" href="'+sourceoftruth+'/authors/'+uid+'" title="'+display_name+'">'+display_name+'</a>',
 					'</h3>',
 					'<p class="margin-0 font-sans-2xs">'+location+' '+agency+'</p>',
 					'<p class="margin-0 font-sans-2xs"><a class="text-no-underline" href="mailto:'+email+'">'+email+'</a></p>',
@@ -210,11 +220,11 @@ function author_needs_update(e){
 	var linkedin = e.linkedin;
 	var facebook = e.facebook;
 	var youtube = e.youtube;
-	var source_url = encodeURI(source_of_truth);
+	var sourceoftruth = encodeURI(source_of_truth);
 	var card = [
 		'<header class="bg-white padding-2 radius-sm">',
 			'<h3 class="margin-0 margin-bottom-05">',
-				'<a class="text-no-underline text-ink visited:text-ink" href="'+source_url+'/authors/'+uid+'" title="'+display_name+'">'+display_name+'</a>',
+				'<a class="text-no-underline text-ink visited:text-ink" href="'+sourceoftruth+'/authors/'+uid+'" title="'+display_name+'">'+display_name+'</a>',
 			'</h3>',
 			'<p class="margin-0 font-sans-2xs">'+location+' '+agency+'</p>',
 			'<p class="margin-0 font-sans-2xs"><a class="text-no-underline" href="mailto:'+email+'">'+email+'</a></p>',
