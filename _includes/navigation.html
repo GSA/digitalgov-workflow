@@ -6,8 +6,8 @@
       {% if page.url == item.url %}
         {% assign current = "current" %}
       {% endif %}
-      <li class="padding-y-05 ">
-        <a class="{{ text_color }} font-sans-xs text-bold text-no-underline {{ current }} {{ text-color }}" href="{{ site.baseurl }}{{ item.url }}">
+      <li class="padding-y-05">
+        <a class="{{ text_color }} font-sans-md text-bold text-no-underline {{ current }} {{ text-color }}" href="{{ site.baseurl }}{{ item.url }}">
           <span>{{ item.text }}</span>
         </a>
       </li>

@@ -2,7 +2,7 @@
 # List links that should appear in navigation bar
 
 nav:
-  - text: "Contribute"
+  - text: "How to Contribute"
     url: /contribute/
   - text: "Edit our pages"
     url: /content-types/
