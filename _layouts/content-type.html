@@ -9,11 +9,11 @@ layout: default
 
       <div class="grid-col-12 tablet:grid-col-4">
         <section class="margin-bottom-3">
-          {% if page.api %}<p class="margin-0 margin-bottom-1 font-sans-sm text-bold"><a class="padding-y-05 padding-x-1 visited:text-primary text-no-underline radius-sm border-primary border-width-1px border-solid display-inline-block" href="/content-types/"><i class="fas fa-arrow-left"></i> All Content Types</a></p>{% endif %}
-          <h1 class="margin-0 font-sans-3xl text-thin">{{ page.title | escape }}</h1>
+          {% if page.api %}<p class="margin-0 margin-bottom-1 font-sans-xs text-semibold"><a class="padding-y-05 padding-x-1 visited:text-primary text-no-underline radius-sm border-primary border-width-1px border-solid display-inline-block" href="/content-types/"><i class="fas fa-arrow-left"></i> All Content Types</a></p>{% endif %}
+          <h1 class="margin-0 font-sans-2xl text-heavy">{{ page.title | escape }}</h1>
           <p>Live: <a href="{{ site.source_of_truth }}{{ page.source_path }}" title="Go to {{ site.source_of_truth }}{{ page.source_path }}">{{ site.source_of_truth }}{{ page.source_path }}</a> </p>
           {% if page.api %}
-          <a href="{{ site.baseurl }}/new/{{ page.api }}" class="margin-top-1 padding-x-105 padding-y-05 bg-primary radius-md text-white visited:text-white text-no-underline display-inline-block">New</a>
+          <p><a href="{{ site.baseurl }}/new/{{ page.api }}" class="margin-top-1 padding-x-105 padding-y-05 bg-primary radius-md text-white visited:text-white text-no-underline display-inline-block">New</a></p>
           {% endif %}
           <div class="margin-y-5 font-sans-md text-light">
             {{ content }}
