@@ -31,7 +31,7 @@ jQuery(document).ready(function($) {
 		options += '<optgroup class="'+weight_class+'" label="'+ weight_label +'">';
     $.each( topics.items, function( i, e ) {
       if (e.weight == weight) {
-      options += '<option value="'+e.slug+'">'+e.display_name+'</option>';
+      options += '<option value="'+e.slug+'">'+e.title+'</option>';
       }
     });
 		options += '</optgroup>';
