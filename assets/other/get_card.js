@@ -1,7 +1,5 @@
 
 function get_card(data, content, type){
-	console.log(content);
-	console.log(type);
 	if (type == "list" && content == "events") {
 		return display_event_card(data);
 	} else if (type == "list" && content == "page") {
