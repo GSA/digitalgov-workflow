@@ -10,7 +10,10 @@
 <script src="{{ site.baseurl }}/assets/other/get_page_data.js"></script>
 <script src="{{ site.baseurl }}/assets/other/get_card.js"></script>
 <script src="{{ site.baseurl }}/assets/other/get_card_list.js"></script>
+
+{% if page.url == '/' %}
 <script src="{{ site.baseurl }}/assets/other/get_commits.js"></script>
+{% endif %}
 
 {% if page.url == '/edit-topics/' or page.url == '/edit-profile/' %}
 <script src="{{ site.baseurl }}/assets/other/select2.min.js"></script>
