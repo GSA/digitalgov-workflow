@@ -33,19 +33,24 @@ function list_commits(data){
   		var commit_date = e[0].commit.committer.date;
   		var commit_author = e[0].author.login;
   	}
+  	var commit_message = e.commit.message;
   	var commit_html_url = e.html_url;
   	var commit_author_url = 'https://github.com/' + commit_author_username;
   	var commit_history_url = 'https://github.com/GSA/digitalgov.gov/commits/demo/content/' + filepath;
     var commit = [
-			"<div class='border-top-1px padding-y-1 display-flex flex-align-center'>",
+			"<div class='border-top-1px padding-y-1'>",
+			"<p>"+commit_message,
+			"</p>",
+			"<div class='display-flex flex-align-center'>",
       "<img class='circle-4 margin-right-1' src='https://www.github.com/"+commit_author_username+".png?size=50' alt='"+commit_author_name+"'/>",
-			"Updated by ",
+			"<p class='margin-0 font-sans-xs'>Updated by ",
 			"<a href="+commit_author_url+" title="+commit_author_name+">",
 				"<span class='commit-author'>"+commit_author_name+"</span>",
 			"</a> on ",
 			"<a href="+commit_history_url+">",
 				"<span class='commit-date'>"+getFormattedDate(commit_date)+"</span>",
-			"</a>",
+			"</a></p>",
+			"</div>",
 			"</div>",
 			""
 		].join("\n");

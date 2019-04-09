@@ -2,23 +2,9 @@
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
 {% include head.html %}
 
-{% if page.background %}
-{% assign background = page.background %}
-{% else %}
-{% assign background = "bg-white" %}
-{% endif %}
-
-<!-- Page Theme Settings -->
-{% assign text_color = "text-black visited:text-black" %}
-{% assign logo_file = "digit-75.png" %}
-{% if page.theme == "dark" %}
-{% assign text_color = "text-white visited:text-white" %}
-{% assign logo_file = "digit-75-white.png" %}
-{% endif %}
-
 <body class="bg-primary-vivid">
 
-  <div class="paper {{ background }} {{ text_color }}">
+  <div class="paper bg-base-lightest height-auto">
     <a class="usa-skipnav" href="#main-content">Skip to main content</a>
 
     {% include header.html %}

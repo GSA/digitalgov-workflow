@@ -6,17 +6,14 @@
 
     <div class="paper bg-base-lightest height-auto">
 
+      {% include header.html %}
+
       <main id="main-content" class="">
-        <div class="grid-container grid-container-tablet">
+        <div class="grid-container">
           <div class="grid-row grid-gap-4">
             <div class="grid-col-12">
-              <section class="margin-y-9">
-                <h1 class="usa-logo-text">
-                  <a class="text-no-underline text-bold font-sans-2xl {{ text_color }} visited:text-base-darkest" href="{{ site.baseurl }}/" accesskey="1" title="Home" aria-label="{{ site.title }}">
-                    <img class="width-5 margin-right-1 position-relative top-05" src="{{ site.baseurl }}/assets/img/digit-150.png" alt="{{ site.title }}">{{ site.title }}
-                  </a>
-                </h1>
-                <h2 class="text-left text-light font-sans-xl">We manage our content in the open, to make it easier for others to contribute.</h2>
+
+              <section class="">
 
                 {% include navigation.html %}
 
