@@ -50,7 +50,8 @@ const FONTS_DEST = './assets/fonts';
 const JS_DEST = './assets/js';
 
 // Compiled CSS destination
-const CSS_DEST = './_site/assets/css';
+const CSS_DEST = './assets/css';
+const CSS_DEST2 = './_site/assets/css';
 
 /*
 ----------------------------------------
@@ -105,6 +106,7 @@ gulp.task('build-sass', function(done) {
     .pipe(postcss(plugins))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(`${CSS_DEST}`))
+    .pipe(gulp.dest(`${CSS_DEST2}`))
     .pipe(notify({
       "sound": "Pop" // case sensitive
     }));
