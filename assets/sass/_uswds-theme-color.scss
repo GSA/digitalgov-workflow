@@ -24,25 +24,25 @@ Theme palette colors
 */
 
 // Base colors
-$theme-color-base-family:           'gray-cool';
+$theme-color-base-family:           'gray-warm';
 $theme-color-base-lightest:         'gray-5';
-$theme-color-base-lighter:          'gray-cool-10';
-$theme-color-base-light:            'gray-cool-30';
-$theme-color-base:                  'gray-cool-50';
-$theme-color-base-dark:             'gray-cool-60';
-$theme-color-base-darker:           'gray-cool-70';
+$theme-color-base-lighter:          'gray-warm-10';
+$theme-color-base-light:            'gray-warm-30';
+$theme-color-base:                  'gray-warm-50';
+$theme-color-base-dark:             'gray-warm-60';
+$theme-color-base-darker:           'gray-warm-70';
 $theme-color-base-darkest:          'gray-90';
 $theme-color-base-ink:              'gray-90';
 
 // Primary colors
-$theme-color-primary-family:        'blue';
+$theme-color-primary-family:        'indigo';
 $theme-color-primary-lightest:      false;
-$theme-color-primary-lighter:       'blue-10';
-$theme-color-primary-light:         'blue-30';
-$theme-color-primary:               'blue-60v';
-$theme-color-primary-vivid:         'blue-warm-60v';
-$theme-color-primary-dark:          'blue-warm-70v';
-$theme-color-primary-darker:        'blue-warm-80v';
+$theme-color-primary-lighter:       'indigo-10';
+$theme-color-primary-light:         'indigo-30';
+$theme-color-primary:               'indigo-60v';
+$theme-color-primary-vivid:         'indigo-warm-60v';
+$theme-color-primary-dark:          'indigo-warm-70';
+$theme-color-primary-darker:        'indigo-warm-80';
 $theme-color-primary-darkest:       false;
 
 // Secondary colors
@@ -58,7 +58,7 @@ $theme-color-secondary-darkest:     false;
 
 // Accent warm colors
 $theme-color-accent-warm-family:    'orange';
-$theme-color-accent-warm-lightest:  false;
+$theme-color-accent-warm-lightest:  'orange-5';
 $theme-color-accent-warm-lighter:   'orange-10';
 $theme-color-accent-warm-light:     'orange-20v';
 $theme-color-accent-warm:           'orange-30v';
