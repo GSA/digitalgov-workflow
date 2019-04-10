@@ -2,7 +2,7 @@
 # List links that should appear in navigation bar
 
 nav:
-  - text: "What Our Users Need"
+  - text: "Our Users"
     url: /user-needs/
   - text: "How to Contribute"
     url: /contribute/

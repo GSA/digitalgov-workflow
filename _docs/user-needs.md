@@ -35,3 +35,10 @@ This information can take the form of:
 - resources
 - checklists
 - and short videos
+
+[Learn more about contributing to digital.gov]({% link _docs/contribute.md %})
+
+{% footnote %}
+This guidance stems from qualitative user research we conducted with over nearly two dozen federal members of our audience — content managers, designers, developers, innovation leaders — who are involved with all aspects of agencies’ digital services.
+
+As we found in listening to them, they are working against incredible odds, and yet continuously exhibit a desire to be resourceful, perseverant, resilient. We should all be proud to call them civil servants. :heart: {% endfootnote %}

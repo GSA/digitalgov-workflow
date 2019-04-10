@@ -1,0 +1,13 @@
+
+
+.emoji{
+  @include u-position('relative');
+  @include u-top('05');
+}
+
+
+.note{
+  p{
+    @include u-margin-y(0);
+  }
+}
