@@ -39,6 +39,11 @@ plugins:
 sass:
   sass_dir: _sass
 
+# GitHub information
+org_name: gsa
+repo_name: digitalgov-workflow
+branch: master
+
 content_types:
   - id: "news"
     title: "News"
