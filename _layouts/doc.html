@@ -17,7 +17,7 @@ layout: default
           <header class="margin-bottom-5">
             <h1 class="margin-0 margin-bottom-1 font-body-2xl text-heavy line-height-sans-1 text-primary-darker">{{ page.title | escape }}</h1>
             {% if page.deck %}
-            <div class="margin-y-2 text-light line-height-sans-3 font-sans-xl maxw-tablet-lg">{{ page.deck | escape }}</div>
+            <div class="margin-y-2 text-primary-dark text-light line-height-sans-3 font-sans-xl maxw-tablet-lg">{{ page.deck | markdownify | remove: '<p>' | remove: '</p>' }}</div>
             {% endif %}
           </header>
 

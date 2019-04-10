@@ -11,6 +11,7 @@ source "https://rubygems.org"
 gem "jekyll", "~> 3.6.2"
 gem 'json'
 gem 'hash-joiner'
+gem 'jemoji'
 
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
