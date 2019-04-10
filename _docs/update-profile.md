@@ -12,7 +12,7 @@ To achieve this, we’ve improved our profile pages to reflect the information p
 
 On article pages, your user name will appear as:
 
-<div class="bg-base-lightest margin-bottom-2 padding-2 width-mobile">
+<div class="bg-base-lightest margin-bottom-2 padding-105 width-mobile">
   <div class="margin-0 display-flex flex-align-center font-sans-2xs">
     <img class="margin-right-1 circle-5 border-1px border-base-light" src="https://github.com/jeremyzilar.png?size=50"/>
     <p class="margin-0 ">
@@ -20,7 +20,8 @@ On article pages, your user name will appear as:
       <span class="text-light display-block">GSA | New York, NY</span>
     </p>
   </div>
-  <div class="margin-0 margin-top-2 display-flex flex-align-center font-sans-2xs">
+
+  <div class="margin-0 margin-top-2 display-flex flex-align-center font-sans-2xs border-top-1px border-base-light">
     <img class="margin-right-1 circle-5 border-1px border-base-light" src="https://github.com/ToniBonittoGSA.png?size=50"/>
     <p class="margin-0 ">
       <span class="text-bold display-block">Toni Bonitto</span>
@@ -47,7 +48,7 @@ Are you new to digital.gov? [**Create a new profile »**]({% link _pages/new/eve
 Right now, the only way to get a personal profile image on digital.gov is through your GitHub account. Don't yet have a github account yet? Read our [guide to setting up a GitHub account]({% link _docs/github-account.md %}) and how it'll be used on our site.
 
 
-<div class="bg-base-lightest margin-bottom-2 padding-2 width-mobile">
+<div class="bg-base-lightest margin-bottom-2 padding-105 width-mobile">
   <p class="margin-0 display-flex flex-align-center font-mono-xs">
     <img class="margin-right-1 circle-5 border-1px border-base-light" src="https://github.com/jeremyzilar.png?size=50"/>
     <span>[github-username]</span>
@@ -55,7 +56,7 @@ Right now, the only way to get a personal profile image on digital.gov is throug
 </div>
 
 
-<div class="bg-base-lightest padding-2 width-mobile">
+<div class="bg-base-lightest padding-105 width-mobile">
   <p class="margin-top-0 margin-bottom-2 display-flex flex-align-center font-mono-xs">
     <img class="margin-right-1 circle-5 border-1px border-base-light" src="https://demo.digital.gov/img/digit-usa.png"/>
     <span>digit-usa (default)</span>
