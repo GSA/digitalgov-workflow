@@ -304,11 +304,11 @@ $theme-type-scale-3xs:      2;
 $theme-type-scale-2xs:      3;
 $theme-type-scale-xs:       4;
 $theme-type-scale-sm:       5;
-$theme-type-scale-md:       6;
+$theme-type-scale-md:       7;
 $theme-type-scale-lg:       9;
 $theme-type-scale-xl:       12;
-$theme-type-scale-2xl:      14;
-$theme-type-scale-3xl:      15;
+$theme-type-scale-2xl:      15;
+$theme-type-scale-3xl:      17;
 
 /*
 ----------------------------------------
@@ -392,7 +392,7 @@ none:    none
 
 // Body settings are the equivalent of setting the <body> element
 $theme-body-font-family:           'body';
-$theme-body-font-size:             'md';
+$theme-body-font-size:             'lg';
 $theme-body-line-height:           5;
 
 // If true, explicitly style the <body> element with the base styles

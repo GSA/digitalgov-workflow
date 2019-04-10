@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/css/styles.css?{{ site.time | date: "%Y%m%j%H%M%S" }}">
+  <link rel="stylesheet" type="text/css" href="{{ "/assets/css/styles.css" | prepend: site.baseurl }}">
   {% if page.url == '/edit/' or page.url == '/edit-topics/' or page.url == '/edit-profile/' or page.url contains '/new/' %}
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/other/select2.min.css?{{ site.time | date: "%Y%m%j%H%M%S" }}">
   {% endif %}

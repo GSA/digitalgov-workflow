@@ -8,6 +8,8 @@ nav:
     url: /events-guide/
   - text: "Update Your Profile"
     url: /update-profile/
+  - text: "What our Users Need"
+    url: /user-needs/
   - text: "Principles & Guidelines"
     url: /principles/
   - text: "Style Guide"

@@ -1,22 +1,52 @@
 ---
 layout: doc
-title: "How to Contribute to Digital.gov"
-deck: "Here's what we're looking for"
-permalink: /contribute/
+title: "What our users need"
+deck: "Through our user research, we have found that there are three things product managers in government need to be successful in their work."
+permalink: /user-needs/
 description:
 ---
 
+## Tools and Resources
+This information is crucial to modernizing services and much of it is government-specific, dealing with the various rules, regulations and policies.
 
-## Case studies, examples of problems solved
+Access to the right tools and resources will help them confidently take steps toward working smarter, iterating more frequently and  delivering better, more effective services to the public.
+
+## Examples of problems being solved in government
 
 Examples of other agencies’ success are some of the most powerful tools toward convincing colleagues to follow modern practices.
+
+They want more information that is specific to government — examples of what agencies are doing; case studies; collections of validated federal-wide news that has an impact on digital in one spot.
+
+
+## Collaboration
+
+People are interested in participating in spaces where they can more seamlessly communicate and share ideas between teams, with ‘points of contacts’ designated on various topics.
+
+They are interested in participating in spaces where people can more seamlessly communicate and share ideas between teams, with ‘points of contacts’ designated on various topics.
+
+
+## How do they want it?
+
+They need concise pieces of information to share with others, whom they manage, or work with, and may not have as much knowledge on a particular topic. They need that information to be easily shareable, printable and easy to distribute.
+
+This information can take the form of:
+
+- well-organized and maintained lists of tools
+- resources
+- checklists
+- and short videos
+
+
+
+
+Case studies — Examples of other agencies’ success are some of the most powerful tools toward convincing colleagues to follow modern practices.
 
 Product managers in government need more information that is specific to government — examples of what agencies are doing; case studies; collections of validated federal-wide news that has an impact on digital in one spot.
 
 Send us:
-- 1-2 sentence blurb describing what you want to write about
-- Agency you work for and team you’re on
-- Provide a photo of the team
+1-2 sentence blurb describing what you want to write about
+Agency you work for and team you’re on
+Provide a photo of the team
 
 Examples: link, link, link
 
