@@ -50,7 +50,7 @@ const FONTS_DEST = './assets/fonts';
 const JS_DEST = './assets/js';
 
 // Compiled CSS destination
-const CSS_DEST = './assets/css';
+const CSS_DEST = './_site/assets/css';
 
 /*
 ----------------------------------------
