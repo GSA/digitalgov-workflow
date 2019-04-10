@@ -1,12 +1,12 @@
-<nav role="navigation" class="">
+<nav role="navigation" class="bg-base-lighter padding-y-105 padding-x-2">
   <ul class="add-list-reset">
     {% for item in site.data.navigation.nav %}
       {% assign current = "" %}
       {% if page.url == item.url %}
         {% assign current = "current" %}
       {% endif %}
-      <li class="padding-y-05">
-        <a class="text-primary-dark visited:text-primary-dark hover:border-bottom-2px hover:border-secondary-light font-sans-md text-semibold text-no-underline" href="{{ site.baseurl }}{{ item.url }}">
+      <li class="padding-y-05 font-sans-sm text-semibold line-height-sans-4">
+        <a class="text-primary-dark visited:text-primary-dark hover:border-bottom-05 hover:border-secondary-light text-no-underline" href="{{ site.baseurl }}{{ item.url }}">
           <span>{{ item.text }}</span>
         </a>
       </li>

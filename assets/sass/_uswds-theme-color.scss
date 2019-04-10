@@ -25,9 +25,9 @@ Theme palette colors
 
 // Base colors
 $theme-color-base-family:           'gray-warm';
-$theme-color-base-lightest:         'gray-5';
-$theme-color-base-lighter:          'gray-warm-10';
-$theme-color-base-light:            'gray-warm-30';
+$theme-color-base-lightest:         'gray-3';
+$theme-color-base-lighter:          'gray-warm-5';
+$theme-color-base-light:            'gray-warm-10';
 $theme-color-base:                  'gray-warm-50';
 $theme-color-base-dark:             'gray-warm-60';
 $theme-color-base-darker:           'gray-warm-70';
@@ -43,7 +43,7 @@ $theme-color-primary:               'indigo-60v';
 $theme-color-primary-vivid:         'indigo-warm-60v';
 $theme-color-primary-dark:          'indigo-warm-70';
 $theme-color-primary-darker:        'indigo-warm-80';
-$theme-color-primary-darkest:       false;
+$theme-color-primary-darkest:       'indigo-warm-90';
 
 // Secondary colors
 $theme-color-secondary-family:      'red';
