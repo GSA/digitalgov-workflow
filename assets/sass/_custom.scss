@@ -1,5 +1,13 @@
 
 
+code{
+  @include u-padding-x('05');
+  @include u-padding-y('2px');
+  @include u-bg('white');
+  @include u-border('1px','solid','base-lighter');
+  @include u-radius('md');
+}
+
 .emoji{
   @include u-position('relative');
   @include u-top('05');
