@@ -1,5 +1,5 @@
 jQuery(document).ready(function ($) {
-  var entityPattern = /[&<>"'`)(=+:*@.?$%\/]/g;
+  var entityPattern = /[&<>"'’`)(=+*@$%\/]/g;
   function slugify(input) {
     var output = input.split(" ").splice(0,6).join(" ");
     output = output.replace(/[^a-zA-Z0-9\s]/g, "");
@@ -16,6 +16,7 @@ jQuery(document).ready(function ($) {
       '>': '&gt;',
       '"': '&quot;',
       "'": '&#39;',
+      "’": '&#39;',
       '/': '&#x2F;',
       '`': '&#x60;',
       '=': '&#x3D;',
