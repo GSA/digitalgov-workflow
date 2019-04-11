@@ -62,8 +62,6 @@ jQuery(document).ready(function ($) {
 
     var slug = $("#headline-input input").val();
     slug = slug.replace(new RegExp(small_words, "gi"), '');
-    console.log(slug);
-    console.log($content_type);
     slug = slugify(slug);
 
     var dateInput = $("#date-input input").val().match(/^[^\s]+/);
