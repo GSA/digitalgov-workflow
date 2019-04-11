@@ -31,7 +31,7 @@ Send us one of the following:
 
 _:stopwatch: Expect blog posts to publish 1-2 weeks after final copy is received._
 
-{% note %}Note: If content is about programs at your agency, you must have it reviewed and approved by your agency’s Comms team before submitting.
+{% note %} Note: If content is about programs at your agency, you must have it reviewed and approved by your agency’s Comms team before submitting.
 {% endnote %}
 
 ## Case studies, examples of problems solved
@@ -47,7 +47,7 @@ Send us one of the following:
 
 _:stopwatch: Expect blog posts to publish 1-2 weeks after final copy is received._
 
-{% note %}Note: If content is about programs at your agency, you must have it reviewed and approved by your agency’s Comms team before submitting.
+{% note %} Note: If content is about programs at your agency, you must have it reviewed and approved by your agency’s Comms team before submitting.
 {% endnote %}
 
 ---
