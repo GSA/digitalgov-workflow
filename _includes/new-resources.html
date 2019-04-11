@@ -5,17 +5,31 @@
   <div id="card_display">
     <fieldset class="usa-fieldset">
       <legend class="usa-sr-only">Resource page types</legend>
-      <ul class="usa-input-list">
-        <li>
-          <input class="usa-radio-input" id="card_display_dg" type="radio" name="card_display" value="card_display_dg">
-          <label class="usa-radio-label" for="card_display_dg">This resource page will live on Digital.gov</label>
-        </li>
-        <li>
-          <input class="usa-radio-input" id="card_display_elsewhere" type="radio" name="card_display" value="card_display_elsewhere">
-          <label class="usa-radio-label" for="card_display_elsewhere">This resource page lives on a separate website/URL</label>
-        </li>
-      </ul>
+      <div class="usa-radio">
+        <input class="usa-radio__input" id="card_display_dg" type="radio" name="card_display" value="card_display_dg">
+        <label class="usa-radio__label" for="card_display_dg">This resource page will live on Digital.gov</label>
+      </div>
+      <div class="usa-radio">
+        <input class="usa-radio__input" id="card_display_elsewhere" name="card_display" type="radio" value="card_display_elsewhere">
+        <label class="usa-radio__label" for="card_display_elsewhere">This resource page lives on a separate website/URL</label>
+      </div>
     </fieldset>
+  </div>
+
+  <div id="sources_select" class="display-none">
+    <label class="usa-label" for="source-input">
+      Source
+    </label>
+    <select class="usa-select margin-top-1 width-mobile"></select>
+    <p class="margin-y-05 font-sans-xs text-base-dark">Who published this?</p>
+  </div>
+
+  <div id="sourceoftruth" class="display-none">
+    <label class="usa-label" for="sourceoftruth-input">
+      Source URL
+    </label>
+    <input class="usa-input" name="sourceoftruth-input">
+    <p class="margin-y-05 font-sans-xs text-base-dark">The URL where this was published? (e.g. https://18f.gsa.gov/content-guide)</p>
   </div>
 
   <div id="date-input">
@@ -48,22 +62,6 @@
     </label>
     <textarea class="usa-textarea height-10" name="summary-input"></textarea>
     <p class="margin-y-05 font-sans-xs text-base-dark">The summary should be...</p>
-  </div>
-
-  <div id="sources_select" class="display-none">
-    <label class="usa-label" for="source-input">
-      Source
-    </label>
-    <select class="usa-select margin-top-1 width-mobile"></select>
-    <p class="margin-y-05 font-sans-xs text-base-dark">Who published this?</p>
-  </div>
-
-  <div id="sourceoftruth" class="display-none">
-    <label class="usa-label" for="sourceoftruth-input">
-      Source URL
-    </label>
-    <input class="usa-input" name="sourceoftruth-input">
-    <p class="margin-y-05 font-sans-xs text-base-dark">The URL where this was published? (e.g. https://18f.gsa.gov/content-guide)</p>
   </div>
 
   <div id="topic_select">
