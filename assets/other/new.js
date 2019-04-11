@@ -52,9 +52,9 @@ jQuery(document).ready(function ($) {
     var filename = "";
     var post_matter = "";
     var url = "";
-    var title = ($('#headline-input').hasClass('display-none')) ? "" : `\ntitle: '${encodeEntities($("#headline-input input").val()).trim()}'\n`;
+    var title = ($('#headline-input').hasClass('display-none')) ? "" : `\ntitle: "${encodeEntities($("#headline-input input").val()).trim()}"\n`;
     var sources_select = ($('#sources_select').hasClass('display-none')) ? "" : `\n# What source published this?\nsource: '${$("#sources_select select").select2('data')[0].id}'\n`;
-    var source_url = ($('#source_url').hasClass('display-none')) ? "" : `\n# What is the URL for this product or service?\n# Note: We'll add a ?dg to the end of the URL in the code for tracking purposes\nsource_url: '${$("#source_url input").val()}'\n`;
+    var source_url = ($('#source_url').hasClass('display-none')) ? "" : `\n# What is the URL for this product or service?\n# Note: We'll add a ?dg to the end of the URL in the code for tracking purposes\nsource_url: "${$("#source_url input").val()}"\n`;
     var commit_msg = "new "+ $content_type +": " + `${encodeEntities($("#headline-input input").val()).trim()}`;
     var commit_desc = `${encodeEntities($("#deck-input textarea").val()).trim()}`;
     var branch = "demo";
@@ -78,8 +78,8 @@ jQuery(document).ready(function ($) {
     post_matter += `slug: /`+$content_type+`/${slug}\n`;
     post_matter += `date: ${dateInput[0]} ${$("#time-input input").val()}:00 -0500\n`;
     post_matter += title;
-    post_matter += `deck: '${encodeEntities($("#deck-input textarea").val()).trim()}'\n`;
-    post_matter += `summary: '${encodeEntities($("#summary-input textarea").val()).trim()}'\n`;
+    post_matter += `deck: "${encodeEntities($("#deck-input textarea").val()).trim()}"\n`;
+    post_matter += `summary: "${encodeEntities($("#summary-input textarea").val()).trim()}"\n`;
     post_matter += `authors: ${cs2ds($("#people_select select").select2('data'))}\n`;
     post_matter += `\n# Topics that best describe this product or service\ntopics: ${cs2ds($("#topic_select select").select2('data'))}\n`;
     post_matter += sources_select;
