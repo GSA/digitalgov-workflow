@@ -17,25 +17,13 @@
     </fieldset>
   </div>
 
+  {% for niche in site.data.content_types.blog_post %}
+    {% for block in niche.blocks %}
+      {% if block.type %}
+        {% include blocks/{{ block.type }}.html name=block.name id=block.id text=block.txt %}
+      {% endif %}
 
-  {% include blocks/headline.html %}
-
-  {% include blocks/deck.html %}
-
-  {% include blocks/summary.html %}
-
-  {% include blocks/source.html %}
-
-  {% include blocks/source_url.html %}
-
-  {% include blocks/topics.html %}
-
-  {% include blocks/authors.html %}
-
-  {% include blocks/date.html %}
-
-  {% include blocks/time.html %}
-
-  {% include blocks/branch.html %}
+    {% endfor %}
+  {% endfor %}
 
 </form>

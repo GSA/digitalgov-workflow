@@ -1,0 +1,26 @@
+# Nav
+# List links that should appear in navigation bar
+
+- name: Blog Post
+  id: blog_post
+  page-title: blog_post
+  description: a blog post template
+  blocks:
+  - id: headline
+    type: input
+    name: Headline
+    txt: "this is text"
+  - id: deck
+    type: textarea
+    name: Deck
+    txt: "this is more text"
+
+  # - deck
+  # - summary
+  # - source
+  # - source_url
+  # - topics
+  # - authors
+  # - date
+  # - time
+  # - branch

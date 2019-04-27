@@ -35,6 +35,7 @@ jQuery(document).ready(function ($) {
       return entityMap[s];
     });
   }
+  
   function cs2ds(tax) {
     var output = "\n";
     $.each( tax, function( i, e ) {
