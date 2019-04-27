@@ -16,95 +16,24 @@
     </fieldset>
   </div>
 
-  <div id="sources_select" class="display-none">
-    <label class="usa-label" for="source-input">
-      Source
-    </label>
-    <select class="usa-select margin-top-1 width-mobile"></select>
-    <p class="margin-y-05 font-sans-xs text-base-dark">Who published this?</p>
-  </div>
+  {% include blocks/source.html %}
 
-  <div id="source_url" class="display-none">
-    <label class="usa-label" for="source_url-input">
-      Source URL
-    </label>
-    <input class="usa-input" name="source_url-input">
-    <p class="margin-y-05 font-sans-xs text-base-dark">The URL where this was published? (e.g. https://18f.gsa.gov/content-guide)</p>
-  </div>
+  {% include blocks/source_url.html %}
 
-  <div id="date-input">
-    <label class="usa-label" for="date-input">
-      Publish Date
-    </label>
-    <input class="usa-input" type="text" name="date-input">
-    <p class="margin-y-05 font-sans-2xs text-base-dark"><em>year-mo-day, (e.g 2018-09-29)</em></p>
-  </div>
+  {% include blocks/date.html %}
 
-  <div id="headline-input">
-    <label class="usa-label" for="headline-input">
-      Headline
-    </label>
-    <input class="usa-input" name="headline-input">
-    <p class="margin-y-05 font-sans-xs text-base-dark">The headline should be...</p>
-  </div>
+  {% include blocks/headline.html %}
 
-  <div id="deck-input">
-    <label class="usa-label" for="deck-input">
-      Deck / Blurb
-    </label>
-    <textarea class="usa-textarea height-10" name="deck-input"></textarea>
-    <p class="margin-y-05 font-sans-xs text-base-dark">The deck should be...</p>
-  </div>
+  {% include blocks/deck.html %}
 
-  <div id="summary-input">
-    <label class="usa-label" for="summary-input">
-      Summary
-    </label>
-    <textarea class="usa-textarea height-10" name="summary-input"></textarea>
-    <p class="margin-y-05 font-sans-xs text-base-dark">The summary should be...</p>
-  </div>
+  {% include blocks/summary.html %}
 
-  <div id="topic_select">
-    <label class="usa-label" for="topic_select">
-      Topics
-    </label>
-    <select multiple="multiple" class="usa-select"></select>
-    <p class="margin-y-05 font-sans-2xs text-base-dark"><em>Select the 2-3 topics that best fit</em></p>
-  </div>
+  {% include blocks/topics.html %}
 
-  <div id="people_select">
-    <label class="usa-label" for="people_select">
-      Authors
-    </label>
-    <select multiple="multiple" class="usa-select"></select>
-    <p class="margin-y-05 font-sans-2xs text-base-dark"><em>Select the people who've contributed to this. Don't see the person you're looking for? <a target="_new" href="https://github.com/GSA/digitalgov.gov/tree/demo/data/people/authors" title="Add a new contributor">Add a contributor</a></em></p>
-  </div>
+  {% include blocks/authors.html %}
 
-  <div id="time-input">
-    <label class="usa-label" for="time-input">
-      Time
-    </label>
-    <input class="usa-input" type="text" name="time-input">
-    <p class="margin-y-05 font-sans-2xs text-base-dark"><em>24-hour time, e.g. 15:32</em></p>
-  </div>
+  {% include blocks/time.html %}
 
-  <div id="branch-input">
-    <h3>Selct one of the available publishing cycles:</h3>
-
-    <fieldset class="usa-fieldset">
-      <legend class="usa-sr-only">Historical figures 2</legend>
-      <ul class="usa-input-list">
-        <li>
-          <input class="usa-radio-input" id="dec-10-spotlight" type="radio" checked name="branch-input" value="dec-10-spotlight">
-          <label class="usa-radio-label" for="dec-10-spotlight">Dec 10 Spotlight</label>
-        </li>
-        <li>
-          <input class="usa-radio-input" id="dec-17-spotlight" type="radio" name="branch-input" value="dec-17-spotlight">
-          <label class="usa-radio-label" for="dec-17-spotlight">Dec 17 Spotlight</label>
-        </li>
-      </ul>
-    </fieldset>
-    <p class="margin-y-05 font-sans-xs text-base-dark">We publish Spotlight every Monday @ 9am. Read more about our publishing cycles.</p>
-  </div>
+  {% include blocks/branch.html %}
 
 </form>
