@@ -74,7 +74,12 @@ jQuery(document).ready(function ($) {
     filename += ".md";
 
     post_matter += "---\n";
-    post_matter += `slug: /`+$content_type+`/${slug}\n`;
+    if ($content_type == 'posts' || $content_type == 'events') {
+      post_matter += `slug: ${slug}\n`;
+    } else {
+      post_matter += `slug: /`+$content_type+`/${slug}\n`;
+    }
+
     post_matter += `date: ${dateInput[0]} ${$("#block-time input").val()}:00 -0500\n`;
     post_matter += title;
     post_matter += `deck: "${encodeEntities($("#block-deck textarea").val()).trim()}"\n`;
