@@ -55,7 +55,7 @@ jQuery(document).ready(function ($) {
     var url = "";
     var title = ($('#block-headline').hasClass('display-none')) ? "" : `\ntitle: "${encodeEntities($("#block-headline input").val()).trim()}"\n`;
     var sources_select = ($('#block-source').hasClass('display-none')) ? "" : `\n# What source published this?\nsource: '${$("#block-source select").select2('data')[0].id}'\n`;
-    var source_url = ($('#source_url').hasClass('display-none')) ? "" : `\n# What is the URL for this product or service?\n# Note: We'll add a ?dg to the end of the URL in the code for tracking purposes\nsource_url: "${$("#source_url input").val()}"\n`;
+    var source_url = ($('#block-source_url').hasClass('display-none')) ? "" : `\n# What is the URL for this product or service?\n# Note: We'll add a ?dg to the end of the URL in the code for tracking purposes\nsource_url: "${$("#block-source_url input").val()}"\n`;
     var commit_msg = "new "+ $content_type +": " + `${encodeEntities($("#block-headline input").val()).trim()}`;
     var commit_desc = `${encodeEntities($("#block-deck textarea").val()).trim()}`;
     var branch = "demo";
@@ -75,7 +75,7 @@ jQuery(document).ready(function ($) {
 
     post_matter += "---\n";
     post_matter += `slug: /`+$content_type+`/${slug}\n`;
-    post_matter += `date: ${dateInput[0]} ${$("#time-input input").val()}:00 -0500\n`;
+    post_matter += `date: ${dateInput[0]} ${$("#block-time input").val()}:00 -0500\n`;
     post_matter += title;
     post_matter += `deck: "${encodeEntities($("#block-deck textarea").val()).trim()}"\n`;
     post_matter += `summary: "${encodeEntities($("#block-summary textarea").val()).trim()}"\n`;
@@ -101,7 +101,7 @@ jQuery(document).ready(function ($) {
   // Date entry
   var date = new Date();
   $("#block-date input").val(`${date.getFullYear()}-${('0' + (date.getMonth()+1)).slice(-2)}-${('0' + (date.getDate()+1)).slice(-2)}`);
-  $("#time-input input").val(`${date.getHours()}:${(date.getMinutes()<10?'0':'') + date.getMinutes()}`);
+  $("#block-time input").val(`${date.getHours()}:${(date.getMinutes()<10?'0':'') + date.getMinutes()}`);
   update();
 
   $("input").keyup(update);
@@ -127,9 +127,9 @@ jQuery(document).ready(function ($) {
     if($(this).is(':checked')){
       var val = $(this).val();
       if (val == 'card_display_dg') {
-        $("#block-source, #source_url").addClass('display-none');
+        $("#block-source, #block-source_url").addClass('display-none');
       } else {
-        $("#block-source, #source_url").removeClass('display-none');
+        $("#block-source, #block-source_url").removeClass('display-none');
       }
       // if (val == 'card_display_elsewhere'){
       //   $("#post #block-headline, #post #block-summary").addClass('display-none');
@@ -161,7 +161,7 @@ jQuery(document).ready(function ($) {
     return post_matter += `\nsource: ${cs2ds($("#block-source select").select2('data'))}\n`;
   }
   function get_source_url(){
-    return post_matter += `source_url: '${$("#source_url-input input").val()}'\n`;
+    return post_matter += `source_url: '${$("#block-source_url-input input").val()}'\n`;
   }
 
 
