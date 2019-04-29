@@ -1,8 +1,8 @@
 jQuery(document).ready(function($) {
 
-	get_taxonomy_data('topics').done(get_options);
-	get_taxonomy_data('people').done(get_authors);
 	get_taxonomy_data('sources').done(get_sources);
+	get_taxonomy_data('authors').done(get_authors);
+	get_taxonomy_data('topics').done(get_topics);
 
 
 	function get_sources(sources){
@@ -13,17 +13,20 @@ jQuery(document).ready(function($) {
 		localStorage.setItem("sources_options", options);
 	}
 
-	function get_authors(people){
+	function get_authors(authors){
+		console.log('authors');
+		console.log(authors);
 		var options = "";
-		$.each( people.items, function( i, e ) {
+		$.each( authors.items, function( i, e ) {
 			$.each( e, function( n, peep ) {
+				console.log(peep.display_name);
       	options += '<option value="'+n+'">'+peep.display_name+'</option>';
     	});
     });
-		localStorage.setItem("people_options", options);
+		localStorage.setItem("dg_authors", options);
 	}
 
-	function get_options_weighted(topics, weight) {
+	function get_topics_weighted(topics, weight) {
 		var options = "";
 
 		var weight_class = (weight) ? "weight-" + weight : "";
@@ -38,13 +41,13 @@ jQuery(document).ready(function($) {
 		return options;
   }
 
-	function get_options(data){
+	function get_topics(data){
 		var options = "";
-		options += get_options_weighted(data, 3);
-		options += get_options_weighted(data, 2);
-		options += get_options_weighted(data, 1);
-		options += get_options_weighted(data, "");
-		localStorage.setItem("topics_options", options);
+		options += get_topics_weighted(data, 3);
+		options += get_topics_weighted(data, 2);
+		options += get_topics_weighted(data, 1);
+		options += get_topics_weighted(data, "");
+		localStorage.setItem("dg_topics", options);
 	}
 
 	function get_taxonomy_data(api_id){
@@ -57,16 +60,17 @@ jQuery(document).ready(function($) {
 		}
 	  if (api_path) {
 	    // Let's get the API + data
-	    return $.ajax({
+	    var data = $.ajax({
 	      url: api_path,
 	      type: 'GET',
 	      dataType: 'json',
 	    });
+			return 'data';
 	  } else {
 	    console.log('The api_path for the taxonomy is not set');
 	  }
 	}
 
-	// console.log("localStorage.topics_options");
-	// console.log(localStorage.topics_options);
+	// console.log("localStorage.dg_topics");
+	// console.log(localStorage.dg_topics);
 });

@@ -14,13 +14,35 @@
     type: textarea
     name: Deck
     txt: "this is more text"
-
-  # - deck
-  # - summary
-  # - source
-  # - source_url
-  # - topics
-  # - authors
-  # - date
-  # - time
-  # - branch
+  - id: summary
+    type: textarea
+    name: Summary
+    txt: "this is more text"
+  - id: source
+    type: select
+    name: Source
+    txt: "this is more text"
+  - id: source_url
+    type: input
+    name: Source Url
+    txt: "this is more text"
+  - id: topics
+    type: select-multiple
+    name: Topics
+    txt: "this is more text"
+  - id: authors
+    type: select-multiple
+    name: Authors
+    txt: "this is more text"
+  - id: date
+    type: input
+    name: Date
+    txt: "this is more text"
+  - id: time
+    type: input
+    name: Time
+    txt: "this is more text"
+  - id: branch
+    type: input
+    name: Branch
+    txt: "this is more text"

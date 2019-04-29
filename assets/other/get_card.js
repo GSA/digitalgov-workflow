@@ -8,7 +8,7 @@ function get_card(data, content, type){
 		return display_event_data(data.item[0]);
 	} else if (type == "single" && content == "page") {
 		return display_page_data(data.item[0]);
-	} else if (content == "people") {
+	} else if (content == "authors") {
 		return display_author_card(data);
 	} else {
 		return display_page_card(data);

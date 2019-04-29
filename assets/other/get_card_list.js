@@ -32,7 +32,7 @@ jQuery(document).ready(function($) {
 
 
 	function display_card_list(data, type, location){
-    if (data.content == "people") {
+    if (data.content == "authors") {
       $.each( data.items, function( i, obj ) {
   			$.each( obj, function( i, e ) {
   				$(location).append(get_card(e, type));

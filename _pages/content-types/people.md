@@ -1,10 +1,10 @@
 ---
 layout: content-type
-title: People
-permalink: /edit/people/
-source_path: /people/
+title: Authors
+permalink: /edit/authors/
+source_path: /authors/
 description:
-api: people
+api: authors
 
 ---
 

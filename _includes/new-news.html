@@ -19,8 +19,9 @@
 
   {% for niche in site.data.content_types.blog_post %}
     {% for block in niche.blocks %}
+
       {% if block.type %}
-        {% include blocks/{{ block.type }}.html name=block.name id=block.id text=block.txt %}
+        {% include blocks/{{ block.type }}.html name=block.name id=block.id text=block.txt type=block.type %}
       {% endif %}
 
     {% endfor %}

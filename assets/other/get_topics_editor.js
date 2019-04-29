@@ -4,7 +4,7 @@ jQuery(document).ready(function($) {
 	// https://select2.org/
 	// This is what we are using to make it possible to pull topics from the TOPICS API and make them searchable and editable in the interface
 	// It is not easy...
-	$("#topic_select select").select2({
+	$("#block-topics select").select2({
 	  tags: true,
 	  width: 'element',
 	  closeOnSelect: false,
@@ -21,7 +21,7 @@ jQuery(document).ready(function($) {
 	    }
 	  }
 	});
-	$("#people_select select").select2({
+	$("#block-authors select").select2({
 	  tags: true,
 	  width: 'element',
 	  closeOnSelect: false,
@@ -38,13 +38,13 @@ jQuery(document).ready(function($) {
 	    }
 	  }
 	});
-	$("#sources_select select").select2({
+	$("#block-source select").select2({
 		minimumResultsForSearch: Infinity
 	});
 
-	$("#topic_select select").append(localStorage.topics_options).trigger('change');
-	$("#people_select select").append(localStorage.people_options).trigger('change');
-	$("#sources_select select").append(localStorage.sources_options).trigger('change');
+	$("#block-topics select").append(localStorage.dg_topics).trigger('change');
+	$("#block-authors select").append(localStorage.dg_authors).trigger('change');
+	$("#block-source select").append(localStorage.dg_sources).trigger('change');
 
 	get_page_data().done(function(a,b,c) {
 		var card_data = get_card(a, a.content, a.type);
@@ -58,7 +58,7 @@ jQuery(document).ready(function($) {
 	    // Getting an array of the topics
 	    var topics_array = get_topics_array(file['topics']);
 	    // Pass the current topics to the select2 field
-	    $('#topic_select select').val(topics_array).trigger("change");
+	    $('#block-topics select').val(topics_array).trigger("change");
 
 	    // Now get the list of selected topics from the select2 field
 	    // Note: We are using the select field as a way to filter out inconsistent topic name that may be in the front matter of the page.
@@ -81,7 +81,7 @@ jQuery(document).ready(function($) {
 	}
 
 	function get_selected_topics(){
-	  var topics = $('#topic_select select').select2('data');
+	  var topics = $('#block-topics select').select2('data');
 	  var list = {};
 	  $.each( topics, function( index, element ) {
 	    list[element['id']] = element['title'];
@@ -114,8 +114,8 @@ jQuery(document).ready(function($) {
 	// Each time a topic is added/removed from the select,
 	// get the new list of topics
 	// and re-build the front_matter list
-	$('#topic_select select').on("select2:select select2:unselect", function(e) {
-	  var topics = $('#topic_select select').select2('data');
+	$('#block-topics select').on("select2:select select2:unselect", function(e) {
+	  var topics = $('#block-topics select').select2('data');
 		console.log(topics);
 	  var list = {};
 	  $.each( topics, function( index, element ) {

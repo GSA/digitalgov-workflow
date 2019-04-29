@@ -35,7 +35,7 @@ jQuery(document).ready(function ($) {
       return entityMap[s];
     });
   }
-  
+
   function cs2ds(tax) {
     var output = "\n";
     $.each( tax, function( i, e ) {
@@ -53,19 +53,19 @@ jQuery(document).ready(function ($) {
     var filename = "";
     var post_matter = "";
     var url = "";
-    var title = ($('#headline-input').hasClass('display-none')) ? "" : `\ntitle: "${encodeEntities($("#headline-input input").val()).trim()}"\n`;
-    var sources_select = ($('#sources_select').hasClass('display-none')) ? "" : `\n# What source published this?\nsource: '${$("#sources_select select").select2('data')[0].id}'\n`;
+    var title = ($('#block-headline').hasClass('display-none')) ? "" : `\ntitle: "${encodeEntities($("#block-headline input").val()).trim()}"\n`;
+    var sources_select = ($('#block-source').hasClass('display-none')) ? "" : `\n# What source published this?\nsource: '${$("#block-source select").select2('data')[0].id}'\n`;
     var source_url = ($('#source_url').hasClass('display-none')) ? "" : `\n# What is the URL for this product or service?\n# Note: We'll add a ?dg to the end of the URL in the code for tracking purposes\nsource_url: "${$("#source_url input").val()}"\n`;
-    var commit_msg = "new "+ $content_type +": " + `${encodeEntities($("#headline-input input").val()).trim()}`;
-    var commit_desc = `${encodeEntities($("#deck-input textarea").val()).trim()}`;
+    var commit_msg = "new "+ $content_type +": " + `${encodeEntities($("#block-headline input").val()).trim()}`;
+    var commit_desc = `${encodeEntities($("#block-deck textarea").val()).trim()}`;
     var branch = "demo";
 
 
-    var slug = $("#headline-input input").val();
+    var slug = $("#block-headline input").val();
     slug = slug.replace(new RegExp(small_words, "gi"), '');
     slug = slugify(slug);
 
-    var dateInput = $("#date-input input").val().match(/^[^\s]+/);
+    var dateInput = $("#block-date input").val().match(/^[^\s]+/);
     if ($content_type == 'news' || $content_type == 'events') {
       filename += dateInput[0];
       filename += "-";
@@ -77,10 +77,10 @@ jQuery(document).ready(function ($) {
     post_matter += `slug: /`+$content_type+`/${slug}\n`;
     post_matter += `date: ${dateInput[0]} ${$("#time-input input").val()}:00 -0500\n`;
     post_matter += title;
-    post_matter += `deck: "${encodeEntities($("#deck-input textarea").val()).trim()}"\n`;
-    post_matter += `summary: "${encodeEntities($("#summary-input textarea").val()).trim()}"\n`;
-    post_matter += `authors: ${cs2ds($("#people_select select").select2('data'))}\n`;
-    post_matter += `\n# Topics that best describe this product or service\ntopics: ${cs2ds($("#topic_select select").select2('data'))}\n`;
+    post_matter += `deck: "${encodeEntities($("#block-deck textarea").val()).trim()}"\n`;
+    post_matter += `summary: "${encodeEntities($("#block-summary textarea").val()).trim()}"\n`;
+    post_matter += `authors: ${cs2ds($("#block-authors select").select2('data'))}\n`;
+    post_matter += `\n# Topics that best describe this product or service\ntopics: ${cs2ds($("#block-topics select").select2('data'))}\n`;
     post_matter += sources_select;
     post_matter += source_url;
     post_matter += "\n---";
@@ -100,19 +100,19 @@ jQuery(document).ready(function ($) {
 
   // Date entry
   var date = new Date();
-  $("#date-input input").val(`${date.getFullYear()}-${('0' + (date.getMonth()+1)).slice(-2)}-${('0' + (date.getDate()+1)).slice(-2)}`);
+  $("#block-date input").val(`${date.getFullYear()}-${('0' + (date.getMonth()+1)).slice(-2)}-${('0' + (date.getDate()+1)).slice(-2)}`);
   $("#time-input input").val(`${date.getHours()}:${(date.getMinutes()<10?'0':'') + date.getMinutes()}`);
   update();
 
   $("input").keyup(update);
   $("textarea").keyup(update);
-  $('#topic_select select').on("select2:select select2:unselect", function(e) {
+  $('#block-topics select').on("select2:select select2:unselect", function(e) {
     update();
   });
-  $('#people_select select').on("select2:select select2:unselect", function(e) {
+  $('#block-authors select').on("select2:select select2:unselect", function(e) {
     update();
   });
-  $('#sources_select select').on("select2:select select2:unselect", function(e) {
+  $('#block-source select').on("select2:select select2:unselect", function(e) {
     update();
   });
 
@@ -127,15 +127,15 @@ jQuery(document).ready(function ($) {
     if($(this).is(':checked')){
       var val = $(this).val();
       if (val == 'card_display_dg') {
-        $("#sources_select, #source_url").addClass('display-none');
+        $("#block-source, #source_url").addClass('display-none');
       } else {
-        $("#sources_select, #source_url").removeClass('display-none');
+        $("#block-source, #source_url").removeClass('display-none');
       }
       // if (val == 'card_display_elsewhere'){
-      //   $("#post #headline-input, #post #summary-input").addClass('display-none');
+      //   $("#post #block-headline, #post #block-summary").addClass('display-none');
       // }
       // else {
-      //   $("#post #headline-input, #post #summary-input").removeClass('display-none');
+      //   $("#post #block-headline, #post #block-summary").removeClass('display-none');
       // }
       update();
     }
@@ -158,7 +158,7 @@ jQuery(document).ready(function ($) {
 
 
   function get_sources_select(){
-    return post_matter += `\nsource: ${cs2ds($("#sources_select select").select2('data'))}\n`;
+    return post_matter += `\nsource: ${cs2ds($("#block-source select").select2('data'))}\n`;
   }
   function get_source_url(){
     return post_matter += `source_url: '${$("#source_url-input input").val()}'\n`;

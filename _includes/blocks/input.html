@@ -1,7 +1,7 @@
-<div id="headline-input">
-  <label class="usa-label" for="headline-input">
+<div id="block-{{ include.id }}" class="block">
+  <label class="usa-label" for="block-{{ include.id }}">
     {{ include.name }}
   </label>
-  <input class="usa-input" name="headline-input">
+  <input class="usa-input" name="block-{{ include.id }}">
   <p class="margin-y-05 font-sans-xs text-base-dark">{{ include.text }}</p>
 </div>

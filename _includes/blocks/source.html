@@ -1,7 +1,7 @@
-<div id="sources_select" class="display-none">
-  <label class="usa-label" for="source-input">
-    Source
+<div id="{{ include.id }}" class="display-none">
+  <label class="usa-label" for="{{ include.id }}">
+    {{ include.name }}
   </label>
-  <select class="usa-select margin-top-1 width-mobile"></select>
-  <p class="margin-y-05 font-sans-xs text-base-dark">Who published this?</p>
+  <select class="usa-select margin-top-1 width-mobile" name="{{ include.id }}"></select>
+  <p class="margin-y-05 font-sans-xs text-base-dark">{{ include.text }}</p>
 </div>
