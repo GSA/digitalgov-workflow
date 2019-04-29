@@ -66,7 +66,7 @@ jQuery(document).ready(function ($) {
     slug = slugify(slug);
 
     var dateInput = $("#block-date input").val().match(/^[^\s]+/);
-    if ($content_type == 'news' || $content_type == 'events') {
+    if ($content_type == 'posts' || $content_type == 'events') {
       filename += dateInput[0];
       filename += "-";
     }
@@ -87,7 +87,7 @@ jQuery(document).ready(function ($) {
 
 
     url += "https://github.com/GSA/digitalgov.gov/new/"+branch+"/content/"+$content_type+"/";
-    if ($content_type == 'news' || $content_type == 'events') {
+    if ($content_type == 'posts' || $content_type == 'events') {
       url += file_yearmo(dateInput[0]) + 'draft?filename=' + filename + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + branch;
     } else {
       url += 'draft?filename=' + filename + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + branch;
