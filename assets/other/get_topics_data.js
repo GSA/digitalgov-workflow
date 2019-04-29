@@ -36,13 +36,17 @@ jQuery(document).ready(function($) {
 		}
 	  if (api_path) {
 	    // Let's get the API + data
-	    $.ajax({
+			$.ajax({
 	      url: api_path,
 	      type: 'GET',
+				crossDomain: true,
 	      dataType: 'json',
-	    }).done(function(data) {
-				get_topics(data);
-				return data;
+				success: function(data) {
+					get_topics(data);
+		    },
+				error : function(request,error){
+					console.log('There was an error getting the '+api_id+' API — '+ error);
+				}
 			});
 
 	  } else {

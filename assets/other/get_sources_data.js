@@ -19,15 +19,18 @@ jQuery(document).ready(function($) {
 			});
 		}
 	  if (api_path) {
-			console.log(api_path);
 	    // Let's get the API + data
-	    $.ajax({
+			$.ajax({
 	      url: api_path,
 	      type: 'GET',
+				crossDomain: true,
 	      dataType: 'json',
-	    }).done(function(data) {
-				get_sources(data);
-				return data;
+				success: function(data) {
+					get_sources(data);
+		    },
+				error : function(request,error){
+					console.log('There was an error getting the '+api_id+' API — '+ error);
+				}
 			});
 
 	  } else {
