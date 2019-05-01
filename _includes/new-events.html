@@ -7,7 +7,7 @@
     <fieldset class="usa-fieldset">
       <legend class="usa-sr-only">Event types</legend>
       <div class="usa-radio">
-        <input class="usa-radio__input" id="card_display_dg" type="radio" name="card_display" value="card_display_dg">
+        <input class="usa-radio__input" id="card_display_dg" type="radio" name="card_display" value="card_display_dg" checked>
         <label class="usa-radio__label" for="card_display_dg">This event will be hosted on Digital.gov</label>
       </div>
       <div class="usa-radio">
@@ -16,6 +16,16 @@
       </div>
     </fieldset>
   </div>
+
+  {% for niche in site.data.content_types.events %}
+    {% for block in niche.blocks %}
+
+      {% if block.type %}
+        {% include blocks/{{ block.type }}.html name=block.name id=block.id text=block.txt type=block.type %}
+      {% endif %}
+
+    {% endfor %}
+  {% endfor %}
 
   {% include blocks/source.html %}
 
