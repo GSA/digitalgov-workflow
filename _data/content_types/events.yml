@@ -1,0 +1,88 @@
+# Nav
+# List links that should appear in navigation bar
+
+- name: Events
+  id: events
+  page-title: events
+  description: An event page template
+  blocks:
+  - id: headline-event
+    type: input
+    name: Event Title
+    txt: "this is text"
+  - id: deck
+    type: textarea
+    name: Deck
+    txt: "this is more text"
+  - id: summary
+    type: textarea
+    name: Summary
+    txt: "this is more text"
+  - id: source
+    type: select
+    name: Source
+    txt: "this is more text"
+  - id: source_url
+    type: input
+    name: Source Url
+    txt: "this is more text"
+  - id: topics
+    type: select-multiple
+    name: Topics
+    txt: "this is more text"
+  - id: authors
+    type: select-multiple
+    name: Event authors
+    txt: "this is more text"
+  - id: date-start
+    type: input
+    name: Date
+    txt: "this is more text"
+  - id: date-end
+    type: input
+    name: Date
+    txt: "this is more text"
+  - id: time-start
+    type: input
+    name: Time
+    txt: "this is more text"
+  - id: time-end
+    type: input
+    name: Time
+    txt: "this is more text"
+  - id: event_organizer
+    type: input
+    name: Event Organizer
+    txt: "this is more text"
+  - id: host
+    type: input
+    name: Host
+    txt: "this is more text"
+  - id: registration_url
+    type: input
+    name: Registration URL
+    txt: "this is more text"
+  - id: captions
+    type: input
+    name: Captions
+    txt: "this is more text"
+  - id: event_platform
+    type: input
+    name: Event Platform
+    txt: "this is more text"
+  - id: youtube_id
+    type: input
+    name: YouTube ID
+    txt: "this is more text"
+  - id: zoom_url
+    type: input
+    name: Zoom URL
+    txt: "this is more text"
+  - id: venue
+    type: input
+    name: Venue
+    txt: "this is more text"
+  - id: branch
+    type: input
+    name: Branch
+    txt: "this is more text"

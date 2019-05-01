@@ -48,9 +48,9 @@ repo_name: digitalgov-workflow
 branch: master
 
 content_types:
-  - id: "news"
-    title: "News"
-    url: /edit/news/
+  - id: "posts"
+    title: "Posts"
+    url: /edit/posts/
     api: 'https://demo.digital.gov/posts/index.json'
   - id: "events"
     title: "Events"
@@ -72,9 +72,9 @@ content_types:
     title: "Topics"
     url: /edit/topics/
     api: 'https://demo.digital.gov/topics/v1/json/'
-  - id: "people"
-    title: "People"
-    url: /edit/people/
+  - id: "authors"
+    title: "Authors"
+    url: /edit/authors/
     api: 'https://demo.digital.gov/authors/v1/json/'
   - id: "promos"
     title: "Promos"
