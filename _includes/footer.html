@@ -5,7 +5,7 @@
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
-<script src="{{ site.baseurl }}/assets/js/uswds.min.js"></script>
+<script src="{{ site.baseurl }}/assets/js/dist/uswds.min.js"></script>
 <script src="{{ site.baseurl }}/assets/other/get_sources_data.js"></script>
 <script src="{{ site.baseurl }}/assets/other/get_topics_data.js"></script>
 <script src="{{ site.baseurl }}/assets/other/get_authors_data.js"></script>
@@ -18,16 +18,16 @@
 {% endif %}
 
 {% if page.url == '/edit-topics/' or page.url == '/edit-profile/' %}
-<script src="{{ site.baseurl }}/assets/other/select2.min.js"></script>
-<script src="{{ site.baseurl }}/assets/other/clipboard.min.js"></script>
+<script src="{{ site.baseurl }}/assets/js/dist/select2.min.js"></script>
+<script src="{{ site.baseurl }}/assets/js/dist/clipboard.min.js"></script>
 <script src="{{ site.baseurl }}/assets/other/get_topics_editor.js"></script>
 {% elsif page.url == '/edit/topics/'  %}
 <script src="{{ site.baseurl }}/assets/other/get_topics_editor.js"></script>
 {% endif %}
 
 {% if page.url contains '/new/' %}
-<script src="{{ site.baseurl }}/assets/other/select2.min.js"></script>
-<script src="{{ site.baseurl }}/assets/other/clipboard.min.js"></script>
+<script src="{{ site.baseurl }}/assets/js/dist/select2.min.js"></script>
+<script src="{{ site.baseurl }}/assets/js/dist/clipboard.min.js"></script>
 <script src="{{ site.baseurl }}/assets/other/get_topics_editor.js"></script>
 <script src="{{ site.baseurl }}/assets/other/new.js"></script>
 {% endif %}

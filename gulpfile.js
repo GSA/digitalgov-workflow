@@ -25,6 +25,9 @@ var replace       = require('gulp-replace');
 var sass          = require('gulp-sass');
 var sourcemaps    = require('gulp-sourcemaps');
 var uswds         = require('./node_modules/uswds-gulp/config/uswds');
+var uglify        = require('gulp-uglify'),
+    concat        = require("gulp-concat"),
+    jshint        = require("gulp-jshint");
 
 /*
 ----------------------------------------
@@ -47,7 +50,10 @@ const IMG_DEST = './assets/img';
 const FONTS_DEST = './assets/fonts';
 
 // Javascript destination
-const JS_DEST = './assets/js';
+const PROJECT_JS_DEST = './assets/js/dist';
+
+// Javascript source
+const PROJECT_JS_SRC = './assets/js/src';
 
 // Compiled CSS destination
 const CSS_DEST = './assets/css';
@@ -120,10 +126,21 @@ gulp.task('init', gulp.series(
   'build-sass',
 ));
 
-gulp.task('watch-sass', function () {
-  gulp.watch(`${PROJECT_SASS_SRC}/**/*.scss`, gulp.series('build-sass'));
+
+gulp.task('compile', function (done) {
+  return gulp.src(`${PROJECT_JS_SRC}/**/*.js`) // path to your files
+  .pipe(jshint())
+  .pipe(jshint.reporter()) // Dump results
+  .pipe(uglify())
+  .pipe(concat('base.js'))
+  .pipe(gulp.dest(`${PROJECT_JS_DEST}`));
 });
 
-gulp.task('watch', gulp.series('build-sass', 'watch-sass'));
+gulp.task('watch-code', function () {
+  gulp.watch(`${PROJECT_SASS_SRC}/**/*.scss`, gulp.series('build-sass'));
+  gulp.watch(`${PROJECT_JS_SRC}/**/*.js`, gulp.series('compile'));
+});
+
+gulp.task('watch', gulp.series('compile', 'build-sass', 'watch-code'));
 
 gulp.task('default', gulp.series('watch'));
