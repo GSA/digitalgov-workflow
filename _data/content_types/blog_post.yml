@@ -41,7 +41,7 @@
     type: input
     data_type: string
     name: Source Url
-    txt: "this is more text"
+    txt: "e.g. https://18f.gsa.gov/2019/04/01/ ..."
     comment: "originally published at the following URL"
   - id: topics
     type: select-multiple
