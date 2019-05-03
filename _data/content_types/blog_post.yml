@@ -15,7 +15,7 @@
     type: input
     data_type: data
     name: Date
-    txt: "e.g. <code>2019-04-01 13:24</code> military time, E.T."
+    txt: "e.g. 2019-04-01 13:24"
   - id: title
     type: input
     data_type: string

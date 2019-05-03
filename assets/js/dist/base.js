@@ -1,5 +1,19 @@
 jQuery(document).ready(function ($) {
 
+  // NEW date
+  var date = new Date();
+
+  // Get date — set to +1 date in the future
+  var yearmo = `${date.getFullYear()}-${('0' + (date.getMonth()+1)).slice(-2)}-${('0' + (date.getDate()+1)).slice(-2)}`;
+
+  // Get current time — not being used at the moment
+  var time = `${date.getHours()}:${(date.getMinutes()<10?'0':'') + date.getMinutes()}`;
+  // Set time to 9am ET — our daily pub time
+  var time = '09:00';
+
+  $("#block-date input").val(yearmo);
+
+  
   update_matter();
   $("input").keyup(update_matter);
   $("textarea").keyup(update_matter);
@@ -41,6 +55,8 @@ jQuery(document).ready(function ($) {
       return cs2ds(el.select2('data'));
     } else if (id == 'branch') {
       return 'skip';
+    } else if (id == 'date') {
+      return el.val() + ' ' + time;
     } else if (id == 'title') {
       return el.val();
     } else if (id == 'slug') {
@@ -65,12 +81,6 @@ jQuery(document).ready(function ($) {
     });
     return output;
   }
-
-
-  // Date entry
-  var date = new Date();
-  $("#block-date input").val(`${date.getFullYear()}-${('0' + (date.getMonth()+1)).slice(-2)}-${('0' + (date.getDate())).slice(-2)} ${date.getHours()}:${(date.getMinutes()<10?'0':'') + date.getMinutes()}`);
-  update_matter();
 
 
   var small_words = /\band |\bthe |\bare |\bis |\bof |\bto /gi;
