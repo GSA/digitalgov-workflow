@@ -4,16 +4,16 @@ jQuery(document).ready(function ($) {
   var date = new Date();
 
   // Get date — set to +1 date in the future
-  var yearmo = `${date.getFullYear()}-${('0' + (date.getMonth()+1)).slice(-2)}-${('0' + (date.getDate()+1)).slice(-2)}`;
+  var yearmoday = `${date.getFullYear()}-${('0' + (date.getMonth()+1)).slice(-2)}-${('0' + (date.getDate()+1)).slice(-2)}`;
 
   // Get current time — not being used at the moment
   var time = `${date.getHours()}:${(date.getMinutes()<10?'0':'') + date.getMinutes()}`;
   // Set time to 9am ET — our daily pub time
   var time = '09:00';
 
-  $("#block-date input").val(yearmo);
+  $("#block-date input").val(yearmoday);
 
-  
+
   update_matter();
   $("input").keyup(update_matter);
   $("textarea").keyup(update_matter);
@@ -65,6 +65,17 @@ jQuery(document).ready(function ($) {
       var slug = slugify(slug);
       $(el).val(slug);
       return slug;
+    } else if (id == 'filename') {
+      var slug = $('#block-slug input').val();
+      var filename = slug + '.md';
+      $('#filename').text(filename);
+      return 'skip';
+    } else if (id == 'filename-dated') {
+      var slug = $('#block-slug input').val();
+      var date = $('#block-date input').val();
+      var filename = date + '-' + slug + '.md';
+      $('#filename').text(filename);
+      return 'skip';
     } else {
       return el.val();
     }
