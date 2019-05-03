@@ -74,6 +74,18 @@ jQuery(document).ready(function ($) {
       return cs2ds(el.select2('data'));
     } else if (id == 'topics'){
       return cs2ds(el.select2('data'));
+    } else if (id == 'source') {
+      if ($('#block-'+id).hasClass('display-none') == true) {
+        return 'skip';
+      } else {
+        return el.val();
+      }
+    } else if (id == 'source_url') {
+      if ($('#block-'+id).hasClass('display-none') == true) {
+        return 'skip';
+      } else {
+        return el.val();
+      }
     } else if (id == 'branch') {
       return 'skip';
     } else if (id == 'date') {
@@ -141,6 +153,19 @@ jQuery(document).ready(function ($) {
     }
     return base_url;
   }
+
+
+  $('#card_display input').click(function() {
+    if($(this).is(':checked')){
+      var val = $(this).val();
+      if (val == 'card_display_dg') {
+        $("#block-source, #block-source_url").addClass('display-none');
+      } else {
+        $("#block-source, #block-source_url").removeClass('display-none');
+      }
+      update_matter();
+    }
+  });
 
   var small_words = /\band |\bthe |\bare |\bis |\bof |\bto /gi;
 
