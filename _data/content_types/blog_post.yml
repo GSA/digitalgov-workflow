@@ -6,6 +6,11 @@
   page-title: blog_post
   description: a blog post template
   blocks:
+  - id: slug
+    type: input-hidden
+    data_type: data
+    name: Slug
+    txt: ""
   - id: date
     type: input
     data_type: data

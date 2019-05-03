@@ -33,6 +33,7 @@ jQuery(document).ready(function ($) {
     $("#post-matter").html(post_matter);
   }
 
+
   function process_text(id, el){
     if (id == 'authors') {
       return cs2ds(el.select2('data'));
@@ -40,7 +41,15 @@ jQuery(document).ready(function ($) {
       return cs2ds(el.select2('data'));
     } else if (id == 'branch') {
       return 'skip';
-    }else {
+    } else if (id == 'title') {
+      return el.val();
+    } else if (id == 'slug') {
+      var title = $('#block-title input').val();
+      var slug = title.replace(new RegExp(small_words, "gi"), '');
+      var slug = slugify(slug);
+      $(el).val(slug);
+      return slug;
+    } else {
       return el.val();
     }
   }
@@ -63,6 +72,8 @@ jQuery(document).ready(function ($) {
   $("#block-date input").val(`${date.getFullYear()}-${('0' + (date.getMonth()+1)).slice(-2)}-${('0' + (date.getDate())).slice(-2)} ${date.getHours()}:${(date.getMinutes()<10?'0':'') + date.getMinutes()}`);
   update_matter();
 
+
+  var small_words = /\band |\bthe |\bare |\bis |\bof |\bto /gi;
 
   function slugify(input) {
     var output = input.split(" ").splice(0,6).join(" ");
