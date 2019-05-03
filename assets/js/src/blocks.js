@@ -11,6 +11,16 @@ jQuery(document).ready(function ($) {
   // Set time to 9am ET — our daily pub time
   var time = '09:00';
 
+  // returns the year and month for use in the filepath on GitHub
+  // Returns: 2017/09
+  function file_yearmo(date) {
+    var dateObj = new Date(date);
+    var year = dateObj.getUTCFullYear();
+    var month = ("0" + (dateObj.getUTCMonth() + 1)).slice(-2); //months from 1-12
+    var yearmo = year + "/" + month + "/";
+    return yearmo;
+  }
+
   $("#block-date input").val(yearmoday);
 
 
@@ -44,7 +54,9 @@ jQuery(document).ready(function ($) {
 
   	});
     post_matter += "\n\n---";
+    
     $("#post-matter").html(post_matter);
+    $("#newfile").attr('href', get_github_url(post_matter));
   }
 
 
@@ -93,6 +105,23 @@ jQuery(document).ready(function ($) {
     return output;
   }
 
+  function get_github_url(post_matter) {
+    var branch = 'demo';
+    var filename = $('#filename').text();
+    var dateInput = $("#block-date input").val().match(/^[^\s]+/);
+    var content_type = $('[data-content_type]').data('content_type');
+    var github_url = "https://github.com/GSA/digitalgov.gov/new/"+branch+"/content/"+content_type+"/";
+    var commit_msg = "New "+ content_type +": " + ($("#block-title input").val()).trim();
+    var commit_desc = ($("#block-deck textarea").val()).trim();
+
+
+    if (content_type == 'blog_post' || content_type == 'events') {
+      github_url += file_yearmo(dateInput[0]) + 'draft?filename=' + filename + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + branch;
+    } else {
+      github_url += 'draft?filename=' + filename + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + branch;
+    }
+    return github_url;
+  }
 
   var small_words = /\band |\bthe |\bare |\bis |\bof |\bto /gi;
 
@@ -135,10 +164,5 @@ jQuery(document).ready(function ($) {
     });
   }
 
-  // function front_matter(el, key){
-  //   el.val();
-  //   this['block-'+key] = "acb";
-  //   console.log(this['block-'+key]);
-  // }
 
 });
