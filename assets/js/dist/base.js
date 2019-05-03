@@ -15,14 +15,15 @@ jQuery(document).ready(function ($) {
       var node = $(this).prop('nodeName');
   		var id = $(this).data('block'); // gets the id
   		var data_type = $(this).data('block-data_type'); // gets the data_type
+  		var comment = $(this).data('block-comment') !== "" ? '\n# ' + $(this).data('block-comment') + '\n' : ""; // gets the comment
       var val = process_text(id, $(this));
 
       // checks if the data should 'skip' and not appear in the front matter
       if (val !== "skip") {
         if ((data_type == "string")) {
-          var front_matter = '\n'+ id + ': "' + val + '"';
+          var front_matter = '\n'+ comment + id + ': "' + val + '"';
         } else {
-          var front_matter = '\n'+ id + ': ' + val;
+          var front_matter = '\n'+ comment+ id + ': ' + val;
         }
         post_matter += front_matter;
       }
@@ -53,7 +54,7 @@ jQuery(document).ready(function ($) {
         output += "  - " + $.trim(e.id) + "\n";
       }
     });
-    return output + '\n';
+    return output;
   }
 
 

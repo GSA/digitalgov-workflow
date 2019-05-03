@@ -21,7 +21,7 @@
     {% for block in niche.blocks %}
 
       {% if block.type %}
-        {% include blocks/{{ block.type }}.html name=block.name id=block.id text=block.txt type=block.type data_type=block.data_type %}
+        {% include blocks/{{ block.type }}.html name=block.name id=block.id text=block.txt type=block.type data_type=block.data_type comment=block.comment %}
       {% endif %}
 
     {% endfor %}
