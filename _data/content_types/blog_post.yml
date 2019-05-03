@@ -20,17 +20,17 @@
     type: input
     data_type: string
     name: Headline / Title
-    txt: "this is text"
+    txt: "Short, topical, no acronyms."
   - id: deck
     type: textarea
     data_type: string
-    name: Deck
-    txt: "this is more text"
+    name: Deck / Sub-head
+    txt: "Think of this as the sentence you'd most like to tweet. Do not repeat the headline."
   - id: summary
     type: textarea
     data_type: string
     name: Summary
-    txt: "this is more text"
+    txt: "1-sentence description that does not repeat the headline"
   - id: source
     type: select
     data_type: data
@@ -47,15 +47,15 @@
     type: select-multiple
     data_type: data
     name: Topics
-    txt: "this is more text"
+    txt: "see all topics at https://digital.gov/topics"
     comment: "see all topics at https://digital.gov/topics"
   - id: authors
     type: select-multiple
     data_type: data
     name: Authors
+    txt: "see all authors at https://digital.gov/authors"
     comment: "see all authors at https://digital.gov/authors"
   - id: branch
     type: input
     data_type: string
     name: Branch
-    txt: "this is more text"
