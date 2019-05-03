@@ -6,43 +6,57 @@
   page-title: blog_post
   description: a blog post template
   blocks:
-  - id: headline
-    type: input
-    name: Headline
-    txt: "this is text"
-  - id: deck
-    type: textarea
-    name: Deck
-    txt: "this is more text"
-  - id: summary
-    type: textarea
-    name: Summary
-    txt: "this is more text"
-  - id: source
-    type: select
-    name: Source
-    txt: "this is more text"
-  - id: source_url
-    type: input
-    name: Source Url
-    txt: "this is more text"
-  - id: topics
-    type: select-multiple
-    name: Topics
-    txt: "this is more text"
-  - id: authors
-    type: select-multiple
-    name: Authors
-    txt: "this is more text"
   - id: date
     type: input
+    data_type: data
     name: Date
     txt: "this is more text"
-  - id: time
+    comment: "this is comment"
+  - id: title
     type: input
-    name: Time
+    data_type: string
+    name: Headline / Title
+    txt: "this is text"
+    comment: "this is comment"
+  - id: deck
+    type: textarea
+    data_type: string
+    name: Deck
     txt: "this is more text"
+    comment: "this is comment"
+  - id: summary
+    type: textarea
+    data_type: string
+    name: Summary
+    txt: "this is more text"
+    comment: "this is comment"
+  - id: source
+    type: select
+    data_type: data
+    name: Source
+    txt: "this is more text"
+    comment: "this is comment"
+  - id: source_url
+    type: input
+    data_type: string
+    name: Source Url
+    txt: "this is more text"
+    comment: "this is comment"
+  - id: topics
+    type: select-multiple
+    data_type: data
+    name: Topics
+    txt: "this is more text"
+    comment: "this is comment"
+  - id: authors
+    type: select-multiple
+    data_type: data
+    name: Authors
+    txt: "this is more text"
+    comment: "this is comment"
   - id: branch
     type: input
+    data_type: string
     name: Branch
     txt: "this is more text"
+    comment: "this is comment"

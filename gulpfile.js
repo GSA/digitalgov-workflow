@@ -129,9 +129,9 @@ gulp.task('init', gulp.series(
 
 gulp.task('compile', function (done) {
   return gulp.src(`${PROJECT_JS_SRC}/**/*.js`) // path to your files
-  .pipe(jshint())
-  .pipe(jshint.reporter()) // Dump results
-  .pipe(uglify())
+  // .pipe(jshint())
+  // .pipe(jshint.reporter()) // Dump results
+  // .pipe(uglify())
   .pipe(concat('base.js'))
   .pipe(gulp.dest(`${PROJECT_JS_DEST}`));
 });

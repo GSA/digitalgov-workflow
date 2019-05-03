@@ -2,6 +2,6 @@
   <label class="usa-label" for="block-{{ include.id }}">
     {{ include.name }}
   </label>
-  <textarea autocomplete="nope" class="usa-textarea height-10" name="block-{{ include.id }}" data-key="{{ include.id }}"></textarea>
+  <textarea autocomplete="nope" class="usa-textarea height-10" name="block-{{ include.id }}" data-block="{{ include.id }}" data-block-data_type="{{ include.data_type }}"></textarea>
   <p class="margin-y-05 font-sans-xs text-base-dark">{{ include.text }}</p>
 </div>

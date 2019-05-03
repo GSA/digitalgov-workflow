@@ -53,15 +53,15 @@ jQuery(document).ready(function ($) {
     var filename = "";
     var post_matter = "";
     var url = "";
-    var title = ($('#block-headline').hasClass('display-none')) ? "" : `\ntitle: "${encodeEntities($("#block-headline input").val()).trim()}"\n`;
+    var title = ($('#block-title').hasClass('display-none')) ? "" : `\ntitle: "${encodeEntities($("#block-title input").val()).trim()}"\n`;
     var sources_select = ($('#block-source').hasClass('display-none')) ? "" : `\n# What source published this?\nsource: '${$("#block-source select").select2('data')[0].id}'\n`;
     var source_url = ($('#block-source_url').hasClass('display-none')) ? "" : `\n# What is the URL for this product or service?\n# Note: We'll add a ?dg to the end of the URL in the code for tracking purposes\nsource_url: "${$("#block-source_url input").val()}"\n`;
-    var commit_msg = "new "+ $content_type +": " + `${encodeEntities($("#block-headline input").val()).trim()}`;
+    var commit_msg = "new "+ $content_type +": " + `${encodeEntities($("#block-title input").val()).trim()}`;
     var commit_desc = `${encodeEntities($("#block-deck textarea").val()).trim()}`;
     var branch = "demo";
 
 
-    var slug = $("#block-headline input").val();
+    var slug = $("#block-title input").val();
     slug = slug.replace(new RegExp(small_words, "gi"), '');
     slug = slugify(slug);
 
@@ -137,10 +137,10 @@ jQuery(document).ready(function ($) {
         $("#block-source, #block-source_url").removeClass('display-none');
       }
       // if (val == 'card_display_elsewhere'){
-      //   $("#post #block-headline, #post #block-summary").addClass('display-none');
+      //   $("#post #block-title, #post #block-summary").addClass('display-none');
       // }
       // else {
-      //   $("#post #block-headline, #post #block-summary").removeClass('display-none');
+      //   $("#post #block-title, #post #block-summary").removeClass('display-none');
       // }
       update();
     }
