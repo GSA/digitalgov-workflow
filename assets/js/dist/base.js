@@ -1,5 +1,7 @@
 jQuery(document).ready(function ($) {
 
+  var content_type = $('form').data('content_type');
+
   // NEW date
   var date = new Date();
 
@@ -13,11 +15,13 @@ jQuery(document).ready(function ($) {
 
   // returns the year and month for use in the filepath on GitHub
   // Returns: 2017/09
-  function file_yearmo(date) {
-    var dateObj = new Date(date);
+  function file_yearmo() {
+    var dateInput = $("#block-date input").val().match(/^[^\s]+/);
+    var dateObj = new Date(dateInput);
     var year = dateObj.getUTCFullYear();
     var month = ("0" + (dateObj.getUTCMonth() + 1)).slice(-2); //months from 1-12
     var yearmo = year + "/" + month + "/";
+
     return yearmo;
   }
 
@@ -33,13 +37,17 @@ jQuery(document).ready(function ($) {
 
   function update_matter(){
     var post_matter = "";
+    var page_url_comment = get_page_url_comment();
     var branch = "demo";
     post_matter += "---";
+    post_matter += page_url_comment;
     $('*[data-block]').each(function(){
       var node = $(this).prop('nodeName');
   		var id = $(this).data('block'); // gets the id
   		var data_type = $(this).data('block-data_type'); // gets the data_type
   		var comment = $(this).data('block-comment') !== "" ? '\n# ' + $(this).data('block-comment') + '\n' : ""; // gets the comment
+
+      // Process the text
       var val = process_text(id, $(this));
 
       // checks if the data should 'skip' and not appear in the front matter
@@ -53,8 +61,9 @@ jQuery(document).ready(function ($) {
       }
 
   	});
-    post_matter += "\n\n---";
-    
+    post_matter += "\n\nLearn more about how to edit Digital.gov at https://workflow.digital.gov\n";
+    post_matter += "---";
+
     $("#post-matter").html(post_matter);
     $("#newfile").attr('href', get_github_url(post_matter));
   }
@@ -105,22 +114,32 @@ jQuery(document).ready(function ($) {
     return output;
   }
 
+  function get_filename(){
+    return $('#filename').text();
+  }
+
+  function get_edit_branch(){
+    return "demo";
+  }
+
+  function get_page_url_comment(){
+    var slug = $('#block-slug input').val();
+    var comment = "\n# View this page at https://digital.gov/" + file_yearmo() + slug + "\n";
+    return comment;
+  }
+
+
   function get_github_url(post_matter) {
-    var branch = 'demo';
-    var filename = $('#filename').text();
-    var dateInput = $("#block-date input").val().match(/^[^\s]+/);
-    var content_type = $('[data-content_type]').data('content_type');
-    var github_url = "https://github.com/GSA/digitalgov.gov/new/"+branch+"/content/"+content_type+"/";
+    var base_url = "https://github.com/GSA/digitalgov.gov/new/"+get_edit_branch()+"/content/"+content_type+"/"
     var commit_msg = "New "+ content_type +": " + ($("#block-title input").val()).trim();
     var commit_desc = ($("#block-deck textarea").val()).trim();
 
-
     if (content_type == 'blog_post' || content_type == 'events') {
-      github_url += file_yearmo(dateInput[0]) + 'draft?filename=' + filename + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + branch;
+      base_url += file_yearmo() + 'draft?filename=' + get_filename() + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
     } else {
-      github_url += 'draft?filename=' + filename + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + branch;
+      base_url += 'draft?filename=' + get_filename() + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
     }
-    return github_url;
+    return base_url;
   }
 
   var small_words = /\band |\bthe |\bare |\bis |\bof |\bto /gi;
