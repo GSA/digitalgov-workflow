@@ -6,83 +6,150 @@
   page-title: events
   description: An event page template
   blocks:
-  - id: headline-event
-    type: input
+  - id: filename-dated
+    name: Filename
+    type: input-hidden
+    data_type: data
+    txt: ""
+  - id: slug
+    name: Slug
+    type: input-hidden
+    data_type: data
+    txt: ""
+  - id: title
     name: Event Title
-    txt: "this is text"
+    type: input
+    data_type: string
+    txt: "Short, topical, no acronyms."
   - id: deck
+    name: Deck / Sub-head
     type: textarea
-    name: Deck
-    txt: "this is more text"
+    data_type: string
+    txt: "Think of this as the sentence you'd most like to tweet. Do not repeat the headline."
   - id: summary
-    type: textarea
     name: Summary
-    txt: "this is more text"
+    type: textarea
+    data_type: string
+    txt: "1-sentence description that does not repeat the headline"
   - id: source
-    type: select
     name: Source
+    type: select
+    data_type: data
     txt: "this is more text"
+    comment: "Which team published this?\n# Learn about sources at https://workflow.digital.gov/sources"
   - id: source_url
-    type: input
     name: Source Url
-    txt: "this is more text"
-  - id: topics
-    type: select-multiple
-    name: Topics
-    txt: "this is more text"
-  - id: authors
-    type: select-multiple
-    name: Event authors
-    txt: "this is more text"
-  - id: date-start
     type: input
-    name: Date
-    txt: "this is more text"
-  - id: date-end
-    type: input
-    name: Date
-    txt: "this is more text"
-  - id: time-start
-    type: input
-    name: Time
-    txt: "this is more text"
-  - id: time-end
-    type: input
-    name: Time
-    txt: "this is more text"
-  - id: event_organizer
-    type: input
-    name: Event Organizer
-    txt: "this is more text"
+    data_type: string
+    txt: "e.g. https://18f.gsa.gov/2019/04/01/ ..."
+    comment: "originally published at the following URL"
   - id: host
-    type: input
     name: Host
-    txt: "this is more text"
+    type: input
+    data_type: string
+    txt: "e.g. Plain Language Community of Practice"
+  - id: event_organizer
+    name: Event Organizer
+    type: input
+    data_type: string
   - id: registration_url
-    type: input
     name: Registration URL
-    txt: "this is more text"
+    type: input
+    data_type: data
+    txt: "e.g. https://www.eventbrite.com/..."
   - id: captions
+    name: Captions URL
     type: input
-    name: Captions
-    txt: "this is more text"
-  - id: event_platform
+    data_type: data
+    txt: "e.g. https://www.captionedtext.com..."
+  - id: date
+    name: Date
     type: input
-    name: Event Platform
+    data_type: data
+    txt: "e.g. 2019-04-01 13:24"
+    comment: "start date"
+  - id: date-end
+    name: End Date
+    type: input
+    data_type: data
     txt: "this is more text"
+    comment: "end date"
+  - id: time
+    name: Start Time
+    type: input
+    data_type: data
+    txt: "the time the event starts, in eastern time"
+  - id: time-end
+    name: End Time
+    type: input
+    data_type: data
+    txt: "the time the event ends, in eastern time"
+  - id: topics
+    name: Topics
+    type: select-multiple
+    data_type: data
+    txt: "see all topics at https://digital.gov/topics"
+    comment: "see all topics at https://digital.gov/topics"
+  - id: authors
+    name: Presenters (authors)
+    type: select-multiple
+    data_type: data
+    txt: "see all authors at https://digital.gov/authors"
+    comment: "see all authors at https://digital.gov/authors"
   - id: youtube_id
-    type: input
     name: YouTube ID
-    txt: "this is more text"
+    type: input
+    data_type: data
+    txt: "e.g. <code>3FKyVeipMss</code>"
   - id: zoom_url
-    type: input
     name: Zoom URL
-    txt: "this is more text"
+    type: input
+    data_type: data
+    txt: ""
   - id: venue
+    name: In Person
+    type: checkbox
+    data_type: data
+    value: in-person
+  - id: venue_name
+    name: Venue Name
     type: input
-    name: Venue
-    txt: "this is more text"
+    data_type: string
+    value: 'U.S. General Services Administration'
+  - id: room
+    name: Room
+    type: input
+    data_type: string
+  - id: address
+    name: Address
+    type: input
+    data_type: string
+    value: '1800 F Street NW'
+  - id: city
+    name: City
+    type: input
+    data_type: string
+    value: 'Washington'
+  - id: state
+    name: State
+    type: input
+    data_type: string
+    value: 'D.C.'
+  - id: zip
+    name: Zip
+    type: input
+    data_type: string
+    value: '20405'
+  - id: country
+    name: Country
+    type: input
+    data_type: string
+    value: 'USA'
+  - id: map
+    name: Map
+    type: input
+    data_type: string
+    value: 'https://goo.gl/maps/bFWBD6QfDLA2'
   - id: branch
-    type: input
     name: Branch
-    txt: "this is more text"
+    type: input
