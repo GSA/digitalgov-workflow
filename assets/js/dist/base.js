@@ -1,6 +1,7 @@
 jQuery(document).ready(function ($) {
 
   var content_type = $('form').data('content_type');
+  var base_field = $('form').data('base_field');
 
   // NEW date
   var date = new Date();
@@ -77,7 +78,9 @@ jQuery(document).ready(function ($) {
 
 
   function process_text(id, el){
-    if (id == 'authors') {
+    if (id == base_field) {
+      return el.val();
+    } else if (id == 'authors') {
       return cs2ds(el.select2('data'));
     } else if (id == 'topics'){
       return cs2ds(el.select2('data'));
@@ -105,22 +108,17 @@ jQuery(document).ready(function ($) {
       return 'skip';
     } else if (id == 'time-end') {
       return 'skip';
-    } else if (id == 'title') {
-      return el.val();
     } else if (id == 'slug') {
-      var title = $('#block-title input').val();
-      var slug = slugify(title);
+      var slug = slugify();
       $(el).val(slug);
       return slug;
     } else if (id == 'filename') {
-      var title = $('#block-title input').val();
-      var slug = slugify(title);
+      var slug = slugify();
       var filename = slug + '.md';
       $('#filename').text(filename);
       return 'skip';
     } else if (id == 'filename-dated') {
-      var title = $('#block-title input').val();
-      var slug = slugify(title);
+      var slug = slugify();
       var date = $('#block-date input').val();
       var filename = date + '-' + slug + '.md';
       $('#filename').text(filename);
@@ -161,8 +159,7 @@ jQuery(document).ready(function ($) {
   }
 
   function get_publish_url(content_type) {
-    var title = $('#block-title input').val();
-    var slug = slugify(title);
+    var slug = slugify();
     if (content_type == 'posts') {
       var url = "https://digital.gov/" + file_yearmo() + slug;
     } else if (content_type == 'events') {
@@ -184,8 +181,11 @@ jQuery(document).ready(function ($) {
 
   function get_github_url(post_matter) {
     var base_url = "https://github.com/GSA/digitalgov.gov/new/"+get_edit_branch()+"/content/"+content_type+"/"
-    var commit_msg = "New "+ content_type +": " + ($("#block-title input").val()).trim();
-    var commit_desc = ($("#block-deck textarea").val()).trim();
+    var commit_msg = "New "+ content_type +": " + ($('#block-'+base_field +' input').val()).trim();
+    var commit_desc = "";
+    if ($("#block-deck textarea").length) {
+      var commit_desc = ($("#block-deck textarea").val()).trim();
+    }
 
     if (content_type == 'posts' || content_type == 'events') {
       base_url += file_yearmo() + 'draft?filename=' + get_filename() + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
@@ -232,9 +232,10 @@ jQuery(document).ready(function ($) {
 
 
 
-  function slugify(input) {
+  function slugify() {
+    var base = $('#block-'+base_field +' input').val();
     var small_words = /\band |\bthe |\bare |\bis |\bof |\bto /gi;
-    var slug = input.replace(new RegExp(small_words, "gi"), '');
+    var slug = base.replace(new RegExp(small_words, "gi"), '');
     var output = slug.split(" ").splice(0,6).join(" ");
     output = output.replace(/[^a-zA-Z0-9\s]/g, "");
     output = output.toLowerCase();

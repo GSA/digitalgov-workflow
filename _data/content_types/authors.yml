@@ -5,6 +5,7 @@
   id: authors
   page-title: authors
   description: a authors template
+  base_field: display_name
   blocks:
   - id: filename
     name: Filename

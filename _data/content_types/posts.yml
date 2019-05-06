@@ -5,6 +5,7 @@
   id: posts
   page-title: posts
   description: a blog post template
+  base_field: title
   blocks:
   - id: filename-dated
     name: Filename
