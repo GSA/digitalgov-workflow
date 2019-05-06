@@ -44,7 +44,7 @@ jQuery(document).ready(function ($) {
 
   function update_matter(){
     var post_matter = "";
-    var page_url_comment = get_page_url_comment();
+    var page_url_comment = get_page_url_comment(content_type);
     var branch = "demo";
     post_matter += "---";
     post_matter += page_url_comment;
@@ -53,7 +53,7 @@ jQuery(document).ready(function ($) {
   		var id = $(this).data('block'); // gets the id
   		var data_type = $(this).data('block-data_type'); // gets the data_type
   		var comment = $(this).data('block-comment') !== "" ? '\n# ' + $(this).data('block-comment') + '\n' : ""; // gets the comment
-      console.log(id);
+
       // Process the text
       var val = process_text(id, $(this));
 
@@ -109,21 +109,18 @@ jQuery(document).ready(function ($) {
       return el.val();
     } else if (id == 'slug') {
       var title = $('#block-title input').val();
-      var slug = title.replace(new RegExp(small_words, "gi"), '');
-      var slug = slugify(slug);
+      var slug = slugify(title);
       $(el).val(slug);
       return slug;
     } else if (id == 'filename') {
       var title = $('#block-title input').val();
-      var slug = title.replace(new RegExp(small_words, "gi"), '');
-      var slug = slugify(slug);
+      var slug = slugify(title);
       var filename = slug + '.md';
       $('#filename').text(filename);
       return 'skip';
     } else if (id == 'filename-dated') {
       var title = $('#block-title input').val();
-      var slug = title.replace(new RegExp(small_words, "gi"), '');
-      var slug = slugify(slug);
+      var slug = slugify(title);
       var date = $('#block-date input').val();
       var filename = date + '-' + slug + '.md';
       $('#filename').text(filename);
@@ -157,10 +154,31 @@ jQuery(document).ready(function ($) {
     return "demo";
   }
 
-  function get_page_url_comment(){
-    var slug = $('#block-slug input').val();
-    var comment = "\n# View this page at https://digital.gov/" + file_yearmo() + slug;
+  function get_page_url_comment(content_type){
+    var url = get_publish_url(content_type);
+    var comment = "\n# View this page at " + url;
     return comment;
+  }
+
+  function get_publish_url(content_type) {
+    var title = $('#block-title input').val();
+    var slug = slugify(title);
+    if (content_type == 'posts') {
+      var url = "https://digital.gov/" + file_yearmo() + slug;
+    } else if (content_type == 'events') {
+      var url = "https://digital.gov/event/" + file_yearmo() + slug;
+    } else if (content_type == 'resources') {
+      var url = "https://digital.gov/resources/" + slug;
+    } else if (content_type == 'services') {
+      var url = "https://digital.gov/services/" + slug;
+    } else if (content_type == 'communities') {
+      var url = "https://digital.gov/communities/" + slug;
+    } else if (content_type == 'authors') {
+      var url = "https://digital.gov/authors/" + slug;
+    } else {
+      var url = "https://digital.gov/" + file_yearmo() + slug;
+    }
+    return url;
   }
 
 
@@ -213,10 +231,11 @@ jQuery(document).ready(function ($) {
   }
 
 
-  var small_words = /\band |\bthe |\bare |\bis |\bof |\bto /gi;
 
   function slugify(input) {
-    var output = input.split(" ").splice(0,6).join(" ");
+    var small_words = /\band |\bthe |\bare |\bis |\bof |\bto /gi;
+    var slug = input.replace(new RegExp(small_words, "gi"), '');
+    var output = slug.split(" ").splice(0,6).join(" ");
     output = output.replace(/[^a-zA-Z0-9\s]/g, "");
     output = output.toLowerCase();
     output = output.replace(/\s\s+/g, " ");
@@ -249,7 +268,6 @@ jQuery(document).ready(function ($) {
       '—': '&#8212;'
     };
     input.replace(entityPattern, function (s) {
-      console.log(entityMap[s]);
       return entityMap[s];
     });
   }

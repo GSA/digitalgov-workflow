@@ -1,0 +1,86 @@
+# Nav
+# List links that should appear in navigation bar
+
+- name: Authors
+  id: authors
+  page-title: authors
+  description: a authors template
+  blocks:
+  - id: filename
+    name: Filename
+    type: input-hidden
+    data_type: data
+    txt: ""
+  - id: slug
+    name: Slug
+    type: input-hidden
+    data_type: data
+    txt: ""
+  - id: display_name
+    name: Display Name
+    type: input
+    data_type: string
+  - id: first_name
+    name: First Name
+    type: input
+    data_type: string
+  - id: last_name
+    name: Last Name
+    type: input
+    data_type: string
+  - id: pronoun
+    name: Pronouns
+    type: input
+    data_type: string
+  - id: uid
+    name: User ID
+    type: input
+    data_type: string
+  - id: email
+    name: Email
+    type: input
+    data_type: string
+  - id: bio
+    name: Bio
+    type: textarea
+    data_type: string
+  - id: bio_url
+    name: Bio URL
+    type: input
+    data_type: string
+  - id: agency_full_name
+    name: Agency Full Name
+    type: input
+    data_type: string
+  - id: agency
+    name: Agency / Team Acronym
+    type: input
+    data_type: string
+  - id: location
+    name: Location
+    type: input
+    data_type: string
+  - id: github
+    name: GitHub ID
+    type: input
+    data_type: string
+  - id: profile_source
+    name: Profile Source
+    type: input
+    data_type: string
+  - id: twitter
+    name: Twitter
+    type: input
+    data_type: string
+  - id: facebook
+    name: Facebook
+    type: input
+    data_type: string
+  - id: instagram
+    name: Instagram
+    type: input
+    data_type: string
+  - id: youtube
+    name: YouTube
+    type: input
+    data_type: string

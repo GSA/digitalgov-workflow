@@ -21,6 +21,10 @@
     type: input
     data_type: data
     txt: "e.g. 2019-04-01 13:24"
+  - id: time
+    name: Time
+    type: input-hidden
+    data_type: data
   - id: title
     name: Title / Headline
     type: input
