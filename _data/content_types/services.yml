@@ -1,0 +1,66 @@
+# Nav
+# List links that should appear in navigation bar
+
+- name: Services
+  id: services
+  page-title: services
+  description: a services template
+  blocks:
+  - id: filename
+    name: Filename
+    type: input-hidden
+    data_type: data
+    txt: ""
+  - id: slug
+    name: Slug
+    type: input-hidden
+    data_type: data
+    txt: ""
+  - id: date
+    name: Date
+    type: input
+    data_type: data
+    txt: "e.g. 2019-04-01 13:24"
+  - id: title
+    name: Title / Headline
+    type: input
+    data_type: string
+    txt: "Short, topical, no acronyms."
+  - id: deck
+    name: Deck / Sub-head
+    type: textarea
+    data_type: string
+    txt: "Think of this as the sentence you'd most like to tweet. Do not repeat the headline."
+  - id: summary
+    name: Summary
+    type: textarea
+    data_type: string
+    txt: "1-sentence description that does not repeat the headline"
+  - id: source_url
+    name: Source Url
+    type: input
+    data_type: string
+    txt: "e.g. https://18f.gsa.gov/2019/04/01/ ..."
+    comment: "originally published at the following URL"
+  - id: source
+    name: Source
+    type: select
+    data_type: data
+    txt: "this is more text"
+    comment: "Which team published this?\n# Learn about sources at https://workflow.digital.gov/sources"
+  - id: topics
+    name: Topics
+    type: select-multiple
+    data_type: data
+    txt: "see all topics at https://digital.gov/topics"
+    comment: "see all topics at https://digital.gov/topics"
+  - id: authors
+    name: Authors
+    type: select-multiple
+    data_type: data
+    txt: "see all authors at https://digital.gov/authors"
+    comment: "see all authors at https://digital.gov/authors"
+  - id: branch
+    name: Branch
+    type: input
+    data_type: string

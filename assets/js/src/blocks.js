@@ -35,6 +35,7 @@ jQuery(document).ready(function ($) {
 
 
   update_matter();
+
   $("input").keyup(update_matter);
   $("textarea").keyup(update_matter);
   $("select").on("select2:select select2:unselect", function(e) {
@@ -52,7 +53,7 @@ jQuery(document).ready(function ($) {
   		var id = $(this).data('block'); // gets the id
   		var data_type = $(this).data('block-data_type'); // gets the data_type
   		var comment = $(this).data('block-comment') !== "" ? '\n# ' + $(this).data('block-comment') + '\n' : ""; // gets the comment
-
+      console.log(id);
       // Process the text
       var val = process_text(id, $(this));
 
