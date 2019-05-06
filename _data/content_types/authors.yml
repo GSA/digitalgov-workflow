@@ -35,7 +35,7 @@
     data_type: string
   - id: uid
     name: User ID
-    type: input
+    type: input-hidden
     data_type: string
   - id: email
     name: Email
