@@ -1,5 +1,4 @@
-<form autocomplete="off" id="post" class="margin-y-05 bg-base-lighter padding-y-2px padding-x-3" accept-charset="utf-8" data-content_type="posts" data-base_field="title">
-
+<form autocomplete="off" id="post" class="margin-y-05 bg-base-lighter padding-y-2px padding-x-3" accept-charset="utf-8" data-content_type="{{ page.content_type }}" data-base_field="title">
 
   <h3>What type of a blog post will this be?</h3>
 
@@ -17,7 +16,7 @@
     </fieldset>
   </div>
 
-  {% for niche in site.data.content_types.posts %}
+  {% for niche in site.data.content_types.[page.content_type] %}
     {% for block in niche.blocks %}
 
       {% if block.type %}
