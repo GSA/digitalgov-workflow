@@ -7,5 +7,3 @@ description:
 api: posts
 
 ---
-
-hello.
