@@ -1,4 +1,4 @@
-<form id="event" class="margin-y-05 bg-base-lighter padding-y-2px padding-x-3" accept-charset="utf-8">
+<form autocomplete="off" id="event" class="margin-y-05 bg-base-lighter padding-y-2px padding-x-3" accept-charset="utf-8" data-content_type="{{ page.content_type }}" data-base_field="title">
 
   <div id="card_display">
 
@@ -21,7 +21,7 @@
     {% for block in niche.blocks %}
 
       {% if block.type %}
-        {% include blocks/{{ block.type }}.html name=block.name id=block.id text=block.txt type=block.type %}
+        {% include blocks/{{ block.type }}.html name=block.name id=block.id text=block.txt type=block.type data_type=block.data_type value=block.value comment=block.comment %}
       {% endif %}
 
     {% endfor %}

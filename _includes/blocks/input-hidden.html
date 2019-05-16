@@ -1,0 +1,6 @@
+<div id="block-{{ include.id }}" class="block display-none">
+  <label class="usa-label" for="block-{{ include.id }}">
+    {{ include.name }}
+  </label>
+  <input class="usa-input" type="hidden" name="block-{{ include.id }}" data-block="{{ include.id }}" data-block-data_type="{{ include.data_type }}" data-block-comment="{{ include.comment }}">
+</div>

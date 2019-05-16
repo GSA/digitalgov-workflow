@@ -10,65 +10,68 @@ layout: default
         {% include navigation.html %}
       </div>
 
-      <div class="grid-col-12 tablet:grid-col-5">
-
+      <div class="grid-col-12 tablet:grid-col-10">
         <header class="margin-bottom-2">
           <h1 class="margin-0 text-heavy font-sans-2xl">{{ page.title | escape }}</h1>
           {% if page.deck %}
           <div class="text-thin font-sans-xl">{{ page.deck | escape }}</div>
           {% endif %}
         </header>
+        <div class="grid-row grid-gap-4">
 
-        <div class="text-thin font-sans-lg margin-bottom-2">
-          {{ content }}
-        </div>
-
-        {% include new-{{ page.content_type}}.html %}
-
-      </div>
-
-      <div class="grid-col-12 tablet:grid-col-5">
-
-        <p class="margin-bottom-105 font-sans-md text-light line-height-sans-3 display-none"><strong>Spotlight Preview</strong> — How this page will likely look in Spotlight</p>
-        <article class="bg-base-lighter radius-sm margin-0 margin-bottom-5 padding-2 display-none">
-          <p class="font-sans-md">Federal agencies and technology teams work together to pilot digital tools for artificial intelligence and health innovation.</p>
-          <div class="flex-row display-flex flex-align-end flex-justify">
-            <p class=""><a class="text-no-underline text-ink visited:text-ink" href="" title="Digital.gov"><img class="width-2 margin-right-05 position-relative top-2px" src="https://demo.digital.gov/img/digit-16.png" alt="Digital.gov Logo">Digital.gov</a>
-              <em class="clicks text-accent-warm-dark font-sans-2xs margin-x-1"><i class="fas fa-bolt"></i> <span>99</span> views</em>
-            </p>
-            <div class="topics">
-              <a class="text-primary-darker display-inline-block margin-x-2px text-no-underline bg-primary-light font-sans-3xs padding-y-2px padding-x-1 radius-pill" href="/topics/design/" data-topic="design">Design</a><a class="text-primary-darker display-inline-block margin-x-2px text-no-underline bg-primary-light font-sans-3xs padding-y-2px padding-x-1 radius-pill" href="/topics/open-data/" data-topic="open-data">Open Data</a>
+          <div class="grid-col-12 tablet:grid-col-6">
+            <div class="text-thin font-sans-lg margin-bottom-2">
+              {{ content }}
             </div>
+
+            {% include new-{{ page.content_type }}.html %}
+
           </div>
-          <a href="/2018/11/02/health-tech-sprint-aims-at-improving-care-access-experience/" title="Health Tech Sprint Aims at Improving Care Access and Experience"><span></span></a>
-        </article>
 
-        <p class="margin-bottom-105 font-sans-md text-light line-height-sans-3  display-none"><strong>SEO Preview</strong> — How this page will likely look in Google</p>
-        <style media="screen">
-          .seo-preview{font-family: arial, sans-serif;}
-          .seo-preview h3{color: #1a0dab;}
-          .seo-preview .url{color: #006621;}
-          .seo-preview .summary{color: #545454;}
-        </style>
-        <section class="seo-preview bg-white margin-0 margin-bottom-5 padding-2 display-none">
-          <h3 class="margin-0 text-normal">Come say Hi! — Digital.gov</h3>
-          <p class="url line-height-sans-3 margin-0 margin-bottom-2px text-normal font-sans-xs">https://digital.gov/hi</p>
-          <p class="summary margin-0 text-normal font-sans-2xs line-height-sans-2">Hi. We are helping the government community make digital better. Come and learn more about...</p>
-        </section>
+          <div class="grid-col-12 tablet:grid-col-6">
 
-        <p class="margin-bottom-105 font-sans-md text-light line-height-sans-3"><strong>Front Matter Preview</strong> — This is the additional data <em>(a.k.a. front-matter)</em> that will help build this page in digital.gov</p>
-        <section>
-          <pre id="filename" class="text-bold bg-white padding-2 border-1px border-base">***</pre>
-          <pre id="post-matter" class="bg-white padding-2 border-1px border-base">---</pre>
+            <p class="margin-bottom-105 font-sans-md text-light line-height-sans-3 display-none"><strong>Spotlight Preview</strong> — How this page will likely look in Spotlight</p>
+            <article class="bg-base-lighter radius-sm margin-0 margin-bottom-5 padding-2 display-none">
+              <p class="font-sans-md">Federal agencies and technology teams work together to pilot digital tools for artificial intelligence and health innovation.</p>
+              <div class="flex-row display-flex flex-align-end flex-justify">
+                <p class=""><a class="text-no-underline text-ink visited:text-ink" href="" title="Digital.gov"><img class="width-2 margin-right-05 position-relative top-2px" src="https://demo.digital.gov/img/digit-16.png" alt="Digital.gov Logo">Digital.gov</a>
+                  <em class="clicks text-accent-warm-dark font-sans-2xs margin-x-1"><i class="fas fa-bolt"></i> <span>99</span> views</em>
+                </p>
+                <div class="topics">
+                  <a class="text-primary-darker display-inline-block margin-x-2px text-no-underline bg-primary-light font-sans-3xs padding-y-2px padding-x-1 radius-pill" href="/topics/design/" data-topic="design">Design</a><a class="text-primary-darker display-inline-block margin-x-2px text-no-underline bg-primary-light font-sans-3xs padding-y-2px padding-x-1 radius-pill" href="/topics/open-data/" data-topic="open-data">Open Data</a>
+                </div>
+              </div>
+              <a href="/2018/11/02/health-tech-sprint-aims-at-improving-care-access-experience/" title="Health Tech Sprint Aims at Improving Care Access and Experience"><span></span></a>
+            </article>
 
-          <a id="newfile" data-content_type="{{ page.content_type}}" href=""
-            target="_new" title="Create a new post in GitHub" class="usa-button margin-bottom-1" style="width:100%;">Create
-            in GitHub »</a>
-          <a href="https://github.com/GSA/digitalgov.gov/wiki" class="usa-button usa-button-outline" style="width:100%;">A
-            guide to
-            publishing in GitHub</a>
-        </section>
+            <p class="margin-bottom-105 font-sans-md text-light line-height-sans-3  display-none"><strong>SEO Preview</strong> — How this page will likely look in Google</p>
+            <style media="screen">
+              .seo-preview{font-family: arial, sans-serif;}
+              .seo-preview h3{color: #1a0dab;}
+              .seo-preview .url{color: #006621;}
+              .seo-preview .summary{color: #545454;}
+            </style>
+            <section class="seo-preview bg-white margin-0 margin-bottom-5 padding-2 display-none">
+              <h3 class="margin-0 text-normal">Come say Hi! — Digital.gov</h3>
+              <p class="url line-height-sans-3 margin-0 margin-bottom-2px text-normal font-sans-xs">https://digital.gov/hi</p>
+              <p class="summary margin-0 text-normal font-sans-2xs line-height-sans-2">Hi. We are helping the government community make digital better. Come and learn more about...</p>
+            </section>
 
+            <p class="margin-bottom-105 font-sans-md text-light line-height-sans-3"><strong>Front Matter Preview</strong> — This is the additional data <em>(a.k.a. front-matter)</em> that will help build this page in digital.gov</p>
+            <section>
+              <pre id="filename" class="text-bold bg-white padding-2 border-1px border-base"></pre>
+              <pre id="post-matter" class="bg-white padding-2 border-1px border-base">---</pre>
+
+              <a id="newfile" data-content_type="{{ page.content_type}}" href=""
+                target="_new" title="Create a new post in GitHub" class="usa-button margin-bottom-1" style="width:100%;">Create
+                in GitHub »</a>
+              <a href="https://github.com/GSA/digitalgov.gov/wiki" class="usa-button usa-button-outline" style="width:100%;">A
+                guide to
+                publishing in GitHub</a>
+            </section>
+          </div>
+
+        </div>
       </div>
 
     </div>
