@@ -22,7 +22,15 @@
 <script src="{{ site.baseurl }}/assets/other/get_topics_editor.js"></script>
 {% endif %}
 
-{% if page.url contains '/new/' %}
+{% if page.url == '/edit/resource/' %}
+<script src="{{ site.baseurl }}/assets/js/dist/select2.min.js"></script>
+<script src="{{ site.baseurl }}/assets/js/dist/clipboard.min.js"></script>
+<script src="{{ site.baseurl }}/assets/other/get_topics_editor.js"></script>
+<script src="{{ site.baseurl }}/assets/js/dist/base.js"></script>
+<script src="{{ site.baseurl }}/assets/other/edit_page_data.js"></script>
+{% endif %}
+
+{% if page.url contains '/new/' or page.url == '/edit-data/' %}
 <script src="{{ site.baseurl }}/assets/js/dist/select2.min.js"></script>
 <script src="{{ site.baseurl }}/assets/js/dist/clipboard.min.js"></script>
 <script src="{{ site.baseurl }}/assets/other/get_topics_editor.js"></script>
