@@ -20,7 +20,7 @@ function display_page_data(e){
   var topics = format_topics(e.topics);
   var authors = e.authors;
   var date_modified = e.date_modified;
-  var date_published = e.date_published;
+  var date = e.date;
   var editpathURL = e.editpathURL;
   var filename = e.filename;
   var filepath = e.filepath;
@@ -81,7 +81,7 @@ function display_event_data(e){
   var topics = format_topics(e.topics);
   var authors = e.authors;
   var date_modified = e.date_modified;
-  var date_published = e.date_published;
+  var date = e.date;
   var start_date = e.start_date;
   var start_time = e.start_time;
   var end_time = e.end_time;

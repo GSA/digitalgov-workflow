@@ -8,14 +8,11 @@ function get_page_data() {
   // Get the URL parameter
   // For more info, see: https://davidwalsh.name/query-string-javascript
   var urlParams = new URLSearchParams(window.location.search);
-
   // This should be the URL of the digital.gov page that you are requesting data about
   var path = urlParams.get('page');
-
   // API path
   // See all the digital.gov APIs https://github.com/GSA/digitalgov.gov/wiki/APIs
   var api_path = path + 'index.json';
-  console.log(api_path);
 
   return $.ajax({
     url: api_path,

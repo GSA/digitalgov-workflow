@@ -4,24 +4,24 @@
 {{/* If the month var exists (like from a previous iteration of the for loop) */}}
 {% if month %}
   {{/* Set 'postmonth' to the month of the current post */}}
-  {% assign postmonth = item.date_published | date: '%B' %}
+  {% assign postmonth = item.date | date: '%B' %}
   {{/* If 'postmonth' and 'month' are not equal, print the month */}}
   {% if (postmonth != month) %}
-    <h2>{{ postmonth }} {{ item.date_published | date: '%Y' }}</h2>
+    <h2>{{ postmonth }} {{ item.date | date: '%Y' }}</h2>
   {% endif %}
 {{/* This is likely the first iteration of the for loop, so print the month */}}
 {% else %}
-  <h2>{{ item.date_published | date: '%B %Y' }}</h2>
+  <h2>{{ item.date | date: '%B %Y' }}</h2>
 {% endif %}
 {{/* Set the month var for the next iteration of the loop */}}
-{% assign month = item.date_published | date: '%B' %}
+{% assign month = item.date | date: '%B' %}
 
 <div class="grid-row grid-gap margin-bottom-205">
 
   <div class="grid-col-12 tablet:grid-col-9">
     <article class="padding-2 bg-white">
       <h3 class="margin-0"><a href="{{ site.source_of_truth }}{{ item.url }}" class="text-base-darkest underline-primary-light text-underline">{{ item.title }}</a></h3>
-      <h4 class="margin-top-0 margin-bottom-1 text-normal text-uppercase text-base-darker">{{ item.date_published | date: '%B %d, %Y' }}</h4>
+      <h4 class="margin-top-0 margin-bottom-1 text-normal text-uppercase text-base-darker">{{ item.date | date: '%B %d, %Y' }}</h4>
       <p class="margin-0">{{ item.summary }}</p>
 
       {% if item.topics %}
