@@ -14,6 +14,7 @@ function get_card(data, content, type){
 		return display_page_card(data);
 	}
 }
+
 function display_page_data(e){
 	var title = e.title;
   var summary = e.summary;
@@ -66,8 +67,7 @@ function display_page_card(e){
         '</div>',
         '<div class="grid-col-12 tablet:grid-col-2">',
           '<a class="margin-bottom-1 bg-primary hover:bg-primary-dark text-center text-no-underline padding-y-05 padding-x-05 display-block text-white font-sans-2xs visited:text-white hover:text-white radius-sm" href="'+editpathURL+'">edit file</a>',
-          '<a class="margin-bottom-1 text-center text-no-underline padding-y-05 padding-x-05 display-block text-primary hover:text-primary-dark bg-white font-sans-2xs radius-sm border-primary border-width-1px border-solid" href="/edit-topics/?page='+sourceoftruth+url+'">edit topics</a>',
-					'<a class="margin-bottom-1 text-center text-no-underline padding-y-05 padding-x-05 display-block text-primary hover:text-primary-dark bg-white font-sans-2xs radius-sm border-primary border-width-1px border-solid" href="/edit/resource/?page='+sourceoftruth+url+'">edit data</a>',
+					'<a class="margin-bottom-1 text-center text-no-underline padding-y-05 padding-x-05 display-block text-primary hover:text-primary-dark bg-white font-sans-2xs radius-sm border-primary border-width-1px border-solid" href="/edit/posts/?page='+sourceoftruth+url+'">edit page</a>',
         '</div>',
       '</div>',
     '</article>'

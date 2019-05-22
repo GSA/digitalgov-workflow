@@ -1,16 +1,35 @@
 jQuery(document).ready(function ($) {
 
   get_page_data().done(function(page,b,c) {
-    $.each( page.item[0], function( key, e ) {
-      // console.log(key);
-      $('[data-block="'+ key +'"]').val(e);
 
+    // Gets the "page" data and matches up each key in the data object with the corresponding field (block) in the editor
+    $.each( page.item[0], function( key, val ) {
+
+      // Decodes any HTML entities in the text by creating a textarea and returning the value
+      var decodeHTML = function (html) {
+      	var txt = document.createElement('textarea');
+      	txt.innerHTML = html;
+      	return txt.value;
+      };
+
+      // Checks to see if the element is data that belongs in a select2 field
+      if (key == 'topics' || key == 'authors') {
+        insert_current_taxonomy_data(key, val);
+      } else {
+        var txt = decodeHTML(val);
+        // Inserts the text into the field
+        $('[data-block="'+ key +'"]').val(txt);
+      }
+
+      // We want to make sure the date reflects the date in the page
+      // This gets the date from the data object and inserts it into the field
       if (key == 'date') {
         // NEW date
-        var date = new Date(e);
-        console.log(date);
+        var date = new Date(val);
         update_date(date);
       }
+
+      // Update the fron matter
       update_matter();
     });
   });
@@ -37,5 +56,22 @@ jQuery(document).ready(function ($) {
     update_matter();
   });
 
+
+  function insert_current_taxonomy_data(key, val){
+    // Getting an array of the taxonomy item from json data
+    var array = make_array(val);
+    // Pass the current items as an array to the select2 field
+    $('#block-'+key+' select').val(array).trigger("change");
+	}
+
+  // returns an array the IDs or slugs for each topic or author
+	// (e.g. 'content-strategy')
+	function make_array(data) {
+	  var array = [] ;
+	  $.each( data, function( index, element ) {
+	    array.push(index);
+	  });
+	  return array;
+	}
 
 });
