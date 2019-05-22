@@ -2,6 +2,15 @@ jQuery(document).ready(function ($) {
 
   get_page_data().done(function(page,b,c) {
 
+    // Checking for source_url
+    // This indicates if it is a link post or a full blog post
+    if ('source_url' in page.item[0]){
+      $("#card_display_elsewhere").attr('checked', 'checked');
+    } else {
+      $("#card_display_dg").attr('checked', 'checked');
+      $("#block-source, #block-source_url").addClass('display-none');
+    }
+
     // Gets the "page" data and matches up each key in the data object with the corresponding field (block) in the editor
     $.each( page.item[0], function( key, val ) {
 
@@ -73,5 +82,14 @@ jQuery(document).ready(function ($) {
 	  });
 	  return array;
 	}
+
+  function check_source_url(val){
+    if (true) {
+      $("#card_display_elsewhere").attr('checked', 'checked');
+    } else {
+      $("#card_display_dg").attr('checked', 'checked');
+      $("#block-source, #block-source_url").addClass('display-none');
+    }
+  }
 
 });

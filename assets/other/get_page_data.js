@@ -13,6 +13,8 @@ function get_page_data() {
   // API path
   // See all the digital.gov APIs https://github.com/GSA/digitalgov.gov/wiki/APIs
   var api_path = path + 'index.json';
+  console.log('Digital.gov page api_path:');
+  console.log(api_path);
 
   return $.ajax({
     url: api_path,
