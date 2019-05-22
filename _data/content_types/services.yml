@@ -5,6 +5,7 @@
   id: services
   page-title: services
   description: a services template
+  base_field: title
   blocks:
   - id: filename
     name: Filename

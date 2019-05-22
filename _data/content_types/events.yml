@@ -5,6 +5,7 @@
   id: events
   page-title: events
   description: An event page template
+  base_field: title
   blocks:
   - id: filename-dated
     name: Filename
@@ -31,18 +32,18 @@
     type: textarea
     data_type: string
     txt: "1-sentence description that does not repeat the headline"
-  - id: source
-    name: Source
-    type: select
-    data_type: data
-    txt: "this is more text"
-    comment: "Which team published this?\n# Learn about sources at https://workflow.digital.gov/sources"
   - id: source_url
     name: Source Url
     type: input
     data_type: string
     txt: "e.g. https://18f.gsa.gov/2019/04/01/ ..."
     comment: "originally published at the following URL"
+  - id: source
+    name: Source
+    type: select
+    data_type: data
+    txt: "this is more text"
+    comment: "Which team published this?\n# Learn about sources at https://workflow.digital.gov/sources"
   - id: host
     name: Host
     type: input

@@ -5,8 +5,6 @@ var base_field = $('form').data('base_field');
 // var date = new Date();
 
 
-
-
 // returns the year and month for use in the filepath on GitHub
 // Returns: 2019/09
 function file_yearmo() {
@@ -21,22 +19,27 @@ function file_yearmo() {
 // returns the year and month for use in the filepath in the front matter
 // Returns: 2019/09/01
 function file_yearmoday() {
-  var dateInput = $("#block-date input").val().match(/^[^\s]+/);
-  var dateObj = new Date(dateInput);
-  var year = dateObj.getUTCFullYear();
-  var month = ("0" + (dateObj.getUTCMonth() + 1)).slice(-2); //months from 1-12
-  var day = ("0" + (dateObj.getDate() + 1)).slice(-2); //months from 1-12
-  return yearmoday = year + "/" + month + "/" + day + "/";
+  if ($("#block-date input").length > 0) {
+    var dateInput = $("#block-date input").val().match(/^[^\s]+/);
+    var dateObj = new Date(dateInput);
+    var year = dateObj.getUTCFullYear();
+    var month = ("0" + (dateObj.getUTCMonth() + 1)).slice(-2); //months from 1-12
+    var day = ("0" + (dateObj.getDate() + 1)).slice(-2); //months from 1-12
+    return yearmoday = year + "/" + month + "/" + day + "/";
+  }
 }
 
 function update_matter(){
   file_yearmoday();
+
   var post_matter = "";
   var page_url_comment = get_page_url_comment(content_type);
   var branch = "demo";
   post_matter += "---";
   post_matter += page_url_comment;
   post_matter += "\n# Learn how to edit our pages at https://workflow.digital.gov\n";
+
+  // For each field in the editor...
   $('*[data-block]').each(function(){
 		var id = $(this).data('block'); // gets the id
 		var data_type = $(this).data('block-data_type'); // gets the data_type
@@ -65,12 +68,14 @@ function update_matter(){
 
 
 function process_text(id, el){
+  // console.log(id);
+  // console.log(el);
   if (id == base_field) {
     return el.val();
   } else if (id == 'authors') {
-    return cs2ds(el.select2('data'));
+    return make_yaml_list($('#block-authors select').val());
   } else if (id == 'topics'){
-    return cs2ds(el.select2('data'));
+    return make_yaml_list($('#block-topics select').val());
   } else if (id == 'source') {
     if ($('#block-'+id).hasClass('display-none') == true) {
       return 'skip';
@@ -123,13 +128,13 @@ function process_text(id, el){
   }
 }
 
-function cs2ds(tax) {
+function make_yaml_list(items) {
   var output = "\n";
-  $.each( tax, function( i, e ) {
-    if (i === tax.length - 1) {
-      output += "  - " + $.trim(e.id);
+  $.each( items, function( i, e ) {
+    if (i === items.length - 1) {
+      output += "  - " + $.trim(e);
     } else {
-      output += "  - " + $.trim(e.id) + "\n";
+      output += "  - " + $.trim(e) + "\n";
     }
   });
   return output;
@@ -206,6 +211,7 @@ function get_venue_info(id, el){
 
 function slugify() {
   var base = $('#block-'+base_field +' input').val();
+  console.log(base);
   var small_words = /\band |\bthe |\bare |\bis |\bof |\bto /gi;
   var slug = base.replace(new RegExp(small_words, "gi"), '');
   var output = slug.split(" ").splice(0,6).join(" ");
@@ -247,8 +253,6 @@ function encodeEntities(input) {
 }
 
 
-
-
 // Hide and show the Source and source_url fields
 if ($('#card_display_dg').is(':checked') == true) {
   $("#block-source, #block-source_url").addClass('display-none');
@@ -256,6 +260,7 @@ if ($('#card_display_dg').is(':checked') == true) {
 }
 
 $('#card_display input').click(function() {
+  console.log('yes');
   if($(this).is(':checked')){
     var val = $(this).val();
     if (val == 'card_display_dg') {

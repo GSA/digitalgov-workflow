@@ -1,0 +1,15 @@
+{% for niche in site.data.content_types.[page.content_type] %}
+  <form autocomplete="off" id="{{ page.content_type }}" class="margin-y-05 bg-base-lighter padding-y-2px padding-x-3" accept-charset="utf-8" data-content_type="{{ page.content_type }}" data-base_field="{{ niche.base_field }}">
+  {% for block in niche.blocks %}
+
+    {% if block.id == "source_url" %}
+    <!-- Source switcher -->
+      {% include blocks/source_radio.html %}
+    {% endif %}
+    {% if block.type %}
+      {% include blocks/{{ block.type }}.html name=block.name id=block.id text=block.txt type=block.type data_type=block.data_type comment=block.comment %}
+    {% endif %}
+
+  {% endfor %}
+  </form>
+{% endfor %}

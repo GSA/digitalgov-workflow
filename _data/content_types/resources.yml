@@ -5,6 +5,7 @@
   id: resources
   page-title: resources
   description: a resources template
+  base_field: title
   blocks:
   - id: filename
     name: Filename

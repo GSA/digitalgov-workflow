@@ -4,6 +4,7 @@ jQuery(document).ready(function($) {
 	// https://select2.org/
 	// This is what we are using to make it possible to pull topics from the TOPICS API and make them searchable and editable in the interface
 	// It is not easy...
+
 	$("#block-topics select").select2({
 	  tags: true,
 	  width: 'element',

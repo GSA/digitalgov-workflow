@@ -12,6 +12,11 @@
     type: input-hidden
     data_type: data
     txt: ""
+  - id: slug
+    name: Slug
+    type: input-hidden
+    data_type: data
+    txt: ""
   - id: display_name
     name: Display Name
     type: input
