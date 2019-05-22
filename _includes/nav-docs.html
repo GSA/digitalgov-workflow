@@ -8,7 +8,7 @@
         <span class="font-sans-3xs display-block text-no-underline text-medium text-black text-uppercase visited:text-black {{ current }}">{{ item.title }}</span>
         <ul class="add-list-reset padding-left-105">
           <li class="padding-y-2px font-sans-2xs"><a class="text-no-underline text-primary visited:text-black {{ current }}" href="{{ site.baseurl }}/new/{{ item.id }}">New</a></li>
-          <li class="padding-y-2px font-sans-2xs"><a class="text-no-underline text-primary visited:text-black {{ current }}" href="{{ site.baseurl }}/edit/{{ item.id }}">Edit</a></li>
+          <li class="padding-y-2px font-sans-2xs"><a class="text-no-underline text-primary visited:text-black {{ current }}" href="{{ site.baseurl }}/{{ item.id }}">Edit</a></li>
         </ul>
       </li>
     {% endfor %}

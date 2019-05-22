@@ -1,8 +1,14 @@
 var content_type = $('form').data('content_type');
 var base_field = $('form').data('base_field');
 
+// NEW date
+// var date = new Date();
+
+
+
+
 // returns the year and month for use in the filepath on GitHub
-// Returns: 2017/09
+// Returns: 2019/09
 function file_yearmo() {
   var dateInput = $("#block-date input").val().match(/^[^\s]+/);
   var dateObj = new Date(dateInput);
@@ -12,8 +18,19 @@ function file_yearmo() {
 
   return yearmo;
 }
+// returns the year and month for use in the filepath in the front matter
+// Returns: 2019/09/01
+function file_yearmoday() {
+  var dateInput = $("#block-date input").val().match(/^[^\s]+/);
+  var dateObj = new Date(dateInput);
+  var year = dateObj.getUTCFullYear();
+  var month = ("0" + (dateObj.getUTCMonth() + 1)).slice(-2); //months from 1-12
+  var day = ("0" + (dateObj.getDate() + 1)).slice(-2); //months from 1-12
+  return yearmoday = year + "/" + month + "/" + day + "/";
+}
 
 function update_matter(){
+  file_yearmoday();
   var post_matter = "";
   var page_url_comment = get_page_url_comment(content_type);
   var branch = "demo";
@@ -135,7 +152,7 @@ function get_page_url_comment(content_type){
 function get_publish_url(content_type) {
   var slug = slugify();
   if (content_type == 'posts') {
-    var url = "https://digital.gov/" + file_yearmo() + slug;
+    var url = "https://digital.gov/" + file_yearmoday() + slug;
   } else if (content_type == 'events') {
     var url = "https://digital.gov/event/" + file_yearmo() + slug;
   } else if (content_type == 'resources') {
@@ -229,21 +246,31 @@ function encodeEntities(input) {
   });
 }
 
-function update_date(date){
-  // Get date — set to +1 date in the future
-  var yearmoday = `${date.getFullYear()}-${('0' + (date.getMonth()+1)).slice(-2)}-${('0' + (date.getDate()+1)).slice(-2)}`;
 
-  // Get current time — not being used at the moment
-  var time = `${date.getHours()+1}:${(date.getMinutes()<10?'0':'') + '00:00'}`;
-  var time_end = `${date.getHours()+2}:${(date.getMinutes()<10?'0':'') + '00:00'}`;
-  // Set time to 9am ET — our daily pub time
-  // var time = '09:00';
 
-  // Insert the time into the time fields
-  $("#block-date input, #block-date-end input").val(yearmoday);
-  $("#block-time input").val(time);
-  $("#block-time-end input").val(time_end);
+
+// Hide and show the Source and source_url fields
+if ($('#card_display_dg').is(':checked') == true) {
+  $("#block-source, #block-source_url").addClass('display-none');
+  update_matter();
 }
+
+$('#card_display input').click(function() {
+  if($(this).is(':checked')){
+    var val = $(this).val();
+    if (val == 'card_display_dg') {
+      $("#block-source, #block-source_url").addClass('display-none');
+    } else {
+      $("#block-source, #block-source_url").removeClass('display-none');
+    }
+    update_matter();
+  }
+});
+
+// Venue information
+$('#block-venue input').change(function() {
+  update_matter();
+});
 
 jQuery(document).ready(function ($) {
 

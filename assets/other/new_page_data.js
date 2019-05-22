@@ -1,19 +1,8 @@
 jQuery(document).ready(function ($) {
 
-  get_page_data().done(function(page,b,c) {
-    $.each( page.item[0], function( key, e ) {
-      // console.log(key);
-      $('[data-block="'+ key +'"]').val(e);
-
-      if (key == 'date') {
-        // NEW date
-        var date = new Date(e);
-        console.log(date);
-        update_date(date);
-      }
-      update_matter();
-    });
-  });
+  var date = new Date();
+  console.log(date);
+  update_date(date);
 
   function update_date(date){
     // Get date — set to +1 date in the future
@@ -36,6 +25,5 @@ jQuery(document).ready(function ($) {
   $("select").on("select2:select select2:unselect", function(e) {
     update_matter();
   });
-
 
 });
