@@ -34,8 +34,8 @@ jQuery(document).ready(function ($) {
       // This gets the date from the data object and inserts it into the field
       if (key == 'date') {
         // NEW date
-        var date = new Date(val);
-        update_date(date);
+        console.log(val);
+        update_date(val);
       }
 
       if (key == 'url') {
@@ -47,17 +47,27 @@ jQuery(document).ready(function ($) {
         $('.preview-api').addClass('display-inline-block');
       }
 
+      if (key == 'editpathURL') {
+        $('.preview-file a').attr('href', val);
+        $('.preview-file').addClass('display-inline-block');
+      }
+
       // Update the fron matter
       update_matter();
     });
   });
 
   function update_date(date){
+    console.log(date);
+    var date = new Date(date);
+    console.log(date);
     // Get date — set to +1 date in the future
     var yearmoday = `${date.getFullYear()}-${('0' + (date.getMonth()+1)).slice(-2)}-${('0' + (date.getDate())).slice(-2)}`;
 
     // Get current time — not being used at the moment
-    var time = `${date.getHours()+1}:${(date.getMinutes()<10?'0':'') + '0:00'}`;
+    var time = `${date}`;
+    console.log(time);
+    // var time = `${date.getHours()+1}:${(date.getMinutes()<10?'0':'') + '0:00'}`;
     var time_end = `${date.getHours()+2}:${(date.getMinutes()<10?'0':'') + '0:00'}`;
     // Set time to 9am ET — our daily pub time
     // var time = '09:00';
