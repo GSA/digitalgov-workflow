@@ -1,5 +1,5 @@
 ---
-layout: new
+layout: editor
 title: Add a new resource
 permalink: /new/resources/
 description:

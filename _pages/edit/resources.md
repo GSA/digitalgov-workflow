@@ -1,5 +1,5 @@
 ---
-layout: edit-data
+layout: editor
 title: Edit Resource
 permalink: /edit/resources/
 description:

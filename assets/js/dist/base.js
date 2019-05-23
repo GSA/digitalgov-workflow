@@ -59,7 +59,7 @@ function update_matter(){
     }
 
 	});
-  post_matter += "\n\n# ♥♥♥ Make it better ♥♥♥\n";
+  post_matter += "\n\n# Make it better ♥\n";
   post_matter += "---";
 
   $("#post-matter").html(post_matter);
@@ -211,7 +211,6 @@ function get_venue_info(id, el){
 
 function slugify() {
   var base = $('#block-'+base_field +' input').val();
-  console.log(base);
   var small_words = /\band |\bthe |\bare |\bis |\bof |\bto /gi;
   var slug = base.replace(new RegExp(small_words, "gi"), '');
   var output = slug.split(" ").splice(0,6).join(" ");

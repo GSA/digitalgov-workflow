@@ -76,10 +76,6 @@ content_types:
     title: "Authors"
     url: /edit/authors/
     api: 'https://demo.digital.gov/authors/v1/json/'
-  - id: "promos"
-    title: "Promos"
-    url: /edit/promos/
-    api: 'https://demo.digital.gov/promos/v1/json/'
   - id: "sources"
     title: "Sources"
     url: /edit/sources/

@@ -48,8 +48,8 @@ jQuery(document).ready(function ($) {
     var yearmoday = `${date.getFullYear()}-${('0' + (date.getMonth()+1)).slice(-2)}-${('0' + (date.getDate())).slice(-2)}`;
 
     // Get current time — not being used at the moment
-    var time = `${date.getHours()+1}:${(date.getMinutes()<10?'0':'') + '00:00'}`;
-    var time_end = `${date.getHours()+2}:${(date.getMinutes()<10?'0':'') + '00:00'}`;
+    var time = `${date.getHours()+1}:${(date.getMinutes()<10?'0':'') + '0:00'}`;
+    var time_end = `${date.getHours()+2}:${(date.getMinutes()<10?'0':'') + '0:00'}`;
     // Set time to 9am ET — our daily pub time
     // var time = '09:00';
     // Insert the time into the time fields

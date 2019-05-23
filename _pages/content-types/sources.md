@@ -1,7 +1,7 @@
 ---
 layout: content-type
 title: Sources
-permalink: /edit/sources/
+permalink: /sources/
 source_path: /sources/
 description:
 api: sources

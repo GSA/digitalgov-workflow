@@ -14,22 +14,14 @@
 <!--<script src="{{ site.baseurl }}/assets/other/get_commits.js"></script>-->
 {% endif %}
 
-{% if page.url == '/edit-topics/' or page.url == '/edit-profile/' %}
-<script src="{{ site.baseurl }}/assets/js/dist/select2.min.js"></script>
-<script src="{{ site.baseurl }}/assets/js/dist/clipboard.min.js"></script>
-{% elsif page.url == '/edit/topics/'  %}
-{% endif %}
-
-{% if page.url == '/edit/posts/' %}
 <script src="{{ site.baseurl }}/assets/js/dist/select2.min.js"></script>
 <script src="{{ site.baseurl }}/assets/js/dist/clipboard.min.js"></script>
 <script src="{{ site.baseurl }}/assets/js/dist/base.js"></script>
+
+{% if page.url contains '/edit/' %}
 <script src="{{ site.baseurl }}/assets/other/edit_page_data.js"></script>
 {% endif %}
 
-{% if page.url contains '/new/' or page.url == '/edit-data/' %}
-<script src="{{ site.baseurl }}/assets/js/dist/select2.min.js"></script>
-<script src="{{ site.baseurl }}/assets/js/dist/clipboard.min.js"></script>
-<script src="{{ site.baseurl }}/assets/js/dist/base.js"></script>
+{% if page.url contains '/new/' %}
 <script src="{{ site.baseurl }}/assets/other/new_page_data.js"></script>
 {% endif %}

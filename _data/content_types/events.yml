@@ -26,7 +26,7 @@
     name: Deck / Sub-head
     type: textarea
     data_type: string
-    txt: "Think of this as the sentence you'd most like to tweet. Do not repeat the headline."
+    txt: "Think of this as the sentence you'd most like to tweet. Do not repeat the headline. You need to be able to read it outloud in a single breath."
   - id: summary
     name: Summary
     type: textarea
@@ -102,8 +102,8 @@
     type: input
     data_type: data
     txt: "e.g. <code>3FKyVeipMss</code>"
-  - id: zoom_url
-    name: Zoom URL
+  - id: zoom_id
+    name: Zoom ID
     type: input
     data_type: data
     txt: ""

@@ -1,7 +1,7 @@
 ---
 layout: content-type
 title: Topics
-permalink: /edit/topics/
+permalink: /topics/
 source_path: /topics/
 description:
 api: topics

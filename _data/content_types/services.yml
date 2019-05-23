@@ -35,7 +35,7 @@
     name: Deck / Sub-head
     type: textarea
     data_type: string
-    txt: "Think of this as the sentence you'd most like to tweet. Do not repeat the headline."
+    txt: "Think of this as the sentence you'd most like to tweet. Do not repeat the headline. You need to be able to read it outloud in a single breath."
   - id: summary
     name: Summary
     type: textarea

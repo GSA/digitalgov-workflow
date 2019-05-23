@@ -1,5 +1,5 @@
 ---
-layout: edit-data
+layout: editor
 title: Edit Posts
 permalink: /edit/posts/
 description:

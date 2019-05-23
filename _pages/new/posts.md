@@ -1,5 +1,5 @@
 ---
-layout: new
+layout: editor
 title: New Blog Post
 permalink: /new/posts/
 description:
