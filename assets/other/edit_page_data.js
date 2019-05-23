@@ -38,6 +38,15 @@ jQuery(document).ready(function ($) {
         update_date(date);
       }
 
+      if (key == 'url') {
+        var url = source_of_truth + val;
+        var api_url = source_of_truth + val + 'index.json';
+        $('.preview-url a').attr('href', url);
+        $('.preview-api a').attr('href', api_url);
+        $('.preview-url').addClass('display-inline-block');
+        $('.preview-api').addClass('display-inline-block');
+      }
+
       // Update the fron matter
       update_matter();
     });
