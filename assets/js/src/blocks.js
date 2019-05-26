@@ -93,12 +93,12 @@ function process_text(id, el){
   } else if (id == 'date') {
     var time = $('#block-time input').val();
     return el.val() + ' ' + time;
-  } else if (id == 'date-end') {
-    var time = $('#block-time-end input').val();
+  } else if (id == 'end_date') {
+    var time = $('#block-end_time input').val();
     return el.val() + ' ' + time;
   } else if (id == 'time') {
     return 'skip';
-  } else if (id == 'time-end') {
+  } else if (id == 'end_time') {
     return 'skip';
   } else if (id == 'slug') {
     var slug = slugify();

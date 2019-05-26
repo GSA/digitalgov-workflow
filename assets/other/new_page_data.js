@@ -1,7 +1,6 @@
 jQuery(document).ready(function ($) {
 
   var date = new Date();
-  console.log(date);
   update_date(date);
 
   function update_date(date){
@@ -10,13 +9,13 @@ jQuery(document).ready(function ($) {
 
     // Get current time — not being used at the moment
     var time = `${date.getHours()+1}:${(date.getMinutes()<10?'0':'') + '00:00'}`;
-    var time_end = `${date.getHours()+2}:${(date.getMinutes()<10?'0':'') + '00:00'}`;
+    var end_time = `${date.getHours()+2}:${(date.getMinutes()<10?'0':'') + '00:00'}`;
     // Set time to 9am ET — our daily pub time
     // var time = '09:00';
     // Insert the time into the time fields
-    $("#block-date input, #block-date-end input").val(yearmoday);
+    $("#block-date input, #block-end_date input").val(yearmoday);
     $("#block-time input").val(time);
-    $("#block-time-end input").val(time_end);
+    $("#block-end_time input").val(end_time);
   }
 
   $('#block-event_organizer input').val('Digital.gov');

@@ -69,7 +69,7 @@
     data_type: data
     txt: "e.g. 2019-04-01 13:24"
     comment: "start date"
-  - id: date-end
+  - id: end_date
     name: End Date
     type: input
     data_type: data
@@ -80,7 +80,7 @@
     type: input
     data_type: data
     txt: "the time the event starts, in eastern time"
-  - id: time-end
+  - id: end_time
     name: End Time
     type: input
     data_type: data

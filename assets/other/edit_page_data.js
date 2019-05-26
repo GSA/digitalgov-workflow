@@ -32,10 +32,13 @@ jQuery(document).ready(function ($) {
 
       // We want to make sure the date reflects the date in the page
       // This gets the date from the data object and inserts it into the field
-      if (key == 'date') {
-        // NEW date
-        console.log(val);
-        update_date(val);
+      if (key == 'date' || key == 'end_date') {
+        update_date(key, val);
+        update_time(key, val);
+      }
+      if (key == 'end_date') {
+        // console.log(val);
+        // update_time(key, val);
       }
 
       if (key == 'url') {
@@ -57,24 +60,25 @@ jQuery(document).ready(function ($) {
     });
   });
 
-  function update_date(date){
-    console.log(date);
-    var date = new Date(date);
-    console.log(date);
+  function update_time(key, val){
+    var date = new Date(val);
+    // Get time — not being used at the moment
+    var mins = date.getMinutes();
+    var time = `${date.getHours()}:${(mins<1?'00':mins) + ':00'}`;
+    if (key == 'date') {
+      $("#block-time input").val(time);
+    }
+    if (key == 'end_date') {
+      $("#block-end_time input").val(time);
+    }
+  }
+
+  function update_date(key, val){
+    var date = new Date(val);
     // Get date — set to +1 date in the future
     var yearmoday = `${date.getFullYear()}-${('0' + (date.getMonth()+1)).slice(-2)}-${('0' + (date.getDate())).slice(-2)}`;
-
-    // Get current time — not being used at the moment
-    var time = `${date}`;
-    console.log(time);
-    // var time = `${date.getHours()+1}:${(date.getMinutes()<10?'0':'') + '0:00'}`;
-    var time_end = `${date.getHours()+2}:${(date.getMinutes()<10?'0':'') + '0:00'}`;
-    // Set time to 9am ET — our daily pub time
-    // var time = '09:00';
-    // Insert the time into the time fields
-    $("#block-date input, #block-date-end input").val(yearmoday);
-    $("#block-time input").val(time);
-    $("#block-time-end input").val(time_end);
+    // Inserts the DATES into the fields
+    $("#block-"+key+" input").val(yearmoday);
   }
 
   $('#block-event_organizer input').val('Digital.gov');
