@@ -1,6 +1,6 @@
 jQuery(document).ready(function ($) {
 
-  github_type = "edit";
+  github_base = "https://github.com/"+workflow_org+"/"+workflow_repo+"/edit/";
 
   get_page_data().done(function(page,b,c) {
     // Checking for source_url

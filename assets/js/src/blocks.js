@@ -63,7 +63,8 @@ function update_matter(){
   post_matter += "---";
 
   $("#post-matter").html(post_matter);
-  $(".btn-edit").attr('href', get_github_url(github_type, post_matter));
+  var github_path = github_base + get_github_url(post_matter);
+  $("#new_file").attr('href', github_path);
 }
 
 
@@ -175,24 +176,21 @@ function get_publish_url(content_type) {
 }
 
 
-function get_github_url(github_type, post_matter) {
-  if (github_type == 'new') {
-    var base_url = "https://github.com/GSA/digitalgov.gov/new/"+get_edit_branch()+"/content/"+content_type+"/";
-    var commit_msg = "New "+ content_type +": " + ($('#block-'+base_field +' input').val()).trim();
-    var commit_desc = "";
-    if ($("#block-deck textarea").length) {
-      var commit_desc = ($("#block-deck textarea").val()).trim();
-    }
-    if (content_type == 'posts' || content_type == 'events') {
-      base_url += file_yearmo() + 'draft?filename=' + get_filename() + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
-    } else if (content_type == 'authors' || content_type == 'topics') {
-      base_url += slugify() + '/draft?filename=_index.md' + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
-    } else {
-      base_url += 'draft?filename=' + get_filename() + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
-    }
-    return base_url;
+function get_github_url(post_matter) {
+  var base_url = get_edit_branch()+"/content/"+content_type+"/";
+  var commit_msg = "New "+ content_type +": " + ($('#block-'+base_field +' input').val()).trim();
+  var commit_desc = "";
+  if ($("#block-deck textarea").length) {
+    var commit_desc = ($("#block-deck textarea").val()).trim();
   }
-
+  if (content_type == 'posts' || content_type == 'events') {
+    base_url += file_yearmo() + 'draft?filename=' + get_filename() + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
+  } else if (content_type == 'authors' || content_type == 'topics') {
+    base_url += slugify() + '/draft?filename=_index.md' + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
+  } else {
+    base_url += 'draft?filename=' + get_filename() + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
+  }
+  return base_url;
 }
 
 
