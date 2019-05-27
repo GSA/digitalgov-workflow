@@ -1,7 +1,8 @@
 jQuery(document).ready(function ($) {
 
-  get_page_data().done(function(page,b,c) {
+  github_type = "edit";
 
+  get_page_data().done(function(page,b,c) {
     // Checking for source_url
     // This indicates if it is a link post or a full blog post
     if ('source_url' in page.item[0]){
@@ -53,6 +54,8 @@ jQuery(document).ready(function ($) {
       if (key == 'editpathURL') {
         $('.preview-file a').attr('href', val);
         $('.preview-file').addClass('display-inline-block');
+        $('.preview-file').addClass('display-inline-block');
+        $(".btn-edit").attr('href', val);
       }
 
       // Update the fron matter

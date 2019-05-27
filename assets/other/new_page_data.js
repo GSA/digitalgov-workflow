@@ -1,5 +1,8 @@
 jQuery(document).ready(function ($) {
 
+  github_type = "new";
+  var github_url = "https://github.com/"+workflow_org+"/"+workflow_repo+"/new/";
+
   var date = new Date();
   update_date(date);
 
