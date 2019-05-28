@@ -1,5 +1,5 @@
 ---
-layout: content-type
+layout: list
 title: Topics
 permalink: /topics/
 source_path: /topics/

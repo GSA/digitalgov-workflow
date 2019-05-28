@@ -1,5 +1,5 @@
 ---
-layout: content-type
+layout: list
 title: Events
 permalink: /events/
 source_path: /events/

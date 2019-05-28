@@ -1,0 +1,14 @@
+<nav role="navigation" class="margin-y-105 bg-base-lightest radius-sm padding-y-05 padding-x-2">
+  <ul class="add-list-reset">
+    {% for item in site.content_types %}
+      {% if forloop.last == false and forloop.first == false %}
+        {% assign border = "border-top border-base-light" %}
+      {% endif %}
+      <li class="{{ border }} padding-y-05 display-flex flex-justify flex-align-center">
+        <a class="font-sans-sm padding-y-2px display-inline-block width-15 text-light text-primary-dark text-no-underline hover:text-underline visited:text-black {{ current }}" href="{{ site.baseurl }}/{{ item.id }}">{{ item.title }}</a>
+        <a title="New {{ item.title }}" class="font-sans-md padding-y-05 padding-x-1 display-inline-block text-medium text-primary text-no-underline visited:text-black hover:text-primary-dark hover:bg-primary-lighter radius-md {{ current }}" href="{{ site.baseurl }}/new/{{ item.id }}"><i class="far fa-plus-square"></i></a>
+
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

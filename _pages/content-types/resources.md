@@ -1,5 +1,5 @@
 ---
-layout: content-type
+layout: list
 title: Resources
 permalink: /resources/
 source_path: /resources/

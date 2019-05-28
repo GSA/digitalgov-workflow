@@ -2,49 +2,37 @@
 layout: default
 ---
 
-<main id="main-content" class="padding-y-9">
-  <div class="grid-container">
-    <div class="grid-row grid-gap-4">
 
-      <div class="grid-col-12 tablet:grid-col-2">
-        {% include navigation.html %}
-      </div>
+<header class="margin-bottom-2">
+  <h1 class="margin-0 text-heavy font-sans-2xl">{{ page.title | escape }}</h1>
+  {% if page.deck %}
+  <div class="text-thin font-sans-xl">{{ page.deck | escape }}</div>
+  {% endif %}
+</header>
 
-      <div class="grid-col-12 tablet:grid-col-10">
-        <header class="margin-bottom-2">
-          <h1 class="margin-0 text-heavy font-sans-2xl">{{ page.title | escape }}</h1>
-          {% if page.deck %}
-          <div class="text-thin font-sans-xl">{{ page.deck | escape }}</div>
-          {% endif %}
-        </header>
-        <div class="grid-row grid-gap-4">
+<div class="grid-row grid-gap-4">
 
-          <div class="grid-col-12 tablet:grid-col-6">
-            <div class="text-thin font-sans-lg margin-bottom-2">
-              {{ content }}
-            </div>
-
-            {% include editor/preview-links.html %}
-
-            {% include form-builder.html %}
-
-          </div>
-
-          <div class="grid-col-12 tablet:grid-col-6">
-
-            {% include editor/preview-card.html %}
-
-            {% include editor/preview-seo.html %}
-
-            {% include editor/preview-front-matter.html %}
-
-            {% include editor/buttons.html %}
-
-          </div>
-
-        </div>
-      </div>
-
+  <div class="grid-col-12 tablet:grid-col-6">
+    <div class="text-thin font-sans-lg margin-bottom-2">
+      {{ content }}
     </div>
+
+    {% include editor/preview-links.html %}
+
+    {% include form-builder.html %}
+
   </div>
-</main>
+
+  <div class="grid-col-12 tablet:grid-col-6">
+
+    {% include editor/preview-card.html %}
+
+    {% include editor/preview-seo.html %}
+
+    {% include editor/preview-front-matter.html %}
+
+    {% include editor/buttons.html %}
+
+  </div>
+
+</div>

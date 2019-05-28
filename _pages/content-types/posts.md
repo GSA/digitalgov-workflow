@@ -1,5 +1,5 @@
 ---
-layout: content-type
+layout: list
 title: All Posts
 permalink: /posts/
 source_path: /posts/

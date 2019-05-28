@@ -1,13 +1,14 @@
-<nav role="navigation" class="margin-y-105 bg-base-lightest radius-sm padding-y-05 padding-x-2">
+<nav role="navigation" class="margin-bottom-1 border-base border-1px radius-md padding-y-105 padding-x-2">
   <ul class="add-list-reset">
-    {% for item in site.content_types %}
-      {% if forloop.last == false and forloop.first == false %}
-        {% assign border = "border-top border-base-light" %}
+    {% for item in site.data.navigation.nav %}
+      {% assign current = "" %}
+      {% if page.url == item.url %}
+        {% assign current = "current" %}
       {% endif %}
-      <li class="{{ border }} padding-y-1 display-flex flex-justify flex-align-center">
-        <a class="font-sans-xs padding-y-2px display-inline-block width-15 text-semibold text-no-underline hover:text-underline text-primary visited:text-black {{ current }}" href="{{ site.baseurl }}/{{ item.id }}">{{ item.title }}</a>
-        <a title="New {{ item.title }}" class="font-sans-md padding-y-05 padding-x-1 display-inline-block text-medium text-primary text-no-underline visited:text-black hover:text-primary-dark hover:bg-primary-lighter radius-md {{ current }}" href="{{ site.baseurl }}/new/{{ item.id }}"><i class="far fa-plus-square"></i></a>
-
+      <li class="padding-y-05 font-sans-sm text-light line-height-sans-4">
+        <a class="text-primary-dark hover:border-bottom-2px hover:border-secondary-light text-no-underline" href="{{ site.baseurl }}{{ item.url }}">
+          <span>{{ item.text }}</span>
+        </a>
       </li>
     {% endfor %}
   </ul>

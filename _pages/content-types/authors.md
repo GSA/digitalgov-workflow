@@ -1,5 +1,5 @@
 ---
-layout: content-type
+layout: list
 title: Authors
 permalink: /authors/
 source_path: /authors/

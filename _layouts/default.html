@@ -9,7 +9,22 @@
 
     {% include header.html %}
 
-    {{ content }}
+    <main id="main-content" class="padding-y-5">
+      <div class="grid-container">
+        <div class="grid-row grid-gap-4">
+
+          <div class="grid-col-12 tablet:grid-col-2">
+            {% include nav-docs.html %}
+            {% include nav-editor.html %}
+          </div>
+
+          <div class="grid-col-12 tablet:grid-col-10">
+            {{ content }}
+          </div>
+        </div>
+      </div>
+    </main>
+
 
     {% include footer.html %}
   </div>

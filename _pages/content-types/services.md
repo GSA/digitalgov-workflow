@@ -1,5 +1,5 @@
 ---
-layout: content-type
+layout: list
 title: All Services
 permalink: /services/
 source_path: /services/
