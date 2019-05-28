@@ -2,36 +2,20 @@
 layout: default
 ---
 
-<main id="main-content" class="padding-y-9">
-  <div class="grid-container">
-    <div class="grid-row grid-gap-4">
+<article>
 
-      <div class="grid-col-12 tablet:grid-col-2">
-        {% include navigation.html %}
-      </div>
+  <header class="margin-bottom-5">
+    <h1 class="margin-0 margin-bottom-1 font-body-2xl text-heavy line-height-sans-1 text-primary-darker">{{ page.title | escape }}</h1>
+    {% if page.deck %}
+    <div class="margin-y-2 text-primary-dark text-light line-height-sans-3 font-sans-xl maxw-tablet-lg">{{ page.deck | markdownify | remove: '<p>' | remove: '</p>' }}</div>
+    {% endif %}
+  </header>
 
-      <div class="grid-col-12 tablet:grid-col-8">
-        <article>
+  <section class="measure-5">
+    {{ content }}
+  </section>
 
-          <header class="margin-bottom-5">
-            <h1 class="margin-0 margin-bottom-1 font-body-2xl text-heavy line-height-sans-1 text-primary-darker">{{ page.title | escape }}</h1>
-            {% if page.deck %}
-            <div class="margin-y-2 text-primary-dark text-light line-height-sans-3 font-sans-xl maxw-tablet-lg">{{ page.deck | markdownify | remove: '<p>' | remove: '</p>' }}</div>
-            {% endif %}
-          </header>
-
-          <section class="measure-5">
-            {{ content }}
-          </section>
-
-          <div class="margin-top-9">
-            <a class="padding-y-05 padding-x-1 font-sans-xs text-medium text-no-underline radius-md border-1px border-accent-warm-dark text-accent-warm-dark" href="https://github.com/{{ site.org_name }}/{{ site.repo_name }}/edit/{{ site.branch }}/{{ page.path }}">edit</a>
-          </div>
-        </article>
-
-      </div>
-
-    </div>
-
+  <div class="margin-top-9">
+    <a class="padding-y-05 padding-x-1 font-sans-xs text-medium text-no-underline radius-md border-1px border-accent-warm-dark text-accent-warm-dark" href="https://github.com/{{ site.org_name }}/{{ site.repo_name }}/edit/{{ site.branch }}/{{ page.path }}">edit</a>
   </div>
-</main>
+</article>

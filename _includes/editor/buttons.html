@@ -1,0 +1,11 @@
+{% if page.url contains '/edit/' %}
+<ol class="padding-x-2">
+  <li class="margin-y-2"><a href="#" class="btn-copy padding-x-1 padding-y-05 text-no-underline radius-sm border-primary border-width-1px border-solid display-inline" data-clipboard-target="#post-matter">Copy</a> the text above.</li>
+  <li class="margin-y-2"><a id="edit_file" target="_blank" href="#" class="btn-edit padding-x-1 padding-y-05 text-no-underline text-white visited:text-white radius-sm bg-primary display-inline">Edit</a> the page in GitHub.</li>
+</ol>
+{% endif %}
+
+
+{% if page.url contains '/new/' %}
+<a id="new_file" target="_blank" href="#" class="btn-edit padding-x-1 padding-y-1 text-no-underline text-center text-white visited:text-white radius-md bg-primary display-block"><i class="fab fa-github"></i> Create a new file</a>
+{% endif %}

@@ -1,7 +1,7 @@
 ---
-layout: content-type
+layout: list
 title: All Communities
-permalink: /edit/communities/
+permalink: /communities/
 source_path: /communities/
 description:
 api: communities

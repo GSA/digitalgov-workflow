@@ -1,289 +1,346 @@
-jQuery(document).ready(function ($) {
+var content_type = $('form').data('content_type');
+var base_field = $('form').data('base_field');
 
-  var content_type = $('form').data('content_type');
-  var base_field = $('form').data('base_field');
+// NEW date
+// var date = new Date();
 
-  // NEW date
-  var date = new Date();
 
-  // Get date — set to +1 date in the future
-  var yearmoday = `${date.getFullYear()}-${('0' + (date.getMonth()+1)).slice(-2)}-${('0' + (date.getDate()+1)).slice(-2)}`;
+// returns the year and month for use in the filepath on GitHub
+// Returns: 2019/09
+function file_yearmo() {
+  var dateInput = $("#block-date input").val().match(/^[^\s]+/);
+  var dateObj = new Date(dateInput);
+  var year = dateObj.getUTCFullYear();
+  var month = ("0" + (dateObj.getUTCMonth() + 1)).slice(-2); //months from 1-12
+  var yearmo = year + "/" + month + "/";
 
-  // Get current time — not being used at the moment
-  var time = `${date.getHours()+1}:${(date.getMinutes()<10?'0':'') + '00:00'}`;
-  var time_end = `${date.getHours()+2}:${(date.getMinutes()<10?'0':'') + '00:00'}`;
-  // Set time to 9am ET — our daily pub time
-  // var time = '09:00';
-
-  // returns the year and month for use in the filepath on GitHub
-  // Returns: 2017/09
-  function file_yearmo() {
+  return yearmo;
+}
+// returns the year and month for use in the filepath in the front matter
+// Returns: 2019/09/01
+function file_yearmoday() {
+  if ($("#block-date input").length > 0) {
     var dateInput = $("#block-date input").val().match(/^[^\s]+/);
     var dateObj = new Date(dateInput);
     var year = dateObj.getUTCFullYear();
     var month = ("0" + (dateObj.getUTCMonth() + 1)).slice(-2); //months from 1-12
-    var yearmo = year + "/" + month + "/";
-
-    return yearmo;
+    var day = ("0" + (dateObj.getDate() + 1)).slice(-2); //months from 1-12
+    return yearmoday = year + "/" + month + "/" + day + "/";
   }
+}
 
-  // Insert the time into the time fields
-  $("#block-date input, #block-date-end input").val(yearmoday);
-  $("#block-time input").val(time);
-  $("#block-time-end input").val(time_end);
+function update_matter(){
+  file_yearmoday();
 
-  $('#block-event_organizer input').val('Digital.gov');
+  var post_matter = "";
+  var page_url_comment = get_page_url_comment(content_type);
+  var branch = "demo";
+  post_matter += "---";
+  post_matter += page_url_comment;
+  post_matter += "\n# Learn how to edit our pages at https://workflow.digital.gov\n";
 
+  // For each field in the editor...
+  $('*[data-block]').each(function(){
+		var id = $(this).data('block'); // gets the id
+		var data_type = $(this).data('block-data_type'); // gets the data_type
+		var comment = $(this).data('block-comment') !== "" ? '\n# ' + $(this).data('block-comment') + '\n' : ""; // gets the comment
 
-  update_matter();
+    // Process the text
+    var val = process_text(id, $(this));
 
-  $("input").keyup(update_matter);
-  $("textarea").keyup(update_matter);
-  $("select").on("select2:select select2:unselect", function(e) {
-    update_matter();
-  });
-
-  function update_matter(){
-    var post_matter = "";
-    var page_url_comment = get_page_url_comment(content_type);
-    var branch = "demo";
-    post_matter += "---";
-    post_matter += page_url_comment;
-    post_matter += "\n# Learn how to edit our pages at https://workflow.digital.gov\n";
-    $('*[data-block]').each(function(){
-  		var id = $(this).data('block'); // gets the id
-  		var data_type = $(this).data('block-data_type'); // gets the data_type
-  		var comment = $(this).data('block-comment') !== "" ? '\n# ' + $(this).data('block-comment') + '\n' : ""; // gets the comment
-
-      // Process the text
-      var val = process_text(id, $(this));
-
-      // checks if the data should 'skip' and not appear in the front matter
-      if (val !== "skip") {
-        if ((data_type == "string")) {
-          var front_matter = '\n'+ comment + id + ': "' + val + '"';
-        } else {
-          var front_matter = '\n'+ comment+ id + ': ' + val;
-        }
-        post_matter += front_matter;
-      }
-
-  	});
-    post_matter += "\n\n# ♥♥♥ Make it better ♥♥♥\n";
-    post_matter += "---";
-
-    $("#post-matter").html(post_matter);
-    $("#newfile").attr('href', get_github_url(post_matter));
-  }
-
-
-  function process_text(id, el){
-    if (id == base_field) {
-      return el.val();
-    } else if (id == 'authors') {
-      return cs2ds(el.select2('data'));
-    } else if (id == 'topics'){
-      return cs2ds(el.select2('data'));
-    } else if (id == 'source') {
-      if ($('#block-'+id).hasClass('display-none') == true) {
-        return 'skip';
+    // checks if the data should 'skip' and not appear in the front matter
+    if (val !== "skip") {
+      if ((data_type == "string")) {
+        var front_matter = '\n'+ comment + id + ': "' + val + '"';
       } else {
-        return el.val();
+        var front_matter = '\n'+ comment+ id + ': ' + val;
       }
-    } else if (id == 'source_url') {
-      if ($('#block-'+id).hasClass('display-none') == true) {
-        return 'skip';
-      } else {
-        return el.val();
-      }
-    } else if (id == 'branch') {
+      post_matter += front_matter;
+    }
+
+	});
+  post_matter += "\n\n# Make it better ♥\n";
+  post_matter += "---";
+
+  $("#post-matter").html(post_matter);
+  var github_path = github_base + get_github_url(post_matter);
+  $("#new_file").attr('href', github_path);
+}
+
+
+function process_text(id, el){
+  // console.log(id);
+  // console.log(el);
+  if (id == base_field) {
+    return el.val();
+  } else if (id == 'authors') {
+    return make_yaml_list($('#block-authors select').val());
+  } else if (id == 'topics'){
+    return make_yaml_list($('#block-topics select').val());
+  } else if (id == 'source') {
+    if ($('#block-'+id).hasClass('display-none') == true) {
       return 'skip';
-    } else if (id == 'date') {
-      var time = $('#block-time input').val();
-      return el.val() + ' ' + time;
-    } else if (id == 'date-end') {
-      var time = $('#block-time-end input').val();
-      return el.val() + ' ' + time;
-    } else if (id == 'time') {
-      return 'skip';
-    } else if (id == 'time-end') {
-      return 'skip';
-    } else if (id == 'slug') {
-      var slug = slugify();
-      $(el).val(slug);
-      return slug;
-    } else if (id == 'uid') {
-      var uid = slugify();
-      $(el).val(uid);
-      return uid;
-    } else if (id == 'filename') {
-      var slug = slugify();
-      var filename = slug + '.md';
-      $('#filename').text(filename);
-      return 'skip';
-    } else if (id == 'filename-dated') {
-      var slug = slugify();
-      var date = $('#block-date input').val();
-      var filename = date + '-' + slug + '.md';
-      $('#filename').text(filename);
-      return 'skip';
-    } else if (id == 'venue') {
-      return 'skip';
-    } else if (id == 'venue_name' || id == 'room' || id == 'address' || id == 'city' || id == 'state' || id == 'country' || id == 'zip' || id == 'map') {
-      return get_venue_info(id, el);
     } else {
       return el.val();
     }
-  }
-
-  function cs2ds(tax) {
-    var output = "\n";
-    $.each( tax, function( i, e ) {
-      if (i === tax.length - 1) {
-        output += "  - " + $.trim(e.id);
-      } else {
-        output += "  - " + $.trim(e.id) + "\n";
-      }
-    });
-    return output;
-  }
-
-  function get_filename(){
-    return $('#filename').text();
-  }
-
-  function get_edit_branch(){
-    return "demo";
-  }
-
-  function get_page_url_comment(content_type){
-    var url = get_publish_url(content_type);
-    var comment = "\n# View this page at " + url;
-    return comment;
-  }
-
-  function get_publish_url(content_type) {
+  } else if (id == 'source_url') {
+    if ($('#block-'+id).hasClass('display-none') == true) {
+      return 'skip';
+    } else {
+      return el.val();
+    }
+  } else if (id == 'branch') {
+    return 'skip';
+  } else if (id == 'date') {
+    var time = $('#block-time input').val();
+    return el.val() + ' ' + time;
+  } else if (id == 'end_date') {
+    var time = $('#block-end_time input').val();
+    return el.val() + ' ' + time;
+  } else if (id == 'time') {
+    return 'skip';
+  } else if (id == 'end_time') {
+    return 'skip';
+  } else if (id == 'slug') {
     var slug = slugify();
-    if (content_type == 'posts') {
-      var url = "https://digital.gov/" + file_yearmo() + slug;
-    } else if (content_type == 'events') {
-      var url = "https://digital.gov/event/" + file_yearmo() + slug;
-    } else if (content_type == 'resources') {
-      var url = "https://digital.gov/resources/" + slug;
-    } else if (content_type == 'services') {
-      var url = "https://digital.gov/services/" + slug;
-    } else if (content_type == 'communities') {
-      var url = "https://digital.gov/communities/" + slug;
-    } else if (content_type == 'authors') {
-      var url = "https://digital.gov/authors/" + slug;
+    $(el).val(slug);
+    return slug;
+  } else if (id == 'uid') {
+    var uid = slugify();
+    $(el).val(uid);
+    return uid;
+  } else if (id == 'filename') {
+    var slug = slugify();
+    var filename = slug + '.md';
+    $('#filename').text(filename);
+    return 'skip';
+  } else if (id == 'filename-dated') {
+    var slug = slugify();
+    var date = $('#block-date input').val();
+    var filename = date + '-' + slug + '.md';
+    $('#filename').text(filename);
+    return 'skip';
+  } else if (id == 'venue') {
+    return 'skip';
+  } else if (id == 'venue_name' || id == 'room' || id == 'address' || id == 'city' || id == 'state' || id == 'country' || id == 'zip' || id == 'map') {
+    return get_venue_info(id, el);
+  } else {
+    return el.val();
+  }
+}
+
+function make_yaml_list(items) {
+  var output = "\n";
+  $.each( items, function( i, e ) {
+    if (i === items.length - 1) {
+      output += "  - " + $.trim(e);
     } else {
-      var url = "https://digital.gov/" + file_yearmo() + slug;
-    }
-    return url;
-  }
-
-
-  function get_github_url(post_matter) {
-    var base_url = "https://github.com/GSA/digitalgov.gov/new/"+get_edit_branch()+"/content/"+content_type+"/";
-    var commit_msg = "New "+ content_type +": " + ($('#block-'+base_field +' input').val()).trim();
-    var commit_desc = "";
-    if ($("#block-deck textarea").length) {
-      var commit_desc = ($("#block-deck textarea").val()).trim();
-    }
-
-    if (content_type == 'posts' || content_type == 'events') {
-      base_url += file_yearmo() + 'draft?filename=' + get_filename() + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
-    } else if (content_type == 'authors' || content_type == 'topics') {
-      base_url += slugify() + '/draft?filename=_index.md' + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
-      console.log(base_url);
-    } else {
-      base_url += 'draft?filename=' + get_filename() + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
-    }
-    return base_url;
-  }
-
-  // Hide and show the Source and source_url fields
-  if ($('#card_display_dg').is(':checked') == true) {
-    $("#block-source, #block-source_url").addClass('display-none');
-    update_matter();
-  }
-  $('#card_display input').click(function() {
-    if($(this).is(':checked')){
-      var val = $(this).val();
-      if (val == 'card_display_dg') {
-        $("#block-source, #block-source_url").addClass('display-none');
-      } else {
-        $("#block-source, #block-source_url").removeClass('display-none');
-      }
-      update_matter();
+      output += "  - " + $.trim(e) + "\n";
     }
   });
+  return output;
+}
+
+function get_filename(){
+  return $('#filename').text();
+}
+
+function get_edit_branch(){
+  return "demo";
+}
+
+function get_page_url_comment(content_type){
+  var url = get_publish_url(content_type);
+  var comment = "\n# View this page at " + url;
+  return comment;
+}
+
+function get_publish_url(content_type) {
+  var slug = slugify();
+  if (content_type == 'posts') {
+    var url = "https://digital.gov/" + file_yearmoday() + slug;
+  } else if (content_type == 'events') {
+    var url = "https://digital.gov/event/" + file_yearmo() + slug;
+  } else if (content_type == 'resources') {
+    var url = "https://digital.gov/resources/" + slug;
+  } else if (content_type == 'services') {
+    var url = "https://digital.gov/services/" + slug;
+  } else if (content_type == 'communities') {
+    var url = "https://digital.gov/communities/" + slug;
+  } else if (content_type == 'authors') {
+    var url = "https://digital.gov/authors/" + slug;
+  } else {
+    var url = "https://digital.gov/" + file_yearmo() + slug;
+  }
+  return url;
+}
 
 
-  // Venue information
-  $('#block-venue input').change(function() {
-    update_matter();
+function get_github_url(post_matter) {
+  var base_url = get_edit_branch()+"/content/"+content_type+"/";
+  var commit_msg = "New "+ content_type +": " + ($('#block-'+base_field +' input').val()).trim();
+  var commit_desc = "";
+  if ($("#block-deck textarea").length) {
+    var commit_desc = ($("#block-deck textarea").val()).trim();
+  }
+  if (content_type == 'posts' || content_type == 'events') {
+    base_url += file_yearmo() + 'draft?filename=' + get_filename() + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
+  } else if (content_type == 'authors' || content_type == 'topics') {
+    base_url += slugify() + '/draft?filename=_index.md' + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
+  } else {
+    base_url += 'draft?filename=' + get_filename() + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
+  }
+  return base_url;
+}
+
+
+function get_venue_info(id, el){
+  // If Venue is not checked
+  if ($('#block-venue input').is(':checked') == false) {
+    // hide the venue fields
+    $('#block-'+id).addClass('display-none');
+    return 'skip';
+  } else {
+    // show the venue fields
+    $('#block-'+id).removeClass('display-none');
+    return el.val();
+  }
+}
+
+
+function slugify() {
+  var base = $('#block-'+base_field +' input').val();
+  var small_words = /\band |\bthe |\bare |\bis |\bof |\bto /gi;
+  var slug = base.replace(new RegExp(small_words, "gi"), '');
+  var output = slug.split(" ").splice(0,6).join(" ");
+  output = output.replace(/[^a-zA-Z0-9\s]/g, "");
+  output = output.toLowerCase();
+  output = output.replace(/\s\s+/g, " ");
+  output = output.trim();
+  output = output.replace(/\s/g, "-");
+  return output;
+}
+
+function encodeEntities(input) {
+  var entityPattern = /[&<>"'’`)(=+*@$%\/]/g;
+
+  var entityMap = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;',
+    "’": '&#39;',
+    '/': '&#x2F;',
+    '`': '&#x60;',
+    '=': '&#x3D;',
+    '*': '&#42;',
+    '$': '&#36;',
+    '%': '&#37;',
+    '(': '&#40;',
+    ')': '&#41;',
+    '+': '&#43;',
+    '@': '&#64;',
+    '-': '&#8208;',
+    '–': '&#8211;',
+    '—': '&#8212;'
+  };
+  input.replace(entityPattern, function (s) {
+    return entityMap[s];
   });
-  function get_venue_info(id, el){
-    // If Venue is not checked
-    if ($('#block-venue input').is(':checked') == false) {
-      // hide the venue fields
-      $('#block-'+id).addClass('display-none');
-      return 'skip';
+}
+
+
+// Hide and show the Source and source_url fields
+if ($('#card_display_dg').is(':checked') == true) {
+  $("#block-source, #block-source_url").addClass('display-none');
+  // update_matter();
+}
+
+$('#card_display input').click(function() {
+  console.log('yes');
+  if($(this).is(':checked')){
+    var val = $(this).val();
+    if (val == 'card_display_dg') {
+      $("#block-source, #block-source_url").addClass('display-none');
     } else {
-      // show the venue fields
-      $('#block-'+id).removeClass('display-none');
-      return el.val();
+      $("#block-source, #block-source_url").removeClass('display-none');
     }
+    update_matter();
   }
+});
 
-
-
-  function slugify() {
-    var base = $('#block-'+base_field +' input').val();
-    var small_words = /\band |\bthe |\bare |\bis |\bof |\bto /gi;
-    var slug = base.replace(new RegExp(small_words, "gi"), '');
-    var output = slug.split(" ").splice(0,6).join(" ");
-    output = output.replace(/[^a-zA-Z0-9\s]/g, "");
-    output = output.toLowerCase();
-    output = output.replace(/\s\s+/g, " ");
-    output = output.trim();
-    output = output.replace(/\s/g, "-");
-    return output;
-  }
-  function encodeEntities(input) {
-    var entityPattern = /[&<>"'’`)(=+*@$%\/]/g;
-
-    var entityMap = {
-      '&': '&amp;',
-      '<': '&lt;',
-      '>': '&gt;',
-      '"': '&quot;',
-      "'": '&#39;',
-      "’": '&#39;',
-      '/': '&#x2F;',
-      '`': '&#x60;',
-      '=': '&#x3D;',
-      '*': '&#42;',
-      '$': '&#36;',
-      '%': '&#37;',
-      '(': '&#40;',
-      ')': '&#41;',
-      '+': '&#43;',
-      '@': '&#64;',
-      '-': '&#8208;',
-      '–': '&#8211;',
-      '—': '&#8212;'
-    };
-    input.replace(entityPattern, function (s) {
-      return entityMap[s];
-    });
-  }
-
-
+// Venue information
+$('#block-venue input').change(function() {
+  update_matter();
 });
 
 jQuery(document).ready(function ($) {
+
+  $(".btn-copy").click(function(e) {
+	  e.preventDefault();
+	});
+	var clipboard = new ClipboardJS('.btn-copy');
+	clipboard.on('success', function(e) {
+	   console.log(e);
+	});
+	clipboard.on('error', function(e) {
+	   console.log(e);
+	});
+
+  
+});
+
+jQuery(document).ready(function($) {
+
+	// Settings for the Select2 integration
+	// https://select2.org/
+	// This is what we are using to make it possible to pull topics from the TOPICS API and make them searchable and editable in the interface
+	// It is not easy...
+
+	$("#block-topics select").select2({
+	  tags: true,
+	  width: 'element',
+	  closeOnSelect: false,
+	  tokenSeparators: [',', ' '],
+	  createTag: function (params) {
+	    // Don't offset to create a tag if there is no @ symbol
+	    if (params.term.indexOf('@') === -1) {
+	      // Return null to disable tag creation
+	      return null;
+	    }
+	    return {
+	      id: params.term,
+	      text: params.term
+	    }
+	  }
+	});
+	$("#block-authors select").select2({
+	  tags: true,
+	  width: 'element',
+	  closeOnSelect: false,
+	  tokenSeparators: [',', ' '],
+	  createTag: function (params) {
+	    // Don't offset to create a tag if there is no @ symbol
+	    if (params.term.indexOf('@') === -1) {
+	      // Return null to disable tag creation
+	      return null;
+	    }
+	    return {
+	      id: params.term,
+	      text: params.term
+	    }
+	  }
+	});
+	$("#block-source select").select2({
+		minimumResultsForSearch: Infinity
+	});
+
+	// Why are we storing topics in local storage again?
+	$("#block-topics select").append(localStorage.dg_topics).trigger('change');
+	$("#block-authors select").append(localStorage.dg_authors).trigger('change');
+	$("#block-source select").append(localStorage.dg_sources).trigger('change');
+
 
 });
 

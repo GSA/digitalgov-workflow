@@ -1,7 +1,7 @@
 ---
-layout: content-type
+layout: list
 title: Authors
-permalink: /edit/authors/
+permalink: /authors/
 source_path: /authors/
 description:
 api: authors

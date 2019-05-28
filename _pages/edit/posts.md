@@ -1,7 +1,7 @@
 ---
 layout: editor
-title: New Blog Post
-permalink: /new/posts/
+title: Edit Posts
+permalink: /edit/posts/
 description:
 content_type: posts
 ---

@@ -1,19 +1,20 @@
 
 function get_card(data, content, type){
 	if (type == "list" && content == "events") {
-		return display_event_card(data);
-	} else if (type == "list" && content == "page") {
-		return display_page_card(data);
+		return display_page_card(data, content);
+	} else if (type == "list" && content == "posts") {
+		return display_page_card(data, content);
 	} else if (type == "single" && content == "event") {
 		return display_event_data(data.item[0]);
 	} else if (type == "single" && content == "page") {
-		return display_page_data(data.item[0]);
+		return display_page_data(data.item[0], content);
 	} else if (content == "authors") {
-		return display_author_card(data);
+		return display_author_card(data, content);
 	} else {
-		return display_page_card(data);
+		return display_page_card(data, content);
 	}
 }
+
 function display_page_data(e){
 	var title = e.title;
   var summary = e.summary;
@@ -53,7 +54,7 @@ function display_page_data(e){
 	return card;
 }
 
-function display_page_card(e){
+function display_page_card(e, content){
   var page_data = display_page_data(e);
   var editpathURL = e.editpathURL;
   var url = e.url;
@@ -66,7 +67,7 @@ function display_page_card(e){
         '</div>',
         '<div class="grid-col-12 tablet:grid-col-2">',
           '<a class="margin-bottom-1 bg-primary hover:bg-primary-dark text-center text-no-underline padding-y-05 padding-x-05 display-block text-white font-sans-2xs visited:text-white hover:text-white radius-sm" href="'+editpathURL+'">edit file</a>',
-          '<a class="margin-bottom-1 text-center text-no-underline padding-y-05 padding-x-05 display-block text-primary hover:text-primary-dark bg-white font-sans-2xs radius-sm border-primary border-width-1px border-solid" href="/edit-topics/?page='+sourceoftruth+url+'">edit topics</a>',
+					'<a class="margin-bottom-1 text-center text-no-underline padding-y-05 padding-x-05 display-block text-primary hover:text-primary-dark bg-white font-sans-2xs radius-sm border-primary border-width-1px border-solid" href="/edit/'+content+'/?page='+sourceoftruth+url+'">edit page</a>',
         '</div>',
       '</div>',
     '</article>'
@@ -83,7 +84,7 @@ function display_event_data(e){
   var date_modified = e.date_modified;
   var date = e.date;
   var start_date = e.start_date;
-  var start_time = e.start_time;
+  var start_time = e.start_date;
   var end_time = e.end_time;
   var editpathURL = e.editpathURL;
   var filename = e.filename;
@@ -133,6 +134,7 @@ function display_event_card(e){
 
 
 function display_author_card(e){
+	console.log(e);
 	if (e.github) {
 		var author_data = author_updated(e);
 	} else {
@@ -154,11 +156,16 @@ function display_author_card(e){
 	return card;
 }
 
-function author_edit_tools(e){
+function author_edit_tools(e, content){
+	console.log(e);
+	console.log(e.uid);
 	var uid = e.uid;
+	console.log(e);
 	var sourceoftruth = encodeURI(source_of_truth);
+	var editpathURL = e.editpathURL;
 	var tools = [
-		'<a class="margin-bottom-1 bg-primary hover:bg-primary-dark text-center text-no-underline padding-y-05 padding-x-05 display-block text-white font-sans-2xs visited:text-white hover:text-white radius-sm" href="https://github.com/GSA/digitalgov.gov/edit/demo/data/people/authors/'+uid+'.yml">edit profile</a>'
+		'<a class="margin-bottom-1 bg-primary hover:bg-primary-dark text-center text-no-underline padding-y-05 padding-x-05 display-block text-white font-sans-2xs visited:text-white hover:text-white radius-sm" href="'+editpathURL+'">edit file</a>',
+		'<a class="margin-bottom-1 text-center text-no-underline padding-y-05 padding-x-05 display-block text-primary hover:text-primary-dark bg-white font-sans-2xs radius-sm border-primary border-width-1px border-solid" href="/edit/'+content+'/?page='+sourceoftruth+url+'">edit page</a>',
 	].join("\n");
 	return tools;
 }

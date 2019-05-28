@@ -5,6 +5,7 @@
   id: events
   page-title: events
   description: An event page template
+  base_field: title
   blocks:
   - id: filename-dated
     name: Filename
@@ -25,24 +26,24 @@
     name: Deck / Sub-head
     type: textarea
     data_type: string
-    txt: "Think of this as the sentence you'd most like to tweet. Do not repeat the headline."
+    txt: "Think of this as the sentence you'd most like to tweet. Do not repeat the headline. You need to be able to read it outloud in a single breath."
   - id: summary
     name: Summary
     type: textarea
     data_type: string
     txt: "1-sentence description that does not repeat the headline"
-  - id: source
-    name: Source
-    type: select
-    data_type: data
-    txt: "this is more text"
-    comment: "Which team published this?\n# Learn about sources at https://workflow.digital.gov/sources"
   - id: source_url
     name: Source Url
     type: input
     data_type: string
     txt: "e.g. https://18f.gsa.gov/2019/04/01/ ..."
     comment: "originally published at the following URL"
+  - id: source
+    name: Source
+    type: select
+    data_type: data
+    txt: "this is more text"
+    comment: "Which team published this?\n# Learn about sources at https://workflow.digital.gov/sources"
   - id: host
     name: Host
     type: input
@@ -68,7 +69,7 @@
     data_type: data
     txt: "e.g. 2019-04-01 13:24"
     comment: "start date"
-  - id: date-end
+  - id: end_date
     name: End Date
     type: input
     data_type: data
@@ -79,7 +80,7 @@
     type: input
     data_type: data
     txt: "the time the event starts, in eastern time"
-  - id: time-end
+  - id: end_time
     name: End Time
     type: input
     data_type: data
@@ -101,8 +102,8 @@
     type: input
     data_type: data
     txt: "e.g. <code>3FKyVeipMss</code>"
-  - id: zoom_url
-    name: Zoom URL
+  - id: zoom_id
+    name: Zoom ID
     type: input
     data_type: data
     txt: ""

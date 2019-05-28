@@ -1,5 +1,5 @@
 ---
-layout: new
+layout: editor
 title: New Author
 permalink: /new/authors/
 description:

@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+
+<section class="margin-bottom-3">
+  <h1 class="margin-0 font-sans-2xl text-heavy">{{ page.title | escape }}</h1>
+  <p>Live: <a href="{{ site.source_of_truth }}{{ page.source_path }}" title="Go to {{ site.source_of_truth }}{{ page.source_path }}">{{ site.source_of_truth }}{{ page.source_path }}</a> </p>
+  {% if page.api %}
+  <p><a href="{{ site.baseurl }}/new/{{ page.api }}" class="margin-top-1 padding-x-105 padding-y-05 bg-primary radius-md text-white visited:text-white text-no-underline display-inline-block">New</a></p>
+  {% endif %}
+  <div class="margin-y-5 font-sans-md text-light">
+    {{ content }}
+  </div>
+
+</section>
+
+
+{% if page.api %}
+<section class="card-list bg-base-lighter padding-y-2 padding-x-2" data-api="{{ page.api }}">
+</section>
+{% else %}
+<section class="content_types-list">
+
+  {% for item in site.content_types %}
+    <h2 class="margin-0 margin-bottom-2"><a class="text-light text-no-underline border-2px radius-md text-primary visited:text-primary display-inline-block padding-y-05 padding-x-2  border-primary" href="{{ site.baseurl }}{{ item.url }}" title="{{ item.title }}">{{ item.title }}</a></h2>
+  {% endfor %}
+</section>
+{% endif %}

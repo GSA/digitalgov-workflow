@@ -1,7 +1,7 @@
 ---
-layout: content-type
+layout: list
 title: Topics
-permalink: /edit/topics/
+permalink: /topics/
 source_path: /topics/
 description:
 api: topics

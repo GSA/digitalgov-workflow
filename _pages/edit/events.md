@@ -1,7 +1,7 @@
 ---
 layout: editor
-title: New Event
-permalink: /new/events/
+title: Edit Event
+permalink: /edit/events/
 description:
 content_type: events
 ---

@@ -1,5 +1,5 @@
 ---
-layout: new
+layout: editor
 title: New Service
 permalink: /new/services/
 description:
