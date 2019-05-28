@@ -7,5 +7,3 @@ description:
 api: authors
 
 ---
-
-Digital.gov supports the civic-tech community in government.

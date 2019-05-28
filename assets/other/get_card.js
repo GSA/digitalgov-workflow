@@ -1,5 +1,6 @@
 
 function get_card(data, content, type){
+	console.log(content);
 	if (type == "list" && content == "events") {
 		return display_page_card(data, content);
 	} else if (type == "list" && content == "posts") {
@@ -133,14 +134,13 @@ function display_event_card(e){
 
 
 
-function display_author_card(e){
-	console.log(e);
+function display_author_card(e, content){
 	if (e.github) {
 		var author_data = author_updated(e);
 	} else {
 		var author_data = author_needs_update(e);
 	}
-	var edit_tools = author_edit_tools(e);
+	var edit_tools = author_edit_tools(e, content);
 	var card = [
 		'<article class="margin-bottom-105">',
 			'<div class="grid-row grid-gap-2">',
@@ -158,11 +158,10 @@ function display_author_card(e){
 
 function author_edit_tools(e, content){
 	console.log(e);
-	console.log(e.uid);
 	var uid = e.uid;
-	console.log(e);
 	var sourceoftruth = encodeURI(source_of_truth);
 	var editpathURL = e.editpathURL;
+	var url = e.url;
 	var tools = [
 		'<a class="margin-bottom-1 bg-primary hover:bg-primary-dark text-center text-no-underline padding-y-05 padding-x-05 display-block text-white font-sans-2xs visited:text-white hover:text-white radius-sm" href="'+editpathURL+'">edit file</a>',
 		'<a class="margin-bottom-1 text-center text-no-underline padding-y-05 padding-x-05 display-block text-primary hover:text-primary-dark bg-white font-sans-2xs radius-sm border-primary border-width-1px border-solid" href="/edit/'+content+'/?page='+sourceoftruth+url+'">edit page</a>',
