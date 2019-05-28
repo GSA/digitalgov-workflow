@@ -60,12 +60,12 @@ function display_page_card(e, content){
   var url = e.url;
   var sourceoftruth = encodeURI(source_of_truth);
   var card = [
-    '<article class="margin-bottom-105">',
-      '<div class="grid-row grid-gap-1">',
-        '<div class="grid-col-12 tablet:grid-col-10">',
+    '<article class="margin-bottom-2">',
+      '<div class="grid-row grid-gap-2">',
+        '<div class="grid-col-12 tablet:grid-col-11">',
 					page_data,
         '</div>',
-        '<div class="grid-col-12 tablet:grid-col-2">',
+        '<div class="grid-col-12 tablet:grid-col-1">',
           '<a class="margin-bottom-1 bg-primary hover:bg-primary-dark text-center text-no-underline padding-y-05 padding-x-05 display-block text-white font-sans-2xs visited:text-white hover:text-white radius-sm" href="'+editpathURL+'">edit file</a>',
 					'<a class="margin-bottom-1 text-center text-no-underline padding-y-05 padding-x-05 display-block text-primary hover:text-primary-dark bg-white font-sans-2xs radius-sm border-primary border-width-1px border-solid" href="/edit/'+content+'/?page='+sourceoftruth+url+'">edit page</a>',
         '</div>',
@@ -116,11 +116,11 @@ function display_event_card(e){
   var sourceoftruth = encodeURI(source_of_truth);
   var card = [
     '<article class="margin-bottom-105">',
-      '<div class="grid-row grid-gap-1">',
-        '<div class="grid-col-12 tablet:grid-col-10">',
+      '<div class="grid-row grid-gap-2">',
+        '<div class="grid-col-12 tablet:grid-col-11">',
 					page_data,
         '</div>',
-        '<div class="grid-col-12 tablet:grid-col-2">',
+        '<div class="grid-col-12 tablet:grid-col-1">',
           '<a class="margin-bottom-1 bg-primary hover:bg-primary-dark text-center text-no-underline padding-y-05 padding-x-05 display-block text-white font-sans-2xs visited:text-white hover:text-white radius-sm" href="'+editpathURL+'">edit file</a>',
           '<a class="margin-bottom-1 text-center text-no-underline padding-y-05 padding-x-05 display-block text-primary hover:text-primary-dark bg-white font-sans-2xs radius-sm border-primary border-width-1px border-solid" href="/edit-topics/?page='+sourceoftruth+url+'">edit topics</a>',
         '</div>',
@@ -143,11 +143,11 @@ function display_author_card(e){
 	var edit_tools = author_edit_tools(e);
 	var card = [
 		'<article class="margin-bottom-105">',
-			'<div class="grid-row grid-gap-1">',
-				'<div class="grid-col-10">',
+			'<div class="grid-row grid-gap-2">',
+				'<div class="grid-col-11">',
 					author_data,
 				'</div>',
-				'<div class="grid-col-2">',
+				'<div class="grid-col-1">',
 					edit_tools,
 				'</div>',
 			'</div>',
