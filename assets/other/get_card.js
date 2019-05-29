@@ -1,6 +1,5 @@
 
 function get_card(data, content, type){
-	console.log(content);
 	if (type == "list" && content == "events") {
 		return display_page_card(data, content);
 	} else if (type == "list" && content == "posts") {
@@ -67,8 +66,8 @@ function display_page_card(e, content){
 					page_data,
         '</div>',
         '<div class="grid-col-12 tablet:grid-col-1">',
-          '<a class="margin-bottom-1 bg-primary hover:bg-primary-dark text-center text-no-underline padding-y-05 padding-x-05 display-block text-white font-sans-2xs visited:text-white hover:text-white radius-sm" href="'+editpathURL+'">edit file</a>',
-					'<a class="margin-bottom-1 text-center text-no-underline padding-y-05 padding-x-05 display-block text-primary hover:text-primary-dark bg-white font-sans-2xs radius-sm border-primary border-width-1px border-solid" href="/edit/'+content+'/?page='+sourceoftruth+url+'">edit page</a>',
+					'<a class="margin-bottom-1 text-center text-no-underline padding-y-05 padding-x-05 display-block bg-primary-vivid hover:bg-primary-dark text-white visited:text-white hover:text-white font-sans-sm text-semibold radius-md border-primary-vivid border-width-1px border-solid" href="/edit/'+content+'/?page='+sourceoftruth+url+'">edit</a>',
+		      '<a class="margin-bottom-1 text-primary-darkest hover:text-primary-darker bg-white text-center text-no-underline padding-y-05 padding-x-05 display-block font-sans-md radius-md" href="'+editpathURL+'"><i class="fab fa-github"></i></a>',
         '</div>',
       '</div>',
     '</article>'
@@ -110,6 +109,8 @@ function display_event_data(e){
 	return card;
 }
 
+
+// Not being used at the moment. Events are rendered with display_page_card()
 function display_event_card(e){
 	var page_data = display_event_data(e);
   var editpathURL = e.editpathURL;
@@ -138,7 +139,8 @@ function display_author_card(e, content){
 	if (e.github) {
 		var author_data = author_updated(e);
 	} else {
-		var author_data = author_needs_update(e);
+		// var author_data = author_needs_update(e);
+		var author_data = author_updated(e);
 	}
 	var edit_tools = author_edit_tools(e, content);
 	var card = [
@@ -157,30 +159,49 @@ function display_author_card(e, content){
 }
 
 function author_edit_tools(e, content){
-	console.log(e);
 	var uid = e.uid;
 	var sourceoftruth = encodeURI(source_of_truth);
 	var editpathURL = e.editpathURL;
 	var url = e.url;
 	var tools = [
-		'<a class="margin-bottom-1 bg-primary hover:bg-primary-dark text-center text-no-underline padding-y-05 padding-x-05 display-block text-white font-sans-2xs visited:text-white hover:text-white radius-sm" href="'+editpathURL+'">edit file</a>',
-		'<a class="margin-bottom-1 text-center text-no-underline padding-y-05 padding-x-05 display-block text-primary hover:text-primary-dark bg-white font-sans-2xs radius-sm border-primary border-width-1px border-solid" href="/edit/'+content+'/?page='+sourceoftruth+url+'">edit page</a>',
+		'<a class="margin-bottom-1 text-center text-no-underline padding-y-05 padding-x-05 display-block bg-primary-vivid hover:bg-primary-dark text-white visited:text-white hover:text-white font-sans-sm text-semibold radius-md border-primary-vivid border-width-1px border-solid" href="/edit/'+content+'/?page='+sourceoftruth+url+'">edit</a>',
+		'<a class="margin-bottom-1 text-primary-darkest hover:text-primary-darker bg-white text-center text-no-underline padding-y-05 padding-x-05 display-block font-sans-md radius-md" href="'+editpathURL+'"><i class="fab fa-github"></i></a>',
 	].join("\n");
 	return tools;
 }
 
 function author_updated(e){
 	var uid = e.uid;
-	var agency = e.agency;
-	var agency_full_name = e.agency_full_name;
-	var email = e.email;
-	var bio = jQuery.trim(e.bio).substring(0, 100).trim(this) + "...";
 	var display_name = e.display_name;
-	var email = e.email;
 	var first_name = e.first_name;
 	var last_name = e.last_name;
-	var github = e.github;
-	var location = (e.location) ? e.location+' | ' : "";
+	var pronoun = (e.pronoun) ? e.pronoun : '';
+	if (e.agency) {
+		var agency = ' | '+e.agency;
+	} else {
+		var agency = "";
+	}
+	var agency_full_name = e.agency_full_name;
+	if (e.email){
+		var email = '<p class="margin-0 font-sans-2xs"><a class="text-no-underline" href="mailto:'+e.email+'">'+e.email+'</a></p>';
+	} else {
+		var email = "";
+	}
+	if (e.bio) {
+		var bio = jQuery.trim(e.bio).substring(0, 100).trim(this) + "...";
+	} else {
+		var bio = "";
+	}
+	if (e.location) {
+		var loc = '<p class="margin-0 font-sans-xs">'+e.location+' '+agency+'</p>';
+	} else {
+		var loc = "";
+	}
+	if (e.github) {
+		var profile_img = 'https://github.com/'+e.github+'.png?size=100" srcset="https://www.github.com/'+e.github+'.png?size=200';
+	} else {
+		var profile_img = 'https://demo.digital.gov/img/digit-light.png';
+	}
 	var quote = e.quote;
 	var twitter = e.twitter;
 	var linkedin = e.linkedin;
@@ -188,56 +209,23 @@ function author_updated(e){
 	var youtube = e.youtube;
 	var sourceoftruth = encodeURI(source_of_truth);
 	var card = [
-		'<header class="bg-white padding-2 radius-sm">',
-			'<div class="grid-row grid-gap-2">',
-				'<div class="grid-col-2">',
-					'<img class="circle-9 border-05 border-base-lighter" src="https://github.com/'+github+'.png?size=100" srcset="https://www.github.com/'+github+'.png?size=200" alt="Photo: '+display_name+'">',
-				'</div>',
-				'<div class="grid-col-10">',
-					'<h3 class="margin-0 margin-bottom-05">',
-						'<a class="text-no-underline text-ink visited:text-ink" href="'+sourceoftruth+'/authors/'+uid+'" title="'+display_name+'">'+display_name+'</a>',
-					'</h3>',
-					'<p class="margin-0 font-sans-2xs">'+location+' '+agency+'</p>',
-					'<p class="margin-0 font-sans-2xs"><a class="text-no-underline" href="mailto:'+email+'">'+email+'</a></p>',
-					'<p class="margin-0 font-sans-2xs">'+bio+'</p>',
-				'</div>',
+		'<article class="bg-white padding-2 radius-sm display-flex">',
+			'<div>',
+				'<img class="circle-8 margin-right-2 border-2px border-base-light" src="'+profile_img+'" alt="Photo: '+display_name+'">',
 			'</div>',
-		'</header>'
+			'<div>',
+				'<h3 class="margin-0 margin-bottom-05 font-sans-md">',
+					'<a class="text-no-underline text-ink visited:text-ink" href="'+sourceoftruth+'/authors/'+uid+'" title="'+display_name+'">'+display_name+' '+pronoun+'</a>',
+				'</h3>',
+				loc,
+				email,
+				'<p class="margin-0 font-sans-xs">'+bio+'</p>',
+			'</div>',
+
+		'</article>'
 	].join("\n");
 	return card;
 }
-
-function author_needs_update(e){
-	var uid = e.uid;
-	var agency = e.agency;
-	var agency_full_name = e.agency_full_name;
-	var email = e.email;
-	var bio = jQuery.trim(e.bio).substring(0, 100).trim(this) + "...";
-	var display_name = e.display_name;
-	var email = e.email;
-	var first_name = e.first_name;
-	var last_name = e.last_name;
-	var github = e.github;
-	var location = (e.location) ? e.location+' | ' : "";
-	var quote = e.quote;
-	var twitter = e.twitter;
-	var linkedin = e.linkedin;
-	var facebook = e.facebook;
-	var youtube = e.youtube;
-	var sourceoftruth = encodeURI(source_of_truth);
-	var card = [
-		'<header class="bg-white padding-2 radius-sm">',
-			'<h3 class="margin-0 margin-bottom-05">',
-				'<a class="text-no-underline text-ink visited:text-ink" href="'+sourceoftruth+'/authors/'+uid+'" title="'+display_name+'">'+display_name+'</a>',
-			'</h3>',
-			'<p class="margin-0 font-sans-2xs">'+location+' '+agency+'</p>',
-			'<p class="margin-0 font-sans-2xs"><a class="text-no-underline" href="mailto:'+email+'">'+email+'</a></p>',
-			'<p class="margin-0 font-sans-2xs">'+bio+'</p>',
-		'</header>'
-	].join("\n");
-	return card;
-}
-
 
 function format_topics(data){
 	var topics = "";

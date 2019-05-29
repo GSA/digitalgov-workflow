@@ -1,5 +1,5 @@
 ---
-layout: edit
+layout: editor
 title: Edit
 permalink: /edit/
 description:
