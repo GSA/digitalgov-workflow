@@ -2,8 +2,10 @@
 layout: default
 ---
 
-
 <header class="margin-bottom-2">
+  {% if page.content_type %}
+  <a class="display-block margin-bottom-2 text-no-underline text-bold" href="/{{ page.content_type | absURL }}"><i class="fas fa-arrow-left"></i> All {{ page.content_type }}</a>
+  {% endif %}
   <h1 class="margin-0 text-heavy font-sans-2xl">{{ page.title | escape }}</h1>
   {% if page.deck %}
   <div class="text-thin font-sans-xl">{{ page.deck | escape }}</div>

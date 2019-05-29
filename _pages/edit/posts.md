@@ -1,6 +1,6 @@
 ---
 layout: editor
-title: Edit Posts
+title: Edit Post
 permalink: /edit/posts/
 description:
 content_type: posts

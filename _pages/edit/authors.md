@@ -1,6 +1,6 @@
 ---
 layout: editor
-title: Edit Authors
+title: Edit Author
 permalink: /edit/authors/
 description:
 content_type: authors
