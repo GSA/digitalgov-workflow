@@ -3,24 +3,25 @@ jQuery(document).ready(function ($) {
   github_base = "https://github.com/"+workflow_org+"/"+workflow_repo+"/edit/";
 
   get_page_data().done(function(page,b,c) {
-    // Checking for source_url
-    // This indicates if it is a link post or a full blog post
+
     if (content_type == "authors") {
       console.log('yoooo');
-      var data = page;
+      var page_data = page;
     } else {
-      if ('source_url' in page.item[0]){
-        $("#card_display_elsewhere").attr('checked', 'checked');
-      } else {
-        $("#card_display_dg").attr('checked', 'checked');
-        $("#block-source, #block-source_url").addClass('display-none');
-        var data = page.item[0];
-      }
+      var page_data = page.item[0];
     }
 
+    // Checking for source_url
+    // This indicates if it is a link post or a full blog post
+    if ('source_url' in page_data){
+      $("#card_display_elsewhere").attr('checked', 'checked');
+    } else {
+      $("#card_display_dg").attr('checked', 'checked');
+      $("#block-source, #block-source_url").addClass('display-none');
+    }
 
     // Gets the "page" data and matches up each key in the data object with the corresponding field (block) in the editor
-    $.each( data, function( key, val ) {
+    $.each( page_data, function( key, val ) {
 
       // Decodes any HTML entities in the text by creating a textarea and returning the value
       var decodeHTML = function (html) {
