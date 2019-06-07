@@ -10,6 +10,8 @@ function get_card(data, content, type){
 		return display_page_data(data.item[0], content);
 	} else if (content == "authors") {
 		return display_author_card(data, content);
+	} else if (type == "newsletter") {
+		return display_newsletter(data, content);
 	} else {
 		return display_page_card(data, content);
 	}
@@ -224,6 +226,49 @@ function author_updated(e){
 
 		'</article>'
 	].join("\n");
+	return card;
+}
+
+function display_newsletter(e, content){
+	var item_data = display_newsletter_item_data(e);
+  var editpathURL = e.editpathURL;
+  var url = e.url;
+  var sourceoftruth = encodeURI(source_of_truth);
+  var card = [
+    item_data,
+  ].join("\n");
+	return card;
+}
+
+
+function display_newsletter_item_data(e){
+	var title = e.title;
+  var summary = e.summary;
+  var topics = format_topics(e.topics);
+  var authors = e.authors;
+  var date_modified = e.date_modified;
+  var date = e.date;
+  var editpathURL = e.editpathURL;
+  var filename = e.filename;
+  var filepath = e.filepath;
+  var filepathURL = e.filepathURL;
+  var branch = e.branch;
+  var source = e.source;
+  var source_url = e.source_url;
+	if (source_url) {
+		if (source) {
+			var source_url = "<p class='margin-y-05 text-normal font-sans-3xs'><em><strong> via " +source+ "</strong> &#8594;  " +source_url+"</em></p>";
+		} else {
+			var source_url = "<p class='margin-y-05 text-normal font-sans-3xs'><em>&#8594; " +source_url+"</em></p>";
+		}
+	}
+  var url = e.url;
+  var sourceoftruth = encodeURI(source_of_truth);
+  var card = [
+		'<li>',
+			'<a href="'+sourceoftruth+ url+'" title="'+title+'"><strong>'+title+'</strong></a> — '+summary,
+		'</li>',
+  ].join("\n");
 	return card;
 }
 
