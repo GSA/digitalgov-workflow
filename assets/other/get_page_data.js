@@ -9,16 +9,17 @@ function get_page_data() {
   // For more info, see: https://davidwalsh.name/query-string-javascript
   var urlParams = new URLSearchParams(window.location.search);
   // This should be the URL of the digital.gov page that you are requesting data about
-  var path = urlParams.get('page');
+  // var path = urlParams.get('page');
+  var api_path = 'https://raw.githubusercontent.com/GSA/digitalgov.gov/demo/content/posts/2019/05/2019-05-20-humancentered-design-for-it-centralization.md';
   // API path
   // See all the digital.gov APIs https://github.com/GSA/digitalgov.gov/wiki/APIs
-  var api_path = path + 'index.json';
+  // var api_path = path + 'index.json';
   console.log('Digital.gov page api_path:');
   console.log(api_path);
 
   return $.ajax({
     url: api_path,
     type: 'GET',
-    dataType: 'json',
+    dataType: 'text',
   });
 }

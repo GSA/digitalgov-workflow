@@ -85,6 +85,11 @@ gulp.task('copy-uswds-js', () => {
   .pipe(gulp.dest(`${JS_DEST}`));
 });
 
+gulp.task('copy-js-yaml', () => {
+  return gulp.src(`./node_modules/js-yaml/dist/**/**`)
+  .pipe(gulp.dest(`${PROJECT_JS_DEST}`));
+});
+
 gulp.task('build-sass', function(done) {
   var plugins = [
     // Autoprefix
@@ -123,9 +128,9 @@ gulp.task('init', gulp.series(
   'copy-uswds-fonts',
   'copy-uswds-images',
   'copy-uswds-js',
+  'copy-js-yaml',
   'build-sass',
 ));
-
 
 gulp.task('compile', function (done) {
   return gulp.src(`${PROJECT_JS_SRC}/**/*.js`) // path to your files

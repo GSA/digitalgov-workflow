@@ -118,6 +118,7 @@ function process_text(id, el){
     var slug = slugify();
     var date = $('#block-date input').val();
     var filename = date + '-' + slug + '.md';
+    $('#block-filename-dated input').val(filename);
     $('#filename').text(filename);
     return 'skip';
   } else if (id == 'venue') {
