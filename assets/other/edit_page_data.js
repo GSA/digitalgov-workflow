@@ -14,7 +14,9 @@ jQuery(document).ready(function ($) {
     // Checking for source_url
     // This indicates if it is a link post or a full blog post
     if ('source_url' in page_data){
+      console.log('yes');
       $("#card_display_elsewhere").attr('checked', 'checked');
+      $("#block-source, #block-source_url").removeClass('display-none');
     } else {
       $("#card_display_dg").attr('checked', 'checked');
       $("#block-source, #block-source_url").addClass('display-none');
