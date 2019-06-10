@@ -103,6 +103,13 @@ function process_text(id, el){
     var slug = slugify();
     $(el).val(slug);
     return slug;
+  } else if (id == 'weight') {
+    var weight = $(el).val();
+    if (weight.length == 0) {
+      return 'skip';
+    } else {
+      return weight;
+    }
   } else if (id == 'uid') {
     var uid = slugify();
     $(el).val(uid);
