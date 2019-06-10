@@ -112,6 +112,7 @@ function process_text(id, el){
   } else if (id == 'filename') {
     var slug = slugify();
     var filename = slug + '.md';
+    $('#block-filename input').val(filename);
     $('#filename').text(filename);
     return 'skip';
   } else if (id == 'filename-dated') {
@@ -185,11 +186,11 @@ function get_github_url(post_matter) {
     var commit_desc = ($("#block-deck textarea").val()).trim();
   }
   if (content_type == 'posts' || content_type == 'events') {
-    base_url += file_yearmo() + 'draft?filename=' + get_filename() + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
+    base_url += file_yearmo() + '?filename=' + get_filename() + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
   } else if (content_type == 'authors' || content_type == 'topics') {
-    base_url += slugify() + '/draft?filename=_index.md' + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
+    base_url += slugify() + '/?filename=_index.md' + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
   } else {
-    base_url += 'draft?filename=' + get_filename() + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
+    base_url += '?filename=' + get_filename() + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
   }
   return base_url;
 }
