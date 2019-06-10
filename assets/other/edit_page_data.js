@@ -95,6 +95,9 @@ jQuery(document).ready(function ($) {
   $('#block-event_organizer input').val('Digital.gov');
   $("input").keyup(update_matter);
   $("textarea").keyup(update_matter);
+  $("select").on('change', function() {
+    update_matter();
+  });
   $("select").on("select2:select select2:unselect", function(e) {
     update_matter();
   });

@@ -69,8 +69,6 @@ function update_matter(){
 
 
 function process_text(id, el){
-  // console.log(id);
-  // console.log(el);
   if (id == base_field) {
     return el.val();
   } else if (id == 'authors') {

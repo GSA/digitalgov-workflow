@@ -151,6 +151,7 @@
     type: input
     data_type: string
     value: 'https://goo.gl/maps/bFWBD6QfDLA2'
-  - id: branch
-    name: Branch
-    type: input
+  - id: weight
+    name: Weight
+    type: select-number
+    data_type: integer

@@ -65,7 +65,7 @@
     data_type: data
     txt: "see all authors at https://digital.gov/authors"
     comment: "see all authors at https://digital.gov/authors"
-  - id: branch
-    name: Branch
-    type: input
-    data_type: string
+  - id: weight
+    name: Weight
+    type: select-number
+    data_type: integer

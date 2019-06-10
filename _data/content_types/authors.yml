@@ -107,3 +107,7 @@
     name: YouTube
     type: input
     data_type: string
+  - id: weight
+    name: Weight
+    type: select-number
+    data_type: integer
