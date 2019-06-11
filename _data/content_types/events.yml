@@ -1,6 +1,3 @@
-# Nav
-# List links that should appear in navigation bar
-
 - name: Events
   id: events
   page-title: events

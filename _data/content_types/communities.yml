@@ -1,0 +1,165 @@
+name: Community Page
+id: communities
+page-title: communities
+description: a community page template
+base_field: title
+blocks:
+- id: filename
+  name: Filename
+  type: input-hidden
+  data_type: data
+  txt: ""
+- id: slug
+  name: Slug
+  type: input-hidden
+  data_type: data
+  txt: ""
+- id: date
+  name: Date
+  type: input
+  data_type: data
+  txt: "e.g. 2019-04-01 13:24"
+- id: time
+  name: Time
+  type: input-hidden
+  data_type: data
+- id: title
+  name: Title / Headline
+  type: input
+  data_type: string
+  txt: "Short, topical, no acronyms."
+- id: deck
+  name: Deck / Sub-head
+  type: textarea
+  data_type: string
+  txt: "Think of this as the sentence you'd most like to tweet. Do not repeat the headline. You need to be able to read it outloud in a single breath."
+- id: summary
+  name: Summary
+  type: textarea
+  data_type: string
+  txt: "1-sentence description that does not repeat the headline"
+- id: topics
+  name: Topics
+  type: select-multiple
+  data_type: data
+  txt: "see all topics at https://digital.gov/topics"
+  comment: "see all topics at https://digital.gov/topics"
+- id: authors
+  name: Community Managers
+  type: select-multiple
+  data_type: data
+  txt: "see all authors at https://digital.gov/authors"
+  comment: "see all authors at https://digital.gov/authors"
+- id: weight
+  name: Weight
+  type: select-number
+  data_type: integer
+- id: alias
+  name: Redirects
+  type: input
+  data_type: data
+- id: community_list
+  name: Community Lists
+  lists:
+  - list:
+    - id: platform
+      name: Platform
+      type: select
+      options:
+      - listserv
+      - google-group
+      data_type: data
+      txt: "'google-group' or 'listserv'"
+    - id: type
+      name: Group type
+      type: select
+      options:
+      - public
+      - government only
+      data_type: data
+    - id: subcribe_email
+      name: Subscribe Email
+      type: input
+      data_type: string
+      txt: "e.g. listserv@listserv.gsa.gov"
+    - id: subcribe_email_subject
+      name: Subscribe Email Subject
+      type: input
+      data_type: data
+      txt: "e.g. Go Plain"
+    - id: subcribe_email_body
+      name: Subscribe Email Body
+      type: input
+      data_type: string
+    - id: subcribe_form
+      name: Subscribe Form URL
+      type: input
+      data_type: data
+      txt: "Usually a Google form"
+    - id: terms
+      name: Terms
+      type: input
+      data_type: string
+      txt: "\"Anyone with a .gov or .mil email address is eligible to join.\""
+    - id: members
+      name: Members
+      type: number
+      data_type: data
+      txt: "e.g. 543"
+    - id: emails_per_week
+      name: Emails per Week
+      type: number
+      data_type: data
+      txt: "e.g. 2.5"
+  - list:
+    - id: platform
+      name: Platform
+      type: select
+      options:
+      - blank
+      - listserv
+      - google-group
+      data_type: data
+      txt: "'google-group' or 'listserv'"
+    - id: type
+      name: Group type
+      type: select
+      options:
+      - blank
+      - public
+      - government only
+      data_type: data
+    - id: subcribe_email
+      name: Subscribe Email
+      type: input
+      data_type: data
+      txt: "e.g. listserv@listserv.gsa.gov"
+    - id: subcribe_email_subject
+      name: Subscribe Email Subject
+      type: input
+      data_type: string
+      txt: "e.g. Go Plain"
+    - id: subcribe_email_body
+      name: Subscribe Email Body
+      type: input
+      data_type: string
+    - id: subcribe_form
+      name: Subscribe Form URL
+      type: input
+      data_type: data
+      txt: "Usually a Google form"
+    - id: terms
+      name: Terms
+      type: input
+      data_type: string
+      txt: "\"Anyone with a .gov or .mil email address is eligible to join.\""
+    - id: members
+      name: Members
+      type: number
+      data_type: data
+      txt: "e.g. 543 — gathered and updated monthly"
+    - id: emails_per_week
+      name: Emails per Week
+      type: number
+      data_type: data
+      txt: "e.g. 2.5 — gathered, averaged, and updated monthly"

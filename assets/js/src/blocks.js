@@ -39,13 +39,17 @@ function update_matter(){
   post_matter += page_url_comment;
   post_matter += "\n# Learn how to edit our pages at https://workflow.digital.gov\n";
 
+  var community_list_1 = false;
+  var community_list_2 = false;
+
   // For each field in the editor...
-  $('*[data-block]').each(function(){
+  $('*[data-block]').each(function(i, e){
+
 		var id = $(this).data('block'); // gets the id
 		var data_type = $(this).data('block-data_type'); // gets the data_type
 		var comment = $(this).data('block-comment') !== "" ? '\n# ' + $(this).data('block-comment') + '\n' : ""; // gets the comment
 
-    // Process the text
+    // Process the text by
     var val = process_text(id, $(this));
 
     // checks if the data should 'skip' and not appear in the front matter
@@ -57,6 +61,25 @@ function update_matter(){
       }
       post_matter += front_matter;
     }
+
+    if ($(this).hasClass('community_list-1') == true ) {
+      var output = "\n\n";
+      output += "community_list:\n";
+      output += get_community_list_data(id, $(this), 'community_list-1', data_type);
+      if (community_list_1 == false) {
+        post_matter += output;
+      }
+      community_list_1 = true;
+    }
+
+    if ($(this).hasClass('community_list-2') == true ) {
+      var output = get_community_list_data(id, $(this), 'community_list-2', data_type);
+      if (community_list_2 == false) {
+        post_matter += output;
+      }
+      community_list_2 = true;
+    }
+
 
 	});
   post_matter += "\n\n# Make it better ♥\n";
@@ -128,6 +151,8 @@ function process_text(id, el){
     $('#filename').text(filename);
     return 'skip';
   } else if (id == 'venue') {
+    return 'skip';
+  } else if (el.hasClass('community_list')) {
     return 'skip';
   } else if (id == 'venue_name' || id == 'room' || id == 'address' || id == 'city' || id == 'state' || id == 'country' || id == 'zip' || id == 'map') {
     return get_venue_info(id, el);
@@ -214,6 +239,36 @@ function get_venue_info(id, el){
   }
 }
 
+function get_community_list_data(id, el, group, data_type){
+
+  // Find all the elements that have the .community_list class
+  if ($(el).hasClass('community_list')) {
+    var output = ""; // setting the output variable
+    var i = 0; // count starts at 0
+
+    // For each element that has the "group" class [community_list_1]
+    $('*[class$="'+group+'"]').each(function(i, e) {
+      var data = $(e).val(); // get the value from the field
+      var block_id = $(this).data('block'); // gets the id or front matter key
+
+      if (data.length !== 0) {
+        // Run only on the first iteraton of the each
+        if (i == 0) {
+          output += "  - " + block_id + ": "+ $.trim(data) + "\n";
+        } else {
+          if (data_type == "string") {
+            output += '    ' + block_id + ': "'+ $.trim(data) + '"\n';
+          } else {
+            output += '    ' + block_id + ': '+ $.trim(data) + '\n';
+          }
+        }
+        i++;
+      }
+    });
+   return output;
+  }
+}
+
 
 function slugify() {
   var base = $('#block-'+base_field +' input').val();
@@ -265,7 +320,6 @@ if ($('#card_display_dg').is(':checked') == true) {
 }
 
 $('#card_display input').click(function() {
-  console.log('yes');
   if($(this).is(':checked')){
     var val = $(this).val();
     if (val == 'card_display_dg') {

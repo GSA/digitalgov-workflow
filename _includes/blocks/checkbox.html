@@ -1,7 +1,7 @@
 <div id="block-{{ include.id }}" class="block">
   <fieldset class="usa-fieldset">
     <div class="usa-checkbox">
-      <input class="usa-checkbox__input" id="{{ include.value }}" type="checkbox" name="{{ include.id }}" value="{{ include.value }}" data-block="{{ include.id }}" data-block-data_type="{{ include.data_type }}" data-block-comment="{{ include.comment }}">
+      <input class="usa-checkbox__input {{ include.class }}" id="{{ include.value }}" type="checkbox" name="{{ include.id }}" value="{{ include.value }}" data-block="{{ include.id }}" data-block-data_type="{{ include.data_type }}" data-block-comment="{{ include.comment }}">
       <label class="usa-checkbox__label" for="{{ include.value }}">{{ include.name }}</label>
     </div>
   </fieldset>

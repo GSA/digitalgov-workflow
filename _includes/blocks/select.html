@@ -2,6 +2,18 @@
   <label class="usa-label font-sans-sm text-semibold" for="block-{{ include.id }}">
     {{ include.name }}
   </label>
-  <select class="usa-select margin-top-1 width-mobile radius-sm" data-block="{{ include.id }}" data-block-data_type="{{ include.data_type }}" data-block-comment="{{ include.comment }}"></select>
+  <select class="usa-select margin-top-1 width-mobile radius-sm {{ include.class }}" data-block="{{ include.id }}" data-block-data_type="{{ include.data_type }}" data-block-comment="{{ include.comment }}">
+    {% if include.options %}
+      {% for option in include.options %}
+      
+        {% if option == "blank" %}
+          <option value=""></option>
+        {% else %}
+          <option value="{{ option }}">{{ option }}</option>
+        {% endif %}
+
+      {% endfor %}
+    {% endif %}
+  </select>
   <p class="margin-y-05 font-sans-2xs text-base-dark">{{ include.text }}</p>
 </div>
