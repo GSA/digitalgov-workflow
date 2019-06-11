@@ -10,7 +10,7 @@
     {% include blocks/source_radio.html %}
   {% endif %}
   {% if block.type %}
-    {% include blocks/{{ block.type }}.html name=block.name id=block.id text=block.txt type=block.type data_type=block.data_type comment=block.comment %}
+    {% include blocks/{{ block.type }}.html name=block.name id=block.id text=block.txt type=block.type data_type=block.data_type comment=block.comment options=block.options %}
   {% endif %}
 
   {% assign i = 1 %}
