@@ -230,7 +230,6 @@ function get_github_url(post_matter) {
   return base_url;
 }
 
-
 function get_venue_info(id, el){
   // If Venue is not checked
   if ($('#block-venue input').is(':checked') == false) {
