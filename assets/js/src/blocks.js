@@ -65,7 +65,7 @@ function update_matter(){
     if ($(this).hasClass('community_list-1') == true ) {
       var output = "\n\n";
       output += "community_list:\n";
-      output += get_community_list_data(id, $(this), 'community_list-1', data_type);
+      output += get_community_list_data(id, $(this), 'community_list-1');
       if (community_list_1 == false) {
         post_matter += output;
       }
@@ -73,7 +73,7 @@ function update_matter(){
     }
 
     if ($(this).hasClass('community_list-2') == true ) {
-      var output = get_community_list_data(id, $(this), 'community_list-2', data_type);
+      var output = get_community_list_data(id, $(this), 'community_list-2');
       if (community_list_2 == false) {
         post_matter += output;
       }
@@ -240,7 +240,7 @@ function get_venue_info(id, el){
 }
 
 
-function get_community_list_data(id, el, group, data_type){
+function get_community_list_data(id, el, group){
 
   // Find all the elements that have the .community_list class
   if ($(el).hasClass('community_list')) {
@@ -251,15 +251,17 @@ function get_community_list_data(id, el, group, data_type){
     $('*[class$="'+group+'"]').each(function(i, e) {
       var data = $(e).val(); // get the value from the field
       var block_id = $(this).data('block'); // gets the id or front matter key
-      if (data.length !== '' || data !== null) {
+      var data_type = $(this).data('block-data_type'); // gets the data_type
+      if (data) {
         // Run only on the first iteraton of the each
         if (i == 0) {
           output += "  - " + block_id + ": "+ $.trim(data) + "\n";
         } else {
+          // console.log(data_type + " --- " + data);
           if (data_type == "string") {
-            output += '    ' + block_id + ': "'+ $.trim(data) + '"\n';
+            output += '    ' + block_id + ': "'+ data + '"\n';
           } else {
-            output += '    ' + block_id + ': '+ $.trim(data) + '\n';
+            output += '    ' + block_id + ': '+ data + '\n';
           }
         }
         i++;

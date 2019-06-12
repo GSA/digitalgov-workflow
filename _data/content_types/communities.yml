@@ -93,7 +93,7 @@ blocks:
     - id: subscribe_email_subject
       name: Subscribe Email Subject
       type: input
-      data_type: data
+      data_type: string
       txt: "e.g. Go Plain"
     - id: subscribe_email_body
       name: Subscribe Email Body
