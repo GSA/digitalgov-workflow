@@ -1,122 +1,122 @@
-- name: Authors
-  id: authors
-  page-title: authors
-  description: a authors template
-  base_field: display_name
-  blocks:
-  - id: filename
-    name: Filename
-    type: input-hidden
-    data_type: data
-    txt: ""
-  - id: slug
-    name: Slug
-    type: input-hidden
-    data_type: data
-    txt: ""
-  - id: display_name
-    name: Display Name
-    type: input
-    data_type: string
-    txt: "How you prefer to be referred to."
-  - id: first_name
-    name: First Name
-    type: input
-    data_type: string
-  - id: last_name
-    name: Last Name
-    type: input
-    data_type: string
-  - id: pronoun
-    name: Pronouns
-    type: input
-    data_type: string
-    txt: "List your pronoun(s) if you want them displayed alongside your name. If blank, we'll use just your name. Learn more http://mypronouns.org"
-    comment: "List your pronoun(s) if you want them displayed alongside your name. If blank, we'll use just your name. Learn more http://mypronouns.org"
-  - id: uid
-    name: User ID
-    type: input-hidden
-    data_type: string
-    comment: "user id — not easily changed"
-  - id: email
-    name: Email
-    type: input
-    data_type: data
-    txt: "If you include an email address, it will be displayed on your profile page"
-    comment: "Email — If you include an email address, it will be displayed on your profile page"
-  - id: bio
-    name: Bio
-    type: textarea
-    data_type: string
-    txt: "Keep it under 50 words"
-    comment: "Bio — keep it under 50 words"
-  - id: bio_url
-    name: Bio URL
-    type: input
-    data_type: data
-    txt: "Where can people learn more about your work? Provide a full URL [e.g. 'https://www.example.gov/']"
-    comment: "bio_url — Where can people learn more about your work? Provide a full URL [e.g. 'https://www.example.gov/']"
-  - id: agency_full_name
-    name: Agency Full Name
-    type: input
-    data_type: string
-    txt: "e.g. U.S. General Services Administration"
-    comment: "Agency Full Name [e.g. U.S. General Services Administration]"
-  - id: agency
-    name: Agency / Team Acronym
-    type: input
-    data_type: string
-    txt: "This is the short name for your team or agency, e.g., GSA or PIF"
-    comment: "Agency Acronym [e.g., GSA]"
-  - id: location
-    name: Location
-    type: input
-    data_type: string
-    txt: "Tell us where you live and work [e.g. 'New York City' or 'Portland, OR']"
-    comment: "Tell us where you live and work [e.g. 'New York City' or 'Portland, OR']"
-  - id: github
-    name: GitHub ID
-    type: input
-    data_type: string
-    txt: "[e.g. 'jeremyzilar'] — A GitHub account will allow you to edit pages on DigitalGov. Also, the image used in your GitHub account can be used to populate your digital.gov profile photo. Learn more about getting a Github account at [URL]"
-    comment: "A GitHub account will allow you to edit pages on DigitalGov. Also, the image used in your GitHub account can be used to populate your digital.gov profile photo. Learn more about getting a Github account at [URL]"
-  - id: profile_photo
-    name: Profile Photo
-    type: input
-    data_type: string
-    txt: "See [URL] for a full list of profile photo options"
-    comment: "Profile Photo\n# See [URL] for a full list of profile photo options"
-  - id: twitter
-    name: Twitter
-    type: input
-    data_type: string
-    txt: "e.g., Digital_Gov"
-    comment: "[e.g., Digital_Gov]"
-  - id: facebook
-    name: Facebook
-    type: input
-    data_type: string
-  - id: instagram
-    name: Instagram
-    type: input
-    data_type: string
-  - id: youtube
-    name: YouTube
-    type: input
-    data_type: string
-  - id: weight
-    name: Weight
-    type: select-number
-    options:
-      - blank
-      - 0
-      - 1
-    data_type: integer
-    txt: "Controls how this page appears across the site<br/>0 -- hidden<br/>1 -- visible"
-    comment: "Weight: controls how this page appears across the site\n# 0 -- hidden\n# 1 -- visible"
-  - id: aliases
-    name: Redirects
-    type: textarea
-    data_type: data
-    txt: "Redirects: enter the path of the URL that you want redirected to this page</br>Note: add two spaces, a dash, and another space before each path"
-    comment: "Redirects: enter the path of the URL that you want redirected to this page"
+name: Authors
+id: authors
+page-title: authors
+description: a authors template
+base_field: display_name
+blocks:
+- id: filename
+  name: Filename
+  type: input-hidden
+  data_type: data
+  txt: ""
+- id: slug
+  name: Slug
+  type: input-hidden
+  data_type: data
+  txt: ""
+- id: display_name
+  name: Display Name
+  type: input
+  data_type: string
+  txt: "How you prefer to be referred to."
+- id: first_name
+  name: First Name
+  type: input
+  data_type: string
+- id: last_name
+  name: Last Name
+  type: input
+  data_type: string
+- id: pronoun
+  name: Pronouns
+  type: input
+  data_type: string
+  txt: "List your pronoun(s) if you want them displayed alongside your name. If blank, we'll use just your name. Learn more http://mypronouns.org"
+  comment: "List your pronoun(s) if you want them displayed alongside your name. If blank, we'll use just your name. Learn more http://mypronouns.org"
+- id: uid
+  name: User ID
+  type: input-hidden
+  data_type: string
+  comment: "user id — not easily changed"
+- id: email
+  name: Email
+  type: input
+  data_type: data
+  txt: "If you include an email address, it will be displayed on your profile page"
+  comment: "Email — If you include an email address, it will be displayed on your profile page"
+- id: bio
+  name: Bio
+  type: textarea
+  data_type: string
+  txt: "Keep it under 50 words"
+  comment: "Bio — keep it under 50 words"
+- id: bio_url
+  name: Bio URL
+  type: input
+  data_type: data
+  txt: "Where can people learn more about your work? Provide a full URL [e.g. 'https://www.example.gov/']"
+  comment: "bio_url — Where can people learn more about your work? Provide a full URL [e.g. 'https://www.example.gov/']"
+- id: agency_full_name
+  name: Agency Full Name
+  type: input
+  data_type: string
+  txt: "e.g. U.S. General Services Administration"
+  comment: "Agency Full Name [e.g. U.S. General Services Administration]"
+- id: agency
+  name: Agency / Team Acronym
+  type: input
+  data_type: string
+  txt: "This is the short name for your team or agency, e.g., GSA or PIF"
+  comment: "Agency Acronym [e.g., GSA]"
+- id: location
+  name: Location
+  type: input
+  data_type: string
+  txt: "Tell us where you live and work [e.g. 'New York City' or 'Portland, OR']"
+  comment: "Tell us where you live and work [e.g. 'New York City' or 'Portland, OR']"
+- id: github
+  name: GitHub ID
+  type: input
+  data_type: string
+  txt: "[e.g. 'jeremyzilar'] — A GitHub account will allow you to edit pages on DigitalGov. Also, the image used in your GitHub account can be used to populate your digital.gov profile photo. Learn more about getting a Github account at [URL]"
+  comment: "A GitHub account will allow you to edit pages on DigitalGov. Also, the image used in your GitHub account can be used to populate your digital.gov profile photo. Learn more about getting a Github account at [URL]"
+- id: profile_photo
+  name: Profile Photo
+  type: input
+  data_type: string
+  txt: "See [URL] for a full list of profile photo options"
+  comment: "Profile Photo\n# See [URL] for a full list of profile photo options"
+- id: twitter
+  name: Twitter
+  type: input
+  data_type: string
+  txt: "e.g., Digital_Gov"
+  comment: "[e.g., Digital_Gov]"
+- id: facebook
+  name: Facebook
+  type: input
+  data_type: string
+- id: instagram
+  name: Instagram
+  type: input
+  data_type: string
+- id: youtube
+  name: YouTube
+  type: input
+  data_type: string
+- id: weight
+  name: Weight
+  type: select-number
+  options:
+    - blank
+    - 0
+    - 1
+  data_type: integer
+  txt: "Controls how this page appears across the site<br/>0 -- hidden<br/>1 -- visible"
+  comment: "Weight: controls how this page appears across the site\n# 0 -- hidden\n# 1 -- visible"
+- id: aliases
+  name: Redirects
+  type: textarea
+  data_type: data
+  txt: "Redirects: enter the path of the URL that you want redirected to this page</br>Note: add two spaces, a dash, and another space before each path"
+  comment: "Redirects: enter the path of the URL that you want redirected to this page"
