@@ -14,10 +14,10 @@ jQuery(document).ready(function ($) {
     // This indicates if it is a link post or a full blog post
     if ('source_url' in page_data){
       $("#card_display_elsewhere").attr('checked', 'checked');
-      $("#block-source, #block-source_url").removeClass('display-none');
+      $(".block-source, .block-source_url").removeClass('display-none');
     } else {
       $("#card_display_dg").attr('checked', 'checked');
-      $("#block-source, #block-source_url").addClass('display-none');
+      $(".block-source, .block-source_url").addClass('display-none');
     }
 
     // Gets the "page" data and matches up each key in the data object with the corresponding field (block) in the editor
@@ -57,6 +57,17 @@ jQuery(document).ready(function ($) {
         $(el).clone().insertAfter(el).val(val);
       }
 
+      if (key == 'community_list') {
+        // community_list_data(key, val);
+        var i = 1;
+        $.each( val, function( index, element ) {
+          $.each( element, function( key, value ) {
+            $(".block-"+key+" .community_list-"+i).val(value);
+          });
+          i++;
+    	  });
+      }
+
       if (key == 'url') {
         var url = source_of_truth + val;
         var api_url = source_of_truth + val + 'index.json';
@@ -84,10 +95,10 @@ jQuery(document).ready(function ($) {
     var mins = date.getMinutes();
     var time = `${date.getHours()}:${(mins<1?'00':mins) + ':00'}`;
     if (key == 'date') {
-      $("#block-time input").val(time);
+      $(".block-time input").val(time);
     }
     if (key == 'end_date') {
-      $("#block-end_time input").val(time);
+      $(".block-end_time input").val(time);
     }
   }
 
@@ -96,10 +107,10 @@ jQuery(document).ready(function ($) {
     // Get date — set to +1 date in the future
     var yearmoday = `${date.getFullYear()}-${('0' + (date.getMonth()+1)).slice(-2)}-${('0' + (date.getDate())).slice(-2)}`;
     // Inserts the DATES into the fields
-    $("#block-"+key+" input").val(yearmoday);
+    $(".block-"+key+" input").val(yearmoday);
   }
 
-  $('#block-event_organizer input').val('Digital.gov');
+  $('.block-event_organizer input').val('Digital.gov');
   $("input").keyup(update_matter);
   $("textarea").keyup(update_matter);
   $("select").on('change', function() {
@@ -114,7 +125,21 @@ jQuery(document).ready(function ($) {
     // Getting an array of the taxonomy item from json data
     var array = make_array(val);
     // Pass the current items as an array to the select2 field
-    $('#block-'+key+' select').val(array).trigger("change");
+    $('.block-'+key+' select').val(array).trigger("change");
+	}
+
+  function community_list_data(key, val){
+    var i = 1;
+    $.each( val, function( index, element ) {
+      $.each( element, function( key, val ) {
+        // console.log(key + " -- .block-"+key);
+        // console.log("val -- " + val);
+        console.log(".block-"+key+" .community_list-"+i);
+        console.log(val);
+        $(".block-"+key+" .community_list-"+i).val(val);
+      });
+      i++;
+	  });
 	}
 
   // returns an array the IDs or slugs for each topic or author
@@ -132,7 +157,7 @@ jQuery(document).ready(function ($) {
       $("#card_display_elsewhere").attr('checked', 'checked');
     } else {
       $("#card_display_dg").attr('checked', 'checked');
-      $("#block-source, #block-source_url").addClass('display-none');
+      $(".block-source, .block-source_url").addClass('display-none');
     }
   }
 
