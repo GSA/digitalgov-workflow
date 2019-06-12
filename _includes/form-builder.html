@@ -1,15 +1,39 @@
-{% for niche in site.data.content_types.[page.content_type] %}
-  <form autocomplete="off" id="{{ page.content_type }}" class="margin-y-05 bg-base-lighter padding-top-2px padding-bottom-3 padding-x-3" accept-charset="utf-8" data-content_type="{{ page.content_type }}" data-base_field="{{ niche.base_field }}">
-  {% for block in niche.blocks %}
+{% assign form = site.data.content_types.[page.content_type] %}
 
-    {% if block.id == "source_url" %}
-    <!-- Source switcher -->
-      {% include blocks/source_radio.html %}
-    {% endif %}
-    {% if block.type %}
-      {% include blocks/{{ block.type }}.html name=block.name id=block.id text=block.txt type=block.type data_type=block.data_type comment=block.comment %}
-    {% endif %}
+<form autocomplete="off" id="{{ page.content_type }}" class="margin-y-05 bg-base-lighter padding-top-2px padding-bottom-3 padding-x-3" accept-charset="utf-8" data-content_type="{{ page.content_type }}" data-base_field="{{ form.base_field }}">
 
-  {% endfor %}
-  </form>
+<!-- For each of the blocks -->
+{% for block in form.blocks %}
+
+  {% if block.id == "source_url" %}
+  <!-- Source switcher -->
+    {% include blocks/source_radio.html %}
+  {% endif %}
+  {% if block.type %}
+    {% include blocks/{{ block.type }}.html name=block.name id=block.id text=block.txt type=block.type data_type=block.data_type comment=block.comment options=block.options %}
+  {% endif %}
+
+  {% assign i = 1 %}
+  {% if block.lists %}
+    {% for list in block.lists %}
+      {% for group in list %}
+      <div class="margin-y-8 border-top-1px">
+        <h3 class="margin-y-105"><i class="far fa-envelope"></i> Community list settings {% if i == 2 %}(second){% endif %}</h3>
+        <p class="margin-0">These settings control the "Join box" on the community page.</p>
+        {% for sub_blocks in group %}
+          {% for sub_block in sub_blocks %}
+            {% if sub_block.type %}
+              {% assign list_count = "community_list community_list-" | append: i %}
+              {% include blocks/{{ sub_block.type }}.html name=sub_block.name id=sub_block.id class=list_count text=sub_block.txt type=sub_block.type data_type=sub_block.data_type comment=sub_block.comment options=sub_block.options %}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+        {% assign i = i | plus:1 %}
+      </div>
+      {% endfor %}
+    {% endfor %}
+  {% endif %}
+
 {% endfor %}
+
+</form>

@@ -5,7 +5,6 @@ jQuery(document).ready(function ($) {
   get_page_data().done(function(page,b,c) {
 
     if (content_type == "authors") {
-      console.log('yoooo');
       var page_data = page;
     } else {
       var page_data = page.item[0];
@@ -14,7 +13,6 @@ jQuery(document).ready(function ($) {
     // Checking for source_url
     // This indicates if it is a link post or a full blog post
     if ('source_url' in page_data){
-      console.log('yes');
       $("#card_display_elsewhere").attr('checked', 'checked');
       $("#block-source, #block-source_url").removeClass('display-none');
     } else {
@@ -47,9 +45,16 @@ jQuery(document).ready(function ($) {
         update_date(key, val);
         update_time(key, val);
       }
-      if (key == 'end_date') {
-        // console.log(val);
-        // update_time(key, val);
+
+      if (key == 'aliases') {
+        var redirs = "";
+        $.each( val, function( i, e ) {
+          redirs += '  - ' + e + "\n";
+    	  });
+        $('[data-block="'+ key +'"]').val(redirs);
+      }
+      function add_field(key, el, val){
+        $(el).clone().insertAfter(el).val(val);
       }
 
       if (key == 'url') {
