@@ -8,7 +8,7 @@ var base_field = $('form').data('base_field');
 // returns the year and month for use in the filepath on GitHub
 // Returns: 2019/09
 function file_yearmo() {
-  var dateInput = $("#block-date input").val().match(/^[^\s]+/);
+  var dateInput = $(".block-date input").val().match(/^[^\s]+/);
   var dateObj = new Date(dateInput);
   var year = dateObj.getUTCFullYear();
   var month = ("0" + (dateObj.getUTCMonth() + 1)).slice(-2); //months from 1-12
@@ -19,8 +19,8 @@ function file_yearmo() {
 // returns the year and month for use in the filepath in the front matter
 // Returns: 2019/09/01
 function file_yearmoday() {
-  if ($("#block-date input").length > 0) {
-    var dateInput = $("#block-date input").val().match(/^[^\s]+/);
+  if ($(".block-date input").length > 0) {
+    var dateInput = $(".block-date input").val().match(/^[^\s]+/);
     var dateObj = new Date(dateInput);
     var year = dateObj.getUTCFullYear();
     var month = ("0" + (dateObj.getUTCMonth() + 1)).slice(-2); //months from 1-12
@@ -80,10 +80,6 @@ function update_matter(){
       community_list_2 = true;
     }
 
-    if ($(this).data('block') == "aliases" ) {
-      combine_aliases(id, $(this));
-    }
-
 	});
   post_matter += "\n\n# Make it better ♥\n";
   post_matter += "---";
@@ -98,17 +94,17 @@ function process_text(id, el){
   if (id == base_field) {
     return el.val();
   } else if (id == 'authors') {
-    return make_yaml_list($('#block-authors select').val());
+    return make_yaml_list($('.block-authors select').val());
   } else if (id == 'topics'){
-    return make_yaml_list($('#block-topics select').val());
+    return make_yaml_list($('.block-topics select').val());
   } else if (id == 'source') {
-    if ($('#block-'+id).hasClass('display-none') == true) {
+    if ($('.block-'+id).hasClass('display-none') == true) {
       return 'skip';
     } else {
       return el.val();
     }
   } else if (id == 'source_url') {
-    if ($('#block-'+id).hasClass('display-none') == true) {
+    if ($('.block-'+id).hasClass('display-none') == true) {
       return 'skip';
     } else {
       return el.val();
@@ -118,10 +114,10 @@ function process_text(id, el){
   } else if (id == 'branch') {
     return 'skip';
   } else if (id == 'date') {
-    var time = $('#block-time input').val();
+    var time = $('.block-time input').val();
     return el.val() + ' ' + time;
   } else if (id == 'end_date') {
-    var time = $('#block-end_time input').val();
+    var time = $('.block-end_time input').val();
     return el.val() + ' ' + time;
   } else if (id == 'time') {
     return 'skip';
@@ -145,14 +141,14 @@ function process_text(id, el){
   } else if (id == 'filename') {
     var slug = slugify();
     var filename = slug + '.md';
-    $('#block-filename input').val(filename);
+    $('.block-filename input').val(filename);
     $('#filename').text(filename);
     return 'skip';
   } else if (id == 'filename-dated') {
     var slug = slugify();
-    var date = $('#block-date input').val();
+    var date = $('.block-date input').val();
     var filename = date + '-' + slug + '.md';
-    $('#block-filename-dated input').val(filename);
+    $('.block-filename-dated input').val(filename);
     $('#filename').text(filename);
     return 'skip';
   } else if (id == 'venue') {
@@ -215,10 +211,10 @@ function get_publish_url(content_type) {
 
 function get_github_url(post_matter) {
   var base_url = get_edit_branch()+"/content/"+content_type+"/";
-  var commit_msg = "New "+ content_type +": " + ($('#block-'+base_field +' input').val()).trim();
+  var commit_msg = "New "+ content_type +": " + ($('.block-'+base_field +' input').val()).trim();
   var commit_desc = "";
-  if ($("#block-deck textarea").length) {
-    var commit_desc = ($("#block-deck textarea").val()).trim();
+  if ($(".block-deck textarea").length) {
+    var commit_desc = ($(".block-deck textarea").val()).trim();
   }
   if (content_type == 'posts' || content_type == 'events') {
     base_url += file_yearmo() + '?filename=' + get_filename() + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
@@ -232,33 +228,17 @@ function get_github_url(post_matter) {
 
 function get_venue_info(id, el){
   // If Venue is not checked
-  if ($('#block-venue input').is(':checked') == false) {
+  if ($('.block-venue input').is(':checked') == false) {
     // hide the venue fields
-    $('#block-'+id).addClass('display-none');
+    $('.block-'+id).addClass('display-none');
     return 'skip';
   } else {
     // show the venue fields
-    $('#block-'+id).removeClass('display-none');
+    $('.block-'+id).removeClass('display-none');
     return el.val();
   }
 }
 
-function combine_aliases(id, el){
-  var fields = $("input").find("[data-block='aliases']");
-  // console.log("fields");
-  // console.log(fields);
-  // For each element that has the "group" class [community_list_1]
-  $.each(fields, function( i, e ) {
-    // console.log('yo');
-    // console.log(i);
-    // if (i === items.length - 1) {
-    //   output += "  - " + $.trim(e);
-    // } else {
-    //   output += "  - " + $.trim(e) + "\n";
-    // }
-  });
-
-}
 
 function get_community_list_data(id, el, group, data_type){
 
@@ -271,8 +251,7 @@ function get_community_list_data(id, el, group, data_type){
     $('*[class$="'+group+'"]').each(function(i, e) {
       var data = $(e).val(); // get the value from the field
       var block_id = $(this).data('block'); // gets the id or front matter key
-
-      if (data.length !== 0) {
+      if (data.length !== '' || data !== null) {
         // Run only on the first iteraton of the each
         if (i == 0) {
           output += "  - " + block_id + ": "+ $.trim(data) + "\n";
@@ -292,7 +271,7 @@ function get_community_list_data(id, el, group, data_type){
 
 
 function slugify() {
-  var base = $('#block-'+base_field +' input').val();
+  var base = $('.block-'+base_field +' input').val();
   var small_words = /\band |\bthe |\bare |\bis |\bof |\bto /gi;
   var slug = base.replace(new RegExp(small_words, "gi"), '');
   var output = slug.split(" ").splice(0,6).join(" ");
@@ -336,7 +315,7 @@ function encodeEntities(input) {
 
 // Hide and show the Source and source_url fields
 if ($('#card_display_dg').is(':checked') == true) {
-  $("#block-source, #block-source_url").addClass('display-none');
+  $(".block-source, .block-source_url").addClass('display-none');
   // update_matter();
 }
 
@@ -344,16 +323,16 @@ $('#card_display input').click(function() {
   if($(this).is(':checked')){
     var val = $(this).val();
     if (val == 'card_display_dg') {
-      $("#block-source, #block-source_url").addClass('display-none');
+      $(".block-source, .block-source_url").addClass('display-none');
     } else {
-      $("#block-source, #block-source_url").removeClass('display-none');
+      $(".block-source, .block-source_url").removeClass('display-none');
     }
     update_matter();
   }
 });
 
 // Venue information
-$('#block-venue input').change(function() {
+$('.block-venue input').change(function() {
   update_matter();
 });
 
@@ -380,7 +359,7 @@ jQuery(document).ready(function($) {
 	// This is what we are using to make it possible to pull topics from the TOPICS API and make them searchable and editable in the interface
 	// It is not easy...
 
-	$("#block-topics select").select2({
+	$(".block-topics select").select2({
 	  tags: true,
 	  width: 'element',
 	  closeOnSelect: false,
@@ -397,7 +376,7 @@ jQuery(document).ready(function($) {
 	    }
 	  }
 	});
-	$("#block-authors select").select2({
+	$(".block-authors select").select2({
 	  tags: true,
 	  width: 'element',
 	  closeOnSelect: false,
@@ -414,15 +393,14 @@ jQuery(document).ready(function($) {
 	    }
 	  }
 	});
-	$("#block-source select").select2({
+	$(".block-source select").select2({
 		minimumResultsForSearch: Infinity
 	});
 
 	// Why are we storing topics in local storage again?
-	$("#block-topics select").append(localStorage.dg_topics).trigger('change');
-	$("#block-authors select").append(localStorage.dg_authors).trigger('change');
-	$("#block-source select").append(localStorage.dg_sources).trigger('change');
-
+	$(".block-topics select").append(localStorage.dg_topics).trigger('change');
+	$(".block-authors select").append(localStorage.dg_authors).trigger('change');
+	$(".block-source select").append(localStorage.dg_sources).trigger('change');
 
 });
 

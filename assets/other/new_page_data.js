@@ -15,12 +15,12 @@ jQuery(document).ready(function ($) {
     // Set time to 9am ET — our daily pub time
     // var time = '09:00';
     // Insert the time into the time fields
-    $("#block-date input, #block-end_date input").val(yearmoday);
-    $("#block-time input").val(time);
-    $("#block-end_time input").val(end_time);
+    $(".block-date input, .block-end_date input").val(yearmoday);
+    $(".block-time input").val(time);
+    $(".block-end_time input").val(end_time);
   }
 
-  $('#block-event_organizer input').val('Digital.gov');
+  $('.block-event_organizer input').val('Digital.gov');
   $("input").keyup(update_matter);
   $("textarea").keyup(update_matter);
   $("select").on('change', function() {

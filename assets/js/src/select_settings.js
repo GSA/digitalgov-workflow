@@ -5,7 +5,7 @@ jQuery(document).ready(function($) {
 	// This is what we are using to make it possible to pull topics from the TOPICS API and make them searchable and editable in the interface
 	// It is not easy...
 
-	$("#block-topics select").select2({
+	$(".block-topics select").select2({
 	  tags: true,
 	  width: 'element',
 	  closeOnSelect: false,
@@ -22,7 +22,7 @@ jQuery(document).ready(function($) {
 	    }
 	  }
 	});
-	$("#block-authors select").select2({
+	$(".block-authors select").select2({
 	  tags: true,
 	  width: 'element',
 	  closeOnSelect: false,
@@ -39,14 +39,13 @@ jQuery(document).ready(function($) {
 	    }
 	  }
 	});
-	$("#block-source select").select2({
+	$(".block-source select").select2({
 		minimumResultsForSearch: Infinity
 	});
 
 	// Why are we storing topics in local storage again?
-	$("#block-topics select").append(localStorage.dg_topics).trigger('change');
-	$("#block-authors select").append(localStorage.dg_authors).trigger('change');
-	$("#block-source select").append(localStorage.dg_sources).trigger('change');
-
+	$(".block-topics select").append(localStorage.dg_topics).trigger('change');
+	$(".block-authors select").append(localStorage.dg_authors).trigger('change');
+	$(".block-source select").append(localStorage.dg_sources).trigger('change');
 
 });
