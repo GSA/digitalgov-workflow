@@ -115,7 +115,7 @@ function process_text(id, el){
     return 'skip';
   } else if (id == 'date') {
     var time = $('.block-time input').val();
-    return el.val() + ' ' + time;
+    return el.val() + ' ' + time + ' -0500';
   } else if (id == 'end_date') {
     var time = $('.block-end_time input').val();
     return el.val() + ' ' + time;
