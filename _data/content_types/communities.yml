@@ -85,21 +85,21 @@ blocks:
       - public
       - government only
       data_type: data
-    - id: subcribe_email
+    - id: subscribe_email
       name: Subscribe Email
       type: input
       data_type: string
       txt: "e.g. listserv@listserv.gsa.gov"
-    - id: subcribe_email_subject
+    - id: subscribe_email_subject
       name: Subscribe Email Subject
       type: input
       data_type: data
       txt: "e.g. Go Plain"
-    - id: subcribe_email_body
+    - id: subscribe_email_body
       name: Subscribe Email Body
       type: input
       data_type: string
-    - id: subcribe_form
+    - id: subscribe_form
       name: Subscribe Form URL
       type: input
       data_type: data
@@ -137,21 +137,21 @@ blocks:
       - public
       - government only
       data_type: data
-    - id: subcribe_email
+    - id: subscribe_email
       name: Subscribe Email
       type: input
       data_type: data
       txt: "e.g. listserv@listserv.gsa.gov"
-    - id: subcribe_email_subject
+    - id: subscribe_email_subject
       name: Subscribe Email Subject
       type: input
       data_type: string
       txt: "e.g. Go Plain"
-    - id: subcribe_email_body
+    - id: subscribe_email_body
       name: Subscribe Email Body
       type: input
       data_type: string
-    - id: subcribe_form
+    - id: subscribe_form
       name: Subscribe Form URL
       type: input
       data_type: data
