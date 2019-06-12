@@ -80,6 +80,9 @@ function update_matter(){
       community_list_2 = true;
     }
 
+    if ($(this).data('block') == "aliases" ) {
+      combine_aliases(id, $(this));
+    }
 
 	});
   post_matter += "\n\n# Make it better ♥\n";
@@ -110,6 +113,8 @@ function process_text(id, el){
     } else {
       return el.val();
     }
+  } else if (id == 'aliases') {
+    return "\n"+el.val();
   } else if (id == 'branch') {
     return 'skip';
   } else if (id == 'date') {
@@ -237,6 +242,23 @@ function get_venue_info(id, el){
     $('#block-'+id).removeClass('display-none');
     return el.val();
   }
+}
+
+function combine_aliases(id, el){
+  var fields = $("input").find("[data-block='aliases']");
+  // console.log("fields");
+  // console.log(fields);
+  // For each element that has the "group" class [community_list_1]
+  $.each(fields, function( i, e ) {
+    // console.log('yo');
+    // console.log(i);
+    // if (i === items.length - 1) {
+    //   output += "  - " + $.trim(e);
+    // } else {
+    //   output += "  - " + $.trim(e) + "\n";
+    // }
+  });
+
 }
 
 function get_community_list_data(id, el, group, data_type){
