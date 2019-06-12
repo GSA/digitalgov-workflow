@@ -94,9 +94,19 @@ function process_text(id, el){
   if (id == base_field) {
     return el.val();
   } else if (id == 'authors') {
-    return make_yaml_list($('.block-authors select').val());
+    var authors_list = make_yaml_list($('.block-authors select').val());
+    if (authors_list == '') {
+      return 'skip';
+    } else {
+      return authors_list;
+    }
   } else if (id == 'topics'){
-    return make_yaml_list($('.block-topics select').val());
+    var topics_list = make_yaml_list($('.block-topics select').val());
+    if (topics_list == '') {
+      return 'skip';
+    } else {
+      return topics_list;
+    }
   } else if (id == 'source') {
     if ($('.block-'+id).hasClass('display-none') == true) {
       return 'skip';
@@ -110,7 +120,11 @@ function process_text(id, el){
       return el.val();
     }
   } else if (id == 'aliases') {
-    return "\n"+el.val();
+    if (el.val() == '') {
+      return 'skip';
+    } else {
+      return "\n"+el.val();
+    }
   } else if (id == 'branch') {
     return 'skip';
   } else if (id == 'date') {
@@ -141,6 +155,8 @@ function process_text(id, el){
   } else if (id == 'filename') {
     var slug = slugify();
     var filename = slug + '.md';
+
+
     $('.block-filename input').val(filename);
     $('#filename').text(filename);
     return 'skip';
@@ -163,15 +179,20 @@ function process_text(id, el){
 }
 
 function make_yaml_list(items) {
-  var output = "\n";
-  $.each( items, function( i, e ) {
-    if (i === items.length - 1) {
-      output += "  - " + $.trim(e);
-    } else {
-      output += "  - " + $.trim(e) + "\n";
-    }
-  });
-  return output;
+  var output = '';
+  if (items.length === 0) {
+    return output;
+  } else {
+    output += "\n";
+    $.each( items, function( i, e ) {
+      if (i === items.length - 1) {
+        output += "  - " + $.trim(e);
+      } else {
+        output += "  - " + $.trim(e) + "\n";
+      }
+    });
+    return output;
+  }
 }
 
 function get_filename(){
