@@ -1,8 +1,8 @@
-<div id="card_display" class="block margin-top-4">
+<div id="card_display" class="block block-{{ include.id }} margin-top-4">
   <label class="usa-label font-sans-sm text-semibold" for="block-{{ include.id }}">
     Publish source
   </label>
-  <fieldset class="margin-top-2 usa-fieldset">
+  <fieldset class="margin-top-2 usa-fieldset {{ include.class }}">
     <legend class="usa-sr-only">Where does this page live?</legend>
     <div class="usa-radio">
       <input class="usa-radio__input" id="card_display_dg" type="radio" name="card_display" value="card_display_dg" checked>

@@ -1,8 +1,9 @@
-<div id="block-{{ include.id }}" class="block">
+<div class="block block-{{ include.id }} margin-top-4">
   <fieldset class="usa-fieldset">
     <div class="usa-checkbox">
-      <input class="usa-checkbox__input" id="{{ include.value }}" type="checkbox" name="{{ include.id }}" value="{{ include.value }}" data-block="{{ include.id }}" data-block-data_type="{{ include.data_type }}" data-block-comment="{{ include.comment }}">
-      <label class="usa-checkbox__label" for="{{ include.value }}">{{ include.name }}</label>
+      <input class="usa-checkbox__input {{ include.class }}" id="{{ include.id }}" type="checkbox" name="{{ include.id }}" {% if include.value %}value="{{ include.value }}"{% endif %} data-block="{{ include.id }}" data-block-data_type="{{ include.data_type }}" data-block-comment="{{ include.comment }}">
+      <label class="usa-checkbox__label" for="{{ include.id }}">{{ include.name }}</label>
     </div>
   </fieldset>
+  <p class="margin-y-05 font-sans-2xs text-base-dark">{{ include.text }}</p>
 </div>

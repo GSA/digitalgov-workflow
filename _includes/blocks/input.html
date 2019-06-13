@@ -1,7 +1,7 @@
-<div id="block-{{ include.id }}" class="block margin-top-4">
+<div class="block block-{{ include.id }} margin-top-4">
   <label class="usa-label font-sans-sm text-semibold" for="block-{{ include.id }}">
     {{ include.name }}
   </label>
-  <input class="usa-input radius-sm maxw-none" name="block-{{ include.id }}" {% if include.value %}value="{{ include.value }}"{% endif %} data-block="{{ include.id }}" data-block-data_type="{{ include.data_type }}" data-block-comment="{{ include.comment }}">
+  <input class="usa-input radius-sm maxw-none {{ include.class }}" name="block-{{ include.id }}" {% if include.value %}value="{{ include.value }}"{% endif %} data-block="{{ include.id }}" data-block-data_type="{{ include.data_type }}" data-block-comment="{{ include.comment }}">
   <p class="margin-y-05 font-sans-2xs text-base-dark">{{ include.text }}</p>
 </div>
