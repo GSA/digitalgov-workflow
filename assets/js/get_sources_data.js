@@ -7,7 +7,7 @@ jQuery(document).ready(function($) {
 		$.each( sources.items, function( i, e ) {
 			options += '<option value="'+e.slug+'">'+e.name+'</option>';
     });
-		localStorage.setItem("dg_sources", options);
+		sessionStorage.setItem("dg_sources", options);
 	}
 
 	function get_taxonomy_data(api_id){

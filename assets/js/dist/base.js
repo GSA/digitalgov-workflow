@@ -427,9 +427,9 @@ jQuery(document).ready(function($) {
 	});
 
 	// Why are we storing topics in local storage again?
-	$(".block-topics select").append(localStorage.dg_topics).trigger('change');
-	$(".block-authors select").append(localStorage.dg_authors).trigger('change');
-	$(".block-source select").append(localStorage.dg_sources).trigger('change');
+	$(".block-topics select").append(sessionStorage.dg_topics).trigger('change');
+	$(".block-authors select").append(sessionStorage.dg_authors).trigger('change');
+	$(".block-source select").append(sessionStorage.dg_sources).trigger('change');
 
 });
 

@@ -23,7 +23,7 @@ jQuery(document).ready(function($) {
 		options += get_topics_weighted(data, 2);
 		options += get_topics_weighted(data, 1);
 		options += get_topics_weighted(data, "");
-		localStorage.setItem("dg_topics", options);
+		sessionStorage.setItem("dg_topics", options);
 	}
 
 	function get_taxonomy_data(api_id){
@@ -36,6 +36,7 @@ jQuery(document).ready(function($) {
 		}
 	  if (api_path) {
 	    // Let's get the API + data
+			console.log(api_path);
 			$.ajax({
 	      url: api_path,
 	      type: 'GET',

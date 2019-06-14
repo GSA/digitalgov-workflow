@@ -10,7 +10,7 @@ jQuery(document).ready(function($) {
       	options += '<option value="'+n+'">'+author.display_name+'</option>';
     	});
     });
-		localStorage.setItem("dg_authors", options);
+		sessionStorage.setItem("dg_authors", options);
 	}
 
 
