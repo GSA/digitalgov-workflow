@@ -255,18 +255,15 @@ function display_newsletter_item_data(e){
   var branch = e.branch;
   var source = e.source;
   var source_url = e.source_url;
+	var source_txt = "";
 	if (source_url) {
-		if (source) {
-			var source_url = "<p class='margin-y-05 text-normal font-sans-3xs'><em><strong> via " +source+ "</strong> &#8594;  " +source_url+"</em></p>";
-		} else {
-			var source_url = "<p class='margin-y-05 text-normal font-sans-3xs'><em>&#8594; " +source_url+"</em></p>";
-		}
+		var source_txt = " (<a href='"+source_url+"'><em>via " +source+ "</em></a>)";
 	}
   var url = e.url;
   var sourceoftruth = encodeURI(source_of_truth);
   var card = [
-		'<li>',
-			'<a href="'+sourceoftruth+ url+'" title="'+title+'"><strong>'+title+'</strong></a> — '+summary,
+		'<li class="margin-bottom-105">',
+			'<a href="'+sourceoftruth+ url+'" title="'+title+'"><strong>'+title+'</strong></a> — '+summary + source_txt,
 		'</li>',
   ].join("\n");
 	return card;

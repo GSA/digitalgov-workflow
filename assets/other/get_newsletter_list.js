@@ -34,19 +34,27 @@ jQuery(document).ready(function($) {
 
   // display the list of cards
 	function display_newsletter_list(data, api_id, el){
+    var i = 0;
     if ($(el).hasClass('newsletter-code') == true) {
       var el = $('.newsletter-code pre');
       $(el).append(htmlEncode('<ul>'));
       $(el).append('\n');
       $.each( data.items, function( i, obj ) {
-        $(el).append(htmlEncode(get_card(obj, data.content, 'newsletter')));
-        $(el).append('\n');
+        if (i < 20) {
+          $(el).append(htmlEncode(get_card(obj, data.content, 'newsletter')));
+          $(el).append('\n');
+        }
+        i++;
       });
       $(el).append('\n');
       $(el).append(htmlEncode('</ul>'));
     } else {
       $.each( data.items, function( i, obj ) {
-        $(el).append(get_card(obj, data.content, 'newsletter'));
+        if (i < 20) {
+          console.log(el);
+          $(el).find('ul').append(get_card(obj, data.content, 'newsletter'));
+        }
+        i++;
       });
     }
 
