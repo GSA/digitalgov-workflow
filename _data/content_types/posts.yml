@@ -23,6 +23,11 @@ blocks:
   name: Time
   type: input-hidden
   data_type: data
+- id: kicker
+  name: Kicker
+  type: input
+  data_type: string
+  txt: "Super Short, like one word"
 - id: title
   name: Title / Headline
   type: input
