@@ -30,6 +30,10 @@ jQuery(document).ready(function ($) {
       	return txt.value;
       };
 
+      if (key == 'slug') {
+        $('[data-block="'+ key +'"]').val(val).prop('readonly', true);
+      }
+
       // Checks to see if the element is data that belongs in a select2 field
       if (key == 'topics' || key == 'authors') {
         insert_current_taxonomy_data(key, val);

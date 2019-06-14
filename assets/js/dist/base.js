@@ -138,9 +138,15 @@ function process_text(id, el){
   } else if (id == 'end_time') {
     return 'skip';
   } else if (id == 'slug') {
-    var slug = slugify();
-    $(el).val(slug);
-    return slug;
+    if ($(el).is('[readonly]')){
+      var slug = $(el).val();
+      return slug;
+    } else {
+      var slug = slugify();
+      $(el).val(slug);
+      return slug;
+    }
+
   } else if (id == 'weight') {
     var weight = $(el).val();
     if (weight.length == 0) {
