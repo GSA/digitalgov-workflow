@@ -148,15 +148,9 @@ function process_text(id, el){
     } else {
       return weight;
     }
-  } else if (id == 'uid') {
-    var uid = slugify();
-    $(el).val(uid);
-    return uid;
   } else if (id == 'filename') {
     var slug = slugify();
     var filename = slug + '.md';
-
-
     $('.block-filename input').val(filename);
     $('#filename').text(filename);
     return 'skip';
