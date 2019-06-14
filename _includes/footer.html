@@ -3,12 +3,12 @@
 <!-- scripts -->
 <script src="{{ site.baseurl }}/assets/js/dist/jquery-3.3.1.min.js"></script>
 <script src="{{ site.baseurl }}/assets/js/dist/uswds.min.js"></script>
-<script src="{{ site.baseurl }}/assets/other/get_sources_data.js"></script>
-<script src="{{ site.baseurl }}/assets/other/get_topics_data.js"></script>
-<script src="{{ site.baseurl }}/assets/other/get_authors_data.js"></script>
-<script src="{{ site.baseurl }}/assets/other/get_page_data.js"></script>
-<script src="{{ site.baseurl }}/assets/other/get_card.js"></script>
-<script src="{{ site.baseurl }}/assets/other/get_card_list.js"></script>
+<script src="{{ site.baseurl }}/assets/js/get_sources_data.js"></script>
+<script src="{{ site.baseurl }}/assets/js/get_topics_data.js"></script>
+<script src="{{ site.baseurl }}/assets/js/get_authors_data.js"></script>
+<script src="{{ site.baseurl }}/assets/js/get_page_data.js"></script>
+<script src="{{ site.baseurl }}/assets/js/get_card.js"></script>
+<script src="{{ site.baseurl }}/assets/js/get_card_list.js"></script>
 
 {% if page.url == '/' %}
 <!--<script src="{{ site.baseurl }}/assets/other/get_commits.js"></script>-->
@@ -19,13 +19,13 @@
 <script src="{{ site.baseurl }}/assets/js/dist/base.js"></script>
 
 {% if page.url contains '/edit/' %}
-<script src="{{ site.baseurl }}/assets/other/edit_page_data.js"></script>
+<script src="{{ site.baseurl }}/assets/js/edit_page_data.js"></script>
 {% endif %}
 
 {% if page.url contains '/new/' %}
-<script src="{{ site.baseurl }}/assets/other/new_page_data.js"></script>
+<script src="{{ site.baseurl }}/assets/js/new_page_data.js"></script>
 {% endif %}
 
 {% if page.url contains '/new/newsletter/' %}
-<script src="{{ site.baseurl }}/assets/other/get_newsletter_list.js"></script>
+<script src="{{ site.baseurl }}/assets/js/get_newsletter_list.js"></script>
 {% endif %}
