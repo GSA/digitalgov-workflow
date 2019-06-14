@@ -68,7 +68,7 @@ blocks:
   txt: "see all authors at https://digital.gov/authors"
   comment: "see all authors at https://digital.gov/authors"
 - id: weight
-  name: Weight
+  name: Page Weight
   type: select-number
   options:
     - blank
@@ -76,7 +76,7 @@ blocks:
     - 1
   data_type: integer
   txt: "Controls how this page appears across the site<br/>0 -- hidden<br/>1 -- visible"
-  comment: "Weight: controls how this page appears across the site\n# 0 -- hidden\n# 1 -- visible"
+  comment: "Page weight: controls how this page appears across the site\n# 0 -- hidden\n# 1 -- visible"
 - id: aliases
   name: Redirects
   type: textarea
