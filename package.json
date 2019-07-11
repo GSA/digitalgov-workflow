@@ -21,10 +21,10 @@
   "homepage": "https://github.com/GSA/digitalgov-workflow#readme",
   "dependencies": {},
   "devDependencies": {
-    "autoprefixer": "^9.5.1",
+    "autoprefixer": "^9.6.1",
     "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.10",
-    "gulp": "^4.0.0",
+    "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-jshint": "^2.1.0",
     "gulp-notify": "^3.2.0",
@@ -36,7 +36,7 @@
     "gulp-uglify": "^3.0.2",
     "jshint": "^2.10.2",
     "path": "^0.12.7",
-    "uswds": "^2.0.1",
+    "uswds": "^2.0.3",
     "uswds-gulp": "github:uswds/uswds-gulp"
   }
 }
