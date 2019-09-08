@@ -34,6 +34,12 @@ jQuery(document).ready(function ($) {
         $('[data-block="'+ key +'"]').val(val).prop('readonly', true);
       }
 
+      if (key == 'featured_image') {
+        if (val.uid) {
+          $('[data-block="primary_image"]').val(val.uid);
+        }
+      }
+
       // Checks to see if the element is data that belongs in a select2 field
       if (key == 'topics' || key == 'authors') {
         insert_current_taxonomy_data(key, val);

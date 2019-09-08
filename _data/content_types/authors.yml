@@ -72,7 +72,7 @@ blocks:
   name: Location
   type: input
   data_type: string
-  txt: "Tell us where you live and work [e.g. 'New York City' or 'Portland, OR']"
+  txt: "Help us show that the federal workforce is not all in the D.C. area.<br/>Where in the country do you live in? [e.g. 'New York City' or 'Portland, OR']"
   comment: "Tell us where you live and work [e.g. 'New York City' or 'Portland, OR']"
 - id: github
   name: GitHub ID
@@ -82,7 +82,13 @@ blocks:
   comment: "A GitHub account will allow you to edit pages on DigitalGov. Also, the image used in your GitHub account can be used to populate your digital.gov profile photo. Learn more about getting a Github account at [URL]"
 - id: profile_photo
   name: Profile Photo
-  type: input
+  type: select
+  options:
+    - blank
+    - github
+    - digit-black
+    - digit-white
+    - digit-pride
   data_type: string
   txt: "See [URL] for a full list of profile photo options"
   comment: "Profile Photo\n# See [URL] for a full list of profile photo options"

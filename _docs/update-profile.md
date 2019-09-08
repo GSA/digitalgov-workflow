@@ -6,11 +6,21 @@ permalink: /update-profile/
 description:
 ---
 
-In this next version of digital.gov, we are doing more to elevate the people behind the great work that is happening in government. When you and your team do great work, we’d like to make sure others in government get to know the people behind it.
+
+We are doing more to elevate the people behind the great work that is happening in government. When you and your team do great work, we’d like to make sure others in government have a chance to get to know the people behind it.
 
 To achieve this, we’ve improved our profile pages to reflect the information people need to better connect and collaborate with each other. Now we need your help in keeping your profile current.
 
-On article pages, your user name will appear as:
+
+
+
+1. [**Check to see if you have a profile on digital.gov »**](https://demo.digital.gov/authors/)
+2. Are you new to digital.gov? [**Create a new profile »**]({% link _pages/new/authors.md %})
+
+
+## How your profile will appear
+
+If you have an updated profile, and you've written something for us in the past, your user name will appear like the following on article pages:
 
 <div class="bg-base-lightest margin-bottom-2 padding-105 width-mobile">
   <div class="margin-0 display-flex flex-align-center font-sans-2xs">
@@ -29,10 +39,6 @@ On article pages, your user name will appear as:
     </p>
   </div>
 </div>
-
-[**Check to see if you have a profile on digital.gov »**](https://demo.digital.gov/authors/)
-
-Are you new to digital.gov? [**Create a new profile »**]({% link _pages/new/events.md %})
 
 ## How to update your profile:
 - Ensure that you have a [free GitHub account](https://github.com/) — read our [guide to setting up a GitHub account]({% link _docs/github-account.md %}) and how it'll be used

@@ -125,6 +125,12 @@ function process_text(id, el){
     } else {
       return "\n"+el.val();
     }
+  } else if (id == 'kicker') {
+    if ($(el).val().length == 0) {
+      return 'skip';
+    } else {
+      return $(el).val();
+    }
   } else if (id == 'branch') {
     return 'skip';
   } else if (id == 'date') {
@@ -133,6 +139,13 @@ function process_text(id, el){
   } else if (id == 'end_date') {
     var time = $('.block-end_time input').val();
     return el.val() + ' ' + time;
+  } else if (id == 'primary_image') {
+    var primary_image = $(el).val();
+    if (primary_image.length == 0) {
+      return 'skip';
+    } else {
+      return primary_image;
+    }
   } else if (id == 'time') {
     return 'skip';
   } else if (id == 'end_time') {

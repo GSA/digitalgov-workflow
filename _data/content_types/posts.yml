@@ -67,6 +67,12 @@ blocks:
   data_type: data
   txt: "see all authors at https://digital.gov/authors"
   comment: "see all authors at https://digital.gov/authors"
+- id: primary_image
+  name: Primary Image (for social media)
+  type: input
+  data_type: string
+  txt: "Accepts the image slug without extension, e.g. <code>filename-goes-here</code><br/>Upload images here: URLGOESHERE"
+  comment: "Primary Image (for social media)"
 - id: weight
   name: Page Weight
   type: select-number
