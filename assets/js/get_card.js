@@ -87,7 +87,7 @@ function display_event_data(e){
   var date = e.date;
   var start_date = e.start_date;
   var start_time = e.start_date;
-  var end_time = e.end_time;
+  var end_date = e.end_date;
   var editpathURL = e.editpathURL;
   var filename = e.filename;
   var filepath = e.filepath;
@@ -100,7 +100,7 @@ function display_event_data(e){
 			'<h3 class="margin-0 margin-bottom-1">',
 				'<a class="text-no-underline text-ink visited:text-ink" href="'+sourceoftruth+ url+'" title="'+title+'">'+title+'</a>',
 			'</h3>',
-			'<h5 class="margin-0 margin-bottom-105 text-light font-sans-md">'+start_date+' / '+start_time+' - '+end_time+'</h5>',
+			'<h5 class="margin-0 margin-bottom-105 text-light font-sans-md">'+start_date+' / '+start_time+' - '+end_date+'</h5>',
 			'<p class="margin-0 font-sans-2xs">'+summary+'</p>',
 			'<p class="font-sans-3xs">',
 				topics,
@@ -248,6 +248,9 @@ function display_newsletter_item_data(e){
   var authors = e.authors;
   var date_modified = e.date_modified;
   var date = e.date;
+	var start_date = event_date_format(e.start_date);
+	var start_time = event_time_format(e.start_date);
+	var end_date = event_time_format(e.end_date);
   var editpathURL = e.editpathURL;
   var filename = e.filename;
   var filepath = e.filepath;
@@ -261,10 +264,17 @@ function display_newsletter_item_data(e){
 	}
   var url = e.url;
   var sourceoftruth = encodeURI(source_of_truth);
-  var card = [
-		'<li class="margin-bottom-105">',
-			'<a href="'+sourceoftruth+ url+'" title="'+title+'"><strong>'+title+'</strong></a> — '+summary + source_txt,
-		'</li>',
+	var card = [
+		'<header class="bg-white padding-2 radius-sm">',
+			'<h3 class="margin-0 margin-bottom-1">',
+				'<a class="text-no-underline text-ink visited:text-ink" href="'+sourceoftruth+ url+'" title="'+title+'">'+title+'</a>',
+			'</h3>',
+			'<h5 class="margin-0 margin-bottom-105 text-light font-sans-md">'+start_date+' / '+start_time+' - '+end_date+' ET</h5>',
+			'<p class="margin-0 font-sans-2xs">'+summary+'</p>',
+			'<p class="font-sans-3xs">',
+				topics,
+			'</p>',
+		'</header>'
   ].join("\n");
 	return card;
 }
@@ -278,4 +288,36 @@ function format_topics(data){
 		topics += topic;
 	});
 	return topics;
+}
+
+function event_time_format(string){
+	console.log(string);
+	date        = new Date(string),
+	min 				= addZero(date.getMinutes());
+	hours 			= date.getHours();
+	console.log(hours + ':' + min);
+	return hours + ':' + min;
+}
+function addZero(i) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  return i;
+}
+function event_date_format(string){
+	var month_name = function(dt){
+		mlist = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+		return mlist[dt.getMonth()];
+	};
+	var weekday = function(dt){
+		dlist = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+		return dlist[dt.getDay()];
+	}
+	date        = new Date(string),
+	yr          = date.getFullYear(),
+	month_name  = month_name(date),
+	weekday     = weekday(date),
+	day         = date.getDate()  < 10 ? '0' + date.getDate()  : date.getDate(),
+	newDate     = weekday + ', '+ month_name +' '+ day +', '+yr;
+	return newDate;
 }

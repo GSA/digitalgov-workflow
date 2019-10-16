@@ -2,33 +2,40 @@
 layout: default
 ---
 
-<section class="margin-bottom-3">
-  <h1 class="margin-0 font-sans-2xl text-heavy">{{ page.title | escape }}</h1>
-  <p>Live: <a href="{{ site.source_of_truth }}{{ page.source_path }}" title="Go to {{ site.source_of_truth }}{{ page.source_path }}">{{ site.source_of_truth }}{{ page.source_path }}</a> </p>
-  {% if page.api %}
-  <p><a href="{{ site.baseurl }}/new/{{ page.api }}" class="margin-top-1 padding-x-105 padding-y-05 bg-primary radius-md text-white visited:text-white text-no-underline display-inline-block">New</a></p>
+<header class="margin-bottom-2">
+  {% if page.content_type %}
+  <a class="display-block margin-bottom-2 text-no-underline text-bold" href="/{{ page.content_type | absURL }}"><i class="fas fa-arrow-left"></i> All {{ page.content_type }}</a>
   {% endif %}
-  <div class="margin-y-5 font-sans-md text-light">
-    {{ content }}
+  <h1 class="margin-0 text-heavy font-sans-2xl">{{ page.title | escape }}</h1>
+  {% if page.deck %}
+  <div class="text-thin font-sans-xl">{{ page.deck | escape }}</div>
+  {% endif %}
+</header>
+
+
+<div class="grid-row grid-gap-4">
+  <div class="grid-col-12 tablet:grid-col-6">
+    <section class="newsletter-list bg-base-lighter margin-bottom-5 padding-2" data-api="posts">
+      <h2 class="margin-y-0 font-sans-md">Recent News and Updates</h2>
+        <ul class="padding-left-205 font-sans-sm">
+        </ul>
+    </section>
+
+    <section class="newsletter-list bg-base-lighter padding-2" data-api="events">
+      <h2 class="margin-y-0 font-sans-md">Upcoming events and training</h2>
+      <div id="list-box" class="font-sans-sm">
+
+      </div>
+    </section>
   </div>
 
-</section>
+  <div class="grid-col-12 tablet:grid-col-6">
+    <p><a href="#" class="btn-copy padding-x-1 padding-y-05 text-no-underline radius-sm border-primary border-width-1px border-solid display-inline" data-clipboard-target="#post-matter">Copy</a> the text below.</p>
+    <section>
 
-<div class="grid-container">
-  <div class="grid-row">
-    <div class="grid-col-6">
-      <section class="newsletter-list bg-base-lighter margin-bottom-5 padding-2" data-api="posts">
-        <h2 class="margin-y-0 font-sans-md">Recent News and Updates</h2>
-          <ul class="padding-left-205 font-sans-sm">
-          </ul>
-      </section>
+      <pre id="post-matter" class="bg-white padding-2 border-1px border-base"></pre>
 
-      <section class="newsletter-list bg-base-lighter padding-2" data-api="events">
-        <h2 class="margin-y-0 font-sans-md">Upcoming events and training</h2>
-        <ul class="padding-left-205 font-sans-sm">
+    </section>
 
-        </ul>
-      </section>
-    </div>
   </div>
 </div>
