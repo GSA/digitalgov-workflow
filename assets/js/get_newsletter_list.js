@@ -77,7 +77,7 @@ jQuery(document).ready(function($) {
       var card = [
         '<div style="text-align: left; font-size: 14px;"><span style="background-color: transparent; color: #000000; font-family: helvetica; font-size: 20px;">- - - - - -</span></div><div style="text-align: left; font-size: 14px;">&nbsp;</div><div style="text-align: left; font-size: 14px;">',
         '<div style="text-align: left;"><a href="'+sourceoftruth+ url+'" title="'+title+'" rel=" noopener" style="font-size: 20px;color: #3574e3;"><strong>'+title+'</strong></a></div>',
-        '<div style="text-align: left;"><strong style="font-size: 16px;color: #000000;">📆 '+start_date+'<br/>'+start_time+'-'+end_date+' ET</strong></div>',
+        '<div style="text-align: left;"><strong style="font-size: 16px;color: #000000;">📆 '+start_date+', '+start_time+'-'+end_date+' ET</strong></div>',
         '<div style="text-align: left;"><p style="color: #000000; font-size: 16px;">'+summary+' <a href="'+sourceoftruth+ url+'" title="'+title+'" rel=" noopener" style="color: #3574e3;"><strong>REGISTER</strong></a></p></div>'
       ].join("\n");
       $('#post-matter').append(htmlEncode(card));
