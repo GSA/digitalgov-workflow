@@ -167,6 +167,14 @@ function process_text(id, el){
     } else {
       return weight;
     }
+
+  } else if (id == 'event_platform') {
+    var event_platform = $(el).val();
+    if (event_platform.length == 0) {
+      return 'skip';
+    } else {
+      return event_platform;
+    }
   } else if (id == 'filename') {
     var slug = slugify();
     var filename = slug + '.md';

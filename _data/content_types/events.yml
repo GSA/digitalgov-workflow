@@ -94,16 +94,19 @@ blocks:
   data_type: data
   txt: "see all authors at https://digital.gov/authors"
   comment: "see all authors at https://digital.gov/authors"
+- id: event_platform
+  name: Event Platform
+  type: select
+  options:
+    - blank
+    - zoom
+    - youtube_live
+    - adobe connect
 - id: youtube_id
   name: YouTube ID
   type: input
   data_type: data
   txt: "e.g. <code>3FKyVeipMss</code>"
-- id: zoom_id
-  name: Zoom ID
-  type: input
-  data_type: data
-  txt: ""
 - id: venue
   name: In Person
   type: checkbox
