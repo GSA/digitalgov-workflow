@@ -25,9 +25,9 @@ var replace       = require('gulp-replace');
 var sass          = require('gulp-sass');
 var sourcemaps    = require('gulp-sourcemaps');
 var uswds         = require('./node_modules/uswds-gulp/config/uswds');
-var uglify        = require('gulp-uglify'),
-    concat        = require("gulp-concat"),
-    jshint        = require("gulp-jshint");
+// var uglify        = require('gulp-uglify'),
+//     concat        = require("gulp-concat"),
+//     jshint        = require("gulp-jshint");
 
 /*
 ----------------------------------------
@@ -82,7 +82,7 @@ gulp.task('copy-uswds-images', () => {
 
 gulp.task('copy-uswds-js', () => {
   return gulp.src(`${uswds}/js/**/**`)
-  .pipe(gulp.dest(`${JS_DEST}`));
+  .pipe(gulp.dest(`${PROJECT_JS_DEST}`));
 });
 
 gulp.task('build-sass', function(done) {
@@ -138,9 +138,9 @@ gulp.task('compile', function (done) {
 
 gulp.task('watch-code', function () {
   gulp.watch(`${PROJECT_SASS_SRC}/**/*.scss`, gulp.series('build-sass'));
-  gulp.watch(`${PROJECT_JS_SRC}/**/*.js`, gulp.series('compile'));
+  // gulp.watch(`${PROJECT_JS_SRC}/**/*.js`, gulp.series('compile'));
 });
 
-gulp.task('watch', gulp.series('compile', 'build-sass', 'watch-code'));
+gulp.task('watch', gulp.series('build-sass', 'watch-code'));
 
 gulp.task('default', gulp.series('watch'));
