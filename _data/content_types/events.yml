@@ -29,6 +29,13 @@ blocks:
   type: textarea
   data_type: string
   txt: "1-sentence description that does not repeat the headline"
+- id: featured_image
+  name: Presenters (authors)
+  type: select-multiple
+  data_type: data
+  txt: "see all authors at https://digital.gov/authors"
+  comment: "see all authors at https://digital.gov/authors"
+
 - id: source_url
   name: Source Url
   type: input
