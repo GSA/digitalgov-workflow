@@ -14,7 +14,7 @@ To do this, we’ve improved our profile pages to reflect the information people
 
 **How to update your profile:**
 - Ensure that you have a [free GitHub account](https://github.com/) — read our [guide to setting up a GitHub account]({% link _docs/github-account.md %}) and how it'll be used
-- [Go to our list of authors](https://demo.digital.gov/authors/) and find your name
+- [Go to our list of authors](https://digital.gov/authors/) and find your name
 - Click on your profile
 - Click on “edit” — learn more about our editing workflow
 - Submit

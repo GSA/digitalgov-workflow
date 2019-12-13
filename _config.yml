@@ -31,7 +31,7 @@ github_repo: "digitalgov-workflow"
 workflow_org: "GSA"
 workflow_repo: "digitalgov.gov"
 
-source_of_truth: "https://demo.digital.gov"
+source_of_truth: "https://digital.gov"
 
 # Build settings
 markdown: kramdown
@@ -51,32 +51,32 @@ content_types:
   - id: "posts"
     title: "Posts"
     url: /edit/posts/
-    api: 'https://demo.digital.gov/posts/index.json'
+    api: 'https://digital.gov/posts/index.json'
   - id: "events"
     title: "Events"
     url: /edit/events/
-    api: 'https://demo.digital.gov/events/index.json'
+    api: 'https://digital.gov/events/index.json'
   - id: "resources"
     title: "Resources"
     url: /edit/resources/
-    api: 'https://demo.digital.gov/resources/index.json'
+    api: 'https://digital.gov/resources/index.json'
   - id: "services"
     title: "Services"
     url: /edit/services/
-    api: 'https://demo.digital.gov/services/index.json'
+    api: 'https://digital.gov/services/index.json'
   - id: "communities"
     title: "Communities"
     url: /edit/communities/
-    api: 'https://demo.digital.gov/communities/index.json'
+    api: 'https://digital.gov/communities/index.json'
   - id: "topics"
     title: "Topics"
     url: /edit/topics/
-    api: 'https://demo.digital.gov/topics/v1/json/'
+    api: 'https://digital.gov/topics/v1/json/'
   - id: "authors"
     title: "Authors"
     url: /edit/authors/
-    api: 'https://demo.digital.gov/authors/v1/json/'
+    api: 'https://digital.gov/authors/v1/json/'
   - id: "sources"
     title: "Sources"
     url: /edit/sources/
-    api: 'https://demo.digital.gov/sources/index.json'
+    api: 'https://digital.gov/sources/index.json'
