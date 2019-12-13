@@ -329,7 +329,6 @@ function slugify() {
   output = output.toLowerCase();
   output = output.replace(/\s\s+/g, " ");
   output = output.trim();
-  output = output.replace(/\s/g, "-");
   return output;
 }
 
@@ -399,7 +398,7 @@ jQuery(document).ready(function ($) {
 	   console.log(e);
 	});
 
-  
+
 });
 
 jQuery(document).ready(function($) {
