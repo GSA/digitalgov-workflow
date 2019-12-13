@@ -106,6 +106,10 @@ blocks:
   name: Instagram
   type: input
   data_type: string
+- id: linkedin
+  name: LinkedIn
+  type: input
+  data_type: string
 - id: youtube
   name: YouTube
   type: input
