@@ -398,7 +398,7 @@ jQuery(document).ready(function ($) {
 	   console.log(e);
 	});
 
-
+  
 });
 
 jQuery(document).ready(function($) {

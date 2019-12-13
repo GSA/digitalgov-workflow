@@ -6,7 +6,6 @@ jQuery(document).ready(function ($) {
     output = output.toLowerCase();
     output = output.replace(/\s\s+/g, " ");
     output = output.trim();
-    output = output.replace(/\s/g, "-");
     return output;
   }
   function encodeEntities(input) {
