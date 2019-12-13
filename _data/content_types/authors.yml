@@ -63,7 +63,7 @@ blocks:
   txt: "e.g. U.S. General Services Administration"
   comment: "Agency Full Name [e.g. U.S. General Services Administration]"
 - id: agency
-  name: Agency / Team Acronym
+  name: Agency Acronym
   type: input
   data_type: string
   txt: "This is the short name for your team or agency, e.g., GSA or PIF"
