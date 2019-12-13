@@ -1,7 +1,8 @@
-_site/
-.sass-cache/
-assets/css
-.jekyll-cache
+_site
+_sass
+.sass-cache
 .jekyll-metadata
 node_modules
-.ruby-version
+.gz
+.DS_Store
+.jekyll-cache
