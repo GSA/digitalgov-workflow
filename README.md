@@ -2,6 +2,8 @@
 
 Welcome to our repository.
 
+---
+
 ## Development
 
 To set up:
