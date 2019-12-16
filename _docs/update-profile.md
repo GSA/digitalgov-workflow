@@ -14,7 +14,7 @@ To achieve this, we’ve improved our profile pages to reflect the information p
 
 
 
-1. [**Check to see if you have a profile on digital.gov »**](https://demo.digital.gov/authors/)
+1. [**Check to see if you have a profile on digital.gov »**](https://digital.gov/authors/)
 2. Are you new to digital.gov? [**Create a new profile »**]({% link _pages/new/authors.md %})
 
 
@@ -42,7 +42,7 @@ If you have an updated profile, and you've written something for us in the past,
 
 ## How to update your profile:
 - Ensure that you have a [free GitHub account](https://github.com/) — read our [guide to setting up a GitHub account]({% link _docs/github-account.md %}) and how it'll be used
-- [Go to our list of authors](https://demo.digital.gov/authors/) and find your name
+- [Go to our list of authors](https://digital.gov/authors/) and find your name
 - Click on your profile
 - Click on “edit” — learn more about our editing workflow
 - Submit
@@ -64,43 +64,43 @@ Right now, the only way to get a personal profile image on digital.gov is throug
 
 <div class="bg-base-lightest padding-105 width-mobile">
   <p class="margin-top-0 margin-bottom-2 display-flex flex-align-center font-mono-xs">
-    <img class="margin-right-1 circle-5 border-1px border-base-light" src="https://demo.digital.gov/img/digit-usa.png"/>
+    <img class="margin-right-1 circle-5 border-1px border-base-light" src="https://digital.gov/img/digit-usa.png"/>
     <span>digit-usa (default)</span>
   </p>
   <p class="margin-y-2 margin-bottom-2 display-flex flex-align-center font-mono-xs">
-    <img class="margin-right-1 circle-5 border-1px border-base-light" src="https://demo.digital.gov/img/digit-hi.png"/>
+    <img class="margin-right-1 circle-5 border-1px border-base-light" src="https://digital.gov/img/digit-hi.png"/>
     <span>digit-hi</span>
   </p>
   <p class="margin-y-2 margin-bottom-2 display-flex flex-align-center font-mono-xs">
-    <img class="margin-right-1 circle-5 border-1px border-base-light" src="https://demo.digital.gov/img/digit-light.png"/>
+    <img class="margin-right-1 circle-5 border-1px border-base-light" src="https://digital.gov/img/digit-light.png"/>
     <span>digit-light</span>
   </p>
   <p class="margin-y-2 display-flex flex-align-center font-mono-xs">
-    <img class="margin-right-1 circle-5 border-1px border-base-light" src="https://demo.digital.gov/img/digit-dark.png"/>
+    <img class="margin-right-1 circle-5 border-1px border-base-light" src="https://digital.gov/img/digit-dark.png"/>
     <span>digit-dark</span>
   </p>
   <p class="margin-y-2 display-flex flex-align-center font-mono-xs">
-    <img class="margin-right-1 circle-5 border-1px border-base-light" src="https://demo.digital.gov/img/digit-diversity.png"/>
+    <img class="margin-right-1 circle-5 border-1px border-base-light" src="https://digital.gov/img/digit-diversity.png"/>
     <span>digit-diversity</span>
   </p>
   <p class="margin-y-2 display-flex flex-align-center font-mono-xs">
-    <img class="margin-right-1 circle-5 border-1px border-base-light" src="https://demo.digital.gov/img/digit-pride.png"/>
+    <img class="margin-right-1 circle-5 border-1px border-base-light" src="https://digital.gov/img/digit-pride.png"/>
     <span>digit-pride</span>
   </p>
   <p class="margin-y-2 display-flex flex-align-center font-mono-xs">
-    <img class="margin-right-1 circle-5 border-1px border-base-light" src="https://demo.digital.gov/img/digit-trans.png"/>
+    <img class="margin-right-1 circle-5 border-1px border-base-light" src="https://digital.gov/img/digit-trans.png"/>
     <span>digit-trans</span>
   </p>
   <p class="margin-y-2 display-flex flex-align-center font-mono-xs">
-    <img class="margin-right-1 circle-5 border-1px border-base-light" src="https://demo.digital.gov/img/digit-red.png"/>
+    <img class="margin-right-1 circle-5 border-1px border-base-light" src="https://digital.gov/img/digit-red.png"/>
     <span>digit-red</span>
   </p>
   <p class="margin-y-2 display-flex flex-align-center font-mono-xs">
-    <img class="margin-right-1 circle-5 border-1px border-base-light" src="https://demo.digital.gov/img/digit-indigo.png"/>
+    <img class="margin-right-1 circle-5 border-1px border-base-light" src="https://digital.gov/img/digit-indigo.png"/>
     <span>digit-indigo</span>
   </p>
   <p class="margin-y-2 margin-bottom-0 display-flex flex-align-center font-mono-xs">
-    <img class="margin-right-1 circle-5 border-1px border-base-light" src="https://demo.digital.gov/img/digit-gold.png"/>
+    <img class="margin-right-1 circle-5 border-1px border-base-light" src="https://digital.gov/img/digit-gold.png"/>
     <span>digit-gold</span>
   </p>
 </div>

@@ -202,7 +202,7 @@ function author_updated(e){
 	if (e.github) {
 		var profile_img = 'https://github.com/'+e.github+'.png?size=100" srcset="https://www.github.com/'+e.github+'.png?size=200';
 	} else {
-		var profile_img = 'https://demo.digital.gov/img/digit-light.png';
+		var profile_img = 'https://digital.gov/img/digit-light.png';
 	}
 	var quote = e.quote;
 	var twitter = e.twitter;
