@@ -34,7 +34,7 @@
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
-    "jshint": "^2.10.2",
+    "jshint": "^2.10.3",
     "path": "^0.12.7",
     "uswds": "^2.0.3",
     "uswds-gulp": "github:uswds/uswds-gulp"
