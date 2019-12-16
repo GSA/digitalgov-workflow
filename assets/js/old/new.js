@@ -58,7 +58,7 @@ jQuery(document).ready(function ($) {
     var source_url = ($('#block-source_url').hasClass('display-none')) ? "" : `\n# What is the URL for this product or service?\n# Note: We'll add a ?dg to the end of the URL in the code for tracking purposes\nsource_url: "${$("#block-source_url input").val()}"\n`;
     var commit_msg = "new "+ $content_type +": " + `${encodeEntities($("#block-title input").val()).trim()}`;
     var commit_desc = `${encodeEntities($("#block-deck textarea").val()).trim()}`;
-    var branch = "demo";
+    var branch = "master";
 
 
     var slug = $("#block-title input").val();

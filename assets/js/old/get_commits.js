@@ -36,7 +36,7 @@ function list_commits(data){
   	var commit_message = e.commit.message;
   	var commit_html_url = e.html_url;
   	var commit_author_url = 'https://github.com/' + commit_author_username;
-  	var commit_history_url = 'https://github.com/GSA/digitalgov.gov/commits/demo/content/' + filepath;
+  	var commit_history_url = 'https://github.com/GSA/digitalgov.gov/commits/master/content/' + filepath;
     var commit = [
 			"<div class='border-top-1px padding-y-1'>",
 			"<p>"+commit_message,
