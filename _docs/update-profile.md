@@ -41,7 +41,7 @@ If you have an updated profile, and you've written something for us in the past,
 </div>
 
 ## How to update your profile:
-- Ensure that you have a [free GitHub account](https://github.com/) — read our [guide to setting up a GitHub account]({% link _docs/github-account.md %}) and how it'll be used
+- Ensure that you have a [free GitHub account](https://github.com/) — read our [guide to setting up a GitHub account](https://github.com/GSA/digitalgov.gov/wiki/Getting-Started-with-GitHub) and how it'll be used
 - [Go to our list of authors](https://digital.gov/authors/) and find your name
 - Click on your profile
 - Click on “edit” — learn more about our editing workflow
@@ -51,7 +51,7 @@ If you have an updated profile, and you've written something for us in the past,
 
 ## Add/Update your profile image
 
-Right now, the only way to get a personal profile image on digital.gov is through your GitHub account. Don't yet have a github account yet? Read our [guide to setting up a GitHub account]({% link _docs/github-account.md %}) and how it'll be used on our site.
+Right now, the only way to get a personal profile image on digital.gov is through your GitHub account. Don't yet have a github account yet? Read our [guide to setting up a GitHub account](https://github.com/GSA/digitalgov.gov/wiki/Getting-Started-with-GitHub) and how it'll be used on our site.
 
 
 <div class="bg-base-lightest margin-bottom-2 padding-105 width-mobile">
@@ -117,7 +117,7 @@ Right now, the only way to get a personal profile image on digital.gov is throug
 - **Agency full name** — [e.g. U.S. General Services Administration]
 - **Agency acronym** — [e.g., GSA]
 - **Location** — We it's nice to reflect the diverse locations many federal employees are work from. (location is optional)
-- **GitHub ID** — See our [guide to setting up a GitHub account]({% link _docs/github-account.md %}) and how it'll be used
+- **GitHub ID** — See our [guide to setting up a GitHub account](https://github.com/GSA/digitalgov.gov/wiki/Getting-Started-with-GitHub) and how it'll be used
 - **Profile image** — see our [options for updating your profile image](#) an
 - **Professional social media** — (yours or your agency’s; e.g., LinkedIn, Twitter, Facebook, YouTube)
 - **URL** — Tell us where can people learn more about your agency or program

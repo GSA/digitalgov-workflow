@@ -2,19 +2,11 @@
 # List links that should appear in navigation bar
 
 nav:
-  - text: "Our Users"
-    url: /user-needs/
-  - text: "How to Contribute"
-    url: /contribute/
-  - text: "Guide to Events"
-    url: /events-guide/
-  - text: "Update Your Profile"
-    url: /update-profile/
-  - text: "GitHub Account"
-    url: /github-account/
   - text: "Principles & Guidelines"
     url: /principles/
-  - text: "Style Guide"
-    url: /style-guide/
-  - text: "Grammar"
-    url: /grammar/
+  - text: "Our Users"
+    url: /user-needs/
+  - text: "Contributing"
+    url: /contribute/
+  - text: "Update Your Profile"
+    url: /update-profile/
