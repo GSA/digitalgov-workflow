@@ -70,7 +70,7 @@ blocks:
   name: End Date
   type: input
   data_type: data
-  txt: "this is more text"
+  txt: "Usually the same date as the event"
   comment: "end date"
 - id: time
   name: Start Time
@@ -92,7 +92,7 @@ blocks:
   name: Presenters (authors)
   type: select-multiple
   data_type: data
-  txt: "see all authors at https://digital.gov/authors"
+  txt: "See all authors at https://digital.gov/authors"
   comment: "see all authors at https://digital.gov/authors"
 - id: event_platform
   name: Event Platform
@@ -101,12 +101,14 @@ blocks:
     - blank
     - zoom
     - youtube_live
-    - adobe connect
+    - adobe_connect
+  comment: "Event platform (zoom, youtube_live, adobe_connect)"
 - id: youtube_id
   name: YouTube ID
   type: input
   data_type: data
   txt: "e.g. <code>3FKyVeipMss</code>"
+  comment: "YouTube ID"
 - id: venue
   name: In Person
   type: checkbox
