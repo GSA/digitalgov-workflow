@@ -239,6 +239,8 @@ function get_publish_url(content_type) {
     var url = "https://digital.gov/authors/" + slug;
   } else if (content_type == 'topics') {
     var url = "https://digital.gov/topics/" + slug;
+  } else if (content_type == 'sources') {
+    var url = "https://digital.gov/sources/" + slug;
   } else {
     var url = "https://digital.gov/" + file_yearmo() + slug;
   }
@@ -263,6 +265,8 @@ function get_github_url(post_matter) {
     base_url += file_yearmoday() + '?filename=' + get_filename() + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
   } else if (content_type == 'authors' || content_type == 'topics') {
     base_url += slugify() + '/?filename='+slugify()+'/_index.md' + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
+  } else if (content_type == 'sources') {
+    base_url += slugify() + '/?filename=source_'+slugify()+'.md' + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
   } else {
     base_url += '?filename=' + get_filename() + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
   }
