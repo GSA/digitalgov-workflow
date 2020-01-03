@@ -13,7 +13,6 @@ function file_yearmo() {
   var year = dateObj.getUTCFullYear();
   var month = ("0" + (dateObj.getUTCMonth() + 1)).slice(-2); //months from 1-12
   var yearmo = year + "/" + month + "/";
-
   return yearmo;
 }
 // returns the year and month for use in the filepath in the front matter
@@ -138,7 +137,7 @@ function process_text(id, el){
     return el.val() + ' ' + time + ' -0500';
   } else if (id == 'end_date') {
     var time = $('.block-end_time input').val();
-    return el.val() + ' ' + time;
+    return el.val() + ' ' + time + ' -0500';
   } else if (id == 'primary_image') {
     var primary_image = $(el).val();
     if (primary_image.length == 0) {
@@ -265,7 +264,7 @@ function get_github_url(post_matter) {
 
   // Setting the file path based on content_type
   if (content_type == 'posts' || content_type == 'events') {
-    base_url += file_yearmo() + '?filename=' + get_filename() + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
+    base_url += file_yearmoday() + '?filename=' + get_filename() + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
   } else if (content_type == 'authors' || content_type == 'topics') {
     base_url += slugify() + '/?filename='+slugify()+'/_index.md' + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
   } else {
