@@ -1,0 +1,44 @@
+name: Topics
+id: topics
+page-title: topics
+description: a topics template
+base_field: title
+blocks:
+- id: filename
+  name: Filename
+  type: input-hidden
+  data_type: data
+  txt: ""
+- id: slug
+  name: Slug
+  type: input-hidden
+  data_type: skip
+  txt: ""
+- id: title
+  name: Topic Name
+  type: input
+  data_type: string
+  txt: "Short, topical, no acronyms."
+- id: summary
+  name: Summary
+  type: textarea
+  data_type: string
+  txt: "1-sentence description that does not repeat the headline"
+- id: weight
+  name: Page Weight
+  type: select-number
+  options:
+    - blank
+    - 0
+    - 1
+    - 2
+    - 3
+  data_type: integer
+  txt: "Controls how this page appears across the site<br/>0 -- hidden<br/>1 -- visible"
+  comment: "Page weight: controls how this page appears across the site\n# 0 -- hidden\n# 1 -- visible"
+- id: aliases
+  name: Redirects
+  type: textarea
+  data_type: data
+  txt: "Redirects: enter the path of the URL that you want redirected to this page</br>Note: add two spaces, a dash, and another space before each path"
+  comment: "Redirects: enter the path of the URL that you want redirected to this page"

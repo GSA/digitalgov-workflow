@@ -52,7 +52,7 @@ function update_matter(){
     var val = process_text(id, $(this));
 
     // checks if the data should 'skip' and not appear in the front matter
-    if (val !== "skip") {
+    if ((val !== "skip") && (data_type !== "skip")) {
       if ((data_type == "string")) {
         var front_matter = '\n'+ comment + id + ': "' + val + '"';
       } else {
@@ -145,10 +145,6 @@ function process_text(id, el){
     } else {
       return primary_image;
     }
-  } else if (id == 'time') {
-    return 'skip';
-  } else if (id == 'end_time') {
-    return 'skip';
   } else if (id == 'slug') {
     if ($(el).is('[readonly]')){
       var slug = $(el).val();
@@ -186,8 +182,6 @@ function process_text(id, el){
     var filename = date + '-' + slug + '.md';
     $('.block-filename-dated input').val(filename);
     $('#filename').text(filename);
-    return 'skip';
-  } else if (id == 'venue') {
     return 'skip';
   } else if (el.hasClass('community_list')) {
     return 'skip';
@@ -243,6 +237,8 @@ function get_publish_url(content_type) {
     var url = "https://digital.gov/communities/" + slug;
   } else if (content_type == 'authors') {
     var url = "https://digital.gov/authors/" + slug;
+  } else if (content_type == 'topics') {
+    var url = "https://digital.gov/topics/" + slug;
   } else {
     var url = "https://digital.gov/" + file_yearmo() + slug;
   }
@@ -304,7 +300,6 @@ function get_community_list_data(id, el, group){
         if (i == 0) {
           output += "  - " + block_id + ": "+ $.trim(data) + "\n";
         } else {
-          // console.log(data_type + " --- " + data);
           if (data_type == "string") {
             output += '    ' + block_id + ': "'+ data + '"\n';
           } else {

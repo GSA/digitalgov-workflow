@@ -75,12 +75,12 @@ blocks:
 - id: time
   name: Start Time
   type: input
-  data_type: data
+  data_type: skip
   txt: "the time the event starts, in eastern time"
 - id: end_time
   name: End Time
   type: input
-  data_type: data
+  data_type: skip
   txt: "the time the event ends, in eastern time"
 - id: topics
   name: Topics
@@ -112,7 +112,7 @@ blocks:
 - id: venue
   name: In Person
   type: checkbox
-  data_type: data
+  data_type: skip
   value: in-person
 - id: venue_name
   name: Venue Name
