@@ -51,7 +51,7 @@ content_types:
   - id: "posts"
     title: "Posts"
     url: /edit/posts/
-    api: 'https://digital.gov/posts/index.json'
+    api: 'https://digital.gov/news/index.json'
   - id: "events"
     title: "Events"
     url: /edit/events/
