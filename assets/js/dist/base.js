@@ -48,6 +48,8 @@ function update_matter(){
 		var data_type = $(this).data('block-data_type'); // gets the data_type
 		var comment = $(this).data('block-comment') !== "" ? '\n# ' + $(this).data('block-comment') + '\n' : ""; // gets the comment
 
+    console.log("comment");
+    console.log(comment);
     // Process the text by
     var val = process_text(id, $(this));
 
