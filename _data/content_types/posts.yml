@@ -22,7 +22,7 @@ blocks:
 - id: time
   name: Time
   type: input-hidden
-  data_type: data
+  data_type: skip
 - id: kicker
   name: Kicker
   type: input

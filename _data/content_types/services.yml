@@ -22,7 +22,7 @@ blocks:
 - id: time
   name: Time
   type: input-hidden
-  data_type: data
+  data_type: skip
 - id: title
   name: Title / Headline
   type: input
