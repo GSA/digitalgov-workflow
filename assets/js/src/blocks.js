@@ -48,8 +48,6 @@ function update_matter(){
 		var data_type = $(this).data('block-data_type'); // gets the data_type
 		var comment = $(this).data('block-comment') !== "" ? '\n# ' + $(this).data('block-comment') + '\n' : ""; // gets the comment
 
-    console.log("comment");
-    console.log(comment);
     // Process the text by
     var val = process_text(id, $(this));
 
@@ -270,7 +268,7 @@ function get_github_url(post_matter) {
   } else if (content_type == 'sources') {
     base_url += slugify() + '/?filename=source_'+slugify()+'.md' + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
   } else {
-    base_url += '?filename=' + get_filename() + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
+    base_url += content_type + '?filename=' + get_filename() + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
   }
   return base_url;
 }
