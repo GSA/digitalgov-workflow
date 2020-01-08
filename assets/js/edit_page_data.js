@@ -35,9 +35,12 @@ jQuery(document).ready(function ($) {
       }
 
       if (key == 'featured_image') {
+        console.log('featured_image');
         if (val.uid) {
           $('[data-block="primary_image"]').val(val.uid);
         }
+        var notice = "<p class='notice margin-y-1 padding-x-1 padding-y-2px font-sans-3xs bg-gold'><strong>Update:</strong> There is a new format for featured images in GitHub. The image ID should still be the same, but featured_image is now called primary_image.</p>";
+        $('.block-primary_image').append(notice);
       }
 
       // Checks to see if the element is data that belongs in a select2 field
@@ -142,10 +145,6 @@ jQuery(document).ready(function ($) {
     var i = 1;
     $.each( val, function( index, element ) {
       $.each( element, function( key, val ) {
-        // console.log(key + " -- .block-"+key);
-        // console.log("val -- " + val);
-        console.log(".block-"+key+" .community_list-"+i);
-        console.log(val);
         $(".block-"+key+" .community_list-"+i).val(val);
       });
       i++;
