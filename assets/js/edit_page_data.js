@@ -35,7 +35,6 @@ jQuery(document).ready(function ($) {
       }
 
       if (key == 'featured_image') {
-        console.log('featured_image');
         if (val.uid) {
           $('[data-block="primary_image"]').val(val.uid);
         }
@@ -50,6 +49,12 @@ jQuery(document).ready(function ($) {
         var txt = decodeHTML(val);
         // Inserts the text into the field
         $('[data-block="'+ key +'"]').val(txt);
+      }
+
+      if (key == 'primary_image') {
+        if (val.uid) {
+          $('[data-block="primary_image"]').val(val.uid);
+        }
       }
 
       // We want to make sure the date reflects the date in the page
