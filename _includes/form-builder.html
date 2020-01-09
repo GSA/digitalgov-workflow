@@ -7,7 +7,7 @@
 
   {% if block.id == "source_url" %}
   <!-- Source switcher -->
-    {% include blocks/source_radio.html %}
+    {% include blocks/source_radio.html content_type=page.content_type %}
   {% endif %}
   {% if block.type %}
     {% include blocks/{{ block.type }}.html name=block.name id=block.id text=block.txt type=block.type data_type=block.data_type comment=block.comment options=block.options %}

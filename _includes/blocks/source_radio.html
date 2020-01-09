@@ -1,16 +1,16 @@
 <div id="card_display" class="block block-{{ include.id }} margin-top-4">
   <label class="usa-label font-sans-sm text-semibold" for="block-{{ include.id }}">
-    Publish source
+    Where will this page be published?
   </label>
   <fieldset class="margin-top-2 usa-fieldset {{ include.class }}">
     <legend class="usa-sr-only">Where does this page live?</legend>
     <div class="usa-radio">
       <input class="usa-radio__input" id="card_display_dg" type="radio" name="card_display" value="card_display_dg" checked>
-      <label class="usa-radio__label" for="card_display_dg">This page lives on Digital.gov</label>
+      <label class="usa-radio__label" for="card_display_dg">This will be a new {{ include.content_type }} page on Digital.gov</label>
     </div>
     <div class="usa-radio">
       <input class="usa-radio__input" id="card_display_elsewhere" name="card_display" type="radio" value="card_display_elsewhere">
-      <label class="usa-radio__label" for="card_display_elsewhere">This page lives on a separate website/URL</label>
+      <label class="usa-radio__label" for="card_display_elsewhere">This entry will point to a separate website/URL</label>
     </div>
   </fieldset>
 </div>

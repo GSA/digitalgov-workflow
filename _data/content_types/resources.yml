@@ -4,6 +4,18 @@ page-title: resources
 description: a resources template
 base_field: title
 blocks:
+- id: source_url
+  name: Source Url
+  type: input
+  data_type: string
+  txt: "e.g. https://18f.gsa.gov/2019/04/01/ ..."
+  comment: "Originally published at the following URL:"
+- id: source
+  name: Source / Website
+  type: select
+  data_type: data
+  txt: "If you don't see a site here, we can add it."
+  comment: "Which team or website published this?"
 - id: filename
   name: Filename
   type: input-hidden
@@ -14,6 +26,7 @@ blocks:
   type: input-hidden
   data_type: data
   txt: ""
+  comment: "slug (url path) — changing this requires a redirect"
 - id: date
   name: Date
   type: input
@@ -38,18 +51,6 @@ blocks:
   type: textarea
   data_type: string
   txt: "1-sentence description that does not repeat the headline"
-- id: source_url
-  name: Source Url
-  type: input
-  data_type: string
-  txt: "e.g. https://18f.gsa.gov/2019/04/01/ ..."
-  comment: "originally published at the following URL"
-- id: source
-  name: Source
-  type: select
-  data_type: data
-  txt: "this is more text"
-  comment: "Which team published this?\n# Learn about sources at https://workflow.digital.gov/sources"
 - id: topics
   name: Topics
   type: select-multiple
@@ -67,7 +68,7 @@ blocks:
   type: input
   data_type: string
   txt: "Accepts the image slug without extension, e.g. <code>filename-goes-here</code><br/>Upload images here: URLGOESHERE"
-  comment: "Primary Image (for social media)"
+  comment: "primary Image (for social media)"
 - id: weight
   name: Page Weight
   type: select-number
