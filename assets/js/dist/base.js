@@ -36,7 +36,7 @@ function update_matter(){
   var branch = "master";
   post_matter += "---";
   post_matter += page_url_comment;
-  post_matter += "\n# Learn how to edit our pages at https://workflow.digital.gov\n";
+  post_matter += "\n# Learn how to edit our pages at https://workflow.digital.gov";
 
   var community_list_1 = false;
   var community_list_2 = false;
