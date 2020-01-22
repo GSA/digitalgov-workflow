@@ -161,7 +161,7 @@ function display_author_card(e, content){
 }
 
 function author_edit_tools(e, content){
-	var uid = e.uid;
+	var slug = e.slug;
 	var sourceoftruth = encodeURI(source_of_truth);
 	var editpathURL = e.editpathURL;
 	var url = e.url;
@@ -173,7 +173,7 @@ function author_edit_tools(e, content){
 }
 
 function author_updated(e){
-	var uid = e.uid;
+	var slug = e.slug;
 	var display_name = e.display_name;
 	var first_name = e.first_name;
 	var last_name = e.last_name;
@@ -217,7 +217,7 @@ function author_updated(e){
 			'</div>',
 			'<div>',
 				'<h3 class="margin-0 margin-bottom-05 font-sans-md">',
-					'<a class="text-no-underline text-ink visited:text-ink" href="'+sourceoftruth+'/authors/'+uid+'" title="'+display_name+'">'+display_name+' '+pronoun+'</a>',
+					'<a class="text-no-underline text-ink visited:text-ink" href="'+sourceoftruth+'/authors/'+slug+'" title="'+display_name+'">'+display_name+' '+pronoun+'</a>',
 				'</h3>',
 				loc,
 				email,

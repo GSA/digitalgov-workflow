@@ -10,10 +10,11 @@ blocks:
   data_type: data
   txt: ""
 - id: slug
-  name: Slug
+  name: User ID
   type: input-hidden
   data_type: data
-  txt: ""
+  txt: "the specific user-id for an author."
+  comment: "slug — the specific user-id for an author."
 - id: display_name
   name: Display Name
   type: input
@@ -33,11 +34,6 @@ blocks:
   data_type: string
   txt: "List your pronoun(s) if you want them displayed alongside your name. If blank, we'll use just your name. Learn more http://mypronouns.org"
   comment: "List your pronoun(s) if you want them displayed alongside your name. If blank, we'll use just your name. Learn more http://mypronouns.org"
-- id: uid
-  name: User ID
-  type: input-hidden
-  data_type: string
-  comment: "user id — not easily changed"
 - id: email
   name: Email
   type: input
@@ -78,16 +74,16 @@ blocks:
   name: GitHub ID
   type: input
   data_type: string
-  txt: "[e.g. 'jeremyzilar'] — A GitHub account will allow you to edit pages on DigitalGov. Also, the image used in your GitHub account can be used to populate your digital.gov profile photo. Learn more about getting a Github account at [URL]"
-  comment: "A GitHub account will allow you to edit pages on DigitalGov. Also, the image used in your GitHub account can be used to populate your digital.gov profile photo. Learn more about getting a Github account at [URL]"
+  txt: "[e.g. 'jeremyzilar'] — A GitHub account will allow you to edit pages on Digital.gov. Also, the image used in your GitHub account can be used to populate your digital.gov profile photo. Learn more about getting a Github account at [URL]"
+  comment: "A GitHub account will allow you to edit pages on Digital.gov. Also, the image used in your GitHub account can be used to populate your digital.gov profile photo. Learn more about getting a Github account at [URL]"
 - id: profile_photo
   name: Profile Photo
   type: select
   options:
     - blank
     - github
-    - digit-black
-    - digit-white
+    - digit-dark
+    - digit-light
     - digit-pride
   data_type: string
   txt: "See [URL] for a full list of profile photo options"
