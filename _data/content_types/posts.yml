@@ -26,6 +26,12 @@ blocks:
   type: input-hidden
   data_type: data
   txt: ""
+- id: short_url
+  name: Short URL
+  type: input
+  data_type: data
+  txt: "Create a short URL for this post at https://go.usa.gov/."
+  comment: "Short URL — https://go.usa.gov/"
 - id: date
   name: Date
   type: input
