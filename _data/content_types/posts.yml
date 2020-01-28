@@ -30,7 +30,7 @@ blocks:
   name: Short URL
   type: input
   data_type: data
-  txt: "Create a short URL for this post at https://go.usa.gov/."
+  txt: "Create a short URL: <a target='_new' href='https://go.usa.gov/'>https://go.usa.gov/</a>."
   comment: "Short URL — https://go.usa.gov/"
 - id: date
   name: Date
