@@ -82,6 +82,7 @@ blocks:
       options:
       - listserv
       - google-group
+      - slack
       data_type: data
       txt: "'google-group' or 'listserv'"
     - id: type
