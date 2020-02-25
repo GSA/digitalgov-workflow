@@ -50,6 +50,11 @@ blocks:
   data_type: data
   txt: "this is more text"
   comment: "Which team published this?\n# Learn about sources at https://workflow.digital.gov/sources"
+- id: email
+  name: Email
+  type: input
+  data_type: string
+  txt: "Needs to be an email address!"
 - id: topics
   name: Topics
   type: select-multiple
