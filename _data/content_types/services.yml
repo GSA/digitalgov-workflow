@@ -3,6 +3,7 @@ id: services
 page-title: services
 description: a services template
 base_field: title
+filename_prefix: service_
 blocks:
 - id: filename
   name: Filename
@@ -14,30 +15,21 @@ blocks:
   type: input-hidden
   data_type: data
   txt: ""
-- id: date
-  name: Date
-  type: input
-  data_type: data
-  txt: "e.g. 2019-04-01 13:24"
 - id: time
   name: Time
   type: input-hidden
   data_type: skip
 - id: title
-  name: Title / Headline
+  name: Service Name
   type: input
   data_type: string
   txt: "Short, topical, no acronyms."
-- id: deck
-  name: Deck / Sub-head
-  type: textarea
-  data_type: string
-  txt: "Think of this as the sentence you'd most like to tweet. Do not repeat the headline. You need to be able to read it outloud in a single breath."
+  comment: "Service name"
 - id: summary
   name: Summary
   type: textarea
   data_type: string
-  txt: "1-sentence description that does not repeat the headline"
+  txt: "1-sentence description that does not repeat the title"
 - id: source_url
   name: Source Url
   type: input
@@ -50,22 +42,22 @@ blocks:
   data_type: data
   txt: "this is more text"
   comment: "Which team published this?\n# Learn about sources at https://workflow.digital.gov/sources"
-- id: email
-  name: Email
+- id: icon
+  name: Icon
   type: input
-  data_type: string
+  data_type: data
+  txt: ""
+  comment: "Images need to be 200x200px with a transparent background\n# Upload new images to Github in the /static/logos/ folder\n# https://github.com/GSA/digitalgov.gov/tree/master/static/promos/\n# The filename should reflect the name of the product or service (e.g., challenge-gov.png)"
+- id: email
+  name: Email Address
+  type: input
+  data_type: data
   txt: "Needs to be an email address!"
 - id: topics
   name: Topics
   type: select-multiple
   data_type: data
   txt: "see all topics at https://digital.gov/topics"
-  comment: "see all topics at https://digital.gov/topics"
-- id: authors
-  name: Authors
-  type: select-multiple
-  data_type: data
-  txt: "see all authors at https://digital.gov/authors"
   comment: "see all authors at https://digital.gov/authors"
 - id: primary_image
   name: Primary Image (for social media)
@@ -79,10 +71,9 @@ blocks:
   options:
     - blank
     - 0
-    - 1
   data_type: integer
-  txt: "Controls how this page appears across the site<br/>0 -- hidden<br/>1 -- visible"
-  comment: "Page weight: controls how this page appears across the site\n# 0 -- hidden\n# 1 -- visible"
+  txt: "Controls how this page appears across the site<br/>0 == hidden<br/>none == visible"
+  comment: "Page weight: controls how this page appears across the site\n# 0 == hidden\n# 1 == visible"
 - id: aliases
   name: Redirects
   type: textarea
