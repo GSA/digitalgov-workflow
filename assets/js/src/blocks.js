@@ -172,7 +172,11 @@ function process_text(id, el){
     }
   } else if (id == 'filename') {
     var slug = slugify();
+    var filename_prefix = $('form').data('filename_prefix');
     var filename = slug + '.md';
+    if (filename_prefix) {
+      var filename = filename_prefix + filename;
+    }
     $('.block-filename input').val(filename);
     $('#filename').text(filename);
     return 'skip';

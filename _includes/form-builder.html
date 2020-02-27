@@ -1,6 +1,6 @@
 {% assign form = site.data.content_types.[page.content_type] %}
 
-<form autocomplete="off" id="{{ page.content_type }}" class="margin-y-05 bg-base-lighter padding-top-2px padding-bottom-3 padding-x-3" accept-charset="utf-8" data-content_type="{{ page.content_type }}" data-base_field="{{ form.base_field }}">
+<form autocomplete="off" id="{{ page.content_type }}" class="margin-y-05 bg-base-lighter padding-top-2px padding-bottom-3 padding-x-3" accept-charset="utf-8" data-content_type="{{ page.content_type }}" data-base_field="{{ form.base_field }}" data-filename_prefix="{{ form.filename_prefix }}">
 
 <!-- For each of the blocks -->
 {% for block in form.blocks %}

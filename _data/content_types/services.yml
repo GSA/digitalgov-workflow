@@ -7,7 +7,7 @@ filename_prefix: service_
 blocks:
 - id: filename
   name: Filename
-  type: input-hidden
+  type: input
   data_type: data
   txt: ""
 - id: slug
