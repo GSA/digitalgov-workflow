@@ -35,13 +35,13 @@ blocks:
   type: input
   data_type: string
   txt: "e.g. https://18f.gsa.gov/2019/04/01/ ..."
-  comment: "originally published at the following URL"
+  comment: "Will this point to an external source URL?\n# Note: We'll add a ?dg to the end of the URL in the code for tracking purposes"
 - id: source
   name: Source
   type: select
   data_type: data
-  txt: "this is more text"
-  comment: "Which team published this?\n# Learn about sources at https://workflow.digital.gov/sources"
+  txt: "What source published this?"
+  comment: "What source published this?"
 - id: icon
   name: Icon
   type: input
@@ -58,7 +58,7 @@ blocks:
   type: select-multiple
   data_type: data
   txt: "see all topics at https://digital.gov/topics"
-  comment: "see all authors at https://digital.gov/authors"
+  comment: "see all topics at https://digital.gov/topics"
 - id: primary_image
   name: Primary Image (for social media)
   type: input
