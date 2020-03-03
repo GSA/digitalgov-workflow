@@ -229,7 +229,7 @@ function get_page_url_comment(content_type){
 
 function get_publish_url(content_type) {
   var slug = slugify();
-  if (content_type == 'posts') {
+  if (content_type == 'news') {
     var url = "https://digital.gov/" + file_yearmoday() + slug;
   } else if (content_type == 'events') {
     var url = "https://digital.gov/event/" + file_yearmo() + slug;
@@ -265,7 +265,7 @@ function get_github_url(post_matter) {
   }
 
   // Setting the file path based on content_type
-  if (content_type == 'posts' || content_type == 'events') {
+  if (content_type == 'news' || content_type == 'events') {
     base_url += file_yearmoday() + '?filename=' + get_filename() + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();
   } else if (content_type == 'authors' || content_type == 'topics') {
     base_url += slugify() + '/?filename='+slugify()+'/_index.md' + '&value=' + encodeURIComponent(post_matter) + '&message=' + encodeURIComponent(commit_msg) + '&description=' + encodeURIComponent(commit_desc) + '&target_branch=' + get_edit_branch();

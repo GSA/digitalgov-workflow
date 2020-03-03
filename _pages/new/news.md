@@ -1,7 +1,7 @@
 ---
 layout: editor
 title: New Blog Post
-permalink: /new/posts/
+permalink: /new/news/
 description:
-content_type: posts
+content_type: news
 ---

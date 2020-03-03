@@ -1,6 +1,6 @@
-name: Blog Post
-id: posts
-page-title: posts
+name: Blog Post / News
+id: news
+page-title: news
 description: a blog post template
 base_field: title
 blocks:

@@ -2,7 +2,7 @@
 function get_card(data, content, type){
 	if (type == "list" && content == "events") {
 		return display_page_card(data, content);
-	} else if (type == "list" && content == "posts") {
+	} else if (type == "list" && content == "news") {
 		return display_page_card(data, content);
 	} else if (type == "single" && content == "event") {
 		return display_event_data(data.item[0]);
