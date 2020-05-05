@@ -9,7 +9,7 @@ Welcome to our repository.
 
 To set up:
 ```
-$ npm run dependencies
-$ npm run init
+$ npm run install
+$ npm run setup
 $ npm start
 ```
