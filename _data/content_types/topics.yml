@@ -30,11 +30,10 @@ blocks:
   options:
     - 1
     - 2
-    - 3
     - 0
   data_type: integer
-  txt: "Controls how this page appears across the site<br/>0 -- hidden<br/>1 -- visible"
-  comment: "Page weight: controls how this page appears across the site\n# 0 -- hidden\n# 1 -- visible"
+  txt: "Controls how this page appears across the site<br/>0 -- hidden<br/>1 -- visible<br/>2 -- featured on the Resource page"
+  comment: "Page weight: controls how this page appears across the site\n# 0 -- hidden\n# 1 -- visible\n# 2 -- featured on the Resource page"
 - id: aliases
   name: Redirects
   type: textarea
