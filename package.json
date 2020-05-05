@@ -4,10 +4,10 @@
   "description": "A site for managing the digital.gov editorial workflow on GitHub",
   "main": "index.js",
   "scripts": {
-    "dependencies": "npm install && bundle install",
+    "install": "npm install && bundle install",
+    "setup": "npm run gulp -- init && git checkout -- ./assets/sass/_uswds-theme-typography.scss",
     "start": "bundle exec jekyll serve",
-    "gulp": "node ./node_modules/gulp/bin/gulp.js",
-    "init": "npm run gulp -- init && git checkout -- ./assets/sass/_uswds-theme-typography.scss"
+    "gulp": "node ./node_modules/gulp/bin/gulp.js"
   },
   "repository": {
     "type": "git",
