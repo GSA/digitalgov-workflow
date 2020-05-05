@@ -24,6 +24,11 @@ blocks:
   type: textarea
   data_type: string
   txt: "Think of this as the sentence you'd most like to tweet. Do not repeat the headline. You need to be able to read it outloud in a single breath."
+- id: kicker
+  name: Kicker
+  type: input
+  data_type: string
+  txt: "Highlight the relevant topic. This displays above the event title on the /events/ page. Should always be included. Use only one or two words."
 - id: summary
   name: Summary
   type: textarea
