@@ -44,7 +44,7 @@ blocks:
   name: Bio
   type: textarea
   data_type: string
-  txt: "Keep it under 50 words"
+  txt: "Keep it under 50 words and only one paragraph"
   comment: "Bio — keep it under 50 words"
 - id: bio_url
   name: Bio URL
