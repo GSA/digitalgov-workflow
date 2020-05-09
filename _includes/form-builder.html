@@ -19,7 +19,7 @@
       {% for group in list %}
       <div class="margin-y-8 border-top-1px">
         <h3 class="margin-y-105"><i class="far fa-envelope"></i> Community list settings {% if i == 2 %}(additional){% endif %}</h3>
-        <p class="margin-0">Fill out these fields if the community has more than one listserv group. For example, the group has a federal-only list and an open to the public list. These settings control the "Join box" on the community page.</p>
+        <p class="margin-0">Fill out these fields if the community has more than one email group. For example, the group has a federal-only list and an open to the public list. These settings control the "Join box" on the community page.</p>
         {% for sub_blocks in group %}
           {% for sub_block in sub_blocks %}
             {% if sub_block.type %}
