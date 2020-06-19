@@ -33,7 +33,7 @@
     github_org                   = "{{ site.github_org }}";
     github_repo                  = "{{ site.github_repo }}";
     filepath                     = "{{ page.path }}";
-    filepathURL                  = "https://github.com/{{ site.git_org }}/{{ site.git_repo }}/edit/master/{{ page.path }}";
+    filepathURL                  = "https://github.com/{{ site.git_org }}/{{ site.git_repo }}/edit/main/{{ page.path }}";
     commit_api                   = "https://api.github.com/repos/{{ site.github_org }}/{{ site.github_repo }}/commits?path=/{{ page.path }}";
     issues_api                   = "https://api.github.com/repos/{{ site.github_org }}/{{ site.github_repo }}/issues?labels=bug&per_page=100";
     workflow_org                 = "{{ site.workflow_org }}";

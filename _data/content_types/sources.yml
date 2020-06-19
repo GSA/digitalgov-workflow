@@ -36,7 +36,7 @@ blocks:
   type: input
   data_type: string
   txt: "e.g. https://18f.gsa.gov/"
-  comment: "Images need to be 200x200px with a transparent background\n# Upload new images to Github in the /static/logos/ folder\n# https://github.com/GSA/digitalgov.gov/tree/master/static/source/ \n# The name of your organization should be clearly reflected in the filename (e.g., usds-logo.png or 18f-logo.png)"
+  comment: "Images need to be 200x200px with a transparent background\n# Upload new images to Github in the /static/logos/ folder\n# https://github.com/GSA/digitalgov.gov/tree/main/static/source/ \n# The name of your organization should be clearly reflected in the filename (e.g., usds-logo.png or 18f-logo.png)"
 - id: topics
   name: Topics
   type: select-multiple

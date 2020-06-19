@@ -12,10 +12,10 @@
 
   {% for item in site.data.[page.api].items %}
   <tr>
-    <td><a href="https://federalist-proxy.app.cloud.gov/preview/gsa/digitalgov.gov/master/topics/{{ item.slug }}/">{{ item.display_name }}</a></td>
+    <td><a href="https://federalist-proxy.app.cloud.gov/preview/gsa/digitalgov.gov/main/topics/{{ item.slug }}/">{{ item.display_name }}</a></td>
     <td>{{ item.slug }}</td>
     <td class="center w{{ item.weight }}">{{ if item.weight }}{{ item.weight }}{{ endif }}</td>
-    <td class="center edit"><a href="https://github.com/GSA/digitalgov.gov/edit/master/content/topics/{{ item.slug }}/_index.md" class="usa-button">Edit</a> </td>
+    <td class="center edit"><a href="https://github.com/GSA/digitalgov.gov/edit/main/content/topics/{{ item.slug }}/_index.md" class="usa-button">Edit</a> </td>
   </tr>
   {% endfor %}
 </table>
