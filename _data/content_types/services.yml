@@ -47,7 +47,7 @@ blocks:
   type: input
   data_type: data
   txt: ""
-  comment: "Images need to be 200x200px with a transparent background\n# Upload new images to Github in the /static/logos/ folder\n# https://github.com/GSA/digitalgov.gov/tree/master/static/promos/\n# The filename should reflect the name of the product or service (e.g., challenge-gov.png)"
+  comment: "Images need to be 200x200px with a transparent background\n# Upload new images to Github in the /static/logos/ folder\n# https://github.com/GSA/digitalgov.gov/tree/main/static/promos/\n# The filename should reflect the name of the product or service (e.g., challenge-gov.png)"
 - id: email
   name: Email Address
   type: input

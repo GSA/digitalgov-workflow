@@ -45,7 +45,7 @@ sass:
 # GitHub information
 org_name: gsa
 repo_name: digitalgov-workflow
-branch: master
+branch: main
 
 content_types:
   - id: "news"

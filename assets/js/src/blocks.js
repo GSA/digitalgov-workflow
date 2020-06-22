@@ -33,7 +33,7 @@ function update_matter(){
 
   var post_matter = "";
   var page_url_comment = get_page_url_comment(content_type);
-  var branch = "master";
+  var branch = "main";
   post_matter += "---";
   post_matter += page_url_comment;
   post_matter += "\n# Learn how to edit our pages at https://workflow.digital.gov";
@@ -218,7 +218,7 @@ function get_filename(){
 }
 
 function get_edit_branch(){
-  return "master";
+  return "main";
 }
 
 function get_page_url_comment(content_type){
