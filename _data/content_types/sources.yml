@@ -31,30 +31,15 @@ blocks:
   data_type: string
   txt: "e.g. https://18f.gsa.gov/"
   comment: "Primary Domain — the link to your blog homepage or news feed. (e.g. https://18f.gsa.gov/)\n# Note: We'll automatically add ?dg to the end of your URL, to help you track links back to your site."
-- id: icon
-  name: Source Icon
+- id: logo
+  name: Source Logo
   type: input
   data_type: string
-  txt: "e.g. https://18f.gsa.gov/"
+  txt: Images must be uploaded in the /static/logos/ folder before they can be used here. See https://github.com/GSA/digitalgov.gov/wiki/Sources-on-Digital.gov for more info.
   comment: "Images need to be 200x200px with a transparent background\n# Upload new images to Github in the /static/logos/ folder\n# https://github.com/GSA/digitalgov.gov/tree/main/static/source/ \n# The name of your organization should be clearly reflected in the filename (e.g., usds-logo.png or 18f-logo.png)"
 - id: topics
   name: Topics
   type: select-multiple
   data_type: data
-  txt: "Selectsee all topics at https://digital.gov/topics"
+  txt: "See all topics at https://digital.gov/topics"
   comment: "see all topics at https://digital.gov/topics"
-- id: weight
-  name: Page Weight
-  type: select-number
-  options:
-    - 1
-    - 0
-  data_type: integer
-  txt: "Controls how this page appears across the site<br/>0 -- hidden<br/>1 -- visible"
-  comment: "Page weight: controls how this page appears across the site\n# 0 -- hidden\n# 1 -- visible"
-- id: aliases
-  name: Redirects
-  type: textarea
-  data_type: data
-  txt: "Redirects: enter the path of the URL that you want redirected to this page</br>Note: add two spaces, a dash, and another space before each path"
-  comment: "Redirects: enter the path of the URL that you want redirected to this page"
