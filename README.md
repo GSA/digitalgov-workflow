@@ -1,7 +1,9 @@
-# Digital.gov Workflow
+# Deprecated
+This project repo is no longer being maintained.
+
+## Digital.gov Workflow
 
 This is the visual editor for digital.gov
-
 
 ---
 
